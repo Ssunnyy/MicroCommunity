@@ -37,7 +37,6 @@
 		04F0F8441AA411DB00F30A6A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F0F8231AA411DB00F30A6A /* Foundation.framework */; };
 		04F0F8451AA411DB00F30A6A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F0F8271AA411DB00F30A6A /* UIKit.framework */; };
 		04F0F84F1AA411DB00F30A6A /* MicroCommunityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F0F84E1AA411DB00F30A6A /* MicroCommunityTests.m */; };
-		181A6B9E1B7B556100B72FAD /* .DS_S in Resources */ = {isa = PBXBuildFile; fileRef = 181A6A681B7B556100B72FAD /* .DS_S */; };
 		181A6B9F1B7B556100B72FAD /* MCChangeInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 181A6A6D1B7B556100B72FAD /* MCChangeInfoController.m */; };
 		181A6BA01B7B556100B72FAD /* MCChangeInfoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 181A6A6E1B7B556100B72FAD /* MCChangeInfoController.xib */; };
 		181A6BA11B7B556100B72FAD /* MCCreatTalkGroupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 181A6A701B7B556100B72FAD /* MCCreatTalkGroupController.m */; };
@@ -80,20 +79,6 @@
 		181A6BC61B7B556100B72FAD /* ASRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 181A6AA91B7B556100B72FAD /* ASRegisterViewController.xib */; };
 		181A6BC71B7B556100B72FAD /* ASResetPassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 181A6AAB1B7B556100B72FAD /* ASResetPassViewController.m */; };
 		181A6BC81B7B556100B72FAD /* ASResetPassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 181A6AAC1B7B556100B72FAD /* ASResetPassViewController.xib */; };
-		181A6BC91B7B556100B72FAD /* ASScanPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 181A6AB71B7B556100B72FAD /* ASScanPhotoViewController.m */; };
-		181A6BCA1B7B556100B72FAD /* ASScanPhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 181A6AB81B7B556100B72FAD /* ASScanPhotoViewController.xib */; };
-		181A6BCB1B7B556100B72FAD /* ASStoryShowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 181A6ABA1B7B556100B72FAD /* ASStoryShowView.m */; };
-		181A6BCC1B7B556100B72FAD /* ASStoryShowView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 181A6ABB1B7B556100B72FAD /* ASStoryShowView.xib */; };
-		181A6BCD1B7B556100B72FAD /* ASMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 181A6ABE1B7B556100B72FAD /* ASMainViewController.m */; };
-		181A6BCE1B7B556100B72FAD /* ASMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 181A6ABF1B7B556100B72FAD /* ASMainViewController.xib */; };
-		181A6BCF1B7B556100B72FAD /* ASMainHeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 181A6AC21B7B556100B72FAD /* ASMainHeadCell.m */; };
-		181A6BD01B7B556100B72FAD /* ASMainHeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 181A6AC31B7B556100B72FAD /* ASMainHeadCell.xib */; };
-		181A6BD11B7B556100B72FAD /* ASMainShopTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 181A6AC51B7B556100B72FAD /* ASMainShopTableViewCell.m */; };
-		181A6BD21B7B556100B72FAD /* ASMainShopTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 181A6AC61B7B556100B72FAD /* ASMainShopTableViewCell.xib */; };
-		181A6BD31B7B556100B72FAD /* ASMaterialCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 181A6AC81B7B556100B72FAD /* ASMaterialCell.m */; };
-		181A6BD41B7B556100B72FAD /* ASMaterialCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 181A6AC91B7B556100B72FAD /* ASMaterialCell.xib */; };
-		181A6BD51B7B556100B72FAD /* ASNewShowTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 181A6ACB1B7B556100B72FAD /* ASNewShowTableViewCell.m */; };
-		181A6BD61B7B556100B72FAD /* ASNewShowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 181A6ACC1B7B556100B72FAD /* ASNewShowTableViewCell.xib */; };
 		181A6BD71B7B556100B72FAD /* MCCompanyConfirmController.m in Sources */ = {isa = PBXBuildFile; fileRef = 181A6AD21B7B556100B72FAD /* MCCompanyConfirmController.m */; };
 		181A6BD81B7B556100B72FAD /* MCCompanyConfirmController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 181A6AD31B7B556100B72FAD /* MCCompanyConfirmController.xib */; };
 		181A6BD91B7B556100B72FAD /* MCCompanyDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 181A6AD51B7B556100B72FAD /* MCCompanyDetailController.m */; };
@@ -731,7 +716,6 @@
 		04F0F8421AA411DB00F30A6A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		04F0F84A1AA411DB00F30A6A /* MicroCommunityTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MicroCommunityTests-Info.plist"; sourceTree = "<group>"; };
 		04F0F84E1AA411DB00F30A6A /* MicroCommunityTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MicroCommunityTests.m; sourceTree = "<group>"; };
-		181A6A681B7B556100B72FAD /* .DS_S */ = {isa = PBXFileReference; lastKnownFileType = file; path = .DS_S; sourceTree = "<group>"; };
 		181A6A6C1B7B556100B72FAD /* MCChangeInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCChangeInfoController.h; sourceTree = "<group>"; };
 		181A6A6D1B7B556100B72FAD /* MCChangeInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCChangeInfoController.m; sourceTree = "<group>"; };
 		181A6A6E1B7B556100B72FAD /* MCChangeInfoController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCChangeInfoController.xib; sourceTree = "<group>"; };
@@ -795,27 +779,6 @@
 		181A6AAA1B7B556100B72FAD /* ASResetPassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASResetPassViewController.h; sourceTree = "<group>"; };
 		181A6AAB1B7B556100B72FAD /* ASResetPassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASResetPassViewController.m; sourceTree = "<group>"; };
 		181A6AAC1B7B556100B72FAD /* ASResetPassViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASResetPassViewController.xib; sourceTree = "<group>"; };
-		181A6AB61B7B556100B72FAD /* ASScanPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASScanPhotoViewController.h; sourceTree = "<group>"; };
-		181A6AB71B7B556100B72FAD /* ASScanPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASScanPhotoViewController.m; sourceTree = "<group>"; };
-		181A6AB81B7B556100B72FAD /* ASScanPhotoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASScanPhotoViewController.xib; sourceTree = "<group>"; };
-		181A6AB91B7B556100B72FAD /* ASStoryShowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASStoryShowView.h; sourceTree = "<group>"; };
-		181A6ABA1B7B556100B72FAD /* ASStoryShowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASStoryShowView.m; sourceTree = "<group>"; };
-		181A6ABB1B7B556100B72FAD /* ASStoryShowView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASStoryShowView.xib; sourceTree = "<group>"; };
-		181A6ABD1B7B556100B72FAD /* ASMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASMainViewController.h; sourceTree = "<group>"; };
-		181A6ABE1B7B556100B72FAD /* ASMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASMainViewController.m; sourceTree = "<group>"; };
-		181A6ABF1B7B556100B72FAD /* ASMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASMainViewController.xib; sourceTree = "<group>"; };
-		181A6AC11B7B556100B72FAD /* ASMainHeadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASMainHeadCell.h; sourceTree = "<group>"; };
-		181A6AC21B7B556100B72FAD /* ASMainHeadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASMainHeadCell.m; sourceTree = "<group>"; };
-		181A6AC31B7B556100B72FAD /* ASMainHeadCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASMainHeadCell.xib; sourceTree = "<group>"; };
-		181A6AC41B7B556100B72FAD /* ASMainShopTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASMainShopTableViewCell.h; sourceTree = "<group>"; };
-		181A6AC51B7B556100B72FAD /* ASMainShopTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASMainShopTableViewCell.m; sourceTree = "<group>"; };
-		181A6AC61B7B556100B72FAD /* ASMainShopTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASMainShopTableViewCell.xib; sourceTree = "<group>"; };
-		181A6AC71B7B556100B72FAD /* ASMaterialCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASMaterialCell.h; sourceTree = "<group>"; };
-		181A6AC81B7B556100B72FAD /* ASMaterialCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASMaterialCell.m; sourceTree = "<group>"; };
-		181A6AC91B7B556100B72FAD /* ASMaterialCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASMaterialCell.xib; sourceTree = "<group>"; };
-		181A6ACA1B7B556100B72FAD /* ASNewShowTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASNewShowTableViewCell.h; sourceTree = "<group>"; };
-		181A6ACB1B7B556100B72FAD /* ASNewShowTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASNewShowTableViewCell.m; sourceTree = "<group>"; };
-		181A6ACC1B7B556100B72FAD /* ASNewShowTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASNewShowTableViewCell.xib; sourceTree = "<group>"; };
 		181A6AD11B7B556100B72FAD /* MCCompanyConfirmController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCCompanyConfirmController.h; sourceTree = "<group>"; };
 		181A6AD21B7B556100B72FAD /* MCCompanyConfirmController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCCompanyConfirmController.m; sourceTree = "<group>"; };
 		181A6AD31B7B556100B72FAD /* MCCompanyConfirmController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCCompanyConfirmController.xib; sourceTree = "<group>"; };
@@ -1761,10 +1724,8 @@
 		043CB64E1AA49C400024CE83 /* Controller&View */ = {
 			isa = PBXGroup;
 			children = (
-				181A6A2D1B7B556000B72FAD /* Controller&View */,
 				181A6A6A1B7B556100B72FAD /* IMViewController */,
 				181A6A9D1B7B556100B72FAD /* LoginViewController */,
-				181A6AAD1B7B556100B72FAD /* MainViewController */,
 				181A6ACF1B7B556100B72FAD /* MCHomeViewController */,
 				181A6B291B7B556100B72FAD /* MCLoginViewController */,
 				181A6B351B7B556100B72FAD /* MCMyViewController */,
@@ -1963,486 +1924,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		181A6A2D1B7B556000B72FAD /* Controller&View */ = {
-			isa = PBXGroup;
-			children = (
-				181A6A2E1B7B556000B72FAD /* Controller&View */,
-			);
-			path = "Controller&View";
-			sourceTree = "<group>";
-		};
-		181A6A2E1B7B556000B72FAD /* Controller&View */ = {
-			isa = PBXGroup;
-			children = (
-				181A6A2F1B7B556000B72FAD /* Controller&View */,
-			);
-			path = "Controller&View";
-			sourceTree = "<group>";
-		};
-		181A6A2F1B7B556000B72FAD /* Controller&View */ = {
-			isa = PBXGroup;
-			children = (
-				181A6A301B7B556000B72FAD /* Controller&View */,
-			);
-			path = "Controller&View";
-			sourceTree = "<group>";
-		};
-		181A6A301B7B556000B72FAD /* Controller&View */ = {
-			isa = PBXGroup;
-			children = (
-				181A6A311B7B556000B72FAD /* Controller&View */,
-			);
-			path = "Controller&View";
-			sourceTree = "<group>";
-		};
-		181A6A311B7B556000B72FAD /* Controller&View */ = {
-			isa = PBXGroup;
-			children = (
-				181A6A321B7B556000B72FAD /* Controller&View */,
-			);
-			path = "Controller&View";
-			sourceTree = "<group>";
-		};
-		181A6A321B7B556000B72FAD /* Controller&View */ = {
-			isa = PBXGroup;
-			children = (
-				181A6A331B7B556000B72FAD /* Controller&View */,
-			);
-			path = "Controller&View";
-			sourceTree = "<group>";
-		};
-		181A6A331B7B556000B72FAD /* Controller&View */ = {
-			isa = PBXGroup;
-			children = (
-				181A6A341B7B556000B72FAD /* Controller&View */,
-			);
-			path = "Controller&View";
-			sourceTree = "<group>";
-		};
-		181A6A341B7B556000B72FAD /* Controller&View */ = {
-			isa = PBXGroup;
-			children = (
-				181A6A351B7B556000B72FAD /* Controller&View */,
-			);
-			path = "Controller&View";
-			sourceTree = "<group>";
-		};
-		181A6A351B7B556000B72FAD /* Controller&View */ = {
-			isa = PBXGroup;
-			children = (
-				181A6A361B7B556000B72FAD /* Controller&View */,
-			);
-			path = "Controller&View";
-			sourceTree = "<group>";
-		};
-		181A6A361B7B556000B72FAD /* Controller&View */ = {
-			isa = PBXGroup;
-			children = (
-				181A6A371B7B556000B72FAD /* Controller&View */,
-			);
-			path = "Controller&View";
-			sourceTree = "<group>";
-		};
-		181A6A371B7B556000B72FAD /* Controller&View */ = {
-			isa = PBXGroup;
-			children = (
-				181A6A381B7B556000B72FAD /* Controller&View */,
-			);
-			path = "Controller&View";
-			sourceTree = "<group>";
-		};
-		181A6A381B7B556000B72FAD /* Controller&View */ = {
-			isa = PBXGroup;
-			children = (
-				181A6A391B7B556000B72FAD /* Controller&View */,
-			);
-			path = "Controller&View";
-			sourceTree = "<group>";
-		};
-		181A6A391B7B556000B72FAD /* Controller&View */ = {
-			isa = PBXGroup;
-			children = (
-				181A6A3A1B7B556000B72FAD /* Controller&View */,
-			);
-			path = "Controller&View";
-			sourceTree = "<group>";
-		};
-		181A6A3A1B7B556000B72FAD /* Controller&View */ = {
-			isa = PBXGroup;
-			children = (
-				181A6A3B1B7B556000B72FAD /* Controller&View */,
-			);
-			path = "Controller&View";
-			sourceTree = "<group>";
-		};
-		181A6A3B1B7B556000B72FAD /* Controller&View */ = {
-			isa = PBXGroup;
-			children = (
-				181A6A3C1B7B556000B72FAD /* Controller&View */,
-			);
-			path = "Controller&View";
-			sourceTree = "<group>";
-		};
-		181A6A3C1B7B556000B72FAD /* Controller&View */ = {
-			isa = PBXGroup;
-			children = (
-				181A6A3D1B7B556000B72FAD /* Controller&View */,
-			);
-			path = "Controller&View";
-			sourceTree = "<group>";
-		};
-		181A6A3D1B7B556000B72FAD /* Controller&View */ = {
-			isa = PBXGroup;
-			children = (
-				181A6A3E1B7B556000B72FAD /* Controller&View */,
-			);
-			path = "Controller&View";
-			sourceTree = "<group>";
-		};
-		181A6A3E1B7B556000B72FAD /* Controller&View */ = {
-			isa = PBXGroup;
-			children = (
-				181A6A3F1B7B556000B72FAD /* Controller&View */,
-			);
-			path = "Controller&View";
-			sourceTree = "<group>";
-		};
-		181A6A3F1B7B556000B72FAD /* Controller&View */ = {
-			isa = PBXGroup;
-			children = (
-				181A6A401B7B556000B72FAD /* Controller&View */,
-			);
-			path = "Controller&View";
-			sourceTree = "<group>";
-		};
-		181A6A401B7B556000B72FAD /* Controller&View */ = {
-			isa = PBXGroup;
-			children = (
-				181A6A411B7B556000B72FAD /* Controller&View */,
-			);
-			path = "Controller&View";
-			sourceTree = "<group>";
-		};
-		181A6A411B7B556000B72FAD /* Controller&View */ = {
-			isa = PBXGroup;
-			children = (
-				181A6A421B7B556000B72FAD /* Controller&View */,
-			);
-			path = "Controller&View";
-			sourceTree = "<group>";
-		};
-		181A6A421B7B556000B72FAD /* Controller&View */ = {
-			isa = PBXGroup;
-			children = (
-				181A6A431B7B556000B72FAD /* Controller&View */,
-			);
-			path = "Controller&View";
-			sourceTree = "<group>";
-		};
-		181A6A431B7B556000B72FAD /* Controller&View */ = {
-			isa = PBXGroup;
-			children = (
-				181A6A441B7B556000B72FAD /* Controller&View */,
-			);
-			path = "Controller&View";
-			sourceTree = "<group>";
-		};
-		181A6A441B7B556000B72FAD /* Controller&View */ = {
-			isa = PBXGroup;
-			children = (
-				181A6A451B7B556000B72FAD /* Controller&View */,
-			);
-			path = "Controller&View";
-			sourceTree = "<group>";
-		};
-		181A6A451B7B556000B72FAD /* Controller&View */ = {
-			isa = PBXGroup;
-			children = (
-				181A6A461B7B556000B72FAD /* Controller&View */,
-			);
-			path = "Controller&View";
-			sourceTree = "<group>";
-		};
-		181A6A461B7B556000B72FAD /* Controller&View */ = {
-			isa = PBXGroup;
-			children = (
-				181A6A471B7B556000B72FAD /* Controller&View */,
-			);
-			path = "Controller&View";
-			sourceTree = "<group>";
-		};
-		181A6A471B7B556000B72FAD /* Controller&View */ = {
-			isa = PBXGroup;
-			children = (
-				181A6A481B7B556000B72FAD /* Controller&View */,
-			);
-			path = "Controller&View";
-			sourceTree = "<group>";
-		};
-		181A6A481B7B556000B72FAD /* Controller&View */ = {
-			isa = PBXGroup;
-			children = (
-				181A6A491B7B556000B72FAD /* Controller&View */,
-			);
-			path = "Controller&View";
-			sourceTree = "<group>";
-		};
-		181A6A491B7B556000B72FAD /* Controller&View */ = {
-			isa = PBXGroup;
-			children = (
-				181A6A4A1B7B556000B72FAD /* Controller&View */,
-			);
-			path = "Controller&View";
-			sourceTree = "<group>";
-		};
-		181A6A4A1B7B556000B72FAD /* Controller&View */ = {
-			isa = PBXGroup;
-			children = (
-				181A6A4B1B7B556000B72FAD /* Controller&View */,
-			);
-			path = "Controller&View";
-			sourceTree = "<group>";
-		};
-		181A6A4B1B7B556000B72FAD /* Controller&View */ = {
-			isa = PBXGroup;
-			children = (
-				181A6A4C1B7B556000B72FAD /* Controller&View */,
-			);
-			path = "Controller&View";
-			sourceTree = "<group>";
-		};
-		181A6A4C1B7B556000B72FAD /* Controller&View */ = {
-			isa = PBXGroup;
-			children = (
-				181A6A4D1B7B556000B72FAD /* Controller&View */,
-			);
-			path = "Controller&View";
-			sourceTree = "<group>";
-		};
-		181A6A4D1B7B556000B72FAD /* Controller&View */ = {
-			isa = PBXGroup;
-			children = (
-				181A6A4E1B7B556000B72FAD /* Controller&View */,
-			);
-			path = "Controller&View";
-			sourceTree = "<group>";
-		};
-		181A6A4E1B7B556000B72FAD /* Controller&View */ = {
-			isa = PBXGroup;
-			children = (
-				181A6A4F1B7B556000B72FAD /* Controller&View */,
-			);
-			path = "Controller&View";
-			sourceTree = "<group>";
-		};
-		181A6A4F1B7B556000B72FAD /* Controller&View */ = {
-			isa = PBXGroup;
-			children = (
-				181A6A501B7B556000B72FAD /* Controller&View */,
-			);
-			path = "Controller&View";
-			sourceTree = "<group>";
-		};
-		181A6A501B7B556000B72FAD /* Controller&View */ = {
-			isa = PBXGroup;
-			children = (
-				181A6A511B7B556000B72FAD /* Controller&View */,
-			);
-			path = "Controller&View";
-			sourceTree = "<group>";
-		};
-		181A6A511B7B556000B72FAD /* Controller&View */ = {
-			isa = PBXGroup;
-			children = (
-				181A6A521B7B556000B72FAD /* Controller&View */,
-			);
-			path = "Controller&View";
-			sourceTree = "<group>";
-		};
-		181A6A521B7B556000B72FAD /* Controller&View */ = {
-			isa = PBXGroup;
-			children = (
-				181A6A531B7B556000B72FAD /* Controller&View */,
-			);
-			path = "Controller&View";
-			sourceTree = "<group>";
-		};
-		181A6A531B7B556000B72FAD /* Controller&View */ = {
-			isa = PBXGroup;
-			children = (
-				181A6A541B7B556000B72FAD /* Controller&View */,
-			);
-			path = "Controller&View";
-			sourceTree = "<group>";
-		};
-		181A6A541B7B556000B72FAD /* Controller&View */ = {
-			isa = PBXGroup;
-			children = (
-				181A6A551B7B556000B72FAD /* Controller&View */,
-			);
-			path = "Controller&View";
-			sourceTree = "<group>";
-		};
-		181A6A551B7B556000B72FAD /* Controller&View */ = {
-			isa = PBXGroup;
-			children = (
-				181A6A561B7B556000B72FAD /* Controller&View */,
-			);
-			path = "Controller&View";
-			sourceTree = "<group>";
-		};
-		181A6A561B7B556000B72FAD /* Controller&View */ = {
-			isa = PBXGroup;
-			children = (
-				181A6A571B7B556000B72FAD /* Controller&View */,
-			);
-			path = "Controller&View";
-			sourceTree = "<group>";
-		};
-		181A6A571B7B556000B72FAD /* Controller&View */ = {
-			isa = PBXGroup;
-			children = (
-				181A6A581B7B556000B72FAD /* Controller&View */,
-			);
-			path = "Controller&View";
-			sourceTree = "<group>";
-		};
-		181A6A581B7B556000B72FAD /* Controller&View */ = {
-			isa = PBXGroup;
-			children = (
-				181A6A591B7B556000B72FAD /* Controller&View */,
-			);
-			path = "Controller&View";
-			sourceTree = "<group>";
-		};
-		181A6A591B7B556000B72FAD /* Controller&View */ = {
-			isa = PBXGroup;
-			children = (
-				181A6A5A1B7B556000B72FAD /* Controller&View */,
-			);
-			path = "Controller&View";
-			sourceTree = "<group>";
-		};
-		181A6A5A1B7B556000B72FAD /* Controller&View */ = {
-			isa = PBXGroup;
-			children = (
-				181A6A5B1B7B556000B72FAD /* Controller&View */,
-			);
-			path = "Controller&View";
-			sourceTree = "<group>";
-		};
-		181A6A5B1B7B556000B72FAD /* Controller&View */ = {
-			isa = PBXGroup;
-			children = (
-				181A6A5C1B7B556000B72FAD /* Controller&View */,
-			);
-			path = "Controller&View";
-			sourceTree = "<group>";
-		};
-		181A6A5C1B7B556000B72FAD /* Controller&View */ = {
-			isa = PBXGroup;
-			children = (
-				181A6A5D1B7B556000B72FAD /* Controller&View */,
-			);
-			path = "Controller&View";
-			sourceTree = "<group>";
-		};
-		181A6A5D1B7B556000B72FAD /* Controller&View */ = {
-			isa = PBXGroup;
-			children = (
-				181A6A5E1B7B556000B72FAD /* Controller&View */,
-			);
-			path = "Controller&View";
-			sourceTree = "<group>";
-		};
-		181A6A5E1B7B556000B72FAD /* Controller&View */ = {
-			isa = PBXGroup;
-			children = (
-				181A6A5F1B7B556000B72FAD /* Controller&View */,
-			);
-			path = "Controller&View";
-			sourceTree = "<group>";
-		};
-		181A6A5F1B7B556000B72FAD /* Controller&View */ = {
-			isa = PBXGroup;
-			children = (
-				181A6A601B7B556000B72FAD /* Controller&View */,
-			);
-			path = "Controller&View";
-			sourceTree = "<group>";
-		};
-		181A6A601B7B556000B72FAD /* Controller&View */ = {
-			isa = PBXGroup;
-			children = (
-				181A6A611B7B556000B72FAD /* Controller&View */,
-			);
-			path = "Controller&View";
-			sourceTree = "<group>";
-		};
-		181A6A611B7B556000B72FAD /* Controller&View */ = {
-			isa = PBXGroup;
-			children = (
-				181A6A621B7B556000B72FAD /* Controller&View */,
-			);
-			path = "Controller&View";
-			sourceTree = "<group>";
-		};
-		181A6A621B7B556000B72FAD /* Controller&View */ = {
-			isa = PBXGroup;
-			children = (
-				181A6A631B7B556000B72FAD /* Controller&View */,
-			);
-			path = "Controller&View";
-			sourceTree = "<group>";
-		};
-		181A6A631B7B556000B72FAD /* Controller&View */ = {
-			isa = PBXGroup;
-			children = (
-				181A6A641B7B556000B72FAD /* Controller&View */,
-			);
-			path = "Controller&View";
-			sourceTree = "<group>";
-		};
-		181A6A641B7B556000B72FAD /* Controller&View */ = {
-			isa = PBXGroup;
-			children = (
-				181A6A651B7B556000B72FAD /* Controller&View */,
-			);
-			path = "Controller&View";
-			sourceTree = "<group>";
-		};
-		181A6A651B7B556000B72FAD /* Controller&View */ = {
-			isa = PBXGroup;
-			children = (
-				181A6A661B7B556000B72FAD /* Controller&View */,
-			);
-			path = "Controller&View";
-			sourceTree = "<group>";
-		};
-		181A6A661B7B556000B72FAD /* Controller&View */ = {
-			isa = PBXGroup;
-			children = (
-				181A6A671B7B556000B72FAD /* Controller&View */,
-			);
-			path = "Controller&View";
-			sourceTree = "<group>";
-		};
-		181A6A671B7B556000B72FAD /* Controller&View */ = {
-			isa = PBXGroup;
-			children = (
-				181A6A681B7B556100B72FAD /* .DS_S */,
-				181A6A691B7B556100B72FAD /* Contr */,
-			);
-			path = "Controller&View";
-			sourceTree = "<group>";
-		};
-		181A6A691B7B556100B72FAD /* Contr */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Contr;
-			sourceTree = "<group>";
-		};
 		181A6A6A1B7B556100B72FAD /* IMViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -2536,139 +2017,15 @@
 			path = LoginViewController;
 			sourceTree = "<group>";
 		};
-		181A6AAD1B7B556100B72FAD /* MainViewController */ = {
-			isa = PBXGroup;
-			children = (
-				181A6AAE1B7B556100B72FAD /* ASAddView */,
-				181A6AB01B7B556100B72FAD /* ASBCView */,
-				181A6AB31B7B556100B72FAD /* ASCCView */,
-				181A6AB51B7B556100B72FAD /* ASMainUniversalView */,
-				181A6ABC1B7B556100B72FAD /* ASMainView */,
-				181A6ACD1B7B556100B72FAD /* ASMaterialView */,
-			);
-			path = MainViewController;
-			sourceTree = "<group>";
-		};
-		181A6AAE1B7B556100B72FAD /* ASAddView */ = {
-			isa = PBXGroup;
-			children = (
-				181A6AAF1B7B556100B72FAD /* ASAddView */,
-			);
-			path = ASAddView;
-			sourceTree = "<group>";
-		};
-		181A6AAF1B7B556100B72FAD /* ASAddView */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ASAddView;
-			sourceTree = "<group>";
-		};
-		181A6AB01B7B556100B72FAD /* ASBCView */ = {
-			isa = PBXGroup;
-			children = (
-				181A6AB11B7B556100B72FAD /* view */,
-			);
-			path = ASBCView;
-			sourceTree = "<group>";
-		};
-		181A6AB11B7B556100B72FAD /* view */ = {
-			isa = PBXGroup;
-			children = (
-				181A6AB21B7B556100B72FAD /* editview */,
-			);
-			path = view;
-			sourceTree = "<group>";
-		};
-		181A6AB21B7B556100B72FAD /* editview */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = editview;
-			sourceTree = "<group>";
-		};
-		181A6AB31B7B556100B72FAD /* ASCCView */ = {
-			isa = PBXGroup;
-			children = (
-				181A6AB41B7B556100B72FAD /* view */,
-			);
-			path = ASCCView;
-			sourceTree = "<group>";
-		};
-		181A6AB41B7B556100B72FAD /* view */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = view;
-			sourceTree = "<group>";
-		};
-		181A6AB51B7B556100B72FAD /* ASMainUniversalView */ = {
-			isa = PBXGroup;
-			children = (
-				181A6AB61B7B556100B72FAD /* ASScanPhotoViewController.h */,
-				181A6AB71B7B556100B72FAD /* ASScanPhotoViewController.m */,
-				181A6AB81B7B556100B72FAD /* ASScanPhotoViewController.xib */,
-				181A6AB91B7B556100B72FAD /* ASStoryShowView.h */,
-				181A6ABA1B7B556100B72FAD /* ASStoryShowView.m */,
-				181A6ABB1B7B556100B72FAD /* ASStoryShowView.xib */,
-			);
-			path = ASMainUniversalView;
-			sourceTree = "<group>";
-		};
-		181A6ABC1B7B556100B72FAD /* ASMainView */ = {
-			isa = PBXGroup;
-			children = (
-				181A6ABD1B7B556100B72FAD /* ASMainViewController.h */,
-				181A6ABE1B7B556100B72FAD /* ASMainViewController.m */,
-				181A6ABF1B7B556100B72FAD /* ASMainViewController.xib */,
-				181A6AC01B7B556100B72FAD /* view */,
-			);
-			path = ASMainView;
-			sourceTree = "<group>";
-		};
-		181A6AC01B7B556100B72FAD /* view */ = {
-			isa = PBXGroup;
-			children = (
-				181A6AC11B7B556100B72FAD /* ASMainHeadCell.h */,
-				181A6AC21B7B556100B72FAD /* ASMainHeadCell.m */,
-				181A6AC31B7B556100B72FAD /* ASMainHeadCell.xib */,
-				181A6AC41B7B556100B72FAD /* ASMainShopTableViewCell.h */,
-				181A6AC51B7B556100B72FAD /* ASMainShopTableViewCell.m */,
-				181A6AC61B7B556100B72FAD /* ASMainShopTableViewCell.xib */,
-				181A6AC71B7B556100B72FAD /* ASMaterialCell.h */,
-				181A6AC81B7B556100B72FAD /* ASMaterialCell.m */,
-				181A6AC91B7B556100B72FAD /* ASMaterialCell.xib */,
-				181A6ACA1B7B556100B72FAD /* ASNewShowTableViewCell.h */,
-				181A6ACB1B7B556100B72FAD /* ASNewShowTableViewCell.m */,
-				181A6ACC1B7B556100B72FAD /* ASNewShowTableViewCell.xib */,
-			);
-			path = view;
-			sourceTree = "<group>";
-		};
-		181A6ACD1B7B556100B72FAD /* ASMaterialView */ = {
-			isa = PBXGroup;
-			children = (
-				181A6ACE1B7B556100B72FAD /* view */,
-			);
-			path = ASMaterialView;
-			sourceTree = "<group>";
-		};
-		181A6ACE1B7B556100B72FAD /* view */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = view;
-			sourceTree = "<group>";
-		};
 		181A6ACF1B7B556100B72FAD /* MCHomeViewController */ = {
 			isa = PBXGroup;
 			children = (
+				181A6B191B7B556100B72FAD /* MCHomeView */,
 				181A6AD01B7B556100B72FAD /* MCHomeComponyController */,
 				181A6AFF1B7B556100B72FAD /* MCHomeRecruitController */,
 				181A6B161B7B556100B72FAD /* MCHomeSearchResultControllerViewController.h */,
 				181A6B171B7B556100B72FAD /* MCHomeSearchResultControllerViewController.m */,
 				181A6B181B7B556100B72FAD /* MCHomeSearchResultControllerViewController.xib */,
-				181A6B191B7B556100B72FAD /* MCHomeView */,
 				181A6B261B7B556100B72FAD /* MCHomeViewController.h */,
 				181A6B271B7B556100B72FAD /* MCHomeViewController.m */,
 				181A6B281B7B556100B72FAD /* MCHomeViewController.xib */,
@@ -2812,6 +2169,7 @@
 		181A6B351B7B556100B72FAD /* MCMyViewController */ = {
 			isa = PBXGroup;
 			children = (
+				181A6B4F1B7B556100B72FAD /* MCMyView */,
 				181A6B361B7B556100B72FAD /* MCCodeReaderController.h */,
 				181A6B371B7B556100B72FAD /* MCCodeReaderController.m */,
 				181A6B381B7B556100B72FAD /* MCMyAboutUSController.h */,
@@ -2837,7 +2195,6 @@
 				181A6B4C1B7B556100B72FAD /* MCMySettingController.xib */,
 				181A6B4D1B7B556100B72FAD /* MCMyShareController.h */,
 				181A6B4E1B7B556100B72FAD /* MCMyShareController.m */,
-				181A6B4F1B7B556100B72FAD /* MCMyView */,
 				181A6B621B7B556100B72FAD /* MCMyViewController.h */,
 				181A6B631B7B556100B72FAD /* MCMyViewController.m */,
 				181A6B641B7B556100B72FAD /* MCMyViewController.xib */,
@@ -2876,6 +2233,7 @@
 		181A6B681B7B556100B72FAD /* MCTalkViewController */ = {
 			isa = PBXGroup;
 			children = (
+				181A6B751B7B556100B72FAD /* MCTalkView */,
 				181A6B691B7B556100B72FAD /* MCTalkDetailController.h */,
 				181A6B6A1B7B556100B72FAD /* MCTalkDetailController.m */,
 				181A6B6B1B7B556100B72FAD /* MCTalkDetailController.xib */,
@@ -2888,7 +2246,6 @@
 				181A6B721B7B556100B72FAD /* MCTalkReportController.h */,
 				181A6B731B7B556100B72FAD /* MCTalkReportController.m */,
 				181A6B741B7B556100B72FAD /* MCTalkReportController.xib */,
-				181A6B751B7B556100B72FAD /* MCTalkView */,
 				181A6B851B7B556100B72FAD /* MCTalkViewController.h */,
 				181A6B861B7B556100B72FAD /* MCTalkViewController.m */,
 				181A6B871B7B556100B72FAD /* MCTalkViewController.xib */,
@@ -4317,7 +3674,6 @@
 				181A6DD41B7B558500B72FAD /* user_delete.png in Resources */,
 				674A1D771AFD6D8100D17472 /* shurumima@2x.png in Resources */,
 				674A1D661AFD6D8100D17472 /* butt@2x.png in Resources */,
-				181A6B9E1B7B556100B72FAD /* .DS_S in Resources */,
 				181A6C351B7B556100B72FAD /* MCSendGoldController.xib in Resources */,
 				181A6DB71B7B558500B72FAD /* 2.话题列表.jpg in Resources */,
 				674A1D701AFD6D8100D17472 /* huoquyanzhengma@3x.png in Resources */,
@@ -4327,7 +3683,6 @@
 				674A1DB71AFD6D8100D17472 /* main_loading@2x.png in Resources */,
 				181A6D591B7B558500B72FAD /* ico_lock@3x.png in Resources */,
 				181A6D5D1B7B558500B72FAD /* radio1_on@3x.png in Resources */,
-				181A6BD41B7B556100B72FAD /* ASMaterialCell.xib in Resources */,
 				674A1D8B1AFD6D8100D17472 /* qiehuandian@2x.png in Resources */,
 				181A6DCB1B7B558500B72FAD /* my_setting.png in Resources */,
 				674A1D731AFD6D8100D17472 /* loginIcon@2x.png in Resources */,
@@ -4356,7 +3711,6 @@
 				181A6D691B7B558500B72FAD /* base_btn2_on@3x.png in Resources */,
 				674A1D741AFD6D8100D17472 /* loginIcon@3x.png in Resources */,
 				181A6DC81B7B558500B72FAD /* my_count.png in Resources */,
-				181A6BCC1B7B556100B72FAD /* ASStoryShowView.xib in Resources */,
 				181A6D9C1B7B558500B72FAD /* select_arrow2@2x.png in Resources */,
 				181A6C2F1B7B556100B72FAD /* MCMyMessageCell.xib in Resources */,
 				181A6BDE1B7B556100B72FAD /* MCComDetailHeadView.xib in Resources */,
@@ -4478,8 +3832,6 @@
 				181A6C151B7B556100B72FAD /* MCRegisViewController.xib in Resources */,
 				181A703B1B7B563A00B72FAD /* ASCityCell.xib in Resources */,
 				181A6D871B7B558500B72FAD /* set_ico3@2x.png in Resources */,
-				181A6BCA1B7B556100B72FAD /* ASScanPhotoViewController.xib in Resources */,
-				181A6BD61B7B556100B72FAD /* ASNewShowTableViewCell.xib in Resources */,
 				181A6DDF1B7B558500B72FAD /* 屏幕快照 2015-08-03 下午5.56.57.png in Resources */,
 				181A6D851B7B558500B72FAD /* set_ico2@2x.png in Resources */,
 				181A6D421B7B558500B72FAD /* radio2_on@2x.png in Resources */,
@@ -4500,7 +3852,6 @@
 				181A6DD31B7B558500B72FAD /* talk_share.png in Resources */,
 				181A6DC31B7B558500B72FAD /* homeImage.jpg in Resources */,
 				181A6D571B7B558500B72FAD /* ico_del@3x.png in Resources */,
-				181A6BD01B7B556100B72FAD /* ASMainHeadCell.xib in Resources */,
 				181A6DAD1B7B558500B72FAD /* ipt_bg1@3x.png in Resources */,
 				181A6D441B7B558500B72FAD /* radio3_off@2x.png in Resources */,
 				674A1DB51AFD6D8100D17472 /* main_default@2x.png in Resources */,
@@ -4555,7 +3906,6 @@
 				674A1D9E1AFD6D8100D17472 /* xingx@3x.png in Resources */,
 				181A6BE61B7B556100B72FAD /* MCCompanyCommentView.xib in Resources */,
 				181A6BF41B7B556100B72FAD /* MCShopPublicController.xib in Resources */,
-				181A6BCE1B7B556100B72FAD /* ASMainViewController.xib in Resources */,
 				181A6D8A1B7B558500B72FAD /* set_ico4@3x.png in Resources */,
 				181A6C181B7B556100B72FAD /* MCMyAboutUSController.xib in Resources */,
 				181A6DE21B7B558500B72FAD /* 屏幕快照 2015-08-06 下午4.22.14.png in Resources */,
@@ -4604,7 +3954,6 @@
 				181A6DA81B7B558500B72FAD /* ico_share@2x.png in Resources */,
 				181A6DB31B7B558500B72FAD /* textarea_bg4@3x.png in Resources */,
 				674A1D8A1AFD6D8100D17472 /* Girls_icon_@3x.png in Resources */,
-				181A6BD21B7B556100B72FAD /* ASMainShopTableViewCell.xib in Resources */,
 				BC66E1831AFFA2A4005245D0 /* tijizhanwei@3x.png in Resources */,
 				181A6D491B7B558500B72FAD /* recharge_btn1@3x.png in Resources */,
 				181A6D931B7B558500B72FAD /* btn_bg3_1@3x.png in Resources */,
@@ -4729,7 +4078,6 @@
 				181A70A61B7B563A00B72FAD /* MJRefreshGifFooter.m in Sources */,
 				181A6E271B7B55CD00B72FAD /* MCUserManager.m in Sources */,
 				04D502091AB3DD3A000AB5A5 /* ASMainBCCCModel.m in Sources */,
-				181A6BC91B7B556100B72FAD /* ASScanPhotoViewController.m in Sources */,
 				181A703A1B7B563A00B72FAD /* ASCityCell.m in Sources */,
 				181A6BA51B7B556100B72FAD /* MCImPersonInfoController.m in Sources */,
 				181A6C131B7B556100B72FAD /* MCProtocolController.m in Sources */,
@@ -4760,7 +4108,6 @@
 				181A6BB71B7B556100B72FAD /* MCImPersonTableViewCell.m in Sources */,
 				181A70881B7B563A00B72FAD /* DKFilterModel.m in Sources */,
 				181A6BE51B7B556100B72FAD /* MCCompanyCommentView.m in Sources */,
-				181A6BD11B7B556100B72FAD /* ASMainShopTableViewCell.m in Sources */,
 				181A70A41B7B563A00B72FAD /* MJRefreshConst.m in Sources */,
 				676F54A51ACD51C80061765A /* ASUserInfoModel.m in Sources */,
 				181A6BF31B7B556100B72FAD /* MCShopPublicController.m in Sources */,
@@ -4805,7 +4152,6 @@
 				181A6BDF1B7B556100B72FAD /* MCCompanProductBottomView.m in Sources */,
 				181A6BE31B7B556100B72FAD /* MCCompanyCommentCell.m in Sources */,
 				181A70811B7B563A00B72FAD /* UIImageView+ITTAddtions.m in Sources */,
-				181A6BCD1B7B556100B72FAD /* ASMainViewController.m in Sources */,
 				181A70CF1B7B563A00B72FAD /* NSString+MD5Addition.m in Sources */,
 				181A704D1B7B563A00B72FAD /* QFriendPicView.m in Sources */,
 				181A707F1B7B563A00B72FAD /* UIDevice+ITTAdditions.m in Sources */,
@@ -4828,7 +4174,6 @@
 				181A6C231B7B556100B72FAD /* MCMySettingController.m in Sources */,
 				181A6BD91B7B556100B72FAD /* MCCompanyDetailController.m in Sources */,
 				181A70831B7B563A00B72FAD /* UITextField+ITTAdditions.m in Sources */,
-				181A6BCF1B7B556100B72FAD /* ASMainHeadCell.m in Sources */,
 				181A70501B7B563A00B72FAD /* AGSimpleImageEditorView.m in Sources */,
 				181A70581B7B563A00B72FAD /* PoppingBaseView.m in Sources */,
 				04F0F8341AA411DB00F30A6A /* AppDelegate.m in Sources */,
@@ -4910,7 +4255,6 @@
 				181A6C2E1B7B556100B72FAD /* MCMyMessageCell.m in Sources */,
 				181A6C011B7B556100B72FAD /* MCRecruitPublicController.m in Sources */,
 				181A6C3E1B7B556100B72FAD /* MCSendMessageView.m in Sources */,
-				181A6BD51B7B556100B72FAD /* ASNewShowTableViewCell.m in Sources */,
 				181A6BE71B7B556100B72FAD /* MCCompanyIntroCell.m in Sources */,
 				181A70551B7B563A00B72FAD /* ITTPromptView.m in Sources */,
 				181A6E191B7B55CD00B72FAD /* MCCompanyInfoModel.m in Sources */,
@@ -4983,10 +4327,8 @@
 				181A70821B7B563A00B72FAD /* UILabel+ITTAdditions.m in Sources */,
 				6754A8521AB4133C00A3866A /* ASMaterialThirdModel.m in Sources */,
 				181A70CC1B7B563A00B72FAD /* mbase64.c in Sources */,
-				181A6BCB1B7B556100B72FAD /* ASStoryShowView.m in Sources */,
 				181A70351B7B563A00B72FAD /* BaseViewController.m in Sources */,
 				181A70C81B7B563A00B72FAD /* UIImageView+WebCache.m in Sources */,
-				181A6BD31B7B556100B72FAD /* ASMaterialCell.m in Sources */,
 				181A70AA1B7B563A00B72FAD /* MJRefreshLegendHeader.m in Sources */,
 				181A6C361B7B556100B72FAD /* MCTalkDetailController.m in Sources */,
 				181A70781B7B563A00B72FAD /* NSData+ITTAdditions.m in Sources */,
