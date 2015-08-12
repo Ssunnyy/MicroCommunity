@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="ASCityCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fDR-Ie-BVr">
+                        <rect key="frame" x="25" y="20" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.23921570181846619" green="0.23921570181846619" blue="0.23921570181846619" alpha="1" colorSpace="deviceRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1.dingwei_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="QT0-Og-ES4">
+                        <rect key="frame" x="79" y="20" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="GsU-fq-AIh"/>
+                            <constraint firstAttribute="height" constant="20" id="Qro-rl-39G"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="GsU-fq-AIh"/>
+                                <exclude reference="Qro-rl-39G"/>
+                            </mask>
+                        </variation>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oqv-wX-bur">
+                        <rect key="frame" x="10" y="57" width="300" height="1"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="Kn0-Rf-fUp"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="Oqv-wX-bur" secondAttribute="bottom" constant="1" id="9mx-J7-met"/>
+                    <constraint firstAttribute="centerY" secondItem="QT0-Og-ES4" secondAttribute="centerY" id="Kuw-ew-kUD"/>
+                    <constraint firstAttribute="trailing" secondItem="Oqv-wX-bur" secondAttribute="trailing" constant="10" id="TWc-Ik-GER"/>
+                    <constraint firstItem="fDR-Ie-BVr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="25" id="VVo-Jn-gdv"/>
+                    <constraint firstItem="QT0-Og-ES4" firstAttribute="leading" secondItem="fDR-Ie-BVr" secondAttribute="trailing" constant="12" id="nGc-CR-Fl6"/>
+                    <constraint firstAttribute="centerY" secondItem="fDR-Ie-BVr" secondAttribute="centerY" id="yLw-og-Tfp"/>
+                    <constraint firstItem="Oqv-wX-bur" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="yhO-4Q-zEz"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="cityLab" destination="fDR-Ie-BVr" id="4UN-Vr-l2G"/>
+                <outlet property="lineViewHeight" destination="Kn0-Rf-fUp" id="Nmr-aL-Lc0"/>
+                <outlet property="locationImg" destination="QT0-Og-ES4" id="4sl-tF-8fQ"/>
+            </connections>
+            <point key="canvasLocation" x="139" y="153"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="1.dingwei_icon.png" width="20" height="20"/>
+    </resources>
+</document>

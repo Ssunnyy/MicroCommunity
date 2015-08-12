@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MCProductDetilController">
+            <connections>
+                <outlet property="bottomView" destination="Em5-2U-hnr" id="3VH-ql-fvp"/>
+                <outlet property="productTableView" destination="4ob-XN-psk" id="ZXT-CP-evN"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M1k-Ug-Qxn">
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="4ob-XN-psk">
+                    <rect key="frame" x="0.0" y="64" width="320" height="440"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="Fc1-aU-YlX"/>
+                        <outlet property="delegate" destination="-1" id="nEm-Bw-X1t"/>
+                    </connections>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Em5-2U-hnr">
+                    <rect key="frame" x="0.0" y="504" width="320" height="64"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="64" id="sgZ-f2-TUP"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="4ob-XN-psk" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="1mb-1y-koy"/>
+                <constraint firstAttribute="trailing" secondItem="4ob-XN-psk" secondAttribute="trailing" id="F1m-AD-9to"/>
+                <constraint firstAttribute="bottom" secondItem="Em5-2U-hnr" secondAttribute="bottom" id="YuI-xE-rXt"/>
+                <constraint firstItem="Em5-2U-hnr" firstAttribute="top" secondItem="4ob-XN-psk" secondAttribute="bottom" id="atn-CT-7zg"/>
+                <constraint firstAttribute="trailing" secondItem="Em5-2U-hnr" secondAttribute="trailing" id="b0g-o0-GA7"/>
+                <constraint firstItem="Em5-2U-hnr" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="h6v-Pa-Rtq"/>
+                <constraint firstItem="4ob-XN-psk" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="vlz-EZ-Y3l"/>
+            </constraints>
+            <point key="canvasLocation" x="431" y="288"/>
+        </view>
+    </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

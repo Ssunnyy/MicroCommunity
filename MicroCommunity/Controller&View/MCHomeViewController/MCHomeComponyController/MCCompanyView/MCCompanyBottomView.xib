@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MCCompanyBottomView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9do-1k-ApM">
+                    <rect key="frame" x="0.0" y="0.0" width="106" height="64"/>
+                    <color key="backgroundColor" red="0.40784313729999999" green="0.73725490199999999" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="106" id="AT8-HZ-EzM"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="106" id="eg5-hc-Gzn"/>
+                    </constraints>
+                    <state key="normal" image="shops_base_btn1.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="highlighted">
+                        <color key="titleColor" red="0.2274509804" green="0.2274509804" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="btnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="Bzj-7x-maw"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6sN-Fl-i4R">
+                    <rect key="frame" x="107" y="0.0" width="106" height="64"/>
+                    <color key="backgroundColor" red="0.40784313729999999" green="0.73725490199999999" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" image="shops_base_btn2.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="btnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="gLz-f2-Dw3"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Rh-j2-dcv">
+                    <rect key="frame" x="214" y="0.0" width="106" height="64"/>
+                    <color key="backgroundColor" red="0.40784313729999999" green="0.73725490199999999" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" image="shops_base_btn3.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="btnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="b3W-3W-ptm"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="6sN-Fl-i4R" secondAttribute="bottom" id="3bH-8g-ZjK"/>
+                <constraint firstItem="9do-1k-ApM" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Cqu-td-bCo"/>
+                <constraint firstItem="7Rh-j2-dcv" firstAttribute="leading" secondItem="6sN-Fl-i4R" secondAttribute="trailing" constant="1" id="Njh-Jg-VzE"/>
+                <constraint firstItem="6sN-Fl-i4R" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="TaY-aw-PAe"/>
+                <constraint firstItem="7Rh-j2-dcv" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="WJb-tX-5qV"/>
+                <constraint firstItem="9do-1k-ApM" firstAttribute="width" secondItem="6sN-Fl-i4R" secondAttribute="width" id="brn-yy-blM"/>
+                <constraint firstAttribute="bottom" secondItem="7Rh-j2-dcv" secondAttribute="bottom" id="dAX-cR-9Gy"/>
+                <constraint firstItem="6sN-Fl-i4R" firstAttribute="leading" secondItem="9do-1k-ApM" secondAttribute="trailing" constant="1" id="gdO-6M-bBV"/>
+                <constraint firstItem="9do-1k-ApM" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="lOc-sl-c0Y"/>
+                <constraint firstAttribute="bottom" secondItem="9do-1k-ApM" secondAttribute="bottom" id="saS-cA-vFm"/>
+                <constraint firstItem="9do-1k-ApM" firstAttribute="width" secondItem="7Rh-j2-dcv" secondAttribute="width" id="tsl-74-KYU"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="brn3" destination="7Rh-j2-dcv" id="s7Y-Dz-OuS"/>
+                <outlet property="btn1" destination="9do-1k-ApM" id="BKc-AU-7J3"/>
+                <outlet property="btn2" destination="6sN-Fl-i4R" id="hPd-XS-Kfu"/>
+                <outlet property="btnWidth" destination="AT8-HZ-EzM" id="aP9-2E-FlH"/>
+            </connections>
+            <point key="canvasLocation" x="338" y="69"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="shops_base_btn1.png" width="30" height="43"/>
+        <image name="shops_base_btn2.png" width="30" height="43"/>
+        <image name="shops_base_btn3.png" width="30" height="43"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

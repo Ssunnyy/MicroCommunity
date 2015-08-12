@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view alpha="0.69999999999999996" contentMode="scaleToFill" id="1" customClass="ITTCustomTabBarView">
+            <rect key="frame" x="0.0" y="5" width="320" height="47"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2N0-3L-f2g">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="47"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9qW-hN-bX3" userLabel="1">
+                    <rect key="frame" x="0.0" y="0.0" width="80" height="47"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="iCC-tw-OAE"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" image="base_btn1_off.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="selected" image="base_btn1_on.png"/>
+                    <connections>
+                        <action selector="onTabBtnClicked:" destination="1" eventType="touchUpInside" id="Nxh-MM-ZuY"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zQL-Rw-Mgm" userLabel="2">
+                    <rect key="frame" x="80" y="0.0" width="80" height="47"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="aVb-x1-HgE"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" image="base_btn2_off.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="selected" image="base_btn2_on.png"/>
+                    <connections>
+                        <action selector="onTabBtnClicked:" destination="1" eventType="touchUpInside" id="hRb-tS-j8k"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0sk-rf-Yb4" userLabel="4">
+                    <rect key="frame" x="160" y="0.0" width="80" height="47"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="4kL-gp-6vw"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" image="base_btn3_off.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="selected" image="base_btn3_on.png"/>
+                    <connections>
+                        <action selector="onTabBtnClicked:" destination="1" eventType="touchUpInside" id="rCu-pY-kua"/>
+                    </connections>
+                </button>
+                <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZG-Ky-oId" userLabel="5">
+                    <rect key="frame" x="240" y="0.0" width="80" height="47"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="d3G-fS-CFJ"/>
+                    </constraints>
+                    <state key="normal" image="base_btn4_off.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="selected" image="base_btn4_on.png"/>
+                    <connections>
+                        <action selector="onTabBtnClicked:" destination="1" eventType="touchUpInside" id="c5B-Fk-pv6"/>
+                    </connections>
+                </button>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RZe-xa-8Pd">
+                    <rect key="frame" x="207" y="0.0" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="20" id="7pp-cH-6Mn"/>
+                        <constraint firstAttribute="height" constant="20" id="GgV-uy-qSE"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="0sk-rf-Yb4" firstAttribute="top" secondItem="RZe-xa-8Pd" secondAttribute="bottom" constant="-20" id="147-CB-e6S"/>
+                <constraint firstItem="yZG-Ky-oId" firstAttribute="leading" secondItem="0sk-rf-Yb4" secondAttribute="trailing" id="1NE-YJ-Apq"/>
+                <constraint firstAttribute="bottom" secondItem="0sk-rf-Yb4" secondAttribute="bottom" id="6zy-Mb-nKt"/>
+                <constraint firstItem="9qW-hN-bX3" firstAttribute="top" secondItem="1" secondAttribute="top" id="AVN-tk-l22"/>
+                <constraint firstItem="RZe-xa-8Pd" firstAttribute="leading" secondItem="0sk-rf-Yb4" secondAttribute="trailing" constant="-33" id="EWb-sf-fPx"/>
+                <constraint firstItem="0sk-rf-Yb4" firstAttribute="top" secondItem="1" secondAttribute="top" id="H0r-Ka-DQh"/>
+                <constraint firstItem="zQL-Rw-Mgm" firstAttribute="leading" secondItem="9qW-hN-bX3" secondAttribute="trailing" id="HLt-8Y-A8e"/>
+                <constraint firstItem="zQL-Rw-Mgm" firstAttribute="top" secondItem="1" secondAttribute="top" id="JdY-sP-C3u"/>
+                <constraint firstItem="yZG-Ky-oId" firstAttribute="top" secondItem="1" secondAttribute="top" id="Jft-u6-YbU"/>
+                <constraint firstAttribute="bottom" secondItem="zQL-Rw-Mgm" secondAttribute="bottom" id="PO7-1Z-2YY"/>
+                <constraint firstAttribute="bottom" secondItem="yZG-Ky-oId" secondAttribute="bottom" id="X0c-Jm-eQH"/>
+                <constraint firstItem="0sk-rf-Yb4" firstAttribute="leading" secondItem="zQL-Rw-Mgm" secondAttribute="trailing" id="dfV-Ym-UfH"/>
+                <constraint firstAttribute="bottom" secondItem="9qW-hN-bX3" secondAttribute="bottom" id="pRy-6O-RAb"/>
+                <constraint firstItem="9qW-hN-bX3" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="wg3-sw-xy1"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="btn1ConstraintsWidth" destination="iCC-tw-OAE" id="X1c-S5-emn"/>
+                <outlet property="btn2ConstraintsWidth" destination="aVb-x1-HgE" id="TZ6-i8-iIC"/>
+                <outlet property="btn4ConstraintsWidth" destination="4kL-gp-6vw" id="Uyy-dr-pwL"/>
+                <outlet property="btn5ConstraintsWidth" destination="d3G-fS-CFJ" id="wtb-92-Jd1"/>
+                <outlet property="goutongNumber" destination="RZe-xa-8Pd" id="JXa-ya-0zE"/>
+                <outlet property="tab1Btn" destination="9qW-hN-bX3" id="kkV-ju-MaS"/>
+                <outlet property="tab2Btn" destination="zQL-Rw-Mgm" id="lSM-jm-v86"/>
+                <outlet property="tab4Btn" destination="0sk-rf-Yb4" id="c4D-1b-adF"/>
+                <outlet property="tab5Btn" destination="yZG-Ky-oId" id="Sra-uz-j4Q"/>
+            </connections>
+            <point key="canvasLocation" x="142" y="192.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="base_btn1_off.png" width="43" height="39"/>
+        <image name="base_btn1_on.png" width="43" height="39"/>
+        <image name="base_btn2_off.png" width="43" height="39"/>
+        <image name="base_btn2_on.png" width="43" height="39"/>
+        <image name="base_btn3_off.png" width="43" height="39"/>
+        <image name="base_btn3_on.png" width="43" height="39"/>
+        <image name="base_btn4_off.png" width="43" height="39"/>
+        <image name="base_btn4_on.png" width="43" height="39"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

@@ -1,0 +1,1 @@
+TSPOPOVER_OTHER_LDFLAGS = -framework "QuartzCore"

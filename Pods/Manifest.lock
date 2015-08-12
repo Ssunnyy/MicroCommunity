@@ -1,0 +1,13 @@
+PODS:
+  - TSPopover (0.1.0)
+  - UMengAnalytics (3.4.6)
+
+DEPENDENCIES:
+  - TSPopover (~> 0.1.0)
+  - UMengAnalytics (~> 3.4.6)
+
+SPEC CHECKSUMS:
+  TSPopover: 7e74bed90a4dda2b03e1e932bc49472fd42fe824
+  UMengAnalytics: 24c06f0ea07295d2f1c093f0fe12d196fd801ea4
+
+COCOAPODS: 0.38.2

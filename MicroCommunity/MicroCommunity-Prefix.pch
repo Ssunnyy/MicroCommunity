@@ -1,0 +1,42 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_5_0
+#warning "This project uses features only available in iOS SDK 5.0 and later."
+#endif
+
+    #ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+    #import "ITTCommonMacros.h"
+    #import "UIView+ITTAdditions.h"
+    #import "ITTDebug.h"
+    #import"MKNetworkOperation+ITTNetworkOperation.h"
+    //define this constant if you want to use Masonry without the 'mas_' prefix
+    #define MAS_SHORTHAND
+    //define this constant if you want to enable auto-boxing for default syntax
+    #define MAS_SHORTHAND_GLOBALS
+    #import "Masonry.h"
+    #import "ITTCommonMacros.h"
+    #import "UIUtil.h"
+    #import "AppDelegate.h"
+    #import "UIImageView+WebCache.h"
+    #import "NSMutableDictionary+ITTCategory.h"
+    #import "MMLocationManager.h"
+    #import "ITTXibViewUtils.h"
+    #import "NSString+ITTAddtion.h"
+    #import "UILabel+ITTAdditions.h"
+    #import "CommonHelp.h"
+    #import "NSMutableDictionary+ITTCategory.h"
+    #import "ITTPromptView.h"
+    #import "ITTDataCacheManager.h"
+    #import "CONSTS.h"
+    #import "ITTTableView.h"
+    #import "UserManager.h"
+    #import "MCUserManager.h"
+#endif

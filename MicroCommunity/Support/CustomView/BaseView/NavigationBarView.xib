@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view alpha="0.98999999999999999" contentMode="scaleToFill" id="U3K-00-8qk" customClass="NavigationBarView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DRb-lV-TP8">
+                    <rect key="frame" x="60" y="7" width="200" height="30"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="DOb-JH-X8M"/>
+                        <constraint firstAttribute="height" constant="30" id="vqL-2v-CrN"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YJO-Hz-xZ5">
+                    <rect key="frame" x="0.0" y="43" width="320" height="1"/>
+                    <color key="backgroundColor" red="0.32549019610000002" green="0.71764705880000002" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="6za-dd-AWO"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.2274509804" green="0.2274509804" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="YJO-Hz-xZ5" secondAttribute="trailing" id="11Y-yO-qKj"/>
+                <constraint firstAttribute="bottom" secondItem="DRb-lV-TP8" secondAttribute="bottom" constant="7" id="6Vd-Ec-EVT"/>
+                <constraint firstItem="YJO-Hz-xZ5" firstAttribute="leading" secondItem="U3K-00-8qk" secondAttribute="leading" id="97Q-FA-4hs"/>
+                <constraint firstAttribute="bottom" secondItem="YJO-Hz-xZ5" secondAttribute="bottom" id="KHy-Ke-YNq"/>
+                <constraint firstAttribute="centerX" secondItem="DRb-lV-TP8" secondAttribute="centerX" id="ZBk-p7-IUc"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="lineView" destination="YJO-Hz-xZ5" id="b3F-v8-lnB"/>
+                <outlet property="titleLab" destination="DRb-lV-TP8" id="Q2A-Kk-j1b"/>
+            </connections>
+            <point key="canvasLocation" x="-48" y="-50"/>
+        </view>
+    </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

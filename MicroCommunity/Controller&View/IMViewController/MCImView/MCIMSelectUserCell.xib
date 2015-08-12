@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MCIMSelectUserCellIdentifier" rowHeight="76" id="KGk-i7-Jjw" customClass="MCIMSelectUserCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="76"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Abp-04-k11" customClass="QQButton">
+                        <rect key="frame" x="0.0" y="4" width="50" height="70"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="xPt-oZ-79L"/>
+                            <constraint firstAttribute="height" constant="70" id="zug-J4-Kqm"/>
+                        </constraints>
+                        <state key="normal" image="radio3_off.png">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <state key="selected" image="radio3_on.png"/>
+                        <connections>
+                            <action selector="chooseFriend:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="lGh-Eh-e3L"/>
+                        </connections>
+                    </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="result_head.png" translatesAutoresizingMaskIntoConstraints="NO" id="y41-QH-ZD0">
+                        <rect key="frame" x="50" y="10" width="59" height="56"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="59" id="Opq-fI-X8W"/>
+                            <constraint firstAttribute="height" constant="56" id="SNE-NG-1l7"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sex_famale.png" translatesAutoresizingMaskIntoConstraints="NO" id="D5E-PU-Udh">
+                        <rect key="frame" x="120" y="47" width="15" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="15" id="Jgp-ji-Rw0"/>
+                            <constraint firstAttribute="height" constant="15" id="aZ4-tp-hnb"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zvk-L5-SwT">
+                        <rect key="frame" x="0.0" y="74" width="320" height="1"/>
+                        <color key="backgroundColor" red="0.86274509799999999" green="0.86274509799999999" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="hLB-Iu-TQL"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="繁华" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vMS-oT-Rfu">
+                        <rect key="frame" x="120" y="15" width="180" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="vMS-oT-Rfu" firstAttribute="leading" secondItem="D5E-PU-Udh" secondAttribute="leading" id="6kD-BM-wWj"/>
+                    <constraint firstItem="vMS-oT-Rfu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="Bme-dp-Y4P"/>
+                    <constraint firstItem="Abp-04-k11" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="IKh-5L-mPR"/>
+                    <constraint firstItem="Zvk-L5-SwT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Pt5-Px-azS"/>
+                    <constraint firstAttribute="trailing" secondItem="Zvk-L5-SwT" secondAttribute="trailing" id="W1B-sh-Knh"/>
+                    <constraint firstAttribute="centerY" secondItem="y41-QH-ZD0" secondAttribute="centerY" id="Wvq-hB-kzi"/>
+                    <constraint firstItem="vMS-oT-Rfu" firstAttribute="leading" secondItem="y41-QH-ZD0" secondAttribute="trailing" constant="11" id="X8f-3I-BJ3"/>
+                    <constraint firstAttribute="centerY" secondItem="Abp-04-k11" secondAttribute="centerY" constant="-1.5" id="YL3-WF-szM"/>
+                    <constraint firstItem="D5E-PU-Udh" firstAttribute="top" secondItem="y41-QH-ZD0" secondAttribute="bottom" constant="-19" id="Ysh-dk-wKL"/>
+                    <constraint firstItem="y41-QH-ZD0" firstAttribute="leading" secondItem="Abp-04-k11" secondAttribute="trailing" id="ZUp-m1-8hv"/>
+                    <constraint firstAttribute="bottom" secondItem="Zvk-L5-SwT" secondAttribute="bottom" id="fdt-YZ-b4I"/>
+                    <constraint firstAttribute="trailing" secondItem="vMS-oT-Rfu" secondAttribute="trailing" constant="20" id="q9U-eI-6wa"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="headImage" destination="y41-QH-ZD0" id="o6B-Oi-cET"/>
+                <outlet property="nickName" destination="vMS-oT-Rfu" id="f6l-rL-CUw"/>
+                <outlet property="selectBtn" destination="Abp-04-k11" id="isb-BQ-6GH"/>
+                <outlet property="sexImage" destination="D5E-PU-Udh" id="WA6-3M-nph"/>
+            </connections>
+            <point key="canvasLocation" x="500" y="277"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="radio3_off.png" width="13" height="13"/>
+        <image name="radio3_on.png" width="13" height="13"/>
+        <image name="result_head.png" width="63" height="63"/>
+        <image name="sex_famale.png" width="15" height="15"/>
+    </resources>
+</document>

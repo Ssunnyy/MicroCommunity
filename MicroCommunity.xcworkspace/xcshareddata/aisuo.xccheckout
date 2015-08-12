@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>F307DC2E-7D14-4DF7-B8D3-1B9859432BE4</string>
+	<key>IDESourceControlProjectName</key>
+	<string>aisuo</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>96357FD14E3F7C77C6214AE1F34485E9F667A42C</key>
+		<string>http://git.ihuicity.com/cgy/aisuo_ios.git</string>
+		<key>B0D09C8FD240CD0915A8E475B932C55E065B6807</key>
+		<string>work.itotem.com.cn:iLock/ios.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>aisuo.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>96357FD14E3F7C77C6214AE1F34485E9F667A42C</key>
+		<string>..</string>
+		<key>B0D09C8FD240CD0915A8E475B932C55E065B6807</key>
+		<string>../../aisuo_new</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>http://git.ihuicity.com/cgy/aisuo_ios.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>96357FD14E3F7C77C6214AE1F34485E9F667A42C</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>B0D09C8FD240CD0915A8E475B932C55E065B6807</string>
+			<key>IDESourceControlWCCName</key>
+			<string>aisuo_new</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>96357FD14E3F7C77C6214AE1F34485E9F667A42C</string>
+			<key>IDESourceControlWCCName</key>
+			<string>aisuo_news</string>
+		</dict>
+	</array>
+</dict>
+</plist>
