@@ -120,6 +120,9 @@
  *  退出登陆
  */
 - (IBAction)exitLogin:(UIButton *)sender {
-
+    
+    [[MCUserManager shareManager] exitLogin];
+    
+    [[AppDelegate GetAppDelegate] customTabBarViewselectTabAtIndex:4];
 }
 @end

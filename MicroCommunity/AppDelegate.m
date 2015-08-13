@@ -76,12 +76,10 @@ BOOL iscustomTabBarViewHide = NO;
      *
      *  @return
      */
-    [self performSelector:@selector(setUpTabbarController) withObject:self afterDelay:.1f];
-
-    /**
-     *  将用户经纬度上传到服务器
-     */
-    [self updatePostion];
+    
+    [self setUpTabbarController];
+    
+//    [self performSelector:@selector(setUpTabbarController) withObject:self afterDelay:.1f];
     
     return YES;
 }
@@ -104,8 +102,6 @@ BOOL iscustomTabBarViewHide = NO;
         // 注册苹果推送，申请推送权限。
         [[UIApplication sharedApplication] registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound];
     }
-
-    
 }
 
 #pragma mark - 定位
@@ -175,9 +171,48 @@ BOOL iscustomTabBarViewHide = NO;
     _customTabBarView = [ITTCustomTabBarView loadFromXib];
     _customTabBarView.framewidth = SCREEN_WIDTH;
     _customTabBarView.frametop = SCREEN_HEIGHT - _customTabBarView.frameheight;
-    [_customTabBarView selectTabAtIndex:0];
     _customTabBarView.tabBarController = _tabbarController;
     [_tabbarController.view addSubview:_customTabBarView];
+    
+    
+    MCUserModel *user = [[MCUserManager shareManager] getCurrentUser];
+    if (user) {
+        if (user.phone && user.password) {
+            
+            NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+            [dic safeString:user.phone ForKey:@"phone"];
+            [dic safeString:user.password ForKey:@"password"];
+            
+            [[MCUserManager shareManager] requestLoginWithParam:dic withIndicatorView:nil withCancelRequestID:@"Login" onRequestFinish:^(MKNetworkOperation *operation) {
+                if ([operation isSuccees]) {
+                    
+                    [ITTPromptView showMessage:@"自动登录成功"];
+
+                    MCUserModel *model = [[MCUserModel alloc]initWithDataDic:operation.resultDic];
+                    model.password = user.password;
+                    [[MCUserManager shareManager]safeAccountToLocal:model];
+                    [[MCUserManager shareManager] setAutoLogin:YES];
+                    
+                    [[AppDelegate GetAppDelegate] customTabBarViewselectTabAtIndex:0];
+                    
+                }else{
+                    [[AppDelegate GetAppDelegate] customTabBarViewselectTabAtIndex:4];
+                    [ITTPromptView showMessage:@"自动登录失败"];
+                }
+            } onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
+                
+                [[AppDelegate GetAppDelegate] customTabBarViewselectTabAtIndex:4];
+                [ITTPromptView showMessage:@"自动登录失败"];
+                
+            } doSaveAccount:^UserModel *{
+                UserModel * model = [[UserModel alloc]init];
+                model.password = user.password;
+                model.mobile = user.phone;
+                return model;
+            }];
+
+        }
+    }
 }
 
 
@@ -222,7 +257,7 @@ BOOL iscustomTabBarViewHide = NO;
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // 每次打开应用就更新地理坐标
-    [self updatePostion];
+//    [self updatePostion];
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 

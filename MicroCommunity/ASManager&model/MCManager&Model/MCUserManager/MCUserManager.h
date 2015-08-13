@@ -49,8 +49,16 @@
  */
 - (BOOL)isLogin;
 
-
+/**
+ *  @brief  保存用户信息
+ *  @return
+ */
 - (void)safeAccountToLocal:(MCUserModel *)account;
+
+/**
+ *  @brief  删除用户信息
+ *  @return
+ */
 
 /**
  *  @brief  创建User的manager
