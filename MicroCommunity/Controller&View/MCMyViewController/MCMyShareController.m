@@ -18,8 +18,25 @@
 
 @implementation MCMyShareController
 
+- (void)viewWillAppear:(BOOL)animated {
+
+    [super viewWillAppear:YES];
+    [AppDelegate HideTabBar];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self setNavigationBarStatus];
+    
+    UIButton *share = [UIButton buttonWithType:UIButtonTypeCustom];
+    share.frame = CGRectMake(30, SCREEN_HEIGHT - 120, SCREEN_WIDTH - 60, 45);
+    [share setBackgroundImage:ImageNamed(@"btn_bg1.png") forState:UIControlStateNormal];
+    [share setTitle:@"分享APP" forState:UIControlStateNormal];
+    [share.titleLabel setFont:[UIFont systemFontOfSize:14]];
+    [share setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.view addSubview:share];
+    
     // Do any additional setup after loading the view.
 }
 

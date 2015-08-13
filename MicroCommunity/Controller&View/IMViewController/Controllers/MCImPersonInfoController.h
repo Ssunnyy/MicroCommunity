@@ -8,8 +8,16 @@
 
 #import "BaseViewController.h"
 
+typedef enum {
+    customeIn,
+    friendIn,
+    receiveFriendIn,
+}intType;
+
 @interface MCImPersonInfoController : BaseViewController
 
 @property (nonatomic , strong) NSString *titleName;
+@property (nonatomic , strong) NSString *userId;
+@property (nonatomic, assign) intType type; //  从那种控制器进入
 
 @end

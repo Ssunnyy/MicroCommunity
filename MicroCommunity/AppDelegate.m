@@ -173,48 +173,46 @@ BOOL iscustomTabBarViewHide = NO;
     _customTabBarView.frametop = SCREEN_HEIGHT - _customTabBarView.frameheight;
     _customTabBarView.tabBarController = _tabbarController;
     [_tabbarController.view addSubview:_customTabBarView];
+     [[AppDelegate GetAppDelegate] customTabBarViewselectTabAtIndex:0];
     
-    
-    MCUserModel *user = [[MCUserManager shareManager] getCurrentUser];
-    if (user) {
-        if (user.phone && user.password) {
-            
-            NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-            [dic safeString:user.phone ForKey:@"phone"];
-            [dic safeString:user.password ForKey:@"password"];
-            
-            [[MCUserManager shareManager] requestLoginWithParam:dic withIndicatorView:nil withCancelRequestID:@"Login" onRequestFinish:^(MKNetworkOperation *operation) {
-                if ([operation isSuccees]) {
-                    
-                    [ITTPromptView showMessage:@"自动登录成功"];
-
-                    MCUserModel *model = [[MCUserModel alloc]initWithDataDic:operation.resultDic];
-                    model.password = user.password;
-                    [[MCUserManager shareManager]safeAccountToLocal:model];
-                    [[MCUserManager shareManager] setAutoLogin:YES];
-                    
-                    [[AppDelegate GetAppDelegate] customTabBarViewselectTabAtIndex:0];
-                    
-                }else{
-                    [[AppDelegate GetAppDelegate] customTabBarViewselectTabAtIndex:4];
-                    [ITTPromptView showMessage:@"自动登录失败"];
-                }
-            } onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
-                
-                [[AppDelegate GetAppDelegate] customTabBarViewselectTabAtIndex:4];
-                [ITTPromptView showMessage:@"自动登录失败"];
-                
-            } doSaveAccount:^UserModel *{
-                UserModel * model = [[UserModel alloc]init];
-                model.password = user.password;
-                model.mobile = user.phone;
-                return model;
-            }];
-
-        }
-    }
+//    MCUserModel *user = [[MCUserManager shareManager] getCurrentUser];
+//    if (user) {
+//        if (user.phone && user.password) {
+//            
+//            NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+//            [dic safeString:user.phone ForKey:@"phone"];
+//            [dic safeString:user.password ForKey:@"password"];
+//            
+//            [[MCUserManager shareManager] requestLoginWithParam:dic withIndicatorView:nil withCancelRequestID:@"Login" onRequestFinish:^(MKNetworkOperation *operation) {
+//                if ([operation isSuccees]) {
+//                    
+//                    [ITTPromptView showMessage:@"自动登录成功"];
+//
+//                    MCUserModel *model = [[MCUserModel alloc]initWithDataDic:operation.resultDic];
+//                    model.password = user.password;
+//                    [[MCUserManager shareManager]safeAccountToLocal:model];
+//                    [[MCUserManager shareManager] setAutoLogin:YES];
+//                    
+//                    [[AppDelegate GetAppDelegate] customTabBarViewselectTabAtIndex:0];
+//                    
+//                }else{
+//                    [[AppDelegate GetAppDelegate] customTabBarViewselectTabAtIndex:4];
+//                    [ITTPromptView showMessage:@"自动登录失败"];
+//                }
+//            } onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
+//                
+//                [[AppDelegate GetAppDelegate] customTabBarViewselectTabAtIndex:4];
+//                [ITTPromptView showMessage:@"自动登录失败"];
+//                
+//            } doSaveAccount:^UserModel *{
+//                UserModel * model = [[UserModel alloc]init];
+//                model.password = user.password;
+//                model.mobile = user.phone;
+//                return model;
+//            }];
+//        }
+//    }
 }
-
 
 - (void)customTabBarViewselectTabAtIndex:(NSInteger)index
 {

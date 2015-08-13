@@ -8,6 +8,10 @@
 
 #import "MCMyErWeiMaController.h"
 
+#import "MCCodeReaderController.h"
+#import "QRCodeGenerator.h"
+#import "MCMyRecordController.h"
+
 @interface MCMyErWeiMaController ()
 @property (weak, nonatomic) IBOutlet UIImageView *headImage;
 @property (weak, nonatomic) IBOutlet UILabel *nickName;
@@ -61,7 +65,10 @@
 
 - (IBAction)saoMiao:(id)sender {
 
+    pushToDestinationController(self, MCMyRecordController);
+
 }
+
 
 /*
 #pragma mark - Navigation

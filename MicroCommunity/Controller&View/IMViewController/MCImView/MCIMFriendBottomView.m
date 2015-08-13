@@ -40,11 +40,16 @@
     }
 }
 
-- (void)changeToTwoBtn {
+- (void)changeToTwoBtnWithType:(NSInteger)type{
 
     _btnWidth.constant = SCREEN_WIDTH / 2;
-    [_firstBtn setTitle:@"清楚记录" forState:UIControlStateNormal];
-    [_secondBtn setTitle:@"删除好友" forState:UIControlStateNormal];
+    if (type == 1) {
+        [_firstBtn setTitle:@"清除记录" forState:UIControlStateNormal];
+        [_secondBtn setTitle:@"删除好友" forState:UIControlStateNormal];
+    } else {
+        [_firstBtn setTitle:@"拒绝" forState:UIControlStateNormal];
+        [_secondBtn setTitle:@"同意" forState:UIControlStateNormal];
+    }
     [self setNeedsUpdateConstraints];
     [self updateConstraintsIfNeeded];
     [self layoutIfNeeded];

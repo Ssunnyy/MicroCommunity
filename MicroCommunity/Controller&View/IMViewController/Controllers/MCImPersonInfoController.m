@@ -40,8 +40,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    isFriend = YES;
-    
     [self setUpData];
     
     [self setNavigationBarStatus];
@@ -64,6 +62,8 @@
  *  初始化数据
  */
 - (void) setUpData {
+    
+    isFriend = NO;
     
     _dataArray = [[NSMutableArray alloc]init];
     
@@ -112,7 +112,20 @@
     _bottomView = [[[NSBundle mainBundle]loadNibNamed:@"MCIMFriendBottomView" owner:nil options:nil]lastObject];
     _bottomView.delegate = self;
     if (isFriend) {
-        [_bottomView changeToTwoBtn];
+        [_bottomView changeToTwoBtnWithType:1];
+    }
+    switch (_type) {
+        case customeIn:
+            
+            break;
+        case friendIn:
+            [_bottomView changeToTwoBtnWithType:1];
+            break;
+        case receiveFriendIn:
+            [_bottomView changeToTwoBtnWithType:2];
+            break;
+        default:
+            break;
     }
     _bottomView.frameheight = 64;
     _bottomView.framewidth = SCREEN_WIDTH;

@@ -250,6 +250,7 @@
     
     MCImPersonInfoController *person = [[MCImPersonInfoController alloc]initWithNibName:@"MCImPersonInfoController"bundle:nil];
     person.titleName = @"晓红";
+    person.type = customeIn;
     [self.navigationController pushViewController:person  animated:YES];
     
 }

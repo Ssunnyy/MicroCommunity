@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface MCCodeReaderController : UIViewController
+@interface MCCodeReaderController : BaseViewController
 
 @property (nonatomic, copy) void (^SYQRCodeCancleBlock) (MCCodeReaderController *);//扫描取消
 @property (nonatomic, copy) void (^SYQRCodeSuncessBlock) (MCCodeReaderController *, NSString *);//扫描结果

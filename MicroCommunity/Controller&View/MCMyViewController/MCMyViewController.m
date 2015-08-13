@@ -15,6 +15,7 @@
 #import "MCMyGoldController.h"
 #import "MCMySettingController.h"
 #import "MCMyErWeiMaController.h"
+#import "MCConnectionController.h"
 
 @interface MCMyViewController ()<UITableViewDataSource,UITableViewDelegate,MCMyHeadViewDelegate>
 
@@ -242,7 +243,8 @@
  */
 - (void)myConnection{
     
-
+    pushToDestinationController(self, MCConnectionController);
+    
 }
 /*
  *二维码

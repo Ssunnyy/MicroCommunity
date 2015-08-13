@@ -31,10 +31,19 @@ static const float kReaderViewHeight = 200;
 
 @implementation MCCodeReaderController
 
+- (void)viewWillAppear:(BOOL)animated {
+
+    [super viewWillAppear:YES];
+    [AppDelegate HideTabBar];
+    
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+//    [self setNavigationBarStatus];
     
     [self initUI];
     [self setOverlayPickerView];
@@ -57,7 +66,6 @@ static const float kReaderViewHeight = 200;
         [self.view addSubview:readerView];
     }
 }
-
 - (CGRect)getReaderViewBoundsWithSize:(CGSize)asize
 {
     return CGRectMake(kLineMinY / readerView.frame.size.height, (abs(readerView.frame.size.width - asize.width) / 2.0) / readerView.frame.size.width, asize.height / readerView.frame.size.height, asize.width / readerView.frame.size.width);
@@ -66,7 +74,7 @@ static const float kReaderViewHeight = 200;
 - (void)initTitleView
 {
     UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0,0,kDeviceWidth, 64)];
-    bgView.backgroundColor = [UIColor colorWithRed:62.0/255 green:199.0/255 blue:153.0/255 alpha:1.0];
+    bgView.backgroundColor = [UIColor colorWithRed:58.0/255 green:58.0/255 blue:58.0/255 alpha:1.0];
     [self.view addSubview:bgView];
     
     UILabel *titleLab = [[UILabel alloc] initWithFrame:CGRectMake((kDeviceWidth - 40) / 2.0, 28, 40, 20)];
@@ -74,7 +82,7 @@ static const float kReaderViewHeight = 200;
     //titleLab.layer.borderColor = [UIColor greenColor].CGColor;
     //titleLab.layer.borderWidth = 2.0;
     //titleLab.backgroundColor = [UIColor colorWithRed:62.0/255 green:199.0/255 blue:153.0/255 alpha:1.0];
-    titleLab.text = @"扫描";
+    titleLab.text = @"扫一扫";
     titleLab.shadowColor = [UIColor lightGrayColor];
     titleLab.shadowOffset = CGSizeMake(0, - 1);
     titleLab.font = [UIFont boldSystemFontOfSize:18.0];
@@ -299,6 +307,11 @@ static const float kReaderViewHeight = 200;
     NSLog(@"cancle reading");
 }
 
+- (void)leftBarButtonClick:(id)sender {
+
+    [self cancleSYQRCodeReading];
+    
+}
 
 #pragma mark -
 #pragma mark 上下滚动交互线

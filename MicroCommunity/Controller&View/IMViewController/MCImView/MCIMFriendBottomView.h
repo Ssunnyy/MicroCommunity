@@ -19,6 +19,6 @@
 @property (nonatomic ,assign) id <MCIMFriendBottomViewDelegate> delegate;
 
 //  改为两个button
-- (void) changeToTwoBtn;
+- (void) changeToTwoBtnWithType:(NSInteger) type;
 
 @end
