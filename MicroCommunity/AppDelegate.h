@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "ITTCustomTabBarView.h"
 
+@class BaseViewController;
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
@@ -30,5 +32,6 @@
 
 - (void)customTabBarViewselectTabAtIndex:(NSInteger)index;
 
--(void)getCurrentController:(BaseViewController*)controller;
+- (void)getCurrentController:(BaseViewController *)controller;
+
 @end

@@ -164,13 +164,11 @@ BOOL iscustomTabBarViewHide = NO;
 {
     _tabbarController = [[ITTHiddenTabBarViewController alloc] init];
     NSMutableArray *navControllers = [NSMutableArray array];
-    [self addViewController:[MCLoginViewController class] toArray:navControllers];
     [self addViewController:[MCHomeViewController class] toArray:navControllers];
     [self addViewController:[MCTalkViewController class] toArray:navControllers];
     [self addViewController:[MCIMViewController class] toArray:navControllers];
     [self addViewController:[MCMyViewController class] toArray:navControllers];
-    
-    
+    [self addViewController:[MCLoginViewController class] toArray:navControllers];
     
     _tabbarController.viewControllers = navControllers;
     self.window.rootViewController = _tabbarController;
@@ -189,8 +187,6 @@ BOOL iscustomTabBarViewHide = NO;
     [_customTabBarView.tabBarController setSelectedTabIndex:index];
     [_customTabBarView.superview bringSubviewToFront:_customTabBarView];
 }
-
-
 
 - (void)addViewController:(Class)ViewController toArray:(NSMutableArray*)array{
     UIViewController *vc = [[ViewController alloc] init];
