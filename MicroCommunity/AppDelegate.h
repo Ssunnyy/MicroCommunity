@@ -30,5 +30,5 @@
 
 - (void)customTabBarViewselectTabAtIndex:(NSInteger)index;
 
-
+-(void)getCurrentController:(BaseViewController*)controller;
 @end

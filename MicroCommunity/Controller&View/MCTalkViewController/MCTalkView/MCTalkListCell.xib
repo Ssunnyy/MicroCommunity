@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
@@ -169,13 +169,7 @@
                     <constraint firstItem="ZhB-lE-NTu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="hCg-vg-RlH"/>
                     <constraint firstAttribute="trailing" secondItem="Rca-TU-wNn" secondAttribute="trailing" id="jfb-Fh-XTP"/>
                     <constraint firstItem="Rca-TU-wNn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="qB7-8g-VbH"/>
-                    <constraint firstAttribute="bottom" secondItem="nUy-ga-uZb" secondAttribute="bottom" constant="1" id="tbv-DA-csE"/>
                 </constraints>
-                <variation key="default">
-                    <mask key="constraints">
-                        <exclude reference="tbv-DA-csE"/>
-                    </mask>
-                </variation>
             </tableViewCellContentView>
             <connections>
                 <outlet property="commentBtn" destination="XgU-mN-SMh" id="GAM-5d-FDI"/>
@@ -204,4 +198,9 @@
         <image name="talk_pinglun.png" width="34" height="31"/>
         <image name="talk_share.png" width="32" height="31"/>
     </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
 </document>

@@ -139,7 +139,7 @@
         button.titleLabel.font = [UIFont boldSystemFontOfSize:16];
         button.titleLabel.minimumFontSize = 6;
         button.titleLabel.adjustsFontSizeToFitWidth = YES;
-        button.titleLabel.textAlignment = UITextAlignmentCenter;
+        button.titleLabel.textAlignment = NSTextAlignmentCenter;
         button.backgroundColor = [UIColor clearColor];
         button.tag = i++;
         
@@ -199,7 +199,7 @@
 - (void)buttonClicked:(id)sender 
 {
     /* Run the button's block */
-    int buttonIndex = [sender tag] - 1;
+    NSInteger buttonIndex = [sender tag] - 1;
     [self dismissWithClickedButtonIndex:buttonIndex animated:YES];
 }
 
