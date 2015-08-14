@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MCMyCountController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MCMyPublicController">
             <connections>
-                <outlet property="bottom" destination="7uC-ZS-MDy" id="gNt-7y-eHu"/>
-                <outlet property="countTableView" destination="UAa-Xx-X51" id="pcd-xN-4YQ"/>
+                <outlet property="bottomView" destination="OdZ-bx-sw6" id="UfL-mo-LK7"/>
+                <outlet property="publicTableViw" destination="89E-hw-uPO" id="bgJ-Ka-LbH"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,36 +17,36 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sk3-K8-GYf">
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lxx-CZ-2j3">
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="UAa-Xx-X51">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="89E-hw-uPO">
                     <rect key="frame" x="0.0" y="64" width="320" height="457"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
-                        <outlet property="dataSource" destination="-1" id="2OT-jy-IfK"/>
-                        <outlet property="delegate" destination="-1" id="K7j-1c-354"/>
+                        <outlet property="dataSource" destination="-1" id="pV2-ph-3Xv"/>
+                        <outlet property="delegate" destination="-1" id="cH0-QH-Rem"/>
                     </connections>
                 </tableView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7uC-ZS-MDy">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OdZ-bx-sw6">
                     <rect key="frame" x="0.0" y="521" width="320" height="47"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="47" id="dr7-3r-lFF"/>
+                        <constraint firstAttribute="height" constant="47" id="2BO-Ia-IUf"/>
                     </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="7uC-ZS-MDy" secondAttribute="bottom" id="60U-ho-6Oj"/>
-                <constraint firstAttribute="trailing" secondItem="UAa-Xx-X51" secondAttribute="trailing" id="6CY-tz-UCb"/>
-                <constraint firstAttribute="trailing" secondItem="7uC-ZS-MDy" secondAttribute="trailing" id="DCh-cs-s7p"/>
-                <constraint firstItem="7uC-ZS-MDy" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="X5B-s2-mAb"/>
-                <constraint firstItem="UAa-Xx-X51" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="cCZ-bq-wld"/>
-                <constraint firstAttribute="bottom" secondItem="UAa-Xx-X51" secondAttribute="bottom" constant="47" id="lmX-9x-zxs"/>
-                <constraint firstItem="UAa-Xx-X51" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="vbO-Am-Sdc"/>
+                <constraint firstItem="89E-hw-uPO" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="5wW-pA-TK2"/>
+                <constraint firstAttribute="trailing" secondItem="OdZ-bx-sw6" secondAttribute="trailing" id="J0V-uH-fud"/>
+                <constraint firstItem="89E-hw-uPO" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ObK-g7-QSg"/>
+                <constraint firstItem="OdZ-bx-sw6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="SlA-3y-5fN"/>
+                <constraint firstAttribute="trailing" secondItem="89E-hw-uPO" secondAttribute="trailing" id="bAO-i2-svB"/>
+                <constraint firstItem="OdZ-bx-sw6" firstAttribute="top" secondItem="89E-hw-uPO" secondAttribute="bottom" id="hWi-81-qPI"/>
+                <constraint firstAttribute="bottom" secondItem="OdZ-bx-sw6" secondAttribute="bottom" id="uwU-8b-BJy"/>
             </constraints>
-            <point key="canvasLocation" x="-70" y="328"/>
+            <point key="canvasLocation" x="167" y="310"/>
         </view>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

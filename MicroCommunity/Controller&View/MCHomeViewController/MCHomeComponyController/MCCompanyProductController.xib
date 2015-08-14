@@ -47,7 +47,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QHh-mK-kmd">
                     <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vk1-Za-Yfy">
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vk1-Za-Yfy">
                             <rect key="frame" x="20" y="408" width="280" height="46"/>
                             <state key="normal" title="清空历史搜索" backgroundImage="btn_bg1.png">
                                 <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

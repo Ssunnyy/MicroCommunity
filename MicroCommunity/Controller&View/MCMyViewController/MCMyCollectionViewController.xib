@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MCMyCollectionViewController">
+            <connections>
+                <outlet property="btnWidth" destination="jfG-18-IAm" id="hz4-cP-lvr"/>
+                <outlet property="collectionTableViwe" destination="Huf-dc-QrV" id="oQ2-WV-ZLP"/>
+                <outlet property="lineLeft" destination="KG5-kh-7xy" id="Ilx-Pr-1kF"/>
+                <outlet property="serverBtn" destination="Rt4-EX-ApJ" id="rJd-s3-WBP"/>
+                <outlet property="shopBtn" destination="bbV-YT-5bq" id="KyT-nq-MsB"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="90h-hf-k6L">
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wMi-iH-bey">
+                    <rect key="frame" x="0.0" y="64" width="320" height="47"/>
+                    <subviews>
+                        <button opaque="NO" tag="300" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bbV-YT-5bq">
+                            <rect key="frame" x="0.0" y="0.0" width="160" height="47"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="160" id="jfG-18-IAm"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <state key="normal" title="商家">
+                                <color key="titleColor" red="0.2274509804" green="0.2274509804" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="selected">
+                                <color key="titleColor" red="0.40784313729999999" green="0.73725490199999999" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="switchVtnClick:" destination="-1" eventType="touchUpInside" id="SgD-vj-BJH"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="301" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rt4-EX-ApJ">
+                            <rect key="frame" x="160" y="0.0" width="160" height="47"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <state key="normal" title="信息">
+                                <color key="titleColor" red="0.2274509804" green="0.2274509804" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="selected">
+                                <color key="titleColor" red="0.40784313729999999" green="0.73725490199999999" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="switchVtnClick:" destination="-1" eventType="touchUpInside" id="Sjd-zL-p0j"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E2N-Js-fwv">
+                            <rect key="frame" x="0.0" y="45" width="160" height="2"/>
+                            <color key="backgroundColor" red="0.40784313729999999" green="0.73725490199999999" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="2" id="GNv-uK-g0e"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.92941176469999998" green="0.92941176469999998" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="Rt4-EX-ApJ" secondAttribute="trailing" id="0QQ-rQ-Rpb"/>
+                        <constraint firstItem="Rt4-EX-ApJ" firstAttribute="top" secondItem="wMi-iH-bey" secondAttribute="top" id="CW0-k5-a7L"/>
+                        <constraint firstItem="E2N-Js-fwv" firstAttribute="leading" secondItem="wMi-iH-bey" secondAttribute="leading" id="KG5-kh-7xy"/>
+                        <constraint firstItem="bbV-YT-5bq" firstAttribute="top" secondItem="wMi-iH-bey" secondAttribute="top" id="Kro-0l-Ajf"/>
+                        <constraint firstAttribute="bottom" secondItem="Rt4-EX-ApJ" secondAttribute="bottom" id="McW-xa-59W"/>
+                        <constraint firstItem="bbV-YT-5bq" firstAttribute="leading" secondItem="wMi-iH-bey" secondAttribute="leading" id="X7P-Rn-sde"/>
+                        <constraint firstItem="Rt4-EX-ApJ" firstAttribute="width" secondItem="bbV-YT-5bq" secondAttribute="width" id="crO-5H-9Pa"/>
+                        <constraint firstAttribute="bottom" secondItem="E2N-Js-fwv" secondAttribute="bottom" id="fsZ-vA-5yF"/>
+                        <constraint firstAttribute="bottom" secondItem="bbV-YT-5bq" secondAttribute="bottom" id="hOh-wf-HId"/>
+                        <constraint firstItem="E2N-Js-fwv" firstAttribute="width" secondItem="bbV-YT-5bq" secondAttribute="width" id="nqH-xy-Vnb"/>
+                        <constraint firstAttribute="height" constant="47" id="rej-5O-0Xh"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Huf-dc-QrV">
+                    <rect key="frame" x="0.0" y="111" width="320" height="457"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="vCr-b5-BEd"/>
+                        <outlet property="delegate" destination="-1" id="4bd-Am-qvn"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Huf-dc-QrV" secondAttribute="bottom" id="2uU-kN-tan"/>
+                <constraint firstAttribute="trailing" secondItem="Huf-dc-QrV" secondAttribute="trailing" id="7DI-8D-9SO"/>
+                <constraint firstItem="Huf-dc-QrV" firstAttribute="top" secondItem="wMi-iH-bey" secondAttribute="bottom" id="QOh-Tz-XbM"/>
+                <constraint firstItem="wMi-iH-bey" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="Qu1-ix-SX4"/>
+                <constraint firstItem="Huf-dc-QrV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Sxw-TZ-xnJ"/>
+                <constraint firstItem="wMi-iH-bey" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="tlG-BM-uMG"/>
+                <constraint firstAttribute="trailing" secondItem="wMi-iH-bey" secondAttribute="trailing" id="w1d-eS-zEK"/>
+            </constraints>
+            <point key="canvasLocation" x="75" y="352"/>
+        </view>
+    </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

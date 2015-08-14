@@ -10,7 +10,7 @@
 
 @interface MCMyHeadView ()
 
-@property (weak, nonatomic) IBOutlet UIImageView *bgImage;
+
 @property (weak, nonatomic) IBOutlet UIImageView *headView;
 @property (weak, nonatomic) IBOutlet UIButton *shopBtn;
 @property (weak, nonatomic) IBOutlet UILabel *nickName;

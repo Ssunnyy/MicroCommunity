@@ -6,24 +6,32 @@
 //  Copyright (c) 2015年 qiuyan. All rights reserved.
 //
 
-#import "MCMyCountCell.h"
+#import "MCMyCountCells.h"
 
-@interface MCMyCountCell ()
+@interface MCMyCountCells ()
 
 @property (weak, nonatomic) IBOutlet UIView *bgView;
 @property (weak, nonatomic) IBOutlet UILabel *name;
 @property (weak, nonatomic) IBOutlet UILabel *count;
 @property (weak, nonatomic) IBOutlet UILabel *date;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftLine;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *rightLine;
 
 @end
 
-@implementation MCMyCountCell
+@implementation MCMyCountCells
 
 - (void)awakeFromNib {
     // Initialization code
     
     [_bgView setBorderWidth:1 andBorderColor:RGBCOLOR(237, 237, 237)];
+    if (iPhone6) {
+        _leftLine.constant = _rightLine.constant = 130;
+    }else if (iPhone6Plus){
+        _leftLine.constant = _rightLine.constant = 150;
+    }
+    
     
 }
 

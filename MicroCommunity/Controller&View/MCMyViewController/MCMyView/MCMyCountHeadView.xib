@@ -56,6 +56,13 @@
                         <color key="textColor" red="0.96078431369999995" green="0.5450980392" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o0K-ib-BSn">
+                        <rect key="frame" x="0.0" y="111" width="320" height="10"/>
+                        <color key="backgroundColor" red="0.92941176469999998" green="0.92941176469999998" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="10" id="Cr5-YN-Wzm"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="Vdd-O4-ZhO" firstAttribute="top" secondItem="613-ad-YBq" secondAttribute="top" id="21i-2t-dFk"/>
@@ -68,11 +75,14 @@
                     <constraint firstItem="A52-ia-dqG" firstAttribute="leading" secondItem="613-ad-YBq" secondAttribute="trailing" constant="5" id="Pzw-Cq-XLc"/>
                     <constraint firstItem="Vdd-O4-ZhO" firstAttribute="centerY" secondItem="CVT-WE-pvM" secondAttribute="centerY" id="Q4F-fw-Cbk"/>
                     <constraint firstItem="cdx-Fw-QvZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="RRK-uP-aCc"/>
+                    <constraint firstAttribute="trailing" secondItem="o0K-ib-BSn" secondAttribute="trailing" id="SQj-kC-97a"/>
                     <constraint firstItem="ZwV-5I-vKJ" firstAttribute="leading" secondItem="Kg3-21-uQf" secondAttribute="trailing" constant="5" id="fDu-3t-5wr"/>
                     <constraint firstItem="cdx-Fw-QvZ" firstAttribute="leading" secondItem="Kg3-21-uQf" secondAttribute="leading" id="fNa-E6-Ruy"/>
                     <constraint firstItem="cdx-Fw-QvZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="g4O-fX-5zi"/>
                     <constraint firstItem="CVT-WE-pvM" firstAttribute="leading" secondItem="Kg3-21-uQf" secondAttribute="leading" id="p2V-8z-1oK"/>
+                    <constraint firstAttribute="bottom" secondItem="o0K-ib-BSn" secondAttribute="bottom" id="rFt-m0-dCZ"/>
                     <constraint firstItem="A52-ia-dqG" firstAttribute="bottom" secondItem="Vdd-O4-ZhO" secondAttribute="bottom" id="w2H-Xf-SgL"/>
+                    <constraint firstItem="o0K-ib-BSn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="x6n-s9-CFs"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
@@ -81,7 +91,7 @@
                 <outlet property="nickName" destination="cdx-Fw-QvZ" id="akR-ao-HeI"/>
                 <outlet property="reduceMoney" destination="Vdd-O4-ZhO" id="xoe-KH-wYj"/>
             </connections>
-            <point key="canvasLocation" x="231" y="358"/>
+            <point key="canvasLocation" x="231" y="357"/>
         </tableViewCell>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

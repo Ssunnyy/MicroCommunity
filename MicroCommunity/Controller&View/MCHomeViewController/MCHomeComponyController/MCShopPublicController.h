@@ -10,4 +10,6 @@
 
 @interface MCShopPublicController : BaseViewController
 
+@property (nonatomic, assign) BOOL isEdting;//  是不是编辑
+
 @end

@@ -16,6 +16,10 @@
 #import "MCMySettingController.h"
 #import "MCMyErWeiMaController.h"
 #import "MCConnectionController.h"
+#import "MCMyCountController.h"
+#import "MCMyCollectionViewController.h"
+#import "MCMyPublicController.h"
+#import "MCMyInfoController.h"
 
 @interface MCMyViewController ()<UITableViewDataSource,UITableViewDelegate,MCMyHeadViewDelegate>
 
@@ -213,7 +217,7 @@
  *收藏
  */
 - (void)collection{
-    
+    pushToDestinationController(self, MCMyCollectionViewController);
 
 }
 /*
@@ -221,14 +225,14 @@
  */
 - (void)public{
     
-
+    pushToDestinationController(self, MCMyPublicController);
 }
 /*
  *账户
  */
 - (void)myCount{
     
-
+    pushToDestinationController(self, MCMyCountController);
 }
 /*
  *分享
@@ -282,6 +286,11 @@
             [self.navigationController pushViewController:gold animated:YES];
         }
             break;
+        case 203:
+        {
+            [self changeUereInfo];
+        }
+            break;
         default:
             break;
     }
@@ -296,6 +305,12 @@
 
     MCMyMessageController *message = [[MCMyMessageController alloc]initWithNibName:@"MCMyMessageController" bundle:nil];
     [self.navigationController pushViewController:message animated:YES];
-    
+}
+/*
+ *修改个人信息
+ */
+- (void) changeUereInfo {
+    MCMyInfoController *info = [[MCMyInfoController alloc]initWithNibName:@"MCMyInfoController" bundle:nil];
+    [self.navigationController pushViewController:info animated:YES];
 }
 @end

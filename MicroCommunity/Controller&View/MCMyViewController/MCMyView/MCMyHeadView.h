@@ -16,6 +16,8 @@
 
 @interface MCMyHeadView : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView *bgImage;
+
 @property (nonatomic,assign) id <MCMyHeadViewDelegate> delegate;
 
 - (void) currentUerIsBusniss:(BOOL) isBussniss;

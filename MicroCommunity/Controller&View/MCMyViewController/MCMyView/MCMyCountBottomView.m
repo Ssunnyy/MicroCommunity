@@ -1,21 +1,14 @@
 //
-//  MCMyCountHeadView.m
+//  MCMyCountBottomView.m
 //  MicroCommunity
 //
 //  Created by apple on 15/8/13.
 //  Copyright (c) 2015年 qiuyan. All rights reserved.
 //
 
-#import "MCMyCountHeadView.h"
+#import "MCMyCountBottomView.h"
 
-@interface MCMyCountHeadView ()
-@property (weak, nonatomic) IBOutlet UILabel *nickName;
-@property (weak, nonatomic) IBOutlet UILabel *addMoney;
-@property (weak, nonatomic) IBOutlet UILabel *reduceMoney;
-
-@end
-
-@implementation MCMyCountHeadView
+@implementation MCMyCountBottomView
 
 - (void)awakeFromNib {
     // Initialization code
@@ -25,6 +18,13 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (IBAction)button:(UIButton *)sender {
+    
+    if (_delegate && [_delegate respondsToSelector:@selector(buttonClickAtIndex:)]) {
+        [_delegate buttonClickAtIndex:sender.tag];
+    }
 }
 
 @end

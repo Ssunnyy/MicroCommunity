@@ -65,8 +65,8 @@
 		1818C0151B7CAC2A006476F9 /* MCMyCountController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1818C0131B7CAC2A006476F9 /* MCMyCountController.xib */; };
 		1818C0191B7CADC3006476F9 /* MCMyCountHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1818C0171B7CADC3006476F9 /* MCMyCountHeadView.m */; };
 		1818C01A1B7CADC3006476F9 /* MCMyCountHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1818C0181B7CADC3006476F9 /* MCMyCountHeadView.xib */; };
-		1818C0251B7CB15C006476F9 /* MCMyCountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1818C0231B7CB15C006476F9 /* MCMyCountCell.m */; };
-		1818C0261B7CB15C006476F9 /* MCMyCountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1818C0241B7CB15C006476F9 /* MCMyCountCell.xib */; };
+		1818C0251B7CB15C006476F9 /* MCMyCountCells.m in Sources */ = {isa = PBXBuildFile; fileRef = 1818C0231B7CB15C006476F9 /* MCMyCountCells.m */; };
+		1818C0261B7CB15C006476F9 /* MCMyCountCells.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1818C0241B7CB15C006476F9 /* MCMyCountCells.xib */; };
 		1818C0291B7CBC62006476F9 /* MCMycountModle.m in Sources */ = {isa = PBXBuildFile; fileRef = 1818C0281B7CBC62006476F9 /* MCMycountModle.m */; };
 		181A6B9F1B7B556100B72FAD /* MCChangeInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 181A6A6D1B7B556100B72FAD /* MCChangeInfoController.m */; };
 		181A6BA01B7B556100B72FAD /* MCChangeInfoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 181A6A6E1B7B556100B72FAD /* MCChangeInfoController.xib */; };
@@ -562,15 +562,42 @@
 		181A70CF1B7B563A00B72FAD /* NSString+MD5Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 181A6FE71B7B563A00B72FAD /* NSString+MD5Addition.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		181A70D01B7B563A00B72FAD /* UIColor+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 181A6FEA1B7B563A00B72FAD /* UIColor+Helpers.m */; };
 		181A70D11B7B563A00B72FAD /* UIImage+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 181A6FEC1B7B563A00B72FAD /* UIImage+Helpers.m */; };
+		1859B5751B7D757300B5B985 /* MCMyCountApplyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1859B5731B7D757300B5B985 /* MCMyCountApplyView.m */; };
+		1859B5761B7D757300B5B985 /* MCMyCountApplyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1859B5741B7D757300B5B985 /* MCMyCountApplyView.xib */; };
+		1859B57A1B7D852E00B5B985 /* MCMyCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1859B5781B7D852E00B5B985 /* MCMyCollectionViewController.m */; };
+		1859B57B1B7D852E00B5B985 /* MCMyCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1859B5791B7D852E00B5B985 /* MCMyCollectionViewController.xib */; };
 		185D73D21B7B5AD4007A0668 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 185D73D11B7B5AD4007A0668 /* AVFoundation.framework */; };
 		185D73D41B7B5ADB007A0668 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 185D73D31B7B5ADB007A0668 /* CoreMedia.framework */; };
 		185D73D61B7B5AE3007A0668 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 185D73D51B7B5AE3007A0668 /* CoreVideo.framework */; };
+		186116391B7CC6CC003CE5A2 /* MCMyCountBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 186116371B7CC6CC003CE5A2 /* MCMyCountBottomView.m */; };
+		1861163A1B7CC6CC003CE5A2 /* MCMyCountBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186116381B7CC6CC003CE5A2 /* MCMyCountBottomView.xib */; };
+		1861163F1B7CC815003CE5A2 /* btn_bg1_3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1861163B1B7CC815003CE5A2 /* btn_bg1_3@2x.png */; };
+		186116401B7CC815003CE5A2 /* btn_bg1_3@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1861163C1B7CC815003CE5A2 /* btn_bg1_3@3x.png */; };
+		186116411B7CC815003CE5A2 /* pop-up_bg7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1861163D1B7CC815003CE5A2 /* pop-up_bg7@2x.png */; };
+		186116421B7CC815003CE5A2 /* pop-up_bg7@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1861163E1B7CC815003CE5A2 /* pop-up_bg7@3x.png */; };
+		186116461B7CCACC003CE5A2 /* MCMyRechargeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 186116441B7CCACC003CE5A2 /* MCMyRechargeController.m */; };
+		186116471B7CCACC003CE5A2 /* MCMyRechargeController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186116451B7CCACC003CE5A2 /* MCMyRechargeController.xib */; };
+		186116491B7CCFDA003CE5A2 /* pay_ico1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 186116481B7CCFDA003CE5A2 /* pay_ico1@2x.png */; };
+		1861164B1B7CCFED003CE5A2 /* pay_ico1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1861164A1B7CCFED003CE5A2 /* pay_ico1@3x.png */; };
 		187F98C21B7B837A00E8D6B5 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 187F98C11B7B837A00E8D6B5 /* libiconv.dylib */; };
 		187F98E11B7B876B00E8D6B5 /* libzbar-armv7-armv7s-x86_64-arm64.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 187F98DB1B7B876B00E8D6B5 /* libzbar-armv7-armv7s-x86_64-arm64.a */; };
 		187F98E21B7B876B00E8D6B5 /* zbar-back.png in Resources */ = {isa = PBXBuildFile; fileRef = 187F98DD1B7B876B00E8D6B5 /* zbar-back.png */; };
 		187F98E31B7B876B00E8D6B5 /* zbar-help.html in Resources */ = {isa = PBXBuildFile; fileRef = 187F98DE1B7B876B00E8D6B5 /* zbar-help.html */; };
 		187F98E41B7B876B00E8D6B5 /* zbar-helpicons.png in Resources */ = {isa = PBXBuildFile; fileRef = 187F98DF1B7B876B00E8D6B5 /* zbar-helpicons.png */; };
 		187F98E51B7B876B00E8D6B5 /* zbar-samples.png in Resources */ = {isa = PBXBuildFile; fileRef = 187F98E01B7B876B00E8D6B5 /* zbar-samples.png */; };
+		18808F9B1B7DB8FD007F0301 /* MCMysPublicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18808F991B7DB8FD007F0301 /* MCMysPublicCell.m */; };
+		18808F9C1B7DB8FD007F0301 /* MCMysPublicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18808F9A1B7DB8FD007F0301 /* MCMysPublicCell.xib */; };
+		18808FA51B7DC21E007F0301 /* MCMyPublicController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18808FA31B7DC21E007F0301 /* MCMyPublicController.m */; };
+		18808FA61B7DC21E007F0301 /* MCMyPublicController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18808FA41B7DC21E007F0301 /* MCMyPublicController.xib */; };
+		18FD726D1B7DCA8C00E0CDE6 /* MCMyPublicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FD726C1B7DCA8C00E0CDE6 /* MCMyPublicModel.m */; };
+		18FD72711B7DD6B300E0CDE6 /* MCMyPublicBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FD726F1B7DD6B300E0CDE6 /* MCMyPublicBottomView.m */; };
+		18FD72721B7DD6B300E0CDE6 /* MCMyPublicBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18FD72701B7DD6B300E0CDE6 /* MCMyPublicBottomView.xib */; };
+		18FD72761B7DD9FC00E0CDE6 /* MCMyPublishShowMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FD72741B7DD9FC00E0CDE6 /* MCMyPublishShowMessage.m */; };
+		18FD72771B7DD9FC00E0CDE6 /* MCMyPublishShowMessage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18FD72751B7DD9FC00E0CDE6 /* MCMyPublishShowMessage.xib */; };
+		18FD727A1B7DE57100E0CDE6 /* btn_bg5_3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18FD72781B7DE57100E0CDE6 /* btn_bg5_3@2x.png */; };
+		18FD727B1B7DE57100E0CDE6 /* btn_bg5_3@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18FD72791B7DE57100E0CDE6 /* btn_bg5_3@3x.png */; };
+		18FD727F1B7DE7A000E0CDE6 /* MCMyInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FD727D1B7DE7A000E0CDE6 /* MCMyInfoController.m */; };
+		18FD72801B7DE7A000E0CDE6 /* MCMyInfoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18FD727E1B7DE7A000E0CDE6 /* MCMyInfoController.xib */; };
 		672704FA1AB13B1700D6CF68 /* ASMaterialModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 672704F91AB13B1700D6CF68 /* ASMaterialModel.m */; };
 		67316D861ACE896300BC3B61 /* ASOrderRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 67316D851ACE896300BC3B61 /* ASOrderRequestManager.m */; };
 		674A1D641AFD6D8100D17472 /* bukecaozuo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 674A1B771AFD6D8000D17472 /* bukecaozuo@2x.png */; };
@@ -743,9 +770,9 @@
 		1818C0161B7CADC3006476F9 /* MCMyCountHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMyCountHeadView.h; sourceTree = "<group>"; };
 		1818C0171B7CADC3006476F9 /* MCMyCountHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMyCountHeadView.m; sourceTree = "<group>"; };
 		1818C0181B7CADC3006476F9 /* MCMyCountHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCMyCountHeadView.xib; sourceTree = "<group>"; };
-		1818C0221B7CB15C006476F9 /* MCMyCountCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMyCountCell.h; sourceTree = "<group>"; };
-		1818C0231B7CB15C006476F9 /* MCMyCountCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMyCountCell.m; sourceTree = "<group>"; };
-		1818C0241B7CB15C006476F9 /* MCMyCountCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCMyCountCell.xib; sourceTree = "<group>"; };
+		1818C0221B7CB15C006476F9 /* MCMyCountCells.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMyCountCells.h; sourceTree = "<group>"; };
+		1818C0231B7CB15C006476F9 /* MCMyCountCells.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMyCountCells.m; sourceTree = "<group>"; };
+		1818C0241B7CB15C006476F9 /* MCMyCountCells.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCMyCountCells.xib; sourceTree = "<group>"; };
 		1818C0271B7CBC62006476F9 /* MCMycountModle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMycountModle.h; sourceTree = "<group>"; };
 		1818C0281B7CBC62006476F9 /* MCMycountModle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMycountModle.m; sourceTree = "<group>"; };
 		181A6A6C1B7B556100B72FAD /* MCChangeInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCChangeInfoController.h; sourceTree = "<group>"; };
@@ -1497,9 +1524,27 @@
 		181A6FEA1B7B563A00B72FAD /* UIColor+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Helpers.m"; sourceTree = "<group>"; };
 		181A6FEB1B7B563A00B72FAD /* UIImage+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Helpers.h"; sourceTree = "<group>"; };
 		181A6FEC1B7B563A00B72FAD /* UIImage+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Helpers.m"; sourceTree = "<group>"; };
+		1859B5721B7D757300B5B985 /* MCMyCountApplyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMyCountApplyView.h; sourceTree = "<group>"; };
+		1859B5731B7D757300B5B985 /* MCMyCountApplyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMyCountApplyView.m; sourceTree = "<group>"; };
+		1859B5741B7D757300B5B985 /* MCMyCountApplyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCMyCountApplyView.xib; sourceTree = "<group>"; };
+		1859B5771B7D852E00B5B985 /* MCMyCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMyCollectionViewController.h; sourceTree = "<group>"; };
+		1859B5781B7D852E00B5B985 /* MCMyCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMyCollectionViewController.m; sourceTree = "<group>"; };
+		1859B5791B7D852E00B5B985 /* MCMyCollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCMyCollectionViewController.xib; sourceTree = "<group>"; };
 		185D73D11B7B5AD4007A0668 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		185D73D31B7B5ADB007A0668 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		185D73D51B7B5AE3007A0668 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		186116361B7CC6CC003CE5A2 /* MCMyCountBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMyCountBottomView.h; sourceTree = "<group>"; };
+		186116371B7CC6CC003CE5A2 /* MCMyCountBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMyCountBottomView.m; sourceTree = "<group>"; };
+		186116381B7CC6CC003CE5A2 /* MCMyCountBottomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCMyCountBottomView.xib; sourceTree = "<group>"; };
+		1861163B1B7CC815003CE5A2 /* btn_bg1_3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_bg1_3@2x.png"; sourceTree = "<group>"; };
+		1861163C1B7CC815003CE5A2 /* btn_bg1_3@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_bg1_3@3x.png"; sourceTree = "<group>"; };
+		1861163D1B7CC815003CE5A2 /* pop-up_bg7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pop-up_bg7@2x.png"; sourceTree = "<group>"; };
+		1861163E1B7CC815003CE5A2 /* pop-up_bg7@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pop-up_bg7@3x.png"; sourceTree = "<group>"; };
+		186116431B7CCACC003CE5A2 /* MCMyRechargeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMyRechargeController.h; sourceTree = "<group>"; };
+		186116441B7CCACC003CE5A2 /* MCMyRechargeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMyRechargeController.m; sourceTree = "<group>"; };
+		186116451B7CCACC003CE5A2 /* MCMyRechargeController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCMyRechargeController.xib; sourceTree = "<group>"; };
+		186116481B7CCFDA003CE5A2 /* pay_ico1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pay_ico1@2x.png"; sourceTree = "<group>"; };
+		1861164A1B7CCFED003CE5A2 /* pay_ico1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pay_ico1@3x.png"; sourceTree = "<group>"; };
 		187F98C11B7B837A00E8D6B5 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 		187F98C71B7B876B00E8D6B5 /* Decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Decoder.h; sourceTree = "<group>"; };
 		187F98C81B7B876B00E8D6B5 /* Exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exception.h; sourceTree = "<group>"; };
@@ -1526,6 +1571,25 @@
 		187F98DE1B7B876B00E8D6B5 /* zbar-help.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "zbar-help.html"; sourceTree = "<group>"; };
 		187F98DF1B7B876B00E8D6B5 /* zbar-helpicons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zbar-helpicons.png"; sourceTree = "<group>"; };
 		187F98E01B7B876B00E8D6B5 /* zbar-samples.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zbar-samples.png"; sourceTree = "<group>"; };
+		18808F981B7DB8FD007F0301 /* MCMysPublicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMysPublicCell.h; sourceTree = "<group>"; };
+		18808F991B7DB8FD007F0301 /* MCMysPublicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMysPublicCell.m; sourceTree = "<group>"; };
+		18808F9A1B7DB8FD007F0301 /* MCMysPublicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCMysPublicCell.xib; sourceTree = "<group>"; };
+		18808FA21B7DC21E007F0301 /* MCMyPublicController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMyPublicController.h; sourceTree = "<group>"; };
+		18808FA31B7DC21E007F0301 /* MCMyPublicController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMyPublicController.m; sourceTree = "<group>"; };
+		18808FA41B7DC21E007F0301 /* MCMyPublicController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCMyPublicController.xib; sourceTree = "<group>"; };
+		18FD726B1B7DCA8C00E0CDE6 /* MCMyPublicModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMyPublicModel.h; sourceTree = "<group>"; };
+		18FD726C1B7DCA8C00E0CDE6 /* MCMyPublicModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMyPublicModel.m; sourceTree = "<group>"; };
+		18FD726E1B7DD6B300E0CDE6 /* MCMyPublicBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMyPublicBottomView.h; sourceTree = "<group>"; };
+		18FD726F1B7DD6B300E0CDE6 /* MCMyPublicBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMyPublicBottomView.m; sourceTree = "<group>"; };
+		18FD72701B7DD6B300E0CDE6 /* MCMyPublicBottomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCMyPublicBottomView.xib; sourceTree = "<group>"; };
+		18FD72731B7DD9FC00E0CDE6 /* MCMyPublishShowMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMyPublishShowMessage.h; sourceTree = "<group>"; };
+		18FD72741B7DD9FC00E0CDE6 /* MCMyPublishShowMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMyPublishShowMessage.m; sourceTree = "<group>"; };
+		18FD72751B7DD9FC00E0CDE6 /* MCMyPublishShowMessage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCMyPublishShowMessage.xib; sourceTree = "<group>"; };
+		18FD72781B7DE57100E0CDE6 /* btn_bg5_3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_bg5_3@2x.png"; sourceTree = "<group>"; };
+		18FD72791B7DE57100E0CDE6 /* btn_bg5_3@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_bg5_3@3x.png"; sourceTree = "<group>"; };
+		18FD727C1B7DE7A000E0CDE6 /* MCMyInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMyInfoController.h; sourceTree = "<group>"; };
+		18FD727D1B7DE7A000E0CDE6 /* MCMyInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMyInfoController.m; sourceTree = "<group>"; };
+		18FD727E1B7DE7A000E0CDE6 /* MCMyInfoController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCMyInfoController.xib; sourceTree = "<group>"; };
 		28ABAD0F2CEF911F3459330A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		672704F81AB13B1700D6CF68 /* ASMaterialModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASMaterialModel.h; sourceTree = "<group>"; };
 		672704F91AB13B1700D6CF68 /* ASMaterialModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASMaterialModel.m; sourceTree = "<group>"; };
@@ -2044,6 +2108,7 @@
 		181A6AD01B7B556100B72FAD /* MCHomeComponyController */ = {
 			isa = PBXGroup;
 			children = (
+				181A6ADA1B7B556100B72FAD /* MCCompanyView */,
 				181A6AD11B7B556100B72FAD /* MCCompanyConfirmController.h */,
 				181A6AD21B7B556100B72FAD /* MCCompanyConfirmController.m */,
 				181A6AD31B7B556100B72FAD /* MCCompanyConfirmController.xib */,
@@ -2053,7 +2118,6 @@
 				181A6AD71B7B556100B72FAD /* MCCompanyProductController.h */,
 				181A6AD81B7B556100B72FAD /* MCCompanyProductController.m */,
 				181A6AD91B7B556100B72FAD /* MCCompanyProductController.xib */,
-				181A6ADA1B7B556100B72FAD /* MCCompanyView */,
 				181A6AF61B7B556100B72FAD /* MCProductCityChooseController.h */,
 				181A6AF71B7B556100B72FAD /* MCProductCityChooseController.m */,
 				181A6AF81B7B556100B72FAD /* MCProductCityChooseController.xib */,
@@ -2221,6 +2285,18 @@
 				1818C0111B7CAC2A006476F9 /* MCMyCountController.h */,
 				1818C0121B7CAC2A006476F9 /* MCMyCountController.m */,
 				1818C0131B7CAC2A006476F9 /* MCMyCountController.xib */,
+				186116431B7CCACC003CE5A2 /* MCMyRechargeController.h */,
+				186116441B7CCACC003CE5A2 /* MCMyRechargeController.m */,
+				186116451B7CCACC003CE5A2 /* MCMyRechargeController.xib */,
+				1859B5771B7D852E00B5B985 /* MCMyCollectionViewController.h */,
+				1859B5781B7D852E00B5B985 /* MCMyCollectionViewController.m */,
+				1859B5791B7D852E00B5B985 /* MCMyCollectionViewController.xib */,
+				18808FA21B7DC21E007F0301 /* MCMyPublicController.h */,
+				18808FA31B7DC21E007F0301 /* MCMyPublicController.m */,
+				18808FA41B7DC21E007F0301 /* MCMyPublicController.xib */,
+				18FD727C1B7DE7A000E0CDE6 /* MCMyInfoController.h */,
+				18FD727D1B7DE7A000E0CDE6 /* MCMyInfoController.m */,
+				18FD727E1B7DE7A000E0CDE6 /* MCMyInfoController.xib */,
 			);
 			path = MCMyViewController;
 			sourceTree = "<group>";
@@ -2255,9 +2331,24 @@
 				1818C0161B7CADC3006476F9 /* MCMyCountHeadView.h */,
 				1818C0171B7CADC3006476F9 /* MCMyCountHeadView.m */,
 				1818C0181B7CADC3006476F9 /* MCMyCountHeadView.xib */,
-				1818C0221B7CB15C006476F9 /* MCMyCountCell.h */,
-				1818C0231B7CB15C006476F9 /* MCMyCountCell.m */,
-				1818C0241B7CB15C006476F9 /* MCMyCountCell.xib */,
+				1818C0221B7CB15C006476F9 /* MCMyCountCells.h */,
+				1818C0231B7CB15C006476F9 /* MCMyCountCells.m */,
+				1818C0241B7CB15C006476F9 /* MCMyCountCells.xib */,
+				186116361B7CC6CC003CE5A2 /* MCMyCountBottomView.h */,
+				186116371B7CC6CC003CE5A2 /* MCMyCountBottomView.m */,
+				186116381B7CC6CC003CE5A2 /* MCMyCountBottomView.xib */,
+				1859B5721B7D757300B5B985 /* MCMyCountApplyView.h */,
+				1859B5731B7D757300B5B985 /* MCMyCountApplyView.m */,
+				1859B5741B7D757300B5B985 /* MCMyCountApplyView.xib */,
+				18808F981B7DB8FD007F0301 /* MCMysPublicCell.h */,
+				18808F991B7DB8FD007F0301 /* MCMysPublicCell.m */,
+				18808F9A1B7DB8FD007F0301 /* MCMysPublicCell.xib */,
+				18FD726E1B7DD6B300E0CDE6 /* MCMyPublicBottomView.h */,
+				18FD726F1B7DD6B300E0CDE6 /* MCMyPublicBottomView.m */,
+				18FD72701B7DD6B300E0CDE6 /* MCMyPublicBottomView.xib */,
+				18FD72731B7DD9FC00E0CDE6 /* MCMyPublishShowMessage.h */,
+				18FD72741B7DD9FC00E0CDE6 /* MCMyPublishShowMessage.m */,
+				18FD72751B7DD9FC00E0CDE6 /* MCMyPublishShowMessage.xib */,
 			);
 			path = MCMyView;
 			sourceTree = "<group>";
@@ -2438,6 +2529,14 @@
 		181A6CAE1B7B558500B72FAD /* My_Image */ = {
 			isa = PBXGroup;
 			children = (
+				18FD72781B7DE57100E0CDE6 /* btn_bg5_3@2x.png */,
+				18FD72791B7DE57100E0CDE6 /* btn_bg5_3@3x.png */,
+				186116481B7CCFDA003CE5A2 /* pay_ico1@2x.png */,
+				1861164A1B7CCFED003CE5A2 /* pay_ico1@3x.png */,
+				1861163B1B7CC815003CE5A2 /* btn_bg1_3@2x.png */,
+				1861163C1B7CC815003CE5A2 /* btn_bg1_3@3x.png */,
+				1861163D1B7CC815003CE5A2 /* pop-up_bg7@2x.png */,
+				1861163E1B7CC815003CE5A2 /* pop-up_bg7@3x.png */,
 				1818C0081B7C91B4006476F9 /* btn_bg5_2@2x.png */,
 				1818C0091B7C91B4006476F9 /* btn_bg5_2@3x.png */,
 				1818C0001B7C8823006476F9 /* btn_bg5@2x.png */,
@@ -2621,6 +2720,8 @@
 				181A6E081B7B55CD00B72FAD /* MCMyMessageModel.m */,
 				1818C0271B7CBC62006476F9 /* MCMycountModle.h */,
 				1818C0281B7CBC62006476F9 /* MCMycountModle.m */,
+				18FD726B1B7DCA8C00E0CDE6 /* MCMyPublicModel.h */,
+				18FD726C1B7DCA8C00E0CDE6 /* MCMyPublicModel.m */,
 			);
 			path = MCMyModel;
 			sourceTree = "<group>";
@@ -3699,6 +3800,7 @@
 				181A6D771B7B558500B72FAD /* search_btn_bg1@3x.png in Resources */,
 				181A6D7C1B7B558500B72FAD /* btn_bg1_2@2x.png in Resources */,
 				181A6D451B7B558500B72FAD /* radio3_off@3x.png in Resources */,
+				18808F9C1B7DB8FD007F0301 /* MCMysPublicCell.xib in Resources */,
 				181A6D431B7B558500B72FAD /* radio2_on@3x.png in Resources */,
 				181A6BC21B7B556100B72FAD /* ASLoginViewController.xib in Resources */,
 				181A6D321B7B558500B72FAD /* ico_tel@2x.png in Resources */,
@@ -3713,6 +3815,7 @@
 				04F0F83C1AA411DB00F30A6A /* Images.xcassets in Resources */,
 				181A6BEA1B7B556100B72FAD /* MCCompanyServerCell.xib in Resources */,
 				181A6D201B7B558500B72FAD /* btn_add2@2x.png in Resources */,
+				18808FA61B7DC21E007F0301 /* MCMyPublicController.xib in Resources */,
 				1818C00B1B7C91B4006476F9 /* btn_bg5_2@3x.png in Resources */,
 				181A6D2F1B7B558500B72FAD /* ico_map2@3x.png in Resources */,
 				674A1D691AFD6D8100D17472 /* butt_s@3x.png in Resources */,
@@ -3723,6 +3826,7 @@
 				181A6DC61B7B558500B72FAD /* my_collection.png in Resources */,
 				674A1D7C1AFD6D8100D17472 /* wangjimima2@3x.png in Resources */,
 				181A6BF61B7B556100B72FAD /* MCRecruitCell.xib in Resources */,
+				18FD72721B7DD6B300E0CDE6 /* MCMyPublicBottomView.xib in Resources */,
 				181A6BAE1B7B556100B72FAD /* MCIMCreatHeadView.xib in Resources */,
 				674A1DC61AFD6D8100D17472 /* noNetDefault@3x.png in Resources */,
 				181A6BD81B7B556100B72FAD /* MCCompanyConfirmController.xib in Resources */,
@@ -3741,6 +3845,7 @@
 				181A6BBC1B7B556100B72FAD /* MCPrivateTalkCell.xib in Resources */,
 				181A6D6F1B7B558500B72FAD /* base_btn4_off@3x.png in Resources */,
 				181A6C021B7B556100B72FAD /* MCRecruitPublicController.xib in Resources */,
+				186116401B7CC815003CE5A2 /* btn_bg1_3@3x.png in Resources */,
 				181A6BA81B7B556100B72FAD /* MCIMTalkRoomController.xib in Resources */,
 				181A6D2E1B7B558500B72FAD /* ico_map2@2x.png in Resources */,
 				181A706D1B7B563A00B72FAD /* ITTCustomTabBarView.xib in Resources */,
@@ -3770,9 +3875,11 @@
 				181A6D481B7B558500B72FAD /* recharge_btn1@2x.png in Resources */,
 				181A6DCE1B7B558500B72FAD /* result_head.png in Resources */,
 				674A1D711AFD6D8100D17472 /* kuang@2x.png in Resources */,
+				186116421B7CC815003CE5A2 /* pop-up_bg7@3x.png in Resources */,
 				181A70391B7B563A00B72FAD /* area.plist in Resources */,
 				181A6D661B7B558500B72FAD /* base_btn2_off@2x.png in Resources */,
 				181A6D651B7B558500B72FAD /* base_btn1_on@3x.png in Resources */,
+				1859B5761B7D757300B5B985 /* MCMyCountApplyView.xib in Resources */,
 				187F98E41B7B876B00E8D6B5 /* zbar-helpicons.png in Resources */,
 				181A6D301B7B558500B72FAD /* ico_map@2x.png in Resources */,
 				181A70571B7B563A00B72FAD /* nav_bg.png in Resources */,
@@ -3780,11 +3887,12 @@
 				181A6BE41B7B556100B72FAD /* MCCompanyCommentCell.xib in Resources */,
 				181A6DD11B7B558500B72FAD /* talk_dianzan.png in Resources */,
 				181A6DA91B7B558500B72FAD /* ico_share@3x.png in Resources */,
-				1818C0261B7CB15C006476F9 /* MCMyCountCell.xib in Resources */,
+				1818C0261B7CB15C006476F9 /* MCMyCountCells.xib in Resources */,
 				1818C0061B7C8823006476F9 /* top_btn_plus@2x.png in Resources */,
 				181A6BDC1B7B556100B72FAD /* MCCompanyProductController.xib in Resources */,
 				BCC4FFC61AFF7D1B00683C1F /* Launch Screen.xib in Resources */,
 				181A6BC41B7B556100B72FAD /* ASRegisterDetailViewController.xib in Resources */,
+				18FD727A1B7DE57100E0CDE6 /* btn_bg5_3@2x.png in Resources */,
 				181A70681B7B563A00B72FAD /* guanbi@3x.png in Resources */,
 				674A1DBF1AFD6D8100D17472 /* materFail(660)@2x.png in Resources */,
 				1818C0151B7CAC2A006476F9 /* MCMyCountController.xib in Resources */,
@@ -3793,6 +3901,7 @@
 				181A6D5C1B7B558500B72FAD /* radio1_on@2x.png in Resources */,
 				181A6DAB1B7B558500B72FAD /* ico_zan2@3x.png in Resources */,
 				181A6C151B7B556100B72FAD /* MCRegisViewController.xib in Resources */,
+				18FD72801B7DE7A000E0CDE6 /* MCMyInfoController.xib in Resources */,
 				181A703B1B7B563A00B72FAD /* ASCityCell.xib in Resources */,
 				181A6D871B7B558500B72FAD /* set_ico3@2x.png in Resources */,
 				181A6D851B7B558500B72FAD /* set_ico2@2x.png in Resources */,
@@ -3804,9 +3913,11 @@
 				674A1DB31AFD6D8100D17472 /* main_bc_fail@2x.png in Resources */,
 				181A6D6C1B7B558500B72FAD /* base_btn3_on@2x.png in Resources */,
 				181A6D951B7B558500B72FAD /* btn_bg3_2@3x.png in Resources */,
+				186116411B7CC815003CE5A2 /* pop-up_bg7@2x.png in Resources */,
 				674A1DB21AFD6D8100D17472 /* huazhuang_bg_@3x.png in Resources */,
 				181A6DA11B7B558500B72FAD /* back_icon_@3x.png in Resources */,
 				181A6D731B7B558500B72FAD /* ico_arrow_down2@3x.png in Resources */,
+				1859B57B1B7D852E00B5B985 /* MCMyCollectionViewController.xib in Resources */,
 				181A6D4B1B7B558500B72FAD /* shops_base_btn1@3x.png in Resources */,
 				1818C01A1B7CADC3006476F9 /* MCMyCountHeadView.xib in Resources */,
 				181A6DD31B7B558500B72FAD /* talk_share.png in Resources */,
@@ -3842,6 +3953,7 @@
 				181A6DAA1B7B558500B72FAD /* ico_zan2@2x.png in Resources */,
 				181A6C291B7B556100B72FAD /* MCMyGoldHeadView.xib in Resources */,
 				181A6DCF1B7B558500B72FAD /* result_local.png in Resources */,
+				1861164B1B7CCFED003CE5A2 /* pay_ico1@3x.png in Resources */,
 				181A6BDA1B7B556100B72FAD /* MCCompanyDetailController.xib in Resources */,
 				181A6C3D1B7B556100B72FAD /* MCTalkReportController.xib in Resources */,
 				674A1DC01AFD6D8100D17472 /* materFail(660)@3x.png in Resources */,
@@ -3851,6 +3963,7 @@
 				181A6D5F1B7B558500B72FAD /* shortcut_qq@3x.png in Resources */,
 				674A1DBA1AFD6D8100D17472 /* materDefault(1000)@3x.png in Resources */,
 				181A6BBA1B7B556100B72FAD /* MCIMSelectUserCell.xib in Resources */,
+				1861163F1B7CC815003CE5A2 /* btn_bg1_3@2x.png in Resources */,
 				181A6DC11B7B558500B72FAD /* home_xiajiantou.png in Resources */,
 				181A706A1B7B563A00B72FAD /* sosuokuang@2x.png in Resources */,
 				181A6C061B7B556100B72FAD /* MCCustomHeadView.xib in Resources */,
@@ -3873,8 +3986,10 @@
 				1818C0051B7C8823006476F9 /* btn_bg5@3x.png in Resources */,
 				181A6D3F1B7B558500B72FAD /* pro_base_btn3@3x.png in Resources */,
 				181A6C471B7B556100B72FAD /* MCTalkMainCell.xib in Resources */,
+				18FD727B1B7DE57100E0CDE6 /* btn_bg5_3@3x.png in Resources */,
 				181A6C491B7B556100B72FAD /* MCTalkViewController.xib in Resources */,
 				674A1D6E1AFD6D8100D17472 /* denglu2@3x.png in Resources */,
+				186116491B7CCFDA003CE5A2 /* pay_ico1@2x.png in Resources */,
 				181A6C001B7B556100B72FAD /* MCRecruitPersonController.xib in Resources */,
 				181A6D461B7B558500B72FAD /* radio3_on@2x.png in Resources */,
 				674A1D7D1AFD6D8100D17472 /* xiugaixinxi@2x.png in Resources */,
@@ -3888,6 +4003,7 @@
 				181A6D291B7B558500B72FAD /* ico_area_bg1@3x.png in Resources */,
 				181A6DC01B7B558500B72FAD /* home_shoot.png in Resources */,
 				674A1D761AFD6D8100D17472 /* pic_kuang@3x.png in Resources */,
+				18FD72771B7DD9FC00E0CDE6 /* MCMyPublishShowMessage.xib in Resources */,
 				674A1D751AFD6D8100D17472 /* pic_kuang@2x.png in Resources */,
 				181A6D2D1B7B558500B72FAD /* ico_arrow_up@3x.png in Resources */,
 				1818BFF01B7C41F2006476F9 /* MCMyRecordController.xib in Resources */,
@@ -3913,6 +4029,7 @@
 				181A6D491B7B558500B72FAD /* recharge_btn1@3x.png in Resources */,
 				181A6D931B7B558500B72FAD /* btn_bg3_1@3x.png in Resources */,
 				674A1D671AFD6D8100D17472 /* butt@3x.png in Resources */,
+				186116471B7CCACC003CE5A2 /* MCMyRechargeController.xib in Resources */,
 				181A6DC71B7B558500B72FAD /* my_connection.png in Resources */,
 				181A6C241B7B556100B72FAD /* MCMySettingController.xib in Resources */,
 				181A6C0A1B7B556100B72FAD /* MCHomeViewCell.xib in Resources */,
@@ -3928,6 +4045,7 @@
 				181A6D9E1B7B558500B72FAD /* sex_male@2x.png in Resources */,
 				181A70521B7B563A00B72FAD /* CaptureViewController.xib in Resources */,
 				181A6D641B7B558500B72FAD /* base_btn1_on@2x.png in Resources */,
+				1861163A1B7CC6CC003CE5A2 /* MCMyCountBottomView.xib in Resources */,
 				181A6BC81B7B556100B72FAD /* ASResetPassViewController.xib in Resources */,
 				181A6DD51B7B558500B72FAD /* user_head.png in Resources */,
 				181A6DA61B7B558500B72FAD /* ico_pic1@2x.png in Resources */,
@@ -4025,7 +4143,9 @@
 				04D502091AB3DD3A000AB5A5 /* ASMainBCCCModel.m in Sources */,
 				181A703A1B7B563A00B72FAD /* ASCityCell.m in Sources */,
 				181A6BA51B7B556100B72FAD /* MCImPersonInfoController.m in Sources */,
+				18FD727F1B7DE7A000E0CDE6 /* MCMyInfoController.m in Sources */,
 				181A6C131B7B556100B72FAD /* MCProtocolController.m in Sources */,
+				1859B5751B7D757300B5B985 /* MCMyCountApplyView.m in Sources */,
 				181A70931B7B563A00B72FAD /* CJSONDeserializer.m in Sources */,
 				181A70A01B7B563A00B72FAD /* View+MASAdditions.m in Sources */,
 				181A6C3A1B7B556100B72FAD /* MCTalkPublishController.m in Sources */,
@@ -4044,6 +4164,7 @@
 				181A70951B7B563A00B72FAD /* CJSONSerializer.m in Sources */,
 				041AF2D91AB011B90055CFC4 /* ASMainRequestManager.m in Sources */,
 				181A709E1B7B563A00B72FAD /* NSArray+MASAdditions.m in Sources */,
+				186116391B7CC6CC003CE5A2 /* MCMyCountBottomView.m in Sources */,
 				181A70B11B7B563A00B72FAD /* NSString+MKNetworkKitAdditions.m in Sources */,
 				181A6BAD1B7B556100B72FAD /* MCIMCreatHeadView.m in Sources */,
 				1818C0141B7CAC2A006476F9 /* MCMyCountController.m in Sources */,
@@ -4051,6 +4172,7 @@
 				181A6E1D1B7B55CD00B72FAD /* MCRecruitModel.m in Sources */,
 				181A706C1B7B563A00B72FAD /* ITTCustomTabBarView.m in Sources */,
 				181A706F1B7B563A00B72FAD /* ITTCacheDao.m in Sources */,
+				18FD72711B7DD6B300E0CDE6 /* MCMyPublicBottomView.m in Sources */,
 				181A6BB71B7B556100B72FAD /* MCImPersonTableViewCell.m in Sources */,
 				181A70881B7B563A00B72FAD /* DKFilterModel.m in Sources */,
 				181A6BE51B7B556100B72FAD /* MCCompanyCommentView.m in Sources */,
@@ -4099,6 +4221,7 @@
 				181A6BE31B7B556100B72FAD /* MCCompanyCommentCell.m in Sources */,
 				181A70811B7B563A00B72FAD /* UIImageView+ITTAddtions.m in Sources */,
 				181A70CF1B7B563A00B72FAD /* NSString+MD5Addition.m in Sources */,
+				186116461B7CCACC003CE5A2 /* MCMyRechargeController.m in Sources */,
 				181A704D1B7B563A00B72FAD /* QFriendPicView.m in Sources */,
 				181A707F1B7B563A00B72FAD /* UIDevice+ITTAdditions.m in Sources */,
 				181A6BA71B7B556100B72FAD /* MCIMTalkRoomController.m in Sources */,
@@ -4123,6 +4246,7 @@
 				181A6C231B7B556100B72FAD /* MCMySettingController.m in Sources */,
 				181A6BD91B7B556100B72FAD /* MCCompanyDetailController.m in Sources */,
 				181A70831B7B563A00B72FAD /* UITextField+ITTAdditions.m in Sources */,
+				18FD72761B7DD9FC00E0CDE6 /* MCMyPublishShowMessage.m in Sources */,
 				181A70501B7B563A00B72FAD /* AGSimpleImageEditorView.m in Sources */,
 				181A70581B7B563A00B72FAD /* PoppingBaseView.m in Sources */,
 				04F0F8341AA411DB00F30A6A /* AppDelegate.m in Sources */,
@@ -4151,12 +4275,13 @@
 				181A70BF1B7B563A00B72FAD /* SDWebImageDownloader.m in Sources */,
 				181A6C301B7B556100B72FAD /* MCMyTableCell.m in Sources */,
 				181A707D1B7B563A00B72FAD /* NSTimer+Addition.m in Sources */,
+				1859B57A1B7D852E00B5B985 /* MCMyCollectionViewController.m in Sources */,
 				181A6BFB1B7B556100B72FAD /* MCRecruitMainCell1.m in Sources */,
 				67316D861ACE896300BC3B61 /* ASOrderRequestManager.m in Sources */,
 				181A6BEF1B7B556100B72FAD /* MCProductCityChooseController.m in Sources */,
 				181A70531B7B563A00B72FAD /* CropImageViewController.m in Sources */,
 				181A70871B7B563A00B72FAD /* DKFilterCell.m in Sources */,
-				1818C0251B7CB15C006476F9 /* MCMyCountCell.m in Sources */,
+				1818C0251B7CB15C006476F9 /* MCMyCountCells.m in Sources */,
 				181A70711B7B563A00B72FAD /* ITTDataEnvironment.m in Sources */,
 				1818BFF91B7C790E006476F9 /* MCMyFriendHeadView.m in Sources */,
 				181A70B21B7B563A00B72FAD /* UIAlertView+MKNetworkKitAdditions.m in Sources */,
@@ -4220,6 +4345,7 @@
 				181A70761B7B563A00B72FAD /* ZHPickView.m in Sources */,
 				181A703C1B7B563A00B72FAD /* ASCityModel.m in Sources */,
 				181A70B71B7B563A00B72FAD /* Reachability.m in Sources */,
+				18808FA51B7DC21E007F0301 /* MCMyPublicController.m in Sources */,
 				181A70A71B7B563A00B72FAD /* MJRefreshGifHeader.m in Sources */,
 				1818BFEA1B7C3015006476F9 /* rscode.c in Sources */,
 				181A6C381B7B556100B72FAD /* MCTalkListViewController.m in Sources */,
@@ -4288,7 +4414,9 @@
 				181A70791B7B563A00B72FAD /* NSDate+ITTAdditions.m in Sources */,
 				181A70821B7B563A00B72FAD /* UILabel+ITTAdditions.m in Sources */,
 				6754A8521AB4133C00A3866A /* ASMaterialThirdModel.m in Sources */,
+				18FD726D1B7DCA8C00E0CDE6 /* MCMyPublicModel.m in Sources */,
 				181A70CC1B7B563A00B72FAD /* mbase64.c in Sources */,
+				18808F9B1B7DB8FD007F0301 /* MCMysPublicCell.m in Sources */,
 				181A70351B7B563A00B72FAD /* BaseViewController.m in Sources */,
 				181A70C81B7B563A00B72FAD /* UIImageView+WebCache.m in Sources */,
 				181A70AA1B7B563A00B72FAD /* MJRefreshLegendHeader.m in Sources */,

@@ -227,6 +227,7 @@
         {
             //  发布
             MCShopPublicController *publish = [[MCShopPublicController alloc]initWithNibName:@"MCShopPublicController" bundle:nil];
+            publish.isEdting = NO;
             [self.navigationController pushViewController:publish animated:YES];
         }
             break;
