@@ -13,7 +13,14 @@
                 <outlet property="btnSix" destination="9kq-Ti-BNC" id="PHN-4U-yRL"/>
                 <outlet property="btnThree" destination="GzD-vH-VTn" id="zcz-kP-B6i"/>
                 <outlet property="btnTwo" destination="Kub-qv-Oxr" id="k2i-1X-l0c"/>
+                <outlet property="lab1" destination="Wbw-kO-d1P" id="bDO-Rd-Sbf"/>
+                <outlet property="lab2" destination="gFK-t1-2Ud" id="E2R-yR-1Np"/>
+                <outlet property="lab3" destination="tYf-f7-3Bn" id="u8M-OM-fTN"/>
+                <outlet property="lab4" destination="FNS-uE-ap4" id="tpb-8O-e50"/>
+                <outlet property="lab5" destination="acD-a4-Bph" id="yQG-Ii-rLo"/>
+                <outlet property="lab6" destination="WU4-ol-ytu" id="e4R-WC-qQP"/>
                 <outlet property="placeholder" destination="2uL-C4-MhC" id="DDG-cn-Rkt"/>
+                <outlet property="reportText" destination="eah-0z-j8G" id="CAC-Yq-6v2"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -67,7 +74,7 @@
                                 <action selector="btnClick:" destination="-1" eventType="touchUpInside" id="gIQ-2X-uqw"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="垃圾广告" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gFK-t1-2Ud">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="色情暴力" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gFK-t1-2Ud">
                             <rect key="frame" x="216" y="10" width="64" height="20"/>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>

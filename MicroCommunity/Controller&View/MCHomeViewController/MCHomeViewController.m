@@ -22,7 +22,7 @@
 
 @interface MCHomeViewController ()<UITableViewDataSource,UITableViewDelegate,EScrollerViewDelegate,MCHomeViewCellDelegate,MCHomeSearchViewDelegate,HZAreaPickerDelegate>
 {
-    NSArray *provinces;
+    NSString *cityId;
 }
 
 @property (nonatomic, strong) MCHomeSearchView *search;
@@ -163,6 +163,8 @@
     _circleScrollV=[[EScrollerView alloc] initWithFrameRect:CGRectMake(0, 0, SCREEN_WIDTH, headViewHeight)];
     _homeTableView.tableHeaderView = _circleScrollV;
     _circleScrollV.delegate = self;
+    
+    self.locatePicker = [[HZAreaPickerView alloc] initWithStyle:HZAreaPickerWithStateAndCityAndDistrict delegate:self] ;
 }
 
 
@@ -176,7 +178,14 @@
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    return 110;
+    
+    float height = 110;
+    if (iPhone6) {
+        height = 128;
+    }else if (iPhone6Plus){
+        height = 140;
+    }
+    return height;
     
 }
 
@@ -257,55 +266,32 @@
  */
 - (void)chooseCityBtnClick {
 
-    self.locatePicker = [[HZAreaPickerView alloc] initWithStyle:HZAreaPickerWithStateAndCityAndDistrict delegate:self] ;
     [self.locatePicker showInView:self.view];
-
-//        self.locatePicker = [[HZAreaPickerView alloc] initWithStyle:HZAreaPickerWithStateAndCity delegate:self] ;
-//        [self.locatePicker showInView:self.view];
-    
-//    NSDictionary *data = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"citys.plist" ofType:nil]];
-//    
-//    provinces = [[[data objectForKey:@"data"]objectAtIndex:0]objectForKey:@"_child"];
-//    
-//    
-//    NSMutableArray *dataArray = [NSMutableArray array];
-//    
-//    for (int i = 0; i < provinces.count; i ++) {
-//        
-//        MCHomeCityModel *cityModel = [[MCHomeCityModel alloc]initWithDataDic:[provinces objectAtIndex:i]];
-//        
-//        NSMutableArray *cityArray = [NSMutableArray array];
-//        for (int j = 0 ; j < cityModel._child.count; j ++) {
-//            MCHomeCityModel *city = [[MCHomeCityModel alloc]initWithDataDic:[cityModel._child objectAtIndex:j]];
-//            NSMutableArray *areaArray = [NSMutableArray array];
-//            
-//            for (int m = 0; m < city._child.count; m ++) {
-//                MCHomeCityModel *area = [[MCHomeCityModel alloc]initWithDataDic:[city._child objectAtIndex:m]];
-//                [areaArray addObject:area];
-//            }
-//
-//            city._child = areaArray;
-//            
-//            [cityArray addObject:city];
-//        }
-//        
-//        cityModel._child = cityArray;
-//        
-//        [dataArray addObject:cityModel];
-//    }
-
 }
 
 #pragma mark - HZAreaPicker delegate
 -(void)pickerDidChaneStatus:(HZAreaPickerView *)picker
 {
-    NSString * test= @"";
+    
+    NSString * test = @"";
+    NSString * ids = @"";
     if (picker.pickerStyle == HZAreaPickerWithStateAndCityAndDistrict) {
-         test = [NSString stringWithFormat:@"%@ %@ %@", picker.locate.state, picker.locate.city, picker.locate.district];
+        
+        if (picker.locate.district.length > 0) {
+            [_search setCityWithString:picker.locate.district] ;
+            cityId = picker.locate.districtId;
+        }else {
+            [_search setCityWithString:picker.locate.city];
+            cityId = picker.locate.cityId;
+        }
+        test = [NSString stringWithFormat:@"%@ %@ %@", picker.locate.state, picker.locate.city, picker.locate.district];
+        
+        ids = [NSString stringWithFormat:@"%@ %@ %@", picker.locate.stateId, picker.locate.cityId, picker.locate.districtId];
+        
     } else{
-         test = [NSString stringWithFormat:@"%@ %@", picker.locate.state, picker.locate.city];
+        test = [NSString stringWithFormat:@"%@ %@", picker.locate.state, picker.locate.city];
+        ids = [NSString stringWithFormat:@"%@ %@", picker.locate.stateId, picker.locate.cityId];
     }
-    NSLog(@"%@",test);
 }
 
 -(void)cancelLocatePicker
@@ -331,7 +317,6 @@
     result.type = otherSearch;
     result.keyWorld = searchText;
     [self.navigationController pushViewController:result animated:YES];
-
 }
 
 

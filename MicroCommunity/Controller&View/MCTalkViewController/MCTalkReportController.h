@@ -8,8 +8,10 @@
 
 #import "BaseViewController.h"
 
+#import "MCTalkListModel.h"
+
 @interface MCTalkReportController : BaseViewController
 
-@property (nonatomic, strong) NSString *reportId;
+@property (nonatomic, strong) MCTalkListModel *reportModel;
 
 @end

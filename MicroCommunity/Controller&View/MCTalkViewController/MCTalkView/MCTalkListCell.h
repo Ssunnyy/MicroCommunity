@@ -42,4 +42,8 @@
 
 - (void) setCellWithTalkListModel:(MCTalkListModel *) model AtIndex:(NSInteger) index;
 
+//  跟新点评论数
+- (void) updateCommentCount:(NSString *) count;
+//  跟新点赞数
+- (void) updatePraiseCount:(NSString *) count;
 @end

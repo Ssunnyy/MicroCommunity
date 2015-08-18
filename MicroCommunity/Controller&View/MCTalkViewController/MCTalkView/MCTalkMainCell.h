@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MCTalkMainModel.h"
 
 @interface MCTalkMainCell : UITableViewCell
+
+- (void) configCellWithMCTalkMainModel:(MCTalkMainModel *) modle;
 
 @end

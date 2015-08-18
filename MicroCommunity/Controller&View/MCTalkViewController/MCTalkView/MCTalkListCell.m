@@ -35,11 +35,13 @@
 
 - (void) setCellWithTalkListModel:(MCTalkListModel *) model AtIndex:(NSInteger) index {
 
-//    _nickName.text = model.nickName;
-//    _dateLab.text = model.date;
+    
+    [_headImage sd_setImageWithURL:[NSURL URLWithString:model.head_image] placeholderImage:ImageNamed(@"")];
+    _nickName.text = model.talk_nickname;
+    _dateLab.text = [NSDate timeStringWithInterval:[model.talk_time doubleValue]];
     _contentLab.text = model.content;
-//    _commentCount.text = model.commentCount;
-//    _praiseCount.text = model.praiseCount;
+    _commentCount.text = model.comment_number;
+    _praiseCount.text = model.praise_number;
     
     
     CGSize introHeight = [model.content calculateSize:CGSizeMake(self.contentLab.frame.size.width, FLT_MAX) font:self.contentLab.font];
@@ -54,6 +56,9 @@
     int rowNum = ceilf(model.images.count/3.0);
     self.pickViewHeight.constant = rowNum * PictureWidth + rowNum * 8 ;
     
+    [_pickView removeAllSubviews];
+    _picV = nil;
+    
     _picV = [[QFriendPicView alloc] initWithFrame:CGRectMake(68, 1, 213, self.pickViewHeight.constant - 1)];
     [_picV setPicView:model.images];
     
@@ -66,6 +71,17 @@
     self.shareBtn.tag =  6000 + index * 3;
     self.commentBtn.tag = 6001 + index * 3;
     self.pariseBtn.tag = 6002 + index * 3;
+}
+
+- (void)updateCommentCount:(NSString *)count {
+
+    _commentCount.text = count;
+    
+}
+//  跟新点赞数
+- (void) updatePraiseCount:(NSString *) count {
+
+    _praiseCount.text = count;
 }
 
 

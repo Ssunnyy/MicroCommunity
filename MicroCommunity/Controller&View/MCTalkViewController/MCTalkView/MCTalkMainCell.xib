@@ -15,7 +15,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="result_head.png" translatesAutoresizingMaskIntoConstraints="NO" id="dxX-Uz-cJl">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dxX-Uz-cJl">
                         <rect key="frame" x="10" y="3" width="70" height="73"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="70" id="71N-Nb-y5b"/>
@@ -100,12 +100,10 @@
                 <outlet property="contenLab" destination="B0M-dN-L94" id="Osb-7w-hG7"/>
                 <outlet property="headImage" destination="dxX-Uz-cJl" id="6hq-0q-9XO"/>
                 <outlet property="peopleAndUpdate" destination="x1F-iA-sij" id="NAm-ra-jJu"/>
+                <outlet property="timeLab" destination="4y3-pl-T6Q" id="Dks-g3-11D"/>
                 <outlet property="titleLab" destination="X3b-na-Q3y" id="9Gi-Z7-1IM"/>
             </connections>
             <point key="canvasLocation" x="326" y="281"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="result_head.png" width="63" height="63"/>
-    </resources>
 </document>

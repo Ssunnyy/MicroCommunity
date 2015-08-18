@@ -7,8 +7,8 @@
 //
 
 #import "MCTalkListViewController.h"
+#import "MCTalkListHeaderView.h"
 
-#import "MCTalkListHeadView.h"
 #import "MCTalkListCell.h"
 #import "MCTalkListModel.h"
 #import "QShowImgViewController.h"
@@ -19,10 +19,17 @@
 #import "ASCCPersonEditViewController.h"
 
 
-@interface MCTalkListViewController ()<UITableViewDataSource,UITableViewDelegate,MCTalkListHeadViewDelegate,MCTalkListCellDelegate,qChoosePicDelegate>
+@interface MCTalkListViewController ()<UITableViewDataSource,UITableViewDelegate,MCTalkListHeaderViewDelegate,MCTalkListCellDelegate,qChoosePicDelegate,ITTTableViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UITableView *talkTableView;
-@property (nonatomic, strong) MCTalkListHeadView *headView;
+{
+    BOOL isFirst;// 是不是首次进入
+    NSInteger pagIndex;//   分页
+    BOOL pageType;//    最新最热
+    NSInteger clickIndex;// 点击那行
+}
+
+@property (weak, nonatomic) IBOutlet ITTTableView *talkTableView;
+@property (nonatomic, strong) MCTalkListHeaderView *headView;
 @property (nonatomic, strong) MCTalkListCell *prototypeCell;
 @property (nonatomic, strong) QShowImgViewController *scrollV;
 
@@ -36,6 +43,136 @@
 
     [super viewWillAppear:YES];
     [AppDelegate HideTabBar];
+
+    if (isFirst) {
+        pagIndex = 1;
+        [self requestWithType:pageType andPageIndex:pagIndex];
+        isFirst = NO;
+    }else {
+        [self reloadDataAtIndex:clickIndex];
+    }
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+
+    [super viewWillDisappear:YES];
+    [[MCTalkManager shareManager]cancelAllRequest];
+    
+}
+
+// 0 最新 1 最热
+- (void) requestWithType:(NSInteger) type andPageIndex:(NSInteger) pageIndex{
+    
+    MCUserModel *user = (MCUserModel *)[[MCUserManager shareManager]getCurrentUser];
+    
+    __weak MCTalkListViewController *weak = self;
+    
+    if (user) {
+        NSMutableDictionary *param = [NSMutableDictionary dictionary];
+        [param safeString:user.user_id ForKey:@"user_id"];
+        if (self.headModel) {
+            
+            [param safeString:self.headModel.bars_id ForKey:@"bar_id"];
+            [param safeString:[NSString stringWithFormat:@"%ld",pageIndex] ForKey:@"pageindex"];
+            
+            if (type == 0) {
+                [[MCTalkManager shareManager]requestTalk_New_ListWithParam:param withIndicatorView:self.view withCancelRequestID:Talk_Request_new_list withHttpMethod:kHTTPMethodPost onRequestFinish:^(MKNetworkOperation *operation) {
+                    if (operation.isSuccees) {
+                        if (pagIndex == 1) {
+                            [weak.dataArray removeAllObjects];
+                        }
+                        NSArray *dataArray = [operation.resultDic objectForKey:@"data"];
+                        
+                        for (int i = 0; i < dataArray.count; i++ ) {
+                            MCTalkListModel *model = [[MCTalkListModel alloc]initWithDataDic:[dataArray objectAtIndex:i]];
+                            model.head_image = [NSString stringWithFormat:@"%@%@",Main_URL,model.head_image];
+                            if (model.talk_image != nil) {
+                                if (model.talk_image.length > 0) {
+                                    model.images = [NSMutableArray array];
+                                    NSArray *images = [model.talk_image componentsSeparatedByString:@","];
+                                    for (int i = 0; i < images.count; i ++) {
+                                        ;
+                                        [model.images addObject:[NSString stringWithFormat:@"%@%@",Main_URL,[images objectAtIndex:i]]];
+                                    }
+                                }
+                            }
+                            [weak.dataArray addObject:model];
+                        }
+                        pagIndex ++;
+                        [weak.talkTableView reloadData];
+                    }
+                    
+                    [weak.talkTableView  endNetTable];
+                } onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
+                    [weak.talkTableView  endNetTable];
+                    [ITTPromptView showMessage:@"数据请求失败"];
+                }];
+            } else {
+                
+                [[MCTalkManager shareManager]requestTalk_Hot_ListWithParam:param withIndicatorView:self.view withCancelRequestID:Talk_Request_hot_list withHttpMethod:kHTTPMethodPost onRequestFinish:^(MKNetworkOperation *operation) {
+                    if (operation.isSuccees) {
+                        if (pagIndex == 1) {
+                            [weak.dataArray removeAllObjects];
+                        }
+                        pagIndex ++;
+                        NSArray *dataArray = [operation.resultDic objectForKey:@"data"];
+                        
+                        for (int i = 0; i < dataArray.count; i++ ) {
+                            MCTalkListModel *model = [[MCTalkListModel alloc]initWithDataDic:[dataArray objectAtIndex:i]];
+                            model.head_image = [NSString stringWithFormat:@"%@%@",Main_URL,model.head_image];
+                            if (model.talk_image != nil) {
+                                if (model.talk_image.length > 0) {
+                                    model.images = [NSMutableArray array];
+                                    NSArray *images = [model.talk_image componentsSeparatedByString:@","];
+                                    for (int i = 0; i < images.count; i ++) {
+                                        ;
+                                        [model.images addObject:[NSString stringWithFormat:@"%@%@",Main_URL,[images objectAtIndex:i]]];
+                                    }
+                                }
+                            }
+                            [weak.dataArray addObject:model];
+                        }
+                        
+                        [weak.talkTableView reloadData];
+                    }
+                    [weak.talkTableView  endNetTable];
+                } onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
+                    [weak.talkTableView  endNetTable];
+                    [ITTPromptView showMessage:@"数据请求失败"];
+                }];
+                
+            }
+        }
+    }
+}
+
+#pragma  mark  --  点赞
+
+- (void) requestForPariseAtIndex:(NSInteger) index{
+
+    __weak MCTalkListViewController *weak = self;
+    MCUserModel *user = (MCUserModel *)[[MCUserManager shareManager]getCurrentUser];
+    
+    MCTalkListModel *model = [_dataArray objectAtIndex:index];
+    
+    if (user) {
+        NSMutableDictionary *param = [NSMutableDictionary dictionary];
+        [param safeString:user.user_id ForKey:@"user_id"];
+        [param safeString:model.talk_id ForKey:@"talk_id"];
+        
+        [[MCTalkManager shareManager]requestTalk_PraiseWithParam:param withIndicatorView:self.view withCancelRequestID:Talk_Request_praise withHttpMethod:kHTTPMethodPost onRequestFinish:^(MKNetworkOperation *operation) {
+            if (operation.isSuccees) {
+                MCTalkListModel *model = [weak.dataArray objectAtIndex:clickIndex];
+                model.praise_number = [NSString stringWithFormat:@"%ld",[model.praise_number integerValue] + 1];
+                [weak reloadDataAtIndex:clickIndex];
+                [ITTPromptView showMessage:@"点赞成功"];
+            }else {
+                [ITTPromptView showMessage:@"已点赞"];
+            }
+        } onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
+                [ITTPromptView showMessage:@"点赞成失败"];
+        }];
+    }
 }
 
 - (void)viewDidLoad {
@@ -59,19 +196,23 @@
  */
 - (void) setUpData {
 
+    isFirst = YES;
+    pageType = 0;
+    pagIndex = 1;
+    
     _dataArray = [[NSMutableArray alloc]init];
     
-    MCTalkListModel *model = [[MCTalkListModel alloc]init];
-    model.content = @"睡觉啊烦阿姐发疯afjasfja;jfaafajf;ajflajd;lfja;ldjf;lamdflamdljfaljdfajjadjf;lakjd;lfjajfl;aj;lf睡觉啊烦阿姐发疯afjasfja;jfaafajf;ajflajd;lfja;ldjf;lamdflamdljfaljdfajjadjf;lakjd;lfjajfl;aj;lf睡觉啊烦阿姐发疯afjasfja;jfaafajf;ajflajd;lfja;ldjf;lamdflamdljfaljdfajjadjf;lakjd;lfjajfl;aj;lf睡觉啊烦阿姐发疯afjasfja;jfaafajf;ajflajd;lfja;ldjf;lamdflamdljfaljdfajjadjf;lakjd;lfjajfl;aj;lf睡觉啊烦阿姐发疯afjasfja;jfaafajf;ajflajd;lfja;ldjf;lamdflamdljfaljdfajjadjf;lakjd;lfjajfl;aj;lf";
-    model.images = [NSMutableArray array];
-    [model.images addObject:@"http://123.57.248.101/sendwhere/Public/images/26P58PICeEA.jpg"];
-    [model.images addObject:@"http://123.57.248.101/sendwhere/Public/images/26P58PICeEA.jpg"];
-    [model.images addObject:@"http://123.57.248.101/sendwhere/Public/images/26P58PICeEA.jpg"];
-    [model.images addObject:@"http://123.57.248.101/sendwhere/Public/images/26P58PICeEA.jpg"];
-    [model.images addObject:@"http://123.57.248.101/sendwhere/Public/images/26P58PICeEA.jpg"];
-    [model.images addObject:@"http://123.57.248.101/sendwhere/Public/images/26P58PICeEA.jpg"];
-    [model.images addObject:@"http://123.57.248.101/sendwhere/Public/images/26P58PICeEA.jpg"];
-    [_dataArray addObject:model];
+//    MCTalkListModel *model = [[MCTalkListModel alloc]init];
+//    model.content = @"睡觉啊烦阿姐发疯afjasfja;jfaafajf;ajflajd;lfja;ldjf;lamdflamdljfaljdfajjadjf;lakjd;lfjajfl;aj;lf睡觉啊烦阿姐发疯afjasfja;jfaafajf;ajflajd;lfja;ldjf;lamdflamdljfaljdfajjadjf;lakjd;lfjajfl;aj;lf睡觉啊烦阿姐发疯afjasfja;jfaafajf;ajflajd;lfja;ldjf;lamdflamdljfaljdfajjadjf;lakjd;lfjajfl;aj;lf睡觉啊烦阿姐发疯afjasfja;jfaafajf;ajflajd;lfja;ldjf;lamdflamdljfaljdfajjadjf;lakjd;lfjajfl;aj;lf睡觉啊烦阿姐发疯afjasfja;jfaafajf;ajflajd;lfja;ldjf;lamdflamdljfaljdfajjadjf;lakjd;lfjajfl;aj;lf";
+//    model.images = [NSMutableArray array];
+//    [model.images addObject:@"http://123.57.248.101/sendwhere/Public/images/26P58PICeEA.jpg"];
+//    [model.images addObject:@"http://123.57.248.101/sendwhere/Public/images/26P58PICeEA.jpg"];
+//    [model.images addObject:@"http://123.57.248.101/sendwhere/Public/images/26P58PICeEA.jpg"];
+//    [model.images addObject:@"http://123.57.248.101/sendwhere/Public/images/26P58PICeEA.jpg"];
+//    [model.images addObject:@"http://123.57.248.101/sendwhere/Public/images/26P58PICeEA.jpg"];
+//    [model.images addObject:@"http://123.57.248.101/sendwhere/Public/images/26P58PICeEA.jpg"];
+//    [model.images addObject:@"http://123.57.248.101/sendwhere/Public/images/26P58PICeEA.jpg"];
+//    [_dataArray addObject:model];
 }
 
 /**
@@ -93,32 +234,26 @@
     UINib *cellNib = [UINib nibWithNibName:@"MCTalkListCell" bundle:nil];
     [_talkTableView registerNib:cellNib forCellReuseIdentifier:@"MCTalkListCellIdentifier"];
     self.prototypeCell  = [_talkTableView dequeueReusableCellWithIdentifier:@"MCTalkListCellIdentifier"];
-    
-    
     _scrollV = [[QShowImgViewController alloc] initWithNibName:@"QShowImgViewController" bundle:nil];
     
-    _headView = [[[NSBundle mainBundle] loadNibNamed:@"MCTalkListHeadView" owner:self options:nil]lastObject];
+    _headView = [[[NSBundle mainBundle] loadNibNamed:@"MCTalkListHeaderView" owner:self options:nil]lastObject];
     
-    float height = 180;
+    if (self.headModel) {
+        [_headView configHeadWithMCTalkMainModel:self.headModel];
+    }
+    
+    float height = 183;
     if (iPhone6) {
-        height = 212;
+        height = 198;
     }else if (iPhone6Plus){
-        height = 234;
+        height = 213;
     }
     _headView.frameheight = height;
     _headView.framewidth = SCREEN_WIDTH;
-    
     _headView.delegate = self;
-    
-    
-//    [_headView setNeedsUpdateConstraints];
-//    [_headView updateConstraintsIfNeeded];
-//    [UIView animateWithDuration:0.5 animations:^{
-//        [_headView layoutIfNeeded];
-//    }];
-//    [_headView setNeedsLayout];
-//    [_headView layoutIfNeeded];
+    _talkTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _talkTableView.tableHeaderView = _headView;
+    _talkTableView.ittDelegate = self;
 }
 
 #pragma  mark  --  UITableViewDelegate
@@ -130,12 +265,6 @@
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-
-//    NSIndexPath *path = [NSIndexPath indexPathForRow:indexPath.row inSection:0];
-//    MCTalkListCell *cell = (MCTalkListCell *)[_talkTableView cellForRowAtIndexPath:path];
-    
-
     
     CGFloat cellHeight = [self calculateCellHeight:indexPath];
     
@@ -161,36 +290,66 @@
     return cell;
 }
 
-
-
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    MCTalkListModel *model = [_dataArray objectAtIndex:indexPath.row];
     
     MCTalkDetailController *detail = [[MCTalkDetailController alloc]initWithNibName:@"MCTalkDetailController" bundle:nil];
+    detail.currentModel = model;
     [self.navigationController pushViewController:detail animated:YES];
     NSLog(@"%ld",indexPath.row);
     
 }
 
-#pragma  mark  --  MCTalkListHeadViewDelegate
+
+#pragma  mark --  ITTTableViewDelegate
+
+/**
+ *  触发时，刷新--- 在执行这个代理方法  请求数据结束之后 需要手动调用endNetTable
+ *
+ *  @param ittTableView
+ */
+-(void)pullTableViewDIdTriggerRefresh:(ITTTableView *)ittTableView{
+
+    pagIndex = 1;
+    [self requestWithType:pageType andPageIndex:pagIndex];
+}
+
+/**
+ *  触发时加载更多    请求数据结束之后  需要手动调用 endNetTable
+ *
+ *  @param ittTableView
+ */
+-(void)pullTableViewDIdTriggerLoadMore:(ITTTableView *)ittTableView{
+    
+
+    [self requestWithType:pageType andPageIndex:pagIndex];
+}
+
+#pragma  mark  --  MCTalkListHeaderViewDelegate
 //  100最新  101最热
 - (void)selectTabAtIndex:(NSInteger)index {
 
+
+    pagIndex = 1;
+    
     switch (index) {
         case 100:
         {
-        
+            pageType = 0;
+            [self requestWithType:0 andPageIndex:pagIndex];
         }
             break;
         case 101:
         {
-            
+            pageType = 1;
+            [self requestWithType:1 andPageIndex:pagIndex];
         }
             break;
         default:
             break;
     }
+    
     
 }
 /**
@@ -208,7 +367,7 @@
     
     MCTalkListModel *model = nil;
     model = [self.dataArray objectAtIndex:atIndex];
-    
+    clickIndex = atIndex;
     switch (btnNum) {
         case 0:
         {
@@ -223,12 +382,12 @@
         case 2:
         {
             //  点赞
+            [self requestForPariseAtIndex:clickIndex];
         }
             break;
         default:
             break;
     }
-    
     NSLog(@"%ld index -- btn  %ld",atIndex,btnNum);
     
 }
@@ -239,11 +398,19 @@
  */
 - (void)showAllPic:(NSArray *)picArr andImgTag:(NSInteger)index {
 
+    isFirst = NO;
     NSLog(@"%ld",index);
     self.scrollV.imgArr = picArr;
     self.scrollV.isOne = NO;
     [self.scrollV setUpPageStatusWithIndex:index];
     [self.navigationController presentModalViewController:_scrollV animated:YES];
+}
+
+- (void) reloadDataAtIndex:(NSInteger) index {
+
+    __weak MCTalkListViewController *weak = self;
+    NSIndexPath *indexPath=[NSIndexPath indexPathForRow:index inSection:0];
+    [weak.talkTableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath,nil] withRowAnimation:UITableViewRowAnimationNone];
 }
 
 /**
@@ -288,11 +455,10 @@
 //    
 //    publish.titleStr = self.titleStr;
 //    [self.navigationController pushViewController:publish animated:YES];
-    
+    isFirst = YES;
     ASCCPersonEditViewController *as = [[ASCCPersonEditViewController alloc]initWithNibName:@"ASCCPersonEditViewController" bundle:nil];
-    as.titls = @"失恋";
+    as.titls = self.titleStr;
     [self.navigationController pushViewController:as animated:YES];
-    
 }
 
 /*

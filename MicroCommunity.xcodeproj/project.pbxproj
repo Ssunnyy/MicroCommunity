@@ -219,8 +219,6 @@
 		181A6C411B7B556100B72FAD /* MCTalkCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 181A6B7B1B7B556100B72FAD /* MCTalkCommentCell.xib */; };
 		181A6C421B7B556100B72FAD /* MCTalkListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 181A6B7D1B7B556100B72FAD /* MCTalkListCell.m */; };
 		181A6C431B7B556100B72FAD /* MCTalkListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 181A6B7E1B7B556100B72FAD /* MCTalkListCell.xib */; };
-		181A6C441B7B556100B72FAD /* MCTalkListHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 181A6B801B7B556100B72FAD /* MCTalkListHeadView.m */; };
-		181A6C451B7B556100B72FAD /* MCTalkListHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 181A6B811B7B556100B72FAD /* MCTalkListHeadView.xib */; };
 		181A6C461B7B556100B72FAD /* MCTalkMainCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 181A6B831B7B556100B72FAD /* MCTalkMainCell.m */; };
 		181A6C471B7B556100B72FAD /* MCTalkMainCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 181A6B841B7B556100B72FAD /* MCTalkMainCell.xib */; };
 		181A6C481B7B556100B72FAD /* MCTalkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 181A6B861B7B556100B72FAD /* MCTalkViewController.m */; };
@@ -579,6 +577,15 @@
 		186116471B7CCACC003CE5A2 /* MCMyRechargeController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186116451B7CCACC003CE5A2 /* MCMyRechargeController.xib */; };
 		186116491B7CCFDA003CE5A2 /* pay_ico1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 186116481B7CCFDA003CE5A2 /* pay_ico1@2x.png */; };
 		1861164B1B7CCFED003CE5A2 /* pay_ico1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1861164A1B7CCFED003CE5A2 /* pay_ico1@3x.png */; };
+		18641B481B82DD880019BD4C /* ico_arrow_down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18641B421B82DD880019BD4C /* ico_arrow_down@2x.png */; };
+		18641B491B82DD880019BD4C /* ico_arrow_down@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18641B431B82DD880019BD4C /* ico_arrow_down@3x.png */; };
+		18641B4A1B82DD880019BD4C /* ico_arrow_up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18641B441B82DD880019BD4C /* ico_arrow_up@2x.png */; };
+		18641B4B1B82DD880019BD4C /* ico_arrow_up@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18641B451B82DD880019BD4C /* ico_arrow_up@3x.png */; };
+		18641B4C1B82DD880019BD4C /* pop-up_bg1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18641B461B82DD880019BD4C /* pop-up_bg1@2x.png */; };
+		18641B4D1B82DD880019BD4C /* pop-up_bg1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18641B471B82DD880019BD4C /* pop-up_bg1@3x.png */; };
+		18641B501B8307990019BD4C /* MCTalkMainModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18641B4F1B8307990019BD4C /* MCTalkMainModel.m */; };
+		18641B541B830EB90019BD4C /* MCTalkListHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18641B521B830EB90019BD4C /* MCTalkListHeaderView.m */; };
+		18641B551B830EB90019BD4C /* MCTalkListHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18641B531B830EB90019BD4C /* MCTalkListHeaderView.xib */; };
 		187F98C21B7B837A00E8D6B5 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 187F98C11B7B837A00E8D6B5 /* libiconv.dylib */; };
 		187F98E11B7B876B00E8D6B5 /* libzbar-armv7-armv7s-x86_64-arm64.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 187F98DB1B7B876B00E8D6B5 /* libzbar-armv7-armv7s-x86_64-arm64.a */; };
 		187F98E21B7B876B00E8D6B5 /* zbar-back.png in Resources */ = {isa = PBXBuildFile; fileRef = 187F98DD1B7B876B00E8D6B5 /* zbar-back.png */; };
@@ -600,6 +607,8 @@
 		188D623C1B821AD800B3F6C7 /* HZAreaPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 188D62381B821AD800B3F6C7 /* HZAreaPickerView.m */; };
 		188D623D1B821AD800B3F6C7 /* HZAreaPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188D62391B821AD800B3F6C7 /* HZAreaPickerView.xib */; };
 		188D623E1B821AD800B3F6C7 /* HZLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 188D623B1B821AD800B3F6C7 /* HZLocation.m */; };
+		18D1F2A01B83527400A48DB7 /* MCTalkPublicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D1F29E1B83527400A48DB7 /* MCTalkPublicViewController.m */; };
+		18D1F2A11B83527400A48DB7 /* MCTalkPublicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18D1F29F1B83527400A48DB7 /* MCTalkPublicViewController.xib */; };
 		18FD726D1B7DCA8C00E0CDE6 /* MCMyPublicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FD726C1B7DCA8C00E0CDE6 /* MCMyPublicModel.m */; };
 		18FD72711B7DD6B300E0CDE6 /* MCMyPublicBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FD726F1B7DD6B300E0CDE6 /* MCMyPublicBottomView.m */; };
 		18FD72721B7DD6B300E0CDE6 /* MCMyPublicBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18FD72701B7DD6B300E0CDE6 /* MCMyPublicBottomView.xib */; };
@@ -1014,9 +1023,6 @@
 		181A6B7C1B7B556100B72FAD /* MCTalkListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCTalkListCell.h; sourceTree = "<group>"; };
 		181A6B7D1B7B556100B72FAD /* MCTalkListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCTalkListCell.m; sourceTree = "<group>"; };
 		181A6B7E1B7B556100B72FAD /* MCTalkListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCTalkListCell.xib; sourceTree = "<group>"; };
-		181A6B7F1B7B556100B72FAD /* MCTalkListHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCTalkListHeadView.h; sourceTree = "<group>"; };
-		181A6B801B7B556100B72FAD /* MCTalkListHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCTalkListHeadView.m; sourceTree = "<group>"; };
-		181A6B811B7B556100B72FAD /* MCTalkListHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCTalkListHeadView.xib; sourceTree = "<group>"; };
 		181A6B821B7B556100B72FAD /* MCTalkMainCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCTalkMainCell.h; sourceTree = "<group>"; };
 		181A6B831B7B556100B72FAD /* MCTalkMainCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCTalkMainCell.m; sourceTree = "<group>"; };
 		181A6B841B7B556100B72FAD /* MCTalkMainCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCTalkMainCell.xib; sourceTree = "<group>"; };
@@ -1556,6 +1562,17 @@
 		186116451B7CCACC003CE5A2 /* MCMyRechargeController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCMyRechargeController.xib; sourceTree = "<group>"; };
 		186116481B7CCFDA003CE5A2 /* pay_ico1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pay_ico1@2x.png"; sourceTree = "<group>"; };
 		1861164A1B7CCFED003CE5A2 /* pay_ico1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pay_ico1@3x.png"; sourceTree = "<group>"; };
+		18641B421B82DD880019BD4C /* ico_arrow_down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ico_arrow_down@2x.png"; sourceTree = "<group>"; };
+		18641B431B82DD880019BD4C /* ico_arrow_down@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ico_arrow_down@3x.png"; sourceTree = "<group>"; };
+		18641B441B82DD880019BD4C /* ico_arrow_up@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ico_arrow_up@2x.png"; sourceTree = "<group>"; };
+		18641B451B82DD880019BD4C /* ico_arrow_up@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ico_arrow_up@3x.png"; sourceTree = "<group>"; };
+		18641B461B82DD880019BD4C /* pop-up_bg1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pop-up_bg1@2x.png"; sourceTree = "<group>"; };
+		18641B471B82DD880019BD4C /* pop-up_bg1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pop-up_bg1@3x.png"; sourceTree = "<group>"; };
+		18641B4E1B8307990019BD4C /* MCTalkMainModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCTalkMainModel.h; sourceTree = "<group>"; };
+		18641B4F1B8307990019BD4C /* MCTalkMainModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCTalkMainModel.m; sourceTree = "<group>"; };
+		18641B511B830EB90019BD4C /* MCTalkListHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCTalkListHeaderView.h; sourceTree = "<group>"; };
+		18641B521B830EB90019BD4C /* MCTalkListHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCTalkListHeaderView.m; sourceTree = "<group>"; };
+		18641B531B830EB90019BD4C /* MCTalkListHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCTalkListHeaderView.xib; sourceTree = "<group>"; };
 		187F98C11B7B837A00E8D6B5 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 		187F98C71B7B876B00E8D6B5 /* Decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Decoder.h; sourceTree = "<group>"; };
 		187F98C81B7B876B00E8D6B5 /* Exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exception.h; sourceTree = "<group>"; };
@@ -1605,6 +1622,9 @@
 		188D62391B821AD800B3F6C7 /* HZAreaPickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HZAreaPickerView.xib; sourceTree = "<group>"; };
 		188D623A1B821AD800B3F6C7 /* HZLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HZLocation.h; sourceTree = "<group>"; };
 		188D623B1B821AD800B3F6C7 /* HZLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HZLocation.m; sourceTree = "<group>"; };
+		18D1F29D1B83527400A48DB7 /* MCTalkPublicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCTalkPublicViewController.h; sourceTree = "<group>"; };
+		18D1F29E1B83527400A48DB7 /* MCTalkPublicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCTalkPublicViewController.m; sourceTree = "<group>"; };
+		18D1F29F1B83527400A48DB7 /* MCTalkPublicViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCTalkPublicViewController.xib; sourceTree = "<group>"; };
 		18FD726B1B7DCA8C00E0CDE6 /* MCMyPublicModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMyPublicModel.h; sourceTree = "<group>"; };
 		18FD726C1B7DCA8C00E0CDE6 /* MCMyPublicModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMyPublicModel.m; sourceTree = "<group>"; };
 		18FD726E1B7DD6B300E0CDE6 /* MCMyPublicBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMyPublicBottomView.h; sourceTree = "<group>"; };
@@ -2397,6 +2417,9 @@
 				181A6B6F1B7B556100B72FAD /* MCTalkPublishController.h */,
 				181A6B701B7B556100B72FAD /* MCTalkPublishController.m */,
 				181A6B711B7B556100B72FAD /* MCTalkPublishController.xib */,
+				18D1F29D1B83527400A48DB7 /* MCTalkPublicViewController.h */,
+				18D1F29E1B83527400A48DB7 /* MCTalkPublicViewController.m */,
+				18D1F29F1B83527400A48DB7 /* MCTalkPublicViewController.xib */,
 				181A6B721B7B556100B72FAD /* MCTalkReportController.h */,
 				181A6B731B7B556100B72FAD /* MCTalkReportController.m */,
 				181A6B741B7B556100B72FAD /* MCTalkReportController.xib */,
@@ -2419,12 +2442,12 @@
 				181A6B7C1B7B556100B72FAD /* MCTalkListCell.h */,
 				181A6B7D1B7B556100B72FAD /* MCTalkListCell.m */,
 				181A6B7E1B7B556100B72FAD /* MCTalkListCell.xib */,
-				181A6B7F1B7B556100B72FAD /* MCTalkListHeadView.h */,
-				181A6B801B7B556100B72FAD /* MCTalkListHeadView.m */,
-				181A6B811B7B556100B72FAD /* MCTalkListHeadView.xib */,
 				181A6B821B7B556100B72FAD /* MCTalkMainCell.h */,
 				181A6B831B7B556100B72FAD /* MCTalkMainCell.m */,
 				181A6B841B7B556100B72FAD /* MCTalkMainCell.xib */,
+				18641B511B830EB90019BD4C /* MCTalkListHeaderView.h */,
+				18641B521B830EB90019BD4C /* MCTalkListHeaderView.m */,
+				18641B531B830EB90019BD4C /* MCTalkListHeaderView.xib */,
 			);
 			path = MCTalkView;
 			sourceTree = "<group>";
@@ -2505,6 +2528,12 @@
 		181A6C871B7B558500B72FAD /* Home_login */ = {
 			isa = PBXGroup;
 			children = (
+				18641B421B82DD880019BD4C /* ico_arrow_down@2x.png */,
+				18641B431B82DD880019BD4C /* ico_arrow_down@3x.png */,
+				18641B441B82DD880019BD4C /* ico_arrow_up@2x.png */,
+				18641B451B82DD880019BD4C /* ico_arrow_up@3x.png */,
+				18641B461B82DD880019BD4C /* pop-up_bg1@2x.png */,
+				18641B471B82DD880019BD4C /* pop-up_bg1@3x.png */,
 				181A6C881B7B558500B72FAD /* ico_del@2x.png */,
 				181A6C891B7B558500B72FAD /* ico_del@3x.png */,
 				181A6C8A1B7B558500B72FAD /* ico_lock@2x.png */,
@@ -2781,6 +2810,8 @@
 				181A6E0E1B7B55CD00B72FAD /* MCTalkListModel.m */,
 				181A6E0F1B7B55CD00B72FAD /* MCTalkPariseModel.h */,
 				181A6E101B7B55CD00B72FAD /* MCTalkPariseModel.m */,
+				18641B4E1B8307990019BD4C /* MCTalkMainModel.h */,
+				18641B4F1B8307990019BD4C /* MCTalkMainModel.m */,
 			);
 			path = MCTalkModel;
 			sourceTree = "<group>";
@@ -3885,6 +3916,7 @@
 				674A1DB41AFD6D8100D17472 /* main_bc_fail@3x.png in Resources */,
 				181A6D551B7B558500B72FAD /* top_btn_heart@3x.png in Resources */,
 				181A6D601B7B558500B72FAD /* shortcut_wechat@2x.png in Resources */,
+				18641B4C1B82DD880019BD4C /* pop-up_bg1@2x.png in Resources */,
 				1818BFFF1B7C8127006476F9 /* MCMyNewFriendCell.xib in Resources */,
 				181A6C391B7B556100B72FAD /* MCTalkListViewController.xib in Resources */,
 				181A6D211B7B558500B72FAD /* btn_add2@3x.png in Resources */,
@@ -3919,6 +3951,7 @@
 				674A1D6F1AFD6D8100D17472 /* huoquyanzhengma@2x.png in Resources */,
 				181A6DB21B7B558500B72FAD /* textarea_bg4@2x.png in Resources */,
 				181A6D481B7B558500B72FAD /* recharge_btn1@2x.png in Resources */,
+				18641B4B1B82DD880019BD4C /* ico_arrow_up@3x.png in Resources */,
 				181A6DCE1B7B558500B72FAD /* result_head.png in Resources */,
 				674A1D711AFD6D8100D17472 /* kuang@2x.png in Resources */,
 				186116421B7CC815003CE5A2 /* pop-up_bg7@3x.png in Resources */,
@@ -3986,10 +4019,12 @@
 				181A6D281B7B558500B72FAD /* ico_area_bg1@2x.png in Resources */,
 				181A703F1B7B563A00B72FAD /* city.plist in Resources */,
 				181A704B1B7B563A00B72FAD /* ZYQAssetPicker.Bundle in Resources */,
+				18641B551B830EB90019BD4C /* MCTalkListHeaderView.xib in Resources */,
 				181A6D4F1B7B558500B72FAD /* shops_base_btn3@3x.png in Resources */,
 				181A6C2D1B7B556100B72FAD /* MCMyHeadView.xib in Resources */,
 				181A6C201B7B556100B72FAD /* MCMyIdearReoprtController.xib in Resources */,
 				181A6D971B7B558500B72FAD /* btn_more@3x.png in Resources */,
+				18641B4D1B82DD880019BD4C /* pop-up_bg1@3x.png in Resources */,
 				181A6D541B7B558500B72FAD /* top_btn_heart@2x.png in Resources */,
 				674A1D721AFD6D8100D17472 /* kuang@3x.png in Resources */,
 				181A6C1C1B7B556100B72FAD /* MCMyGoldController.xib in Resources */,
@@ -4051,6 +4086,7 @@
 				181A6D291B7B558500B72FAD /* ico_area_bg1@3x.png in Resources */,
 				181A6DC01B7B558500B72FAD /* home_shoot.png in Resources */,
 				674A1D761AFD6D8100D17472 /* pic_kuang@3x.png in Resources */,
+				18641B481B82DD880019BD4C /* ico_arrow_down@2x.png in Resources */,
 				18FD72771B7DD9FC00E0CDE6 /* MCMyPublishShowMessage.xib in Resources */,
 				674A1D751AFD6D8100D17472 /* pic_kuang@2x.png in Resources */,
 				181A6D2D1B7B558500B72FAD /* ico_arrow_up@3x.png in Resources */,
@@ -4077,9 +4113,11 @@
 				188D62221B81789500B3F6C7 /* textarea_bg2@2x.png in Resources */,
 				181A6D491B7B558500B72FAD /* recharge_btn1@3x.png in Resources */,
 				181A6D931B7B558500B72FAD /* btn_bg3_1@3x.png in Resources */,
+				18641B491B82DD880019BD4C /* ico_arrow_down@3x.png in Resources */,
 				674A1D671AFD6D8100D17472 /* butt@3x.png in Resources */,
 				186116471B7CCACC003CE5A2 /* MCMyRechargeController.xib in Resources */,
 				181A6DC71B7B558500B72FAD /* my_connection.png in Resources */,
+				18D1F2A11B83527400A48DB7 /* MCTalkPublicViewController.xib in Resources */,
 				181A6C241B7B556100B72FAD /* MCMySettingController.xib in Resources */,
 				181A6C0A1B7B556100B72FAD /* MCHomeViewCell.xib in Resources */,
 				181A6D2A1B7B558500B72FAD /* ico_arrow_down@2x.png in Resources */,
@@ -4107,7 +4145,6 @@
 				181A6C271B7B556100B72FAD /* MCGoldRuleHeadView.xib in Resources */,
 				181A6BFA1B7B556100B72FAD /* MCRecruitMainCell.xib in Resources */,
 				674A1D7A1AFD6D8100D17472 /* shurushoujihao@3x.png in Resources */,
-				181A6C451B7B556100B72FAD /* MCTalkListHeadView.xib in Resources */,
 				181A6D761B7B558500B72FAD /* search_btn_bg1@2x.png in Resources */,
 				674A1D791AFD6D8100D17472 /* shurushoujihao@2x.png in Resources */,
 				181A70321B7B563A00B72FAD /* tcanniu.png in Resources */,
@@ -4121,6 +4158,7 @@
 				849288AE1B311788000AB1ED /* zhuce@2x.png in Resources */,
 				181A70561B7B563A00B72FAD /* ITTPromptView.xib in Resources */,
 				181A6D791B7B558500B72FAD /* sex_famale@3x.png in Resources */,
+				18641B4A1B82DD880019BD4C /* ico_arrow_up@2x.png in Resources */,
 				181A70361B7B563A00B72FAD /* lunch.png in Resources */,
 				181A6DCC1B7B558500B72FAD /* my_share.png in Resources */,
 				674A1D681AFD6D8100D17472 /* butt_s@2x.png in Resources */,
@@ -4288,6 +4326,7 @@
 				1818C00F1B7C95E5006476F9 /* MCMyFriendSearchController.m in Sources */,
 				181A70771B7B563A00B72FAD /* NSArray+ITTAdditions.m in Sources */,
 				181A6E221B7B55CD00B72FAD /* MCMyGoldModel.m in Sources */,
+				18D1F2A01B83527400A48DB7 /* MCTalkPublicViewController.m in Sources */,
 				1818BFE41B7C3015006476F9 /* bitstream.c in Sources */,
 				181A70BB1B7B563A00B72FAD /* NSData+ImageContentType.m in Sources */,
 				181A70401B7B563A00B72FAD /* MCCityTableViewCell.m in Sources */,
@@ -4320,7 +4359,6 @@
 				181A70AC1B7B563A00B72FAD /* UIScrollView+MJRefresh.m in Sources */,
 				181A6C0B1B7B556100B72FAD /* MCSerachResultCell.m in Sources */,
 				181A708F1B7B563A00B72FAD /* NSCharacterSet_Extensions.m in Sources */,
-				181A6C441B7B556100B72FAD /* MCTalkListHeadView.m in Sources */,
 				181A70631B7B563A00B72FAD /* RATreeView+UIScrollView.m in Sources */,
 				181A70C21B7B563A00B72FAD /* SDWebImagePrefetcher.m in Sources */,
 				181A705F1B7B563A00B72FAD /* RATreeView+Enums.m in Sources */,
@@ -4349,6 +4387,7 @@
 				181A707E1B7B563A00B72FAD /* UIButton+ITTAdditions.m in Sources */,
 				181A70701B7B563A00B72FAD /* ITTDataCacheManager.m in Sources */,
 				181A70A91B7B563A00B72FAD /* MJRefreshLegendFooter.m in Sources */,
+				18641B541B830EB90019BD4C /* MCTalkListHeaderView.m in Sources */,
 				181A70461B7B563A00B72FAD /* ADMyPageView.m in Sources */,
 				181A70971B7B563A00B72FAD /* JSONKit.m in Sources */,
 				181A6BB11B7B556100B72FAD /* MCImGroupRoomCell.m in Sources */,
@@ -4395,6 +4434,7 @@
 				181A70551B7B563A00B72FAD /* ITTPromptView.m in Sources */,
 				1818BFE61B7C3015006476F9 /* QRCodeGenerator.m in Sources */,
 				181A6E191B7B55CD00B72FAD /* MCCompanyInfoModel.m in Sources */,
+				18641B501B8307990019BD4C /* MCTalkMainModel.m in Sources */,
 				181A6C051B7B556100B72FAD /* MCCustomHeadView.m in Sources */,
 				181A70761B7B563A00B72FAD /* ZHPickView.m in Sources */,
 				181A703C1B7B563A00B72FAD /* ASCityModel.m in Sources */,

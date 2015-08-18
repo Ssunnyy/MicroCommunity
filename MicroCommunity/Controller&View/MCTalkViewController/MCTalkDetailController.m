@@ -15,10 +15,14 @@
 #import "MCTalkReportController.h"
 
 
-@interface MCTalkDetailController ()<UITableViewDataSource,UITableViewDelegate,MCTalkListCellDelegate,qChoosePicDelegate,MCSendMessageViewDelegate>
+@interface MCTalkDetailController ()<UITableViewDataSource,UITableViewDelegate,MCTalkListCellDelegate,qChoosePicDelegate,MCSendMessageViewDelegate,ITTTableViewDelegate>
+
+{
+    NSInteger pageIndex;
+}
 
 @property (nonatomic,strong) MCTalkListCell *headView;
-@property (weak, nonatomic) IBOutlet UITableView *detailTableView;
+@property (weak, nonatomic) IBOutlet ITTTableView *detailTableView;
 @property (nonatomic, strong) QShowImgViewController *scrollV;//    大图浏览
 @property (nonatomic, strong) MCTalkCommentCell *prototypeCell;
 @property (nonatomic, strong) MCSendMessageView *senderView; //发送view
@@ -33,7 +37,32 @@
 
     [super viewWillDisappear:YES];
     [_senderView removeKeyboardLison];
+}
+
+#pragma mark -- 点赞
+- (void) requestForParise{
     
+    __weak MCTalkDetailController *weak = self;
+    MCUserModel *user = (MCUserModel *)[[MCUserManager shareManager]getCurrentUser];
+    
+    if (user) {
+        NSMutableDictionary *param = [NSMutableDictionary dictionary];
+        [param safeString:user.user_id ForKey:@"user_id"];
+        [param safeString:self.currentModel.talk_id ForKey:@"talk_id"];
+        
+        [[MCTalkManager shareManager]requestTalk_PraiseWithParam:param withIndicatorView:self.view withCancelRequestID:Talk_Request_praise withHttpMethod:kHTTPMethodPost onRequestFinish:^(MKNetworkOperation *operation) {
+            if (operation.isSuccees) {
+
+                weak.currentModel.praise_number = [NSString stringWithFormat:@"%ld",[weak.currentModel.praise_number integerValue] + 1];
+                [weak.headView updatePraiseCount:weak.currentModel.praise_number];
+                [ITTPromptView showMessage:@"点赞成功"];
+            }else {
+                [ITTPromptView showMessage:@"已点赞"];
+            }
+        } onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
+            [ITTPromptView showMessage:@"点赞成失败"];
+        }];
+    }
 }
 
 - (void)viewDidLoad {
@@ -56,7 +85,7 @@
 
 - (void) setUpData {
 
-
+    pageIndex = 1;
     _dataArray = [[NSMutableArray alloc]init];
 }
 
@@ -91,31 +120,20 @@
     _detailTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     _headView = [[[NSBundle mainBundle]loadNibNamed:@"MCTalkListCell" owner:self options:nil]lastObject];
-    
     _scrollV = [[QShowImgViewController alloc] initWithNibName:@"QShowImgViewController" bundle:nil];
 
-    
     MCTalkPariseModel *parise = [[MCTalkPariseModel alloc]init];
     parise.comment = @"睡觉啊烦阿姐发疯afjasfja;jfaafajf;ajflajd;lfja;ldjf;lamdflamdljfaljdfajjadjf;lakjd;lfjajfl;aj;lf睡觉啊烦阿姐发疯afjasfja;jfaafajf;ajflajd;lfja;ldjf;lamdflamdljfaljdfajjadjf;lakjd;lfjajfl;aj;lf睡觉啊烦阿姐发疯afjasfja;jfaafajf;ajflajd;lfja;ldjf;lamdflamdljfaljdfajjadjf;lakjd;lfjajfl;aj;lf睡觉啊烦阿姐发疯afjasfja;jfaafajf;ajflajd;lfja;ldjf;lamdflamdljfaljdfajjadjf;lakjd;lfjajfl;aj;lf睡觉啊烦阿姐发疯afjasfja;jfaafajf;ajflajd;lfja;ldjf;lamdflamdljfaljdfajjadjf;lakjd;lfjajfl;aj;lf";;
     [_dataArray addObject:parise];
     
     
-    MCTalkListModel *model = [[MCTalkListModel alloc]init];
-    model.content = @"睡觉啊烦阿姐发疯afjasfja;jfaafajf;ajflajd;lfja;ldjf;lamdflamdljfaljdfajjadjf;lakjd;lfjajfl;aj;lf睡觉啊烦阿姐发疯afjasfja;jfaafajf;ajflajd;lfja;ldjf;lamdflamdljfaljdfajjadjf;lakjd;lfjajfl;aj;lf睡觉啊烦阿姐发疯afjasfja;jfaafajf;ajflajd;lfja;ldjf;lamdflamdljfaljdfajjadjf;lakjd;lfjajfl;aj;lf睡觉啊烦阿姐发疯afjasfja;jfaafajf;ajflajd;lfja;ldjf;lamdflamdljfaljdfajjadjf;lakjd;lfjajfl;aj;lf睡觉啊烦阿姐发疯afjasfja;jfaafajf;ajflajd;lfja;ldjf;lamdflamdljfaljdfajjadjf;lakjd;lfjajfl;aj;lf";
-    model.images = [NSMutableArray array];
-    [model.images addObject:@"http://123.57.248.101/sendwhere/Public/images/26P58PICeEA.jpg"];
-    [model.images addObject:@"http://123.57.248.101/sendwhere/Public/images/26P58PICeEA.jpg"];
-    [model.images addObject:@"http://123.57.248.101/sendwhere/Public/images/26P58PICeEA.jpg"];
-    [model.images addObject:@"http://123.57.248.101/sendwhere/Public/images/26P58PICeEA.jpg"];
-    [model.images addObject:@"http://123.57.248.101/sendwhere/Public/images/26P58PICeEA.jpg"];
-    [model.images addObject:@"http://123.57.248.101/sendwhere/Public/images/26P58PICeEA.jpg"];
-    [model.images addObject:@"http://123.57.248.101/sendwhere/Public/images/26P58PICeEA.jpg"];
     
-    [_headView setCellWithTalkListModel:model AtIndex:0];
+    [_headView setCellWithTalkListModel:self.currentModel AtIndex:0];
     
     _headView.delegate = self;
     _headView.picV.delegate = self;
-    _headView.frameheight = [self calculateCellHeight:model];
+    _headView.frameheight = [self calculateCellHeight:self.currentModel];
+    _detailTableView.ittDelegate = self;
     _detailTableView.tableHeaderView = _headView;
     
 }
@@ -149,7 +167,28 @@
     return cell;
 }
 
+#pragma  mark --  ITTTableViewDelegate
 
+/**
+ *  触发时，刷新--- 在执行这个代理方法  请求数据结束之后 需要手动调用endNetTable
+ *
+ *  @param ittTableView
+ */
+-(void)pullTableViewDIdTriggerRefresh:(ITTTableView *)ittTableView{
+    
+    pageIndex = 1;
+    
+}
+
+/**
+ *  触发时加载更多    请求数据结束之后  需要手动调用 endNetTable
+ *
+ *  @param ittTableView
+ */
+-(void)pullTableViewDIdTriggerLoadMore:(ITTTableView *)ittTableView{
+
+    
+}
 
 /**
  *  评论 点赞 分享
@@ -165,7 +204,7 @@
     btnNum = i - atIndex * 3;
     
     MCTalkListModel *model = nil;
-    model = self.model;
+    model = self.currentModel;
     
     switch (btnNum) {
         case 0:
@@ -180,6 +219,7 @@
             break;
         case 2:
         {
+            [self requestForParise];
             //  点赞
         }
             break;
@@ -211,6 +251,30 @@
 - (void)sendMessage:(NSString *)message {
 
     
+    MCUserModel *user = (MCUserModel *)[[MCUserManager shareManager]getCurrentUser];
+    
+    __weak MCTalkDetailController *weak = self;
+    
+    if (user) {
+        NSMutableDictionary *param = [NSMutableDictionary dictionary];
+        [param safeString:user.user_id ForKey:@"user_id"];
+        [param safeString:user.nickname ForKey:@"nickname"];
+        [param safeString:self.currentModel.talk_id ForKey:@"talk_id"];
+        [param safeString:message ForKey:@"content"];
+        
+        [[MCTalkManager shareManager] requestTalk_CommentWithParam:param withIndicatorView:self.view withCancelRequestID:Talk_Request_comment withHttpMethod:kHTTPMethodPost onRequestFinish:^(MKNetworkOperation *operation) {
+            if (operation.isSuccees) {
+                [ITTPromptView showMessage:@"评论成功"];
+                weak.currentModel.comment_number = [NSString stringWithFormat:@"%ld",[weak.currentModel.comment_number integerValue] + 1];
+                [weak.headView updateCommentCount:weak.currentModel.comment_number];
+                [weak.senderView cleafData];
+            }else {
+                [ITTPromptView showMessage:@"评论失败"];
+            }
+        } onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
+            [ITTPromptView showMessage:@"评论失败"];
+        }];
+    }
     
 }
 
@@ -267,8 +331,34 @@
 - (void)rightBarButtonClick:(UIButton *)button {
 
     MCTalkReportController *report = [[MCTalkReportController alloc]initWithNibName:@"MCTalkReportController" bundle:nil];
-    report.reportId = @"";
+    report.reportModel = self.currentModel;
     [self.navigationController pushViewController:report animated:YES];
+    
+    
+}
+
+- (void) deleteTalk:(NSString *) talkId {
+
+    __weak MCTalkDetailController *weak = self;
+    MCUserModel *user = (MCUserModel *)[[MCUserManager shareManager]getCurrentUser];
+    
+    if (user) {
+        NSMutableDictionary *param = [NSMutableDictionary dictionary];
+        [param safeString:user.user_id ForKey:@"user_id"];
+        [param safeString:self.currentModel.talk_id ForKey:@"talk_id"];
+        
+        [[MCTalkManager shareManager]requestTalk_DeleteWithParam:param withIndicatorView:self.view withCancelRequestID:Talk_Request_Delete withHttpMethod:kHTTPMethodPost onRequestFinish:^(MKNetworkOperation *operation) {
+            if (operation.isSuccees) {
+                [ITTPromptView showMessage:@"话题删除成功"];
+            } else {
+                [ITTPromptView showMessage:@"话题删除失败"];
+            }
+        } onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
+            [ITTPromptView showMessage:@"话题删除失败"];
+        }];
+    }
+    
+
     
 }
 /*

@@ -13,14 +13,18 @@
 - (NSDictionary *)attributeMapDictionary {
     
     return @{
-             @"nickName":@"nickName",
-             @"title":@"title",
-             @"date":@"date",
-             @"headImage":@"headImage",
-             @"praiseCount":@"praiseCount",
-             @"commentCount":@"commentCount",
+             @"bar_id":@"bar_id",
+             @"comment_number":@"comment_number",
              @"content":@"content",
-             @"images":@"images"
+             @"head_image":@"head_image",
+             @"praise_number":@"praise_number",
+             @"status":@"status",
+             @"talk_id":@"talk_id",
+             @"talk_image":@"talk_image",
+             @"talk_nickname":@"talk_nickname",
+             @"talk_time":@"talk_time",
+             @"talk_uid":@"talk_uid",
+             @"images":@"images",
              };
 }
 

@@ -11,6 +11,6 @@
 
 @interface MCTalkDetailController : BaseViewController
 
-@property (nonatomic, strong) MCTalkListModel *model;
+@property (nonatomic, strong) MCTalkListModel *currentModel;
 
 @end

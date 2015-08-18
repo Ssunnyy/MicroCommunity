@@ -7,9 +7,11 @@
 //
 
 #import "BaseViewController.h"
+#import "MCTalkMainModel.h"
 
 @interface MCTalkListViewController : BaseViewController
 
 @property (nonatomic , strong) NSString *titleStr;
+@property (nonatomic , strong) MCTalkMainModel *headModel;
 
 @end

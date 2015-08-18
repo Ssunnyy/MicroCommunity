@@ -21,8 +21,17 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnFive;
 @property (weak, nonatomic) IBOutlet UIButton *btnSix;
 
-
+@property (weak, nonatomic) IBOutlet UITextView *reportText;
 @property (weak, nonatomic) IBOutlet UILabel *placeholder;
+
+@property (weak, nonatomic) IBOutlet UILabel *lab1;
+@property (weak, nonatomic) IBOutlet UILabel *lab2;
+@property (weak, nonatomic) IBOutlet UILabel *lab3;
+@property (weak, nonatomic) IBOutlet UILabel *lab4;
+@property (weak, nonatomic) IBOutlet UILabel *lab5;
+@property (weak, nonatomic) IBOutlet UILabel *lab6;
+
+
 @end
 
 @implementation MCTalkReportController
@@ -37,6 +46,35 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void) reportRequestWithCategory:(NSString *) message {
+    
+    __weak MCTalkReportController *weak = self;
+    MCUserModel *user = (MCUserModel *)[[MCUserManager shareManager]getCurrentUser];
+    
+    if (user) {
+        NSMutableDictionary *param = [NSMutableDictionary dictionary];
+        [param safeString:user.user_id ForKey:@"user_id"];
+        [param safeString:user.nickname ForKey:@"report_nickname"];
+        [param safeString:self.reportModel.talk_id ForKey:@"talk_id"];
+        [param safeString:self.reportModel.talk_nickname ForKey:@"breport_nickname"];
+        [param safeString:self.reportModel.talk_id ForKey:@"talk_uid"];
+        [param safeString:message ForKey:@"category_name"];
+        [param safeString:_reportText.text ForKey:@"report_message"];
+        
+        
+        [[MCTalkManager shareManager]requestTalk_ReportWithParam:param withIndicatorView:self.view withCancelRequestID:Talk_Request_report_talk withHttpMethod:kHTTPMethodPost onRequestFinish:^(MKNetworkOperation *operation) {
+            if (operation.isSuccees) {
+                [ITTPromptView showMessage:@"举报成功"];
+                [weak.navigationController popViewControllerAnimated:YES];
+            }else {
+                [ITTPromptView showMessage:@"举报提交失败"];
+            }
+        } onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
+            [ITTPromptView showMessage:@"举报失败"];
+        }];
+    }
 }
 
 /**
@@ -139,31 +177,37 @@
 #pragma  mark  提交
 - (void)rightBarButtonClick:(UIButton *)button {
     
+    NSString *reportString = @"";
+    
     switch (selectReport) {
         case 100:
-            
+            reportString = _lab1.text;
             break;
         case 101:
-            
+            reportString = _lab2.text;
             break;
         case 102:
-            
+            reportString = _lab3.text;
             break;
         case 103:
-            
+            reportString = _lab4.text;
             break;
         case 104:
-            
+            reportString = _lab5.text;
             break;
         case 105:
-            
-            break;
-        case 106:
-            
+            reportString = _lab6.text;
             break;
         default:
             break;
     }
+    
+    if (reportString.length <= 0) {
+        [ITTPromptView showMessage:@"请选择举报项目"];
+        return;
+    }
+    
+    [self reportRequestWithCategory:reportString];
     
 }
 

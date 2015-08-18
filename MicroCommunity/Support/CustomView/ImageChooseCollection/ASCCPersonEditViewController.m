@@ -37,10 +37,10 @@
 - (void)setCircleBorder {
 
     [_circleView makeCornerRadius:10];
-    [_circleView setBorderWidth:1 andBorderColor:BaseColor];
+    [_circleView setBorderWidth:1 andBorderColor:[UIColor whiteColor]];
     
     [_contentTextView makeCornerRadius:10];
-    [_contentTextView setBorderWidth:1 andBorderColor:BaseColor];
+    [_contentTextView setBorderWidth:1 andBorderColor:[UIColor whiteColor]];
 }
 
 - (void)viewDidLoad {
@@ -87,7 +87,7 @@
     
     [self setNavigationBarTitle:_titls];
     [self setButtonStyle:UIButtonStyleBack andImage:ImageNamed(@"back_icon_.png") highImage:ImageNamed(@"back_pre.png")];
-    [self setButtonStyle:UIButtonStyleRegister andTitle:@"提交" textColor:BaseColor font:[UIFont systemFontOfSize:16]];
+    [self setButtonStyle:UIButtonStyleRegister andTitle:@"提交" textColor:[UIColor whiteColor] font:[UIFont systemFontOfSize:16]];
 }
 
 - (void) registMyCell{
@@ -267,8 +267,36 @@
         [ITTPromptView showMessage:@"发布内容不能为空"];
     }
     
+    [self publishTalk];
 }
 
+
+- (void) publishTalk {
+
+    MCUserModel *user = (MCUserModel *)[[MCUserManager shareManager]getCurrentUser];
+    
+    __weak ASCCPersonEditViewController *weak = self;
+    
+    if (user) {
+        NSMutableDictionary *param = [NSMutableDictionary dictionary];
+        [param safeString:user.user_id ForKey:@"user_id"];
+        [param safeString:user.nickname ForKey:@"nickname"];
+        [param safeString:_contentTextView.text ForKey:@"content"];
+//        [param setObject:[_imageArray objectAtIndex:0] forKey:@"image"];
+        
+        [[MCTalkManager shareManager] requestTalk_PublishWithParam:param withIndicatorView:self.view withCancelRequestID:Talk_Request_Public withHttpMethod:kHTTPMethodPost onRequestFinish:^(MKNetworkOperation *operation) {
+            if (operation.isSuccees) {
+                [ITTPromptView showMessage:@"话题发布成功"];
+                [weak.navigationController popViewControllerAnimated:YES];
+            }
+        } onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
+                [ITTPromptView showMessage:@"话题发布失败"];
+        }];
+    }
+    
+   
+    
+}
 /*
 #pragma mark - Navigation
 

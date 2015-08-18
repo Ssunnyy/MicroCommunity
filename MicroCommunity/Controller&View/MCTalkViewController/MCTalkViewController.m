@@ -36,6 +36,43 @@
     [_search resignTextView];
 }
 
+- (void) searchRequestWithKeyWords:(NSString *)key {
+
+    
+    MCUserModel *user = (MCUserModel *)[[MCUserManager shareManager]getCurrentUser];
+    
+    __weak MCTalkViewController *weak = self;
+    
+    if (user) {
+        NSMutableDictionary *param = [NSMutableDictionary dictionary];
+        [param safeString:user.user_id ForKey:@"user_id"];
+        [param safeString:key ForKey:@"key"];
+        [[MCTalkManager shareManager]requestTalk_serachWithParam:param withIndicatorView:self.view withCancelRequestID:Talk_Request_main_serach withHttpMethod:kHTTPMethodPost onRequestFinish:^(MKNetworkOperation *operation) {
+            if (operation.isSuccees) {
+                
+                [weak.dataArray removeAllObjects];
+                
+                NSArray *dataArray = [operation.resultDic objectForKey:@"data"];
+                if (dataArray.count > 0) {
+                    for (int i = 0; i < dataArray.count ; i ++) {
+                        MCTalkMainModel *model = [[MCTalkMainModel alloc]initWithDataDic:[dataArray objectAtIndex:i]];
+                        model.bar_image = [NSString stringWithFormat:@"%@%@",Main_URL,model.bar_image];
+                        [weak.dataArray addObject:model];
+                    }
+                }else {
+                    [ITTPromptView showMessage:@"暂无数据"];
+                }
+                [weak.resultTableView reloadData];
+            }else {
+                [ITTPromptView showMessage:@"搜索失败"];
+            }
+        } onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
+            [ITTPromptView showMessage:@"搜索失败"];
+        }];
+    }
+
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     //
@@ -81,7 +118,7 @@
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 10;
+    return _dataArray.count;
     
 }
 
@@ -98,6 +135,10 @@
     if (!cell) {
         cell = [[[NSBundle mainBundle]loadNibNamed:@"MCTalkMainCell" owner:self options:nil]lastObject];
     }
+    
+    MCTalkMainModel *model = [_dataArray objectAtIndex:indexPath.row];
+    
+    [cell configCellWithMCTalkMainModel:model];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
@@ -106,8 +147,11 @@
     
     NSLog(@"%ld",indexPath.row);
 
+    MCTalkMainModel *model = [_dataArray objectAtIndex:indexPath.row];
+    
     MCTalkListViewController *talk = [[MCTalkListViewController alloc]initWithNibName:@"MCTalkListViewController" bundle:nil];
-    talk.titleStr = @"初恋";
+    talk.headModel = model;
+    talk.titleStr = model.bar_title;
     [self.navigationController pushViewController:talk animated:YES];
 }
 
@@ -125,8 +169,14 @@
  */
 - (void)searchBarView:(MCHomeSearchView *)searchBarView inputCompleted:(NSString *)searchText {
     
-    NSLog(@"%@",searchText);
+    NSString *key = [searchText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     
+    if (key.length <= 0) {
+        [ITTPromptView showMessage:@"搜索关键字不能为空"];
+        return;
+    }
+    
+    [self searchRequestWithKeyWords:key];
 }
 
 

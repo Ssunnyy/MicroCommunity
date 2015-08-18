@@ -1,44 +1,46 @@
 //
-//  MCTalkListHeadView.m
+//  MCTalkListHeaderView.m
 //  MicroCommunity
 //
-//  Created by apple on 15/7/30.
+//  Created by apple on 15/8/18.
 //  Copyright (c) 2015年 qiuyan. All rights reserved.
 //
 
-#import "MCTalkListHeadView.h"
+#import "MCTalkListHeaderView.h"
 
-@interface MCTalkListHeadView()
+@interface MCTalkListHeaderView ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *headImageView;
 @property (weak, nonatomic) IBOutlet UILabel *people_updateLab;
-
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tinLabLeft;
-
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *btnWidth;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topViewHeight;
+
 @end
 
-@implementation MCTalkListHeadView
-
+@implementation MCTalkListHeaderView
 
 - (void)awakeFromNib {
+    // Initialization code
     
     _btnWidth.constant = SCREEN_WIDTH / 2;
-    
-//    float height = 180;
-//    if (iPhone6) {
-//        height = 212;
-//    }else if (iPhone6Plus){
-//        height = 234;
-//    }
-//    self.frameheight = height;
-    
+    if (iPhone6) {
+        _topViewHeight.constant = 155;
+    }else if (iPhone6Plus) {
+        _topViewHeight.constant = 170;
+    }
+}
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected:selected animated:animated];
+
+    // Configure the view for the selected state
 }
 
 
 - (IBAction)new_hotAction:(UIButton *)sender {
     
-    __weak MCTalkListHeadView *weak = self;
+    __weak MCTalkListHeaderView *weak = self;
     
     switch (sender.tag) {
         case 100:
@@ -49,7 +51,7 @@
         case 101:
         {
             _tinLabLeft.constant = SCREEN_WIDTH / 2;
-
+            
         }
             break;
         default:
@@ -65,15 +67,12 @@
     if ([_delegate respondsToSelector:@selector(selectTabAtIndex:)]) {
         [_delegate selectTabAtIndex:sender.tag];
     }
-    
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (void)configHeadWithMCTalkMainModel:(MCTalkMainModel *)model {
+
+    [_headImageView sd_setImageWithURL:[NSURL URLWithString:model.bar_image]placeholderImage:ImageNamed(@"")];
+    _people_updateLab.text = [NSString stringWithFormat:@"参与人数：%@/今日更新：%@",model.bar_people_number,model.bar_number];
 }
-*/
 
 @end

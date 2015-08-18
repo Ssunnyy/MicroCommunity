@@ -84,14 +84,18 @@
             MCHomeCityModel *city = (MCHomeCityModel *)[cities objectAtIndex:0];
             
             self.locate.state = province.region_name;
+            self.locate.stateId = province.region_id;
             self.locate.city = city.region_name;
+            self.locate.cityId = city.region_id;
             
             areas = city._child;
             if (areas.count > 0) {
                 MCHomeCityModel *area = [city._child objectAtIndex:0];
                 self.locate.district = area.region_name;
+                self.locate.districtId = area.region_id;
             } else{
                 self.locate.district = @"";
+                self.locate.districtId = @"";
             }
             
         } else{
@@ -101,7 +105,9 @@
             MCHomeCityModel *city = (MCHomeCityModel *)[cities objectAtIndex:0];
             
             self.locate.state = province.region_name;
+            self.locate.stateId = province.region_id;
             self.locate.city = city.region_name;
+            self.locate.city = city.region_id;
         }
     }
         
@@ -210,12 +216,16 @@
                 [self.locatePicker reloadComponent:2];
                 
                 self.locate.state = privince.region_name;
+                self.locate.stateId = privince.region_id;
                 self.locate.city = city.region_name;
+                self.locate.cityId = city.region_id;
                 if ([areas count] > 0) {
                     MCHomeCityModel *area = (MCHomeCityModel *)[areas objectAtIndex:0];
                     self.locate.district = area.region_name;
+                    self.locate.districtId = area.region_id;
                 } else{
                     self.locate.district = @"";
+                    self.locate.districtId = @"";
                 }
             }
                 break;
@@ -229,12 +239,15 @@
                 [self.locatePicker reloadComponent:2];
                 
                 self.locate.city = city.region_name;
+                self.locate.cityId = city.region_id;
                 
                 if ([areas count] > 0) {
                     MCHomeCityModel *area = (MCHomeCityModel *)[areas objectAtIndex:0];
                     self.locate.district = area.region_name;
+                    self.locate.districtId = area.region_id;
                 } else{
                     self.locate.district = @"";
+                    self.locate.districtId = @"";
                 }
             }
                 break;
@@ -243,8 +256,10 @@
                 if ([areas count] > 0) {
                     MCHomeCityModel *area = (MCHomeCityModel *)[areas objectAtIndex:row];
                     self.locate.district = area.region_name;
+                    self.locate.districtId = area.region_id;
                 } else{
                     self.locate.district = @"";
+                    self.locate.districtId = @"";
                 }
             }
                 break;
@@ -264,13 +279,16 @@
                 [self.locatePicker reloadComponent:1];
                 
                 self.locate.state = privince.region_name;
+                self.locate.stateId = privince.region_id;
                 self.locate.city = city.region_name;
+                self.locate.cityId = city.region_id;
             }
                 break;
             case 1:
             {
                 MCHomeCityModel *city = (MCHomeCityModel *)[cities objectAtIndex:row];
                 self.locate.city = city.region_name;
+                self.locate.cityId = city.region_id;
             }
                 break;
             default:
@@ -284,16 +302,31 @@
 
 }
 
+- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view{
+    UILabel* pickerLabel = (UILabel*)view;
+    if (!pickerLabel){
+        pickerLabel = [[UILabel alloc] init];
+        pickerLabel.minimumFontSize = 8.;
+        pickerLabel.adjustsFontSizeToFitWidth = YES;
+        [pickerLabel setTextAlignment:NSTextAlignmentCenter];
+        [pickerLabel setBackgroundColor:[UIColor clearColor]];
+        [pickerLabel setFont:[UIFont boldSystemFontOfSize:14]];
+    }
+    // Fill the label text here
+    pickerLabel.text= [self pickerView:pickerView titleForRow:row forComponent:component];
+    return pickerLabel;
+}
+
 
 #pragma mark - animation
 
 - (void)showInView:(UIView *) view
 {
-    self.frame = CGRectMake(0, view.frame.size.height, self.frame.size.width, self.frame.size.height);
+    self.frame = CGRectMake(0,view.frame.size.height, self.frame.size.width, self.frame.size.height);
     [view addSubview:self];
     
     [UIView animateWithDuration:0.3 animations:^{
-        self.frame = CGRectMake(0, view.frame.size.height - self.frame.size.height, self.frame.size.width, self.frame.size.height);
+        self.frame = CGRectMake(0, 64 + 30, self.frame.size.width, self.frame.size.height);
     }];
     
 }
@@ -312,4 +345,9 @@
     
 }
 
+- (IBAction)sureBtnClick:(id)sender {
+    
+    [self cancelPicker];
+    
+}
 @end

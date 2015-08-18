@@ -31,9 +31,9 @@
 
 @implementation MCTalkPublishController
 
-- (void)awakeFromNib {
+- (void)awakeFromNibs {
 
-    [_bgView makeCornerRadius:10];
+    [_bgView makeCornerRadius:5];
     
 }
 - (void)viewDidLoad {
@@ -88,7 +88,7 @@
 
 - (IBAction)addImage:(UIButton *)sender {
     
-    
+    [self addPhoto];
     
 }
 
