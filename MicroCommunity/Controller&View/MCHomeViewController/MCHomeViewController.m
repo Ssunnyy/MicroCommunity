@@ -18,7 +18,9 @@
 #import "MCHomeAdModel.h"
 #import "MCHomeCityModel.h"
 
-@interface MCHomeViewController ()<UITableViewDataSource,UITableViewDelegate,EScrollerViewDelegate,MCHomeViewCellDelegate,MCHomeSearchViewDelegate>
+#import "HZAreaPickerView.h"
+
+@interface MCHomeViewController ()<UITableViewDataSource,UITableViewDelegate,EScrollerViewDelegate,MCHomeViewCellDelegate,MCHomeSearchViewDelegate,HZAreaPickerDelegate>
 {
     NSArray *provinces;
 }
@@ -28,6 +30,8 @@
 
 @property (weak, nonatomic) IBOutlet UIView *headView;
 @property (weak, nonatomic) IBOutlet UITableView *homeTableView;
+
+@property (strong, nonatomic) HZAreaPickerView *locatePicker;
 
 @property (nonatomic, strong) NSMutableArray *tableArray;
 @property (nonatomic, strong) NSMutableArray *adArray;
@@ -253,39 +257,64 @@
  */
 - (void)chooseCityBtnClick {
 
-    
-    NSDictionary *data = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"citys.plist" ofType:nil]];
-    
-    provinces = [[[data objectForKey:@"data"]objectAtIndex:0]objectForKey:@"_child"];
-    
-    
-    NSMutableArray *dataArray = [NSMutableArray array];
-    
-    for (int i = 0; i < provinces.count; i ++) {
-        
-        MCHomeCityModel *cityModel = [[MCHomeCityModel alloc]initWithDataDic:[provinces objectAtIndex:i]];
-        
-        NSMutableArray *cityArray = [NSMutableArray array];
-        for (int j = 0 ; j < cityModel._child.count; j ++) {
-            MCHomeCityModel *city = [[MCHomeCityModel alloc]initWithDataDic:[cityModel._child objectAtIndex:j]];
-            NSMutableArray *areaArray = [NSMutableArray array];
-            
-            for (int m = 0; m < city._child.count; m ++) {
-                MCHomeCityModel *area = [[MCHomeCityModel alloc]initWithDataDic:[city._child objectAtIndex:m]];
-                [areaArray addObject:area];
-            }
+    self.locatePicker = [[HZAreaPickerView alloc] initWithStyle:HZAreaPickerWithStateAndCityAndDistrict delegate:self] ;
+    [self.locatePicker showInView:self.view];
 
-            city._child = areaArray;
-            
-            [cityArray addObject:city];
-        }
-        
-        cityModel._child = cityArray;
-        
-        [dataArray addObject:cityModel];
-    }
+//        self.locatePicker = [[HZAreaPickerView alloc] initWithStyle:HZAreaPickerWithStateAndCity delegate:self] ;
+//        [self.locatePicker showInView:self.view];
+    
+//    NSDictionary *data = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"citys.plist" ofType:nil]];
+//    
+//    provinces = [[[data objectForKey:@"data"]objectAtIndex:0]objectForKey:@"_child"];
+//    
+//    
+//    NSMutableArray *dataArray = [NSMutableArray array];
+//    
+//    for (int i = 0; i < provinces.count; i ++) {
+//        
+//        MCHomeCityModel *cityModel = [[MCHomeCityModel alloc]initWithDataDic:[provinces objectAtIndex:i]];
+//        
+//        NSMutableArray *cityArray = [NSMutableArray array];
+//        for (int j = 0 ; j < cityModel._child.count; j ++) {
+//            MCHomeCityModel *city = [[MCHomeCityModel alloc]initWithDataDic:[cityModel._child objectAtIndex:j]];
+//            NSMutableArray *areaArray = [NSMutableArray array];
+//            
+//            for (int m = 0; m < city._child.count; m ++) {
+//                MCHomeCityModel *area = [[MCHomeCityModel alloc]initWithDataDic:[city._child objectAtIndex:m]];
+//                [areaArray addObject:area];
+//            }
+//
+//            city._child = areaArray;
+//            
+//            [cityArray addObject:city];
+//        }
+//        
+//        cityModel._child = cityArray;
+//        
+//        [dataArray addObject:cityModel];
+//    }
 
 }
+
+#pragma mark - HZAreaPicker delegate
+-(void)pickerDidChaneStatus:(HZAreaPickerView *)picker
+{
+    NSString * test= @"";
+    if (picker.pickerStyle == HZAreaPickerWithStateAndCityAndDistrict) {
+         test = [NSString stringWithFormat:@"%@ %@ %@", picker.locate.state, picker.locate.city, picker.locate.district];
+    } else{
+         test = [NSString stringWithFormat:@"%@ %@", picker.locate.state, picker.locate.city];
+    }
+    NSLog(@"%@",test);
+}
+
+-(void)cancelLocatePicker
+{
+    [self.locatePicker cancelPicker];
+    self.locatePicker.delegate = nil;
+    self.locatePicker = nil;
+}
+
 /**
  *  搜索
  */
@@ -302,7 +331,7 @@
     result.type = otherSearch;
     result.keyWorld = searchText;
     [self.navigationController pushViewController:result animated:YES];
-    
+
 }
 
 

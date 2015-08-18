@@ -83,13 +83,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MicroCommunity/Controller&amp;View/MCHomeViewController/MCHomeViewController.m"
-            timestampString = "461508457.08673"
+            filePath = "MicroCommunity/Support/CustomView/CitySelectView/HZAreaPickerView.m"
+            timestampString = "461557882.356155"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "288"
-            endingLineNumber = "288"
-            landmarkName = "-chooseCityBtnClick"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "-initWithStyle:delegate:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

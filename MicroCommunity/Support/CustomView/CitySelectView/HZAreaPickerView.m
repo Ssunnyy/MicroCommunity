@@ -1,9 +1,9 @@
 //
-//  HZAreaPickerView.m
+//  HZLocation.m
 //  areapicker
 //
-//  Created by Cloud Dai on 12-9-9.
-//  Copyright (c) 2012年 clouddai.com. All rights reserved.
+//  Created by Cloud Dai on 15-8-17.
+//  Copyright (c) 2015年 clouddai.com. All rights reserved.
 //
 
 #import "HZAreaPickerView.h"
@@ -45,57 +45,63 @@
         self.locatePicker.dataSource = self;
         self.locatePicker.delegate = self;
         
+        NSDictionary *data = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"citys.plist" ofType:nil]];
+        
+        provinces = [[[data objectForKey:@"data"]objectAtIndex:0]objectForKey:@"_child"];
+        NSMutableArray *dataArray = [NSMutableArray array];
+        
+        for (int i = 0; i < provinces.count; i ++) {
+            
+            MCHomeCityModel *cityModel = [[MCHomeCityModel alloc]initWithDataDic:[provinces objectAtIndex:i]];
+            
+            NSMutableArray *cityArray = [NSMutableArray array];
+            for (int j = 0 ; j < cityModel._child.count; j ++) {
+                MCHomeCityModel *city = [[MCHomeCityModel alloc]initWithDataDic:[cityModel._child objectAtIndex:j]];
+                NSMutableArray *areaArray = [NSMutableArray array];
+                
+                for (int m = 0; m < city._child.count; m ++) {
+                    MCHomeCityModel *area = [[MCHomeCityModel alloc]initWithDataDic:[city._child objectAtIndex:m]];
+                    [areaArray addObject:area];
+                }
+                
+                city._child = areaArray;
+                
+                [cityArray addObject:city];
+            }
+            
+            cityModel._child = cityArray;
+            
+            [dataArray addObject:cityModel];
+        }
+
+        
         //加载数据
         if (self.pickerStyle == HZAreaPickerWithStateAndCityAndDistrict) {
             
-            NSDictionary *data = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"citys.plist" ofType:nil]];
+            provinces = dataArray;
+            MCHomeCityModel *province = (MCHomeCityModel *)[provinces objectAtIndex:0];
+            cities = province._child;
+            MCHomeCityModel *city = (MCHomeCityModel *)[cities objectAtIndex:0];
             
-            provinces = [[[data objectForKey:@"data"]objectAtIndex:0]objectForKey:@"_child"];
-            NSMutableArray *dataArray = [NSMutableArray array];
+            self.locate.state = province.region_name;
+            self.locate.city = city.region_name;
             
-            for (int i = 0; i < provinces.count; i ++) {
-                
-                MCHomeCityModel *cityModel = [[MCHomeCityModel alloc]initWithDataDic:[provinces objectAtIndex:i]];
-                
-                NSMutableArray *cityArray = [NSMutableArray array];
-                for (int j = 0 ; j < cityModel._child.count; j ++) {
-                    MCHomeCityModel *city = [[MCHomeCityModel alloc]initWithDataDic:[cityModel._child objectAtIndex:j]];
-                    NSMutableArray *areaArray = [NSMutableArray array];
-                    
-                    for (int m = 0; m < city._child.count; m ++) {
-                        MCHomeCityModel *area = [[MCHomeCityModel alloc]initWithDataDic:[city._child objectAtIndex:m]];
-                        [areaArray addObject:area];
-                    }
-                    
-                    city._child = areaArray;
-                    
-                    [cityArray addObject:city];
-                }
-                
-                cityModel._child = cityArray;
-                
-                [dataArray addObject:cityModel];
-            }
-
-            
-            provinces = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"area.plist" ofType:nil]];
-            cities = [[provinces objectAtIndex:0] objectForKey:@"cities"];
-            
-            self.locate.state = [[provinces objectAtIndex:0] objectForKey:@"state"];
-            self.locate.city = [[cities objectAtIndex:0] objectForKey:@"city"];
-            
-            areas = [[cities objectAtIndex:0] objectForKey:@"areas"];
+            areas = city._child;
             if (areas.count > 0) {
-                self.locate.district = [areas objectAtIndex:0];
+                MCHomeCityModel *area = [city._child objectAtIndex:0];
+                self.locate.district = area.region_name;
             } else{
                 self.locate.district = @"";
             }
             
         } else{
-            provinces = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"city.plist" ofType:nil]];
-            cities = [[provinces objectAtIndex:0] objectForKey:@"cities"];
-            self.locate.state = [[provinces objectAtIndex:0] objectForKey:@"state"];
-            self.locate.city = [cities objectAtIndex:0];
+            provinces = dataArray;
+            MCHomeCityModel *province = (MCHomeCityModel *)[provinces objectAtIndex:0];
+            cities = province._child;
+            MCHomeCityModel *city = (MCHomeCityModel *)[cities objectAtIndex:0];
+            
+            self.locate.state = province.region_name;
+            self.locate.city = city.region_name;
         }
     }
         
@@ -140,14 +146,24 @@
     if (self.pickerStyle == HZAreaPickerWithStateAndCityAndDistrict) {
         switch (component) {
             case 0:
-                return [[provinces objectAtIndex:row] objectForKey:@"state"];
+                
+            {
+                MCHomeCityModel *privince = (MCHomeCityModel*)[provinces objectAtIndex:row];
+                return privince.region_name;
+            }
                 break;
             case 1:
-                return [[cities objectAtIndex:row] objectForKey:@"city"];
+            {
+                MCHomeCityModel *city = (MCHomeCityModel*)[cities objectAtIndex:row];
+                return city.region_name;
+            }
                 break;
             case 2:
                 if ([areas count] > 0) {
-                    return [areas objectAtIndex:row];
+                    {
+                        MCHomeCityModel *area = (MCHomeCityModel *)[areas objectAtIndex:row];
+                        return area.region_name;
+                    }
                     break;
                 }
             default:
@@ -157,10 +173,17 @@
     } else{
         switch (component) {
             case 0:
-                return [[provinces objectAtIndex:row] objectForKey:@"state"];
+                
+            {
+                MCHomeCityModel *privince = (MCHomeCityModel*)[provinces objectAtIndex:row];
+                return privince.region_name;
+            }
                 break;
             case 1:
-                return [cities objectAtIndex:row];
+            {
+                MCHomeCityModel *city = (MCHomeCityModel*)[cities objectAtIndex:row];
+                return city.region_name;
+            }
                 break;
             default:
                 return @"";
@@ -174,40 +197,56 @@
     if (self.pickerStyle == HZAreaPickerWithStateAndCityAndDistrict) {
         switch (component) {
             case 0:
-                cities = [[provinces objectAtIndex:row] objectForKey:@"cities"];
+            {
+                MCHomeCityModel *privince = (MCHomeCityModel *)[provinces objectAtIndex:row];
+                cities = privince._child;
+                MCHomeCityModel *city = (MCHomeCityModel *)[cities objectAtIndex:0];
+                
                 [self.locatePicker selectRow:0 inComponent:1 animated:YES];
                 [self.locatePicker reloadComponent:1];
                 
-                areas = [[cities objectAtIndex:0] objectForKey:@"areas"];
+                areas = city._child;
                 [self.locatePicker selectRow:0 inComponent:2 animated:YES];
                 [self.locatePicker reloadComponent:2];
                 
-                self.locate.state = [[provinces objectAtIndex:row] objectForKey:@"state"];
-                self.locate.city = [[cities objectAtIndex:0] objectForKey:@"city"];
+                self.locate.state = privince.region_name;
+                self.locate.city = city.region_name;
                 if ([areas count] > 0) {
-                    self.locate.district = [areas objectAtIndex:0];
+                    MCHomeCityModel *area = (MCHomeCityModel *)[areas objectAtIndex:0];
+                    self.locate.district = area.region_name;
                 } else{
                     self.locate.district = @"";
                 }
+            }
                 break;
             case 1:
-                areas = [[cities objectAtIndex:row] objectForKey:@"areas"];
+            {
+                
+                MCHomeCityModel *city = (MCHomeCityModel *)[cities objectAtIndex:row];
+                areas = city._child;
+
                 [self.locatePicker selectRow:0 inComponent:2 animated:YES];
                 [self.locatePicker reloadComponent:2];
                 
-                self.locate.city = [[cities objectAtIndex:row] objectForKey:@"city"];
+                self.locate.city = city.region_name;
+                
                 if ([areas count] > 0) {
-                    self.locate.district = [areas objectAtIndex:0];
+                    MCHomeCityModel *area = (MCHomeCityModel *)[areas objectAtIndex:0];
+                    self.locate.district = area.region_name;
                 } else{
                     self.locate.district = @"";
                 }
+            }
                 break;
             case 2:
+            {
                 if ([areas count] > 0) {
-                    self.locate.district = [areas objectAtIndex:row];
+                    MCHomeCityModel *area = (MCHomeCityModel *)[areas objectAtIndex:row];
+                    self.locate.district = area.region_name;
                 } else{
                     self.locate.district = @"";
                 }
+            }
                 break;
             default:
                 break;
@@ -215,15 +254,24 @@
     } else{
         switch (component) {
             case 0:
-                cities = [[provinces objectAtIndex:row] objectForKey:@"cities"];
+            {
+                MCHomeCityModel *privince = (MCHomeCityModel *)[provinces objectAtIndex:row];
+                cities = privince._child;
+                MCHomeCityModel *city = (MCHomeCityModel *)[cities objectAtIndex:0];
+                
+
                 [self.locatePicker selectRow:0 inComponent:1 animated:YES];
                 [self.locatePicker reloadComponent:1];
                 
-                self.locate.state = [[provinces objectAtIndex:row] objectForKey:@"state"];
-                self.locate.city = [cities objectAtIndex:0];
+                self.locate.state = privince.region_name;
+                self.locate.city = city.region_name;
+            }
                 break;
             case 1:
-                self.locate.city = [cities objectAtIndex:row];
+            {
+                MCHomeCityModel *city = (MCHomeCityModel *)[cities objectAtIndex:row];
+                self.locate.city = city.region_name;
+            }
                 break;
             default:
                 break;
