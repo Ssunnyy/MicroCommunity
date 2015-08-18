@@ -10,6 +10,53 @@
 
 @interface MCMyInfoController ()
 
+@property (weak, nonatomic) IBOutlet UIImageView *headImage;
+@property (weak, nonatomic) IBOutlet UIImageView *headBgImage;
+@property (weak, nonatomic) IBOutlet UITextField *nickName;
+@property (weak, nonatomic) IBOutlet UITextField *cityID;
+@property (weak, nonatomic) IBOutlet UITextField *userName;
+@property (weak, nonatomic) IBOutlet UILabel *sexLab;
+@property (weak, nonatomic) IBOutlet UILabel *hunLab;
+@property (weak, nonatomic) IBOutlet UITextField *zhiyeTextField;
+@property (weak, nonatomic) IBOutlet UILabel *birthLab;
+@property (weak, nonatomic) IBOutlet UILabel *ageLab;
+@property (weak, nonatomic) IBOutlet UILabel *xingZuoLab;
+@property (weak, nonatomic) IBOutlet UILabel *xueLiLab;
+@property (weak, nonatomic) IBOutlet UILabel *addressLab;
+@property (weak, nonatomic) IBOutlet UILabel *guanJiLab;
+@property (weak, nonatomic) IBOutlet UITextField *likeLab;
+@property (weak, nonatomic) IBOutlet UITextField *likeBook;
+@property (weak, nonatomic) IBOutlet UITextField *likeMove;
+
+/**
+ * 性别
+ */
+- (IBAction)sexBtnClick:(id)sender;
+/**
+ *  婚姻
+ */
+- (IBAction)hunBtnClick:(id)sender;
+/**
+ *  生日
+ */
+- (IBAction)birthClick:(id)sender;
+/**
+ *  学历
+ */
+- (IBAction)xueLiClick:(id)sender;
+/**
+ *  所在地
+ */
+- (IBAction)addressClick:(id)sender;
+/**
+ *  贯籍
+ */
+- (IBAction)guanJiClick:(id)sender;
+/**
+ *  兴趣爱好
+ */
+- (IBAction)likeClick:(id)sender;
+
 @end
 
 @implementation MCMyInfoController
@@ -20,8 +67,15 @@
     [AppDelegate HideTabBar];
 }
 
+- (void)awakeFromNibs {
+
+    [_headImage makeCircleView];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self awakeFromNibs];
     
     [self setNavigationBarStatus];
     // Do any additional setup after loading the view from its nib.
@@ -51,5 +105,48 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+/**
+ * 性别
+ */
+- (IBAction)sexBtnClick:(id)sender {
+
+}
+/**
+ *  婚姻
+ */
+- (IBAction)hunBtnClick:(id)sender{
+
+}
+/**
+ *  生日
+ */
+- (IBAction)birthClick:(id)sender{
+
+}
+/**
+ *  学历
+ */
+- (IBAction)xueLiClick:(id)sender{
+
+}
+/**
+ *  所在地
+ */
+- (IBAction)addressClick:(id)sender{
+
+}
+/**
+ *  贯籍
+ */
+- (IBAction)guanJiClick:(id)sender{
+
+}
+/**
+ *  兴趣爱好
+ */
+- (IBAction)likeClick:(id)sender{
+
+}
 
 @end

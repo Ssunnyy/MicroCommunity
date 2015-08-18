@@ -18,6 +18,8 @@
 #import "MCRecruitPersonController.h"
 #import "MCRecruitPublicController.h"
 
+#import "MCMyRecruitController.h"
+
 #define RecruitHistoryList @"RecruitHistoryList"
 
 
@@ -322,15 +324,19 @@
         case 300:
         {
             switchType = 1;
+            [self tableViewReloadData];
         }
             break;
         case 301:
+        {
             switchType = 2;
+            pushToDestinationController(self, MCMyRecruitController);
+        }
+            
             break;
         default:
             break;
     }
-    [self tableViewReloadData];
 }
 
 - (void) tableviewReloadData {

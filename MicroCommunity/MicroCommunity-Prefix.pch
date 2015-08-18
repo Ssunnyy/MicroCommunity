@@ -39,5 +39,6 @@
     #import "ITTTableView.h"
     #import "UserManager.h"
     #import "MCUserManager.h"
+    #import "MCHomeManager.h"
 
 #endif

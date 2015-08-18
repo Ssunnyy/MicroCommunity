@@ -9,10 +9,10 @@
 #import "YXBaseRequestManager.h"
 #import "MCUserModel.h"
 
-#define Request_User_Regist @"register"
-#define Request_User_Login @"login"
-#define Request_User_GetCode @"SendTemplateSMS"
-#define Request_User_ResetPass @"reset_password"
+#define Request_User_Regist @"home/index/register"
+#define Request_User_Login @"home/index/login"
+#define Request_User_GetCode @"home/index/SendTemplateSMS"
+#define Request_User_ResetPass @"home/index/reset_password"
 
 @interface MCUserManager : YXBaseRequestManager
 

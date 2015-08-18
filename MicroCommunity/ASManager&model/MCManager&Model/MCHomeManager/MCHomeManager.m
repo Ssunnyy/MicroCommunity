@@ -28,7 +28,7 @@ static MCHomeManager *defaultCenterInstance = nil;
 }
 
 /**
- *  @brief  重置密码网络请求
+ *  @brief  轮播图
  *  @param  params
  *  @param  view                    在那一页上的请求
  *  @param  requestID               请求的ID
@@ -36,13 +36,13 @@ static MCHomeManager *defaultCenterInstance = nil;
  *  @param  onFailedBlock           请求失败的的block，可以得到请求是失败后的错误，并实现自己的逻辑
  *  @return
  **/
-- (void)requestResetPassWithParam:(NSMutableDictionary*)param
+- (void)requestCircleWithParam:(NSMutableDictionary*)param
                 withIndicatorView:(UIView*)view
               withCancelRequestID:(NSString*)requestID
                    withHttpMethod:(kHTTPMethod)httpMethod
                   onRequestFinish:(void(^)(MKNetworkOperation *operation))onFinishedBlock
                   onRequestFailed:(void(^)(MKNetworkOperation *operation ,NSError *error ))onFailedBlock{
-    [super requestWithPath:Request_User_ResetPass
+    [super requestWithPath:Home_request_circle
               withParamDic:param
          withIndicatorView:view
        withCancelRequestID:requestID
@@ -59,7 +59,112 @@ static MCHomeManager *defaultCenterInstance = nil;
                    onFailedBlock(operation,error);
                }
            }];
-    
+}
+
+/**
+ *  @brief  首页网络请求
+ *  @param  params
+ *  @param  view                    在那一页上的请求
+ *  @param  requestID               请求的ID
+ *  @param  onFinishedBlock         请求完成的block，可以得到请求成功解析后的数组以及得到的数据个数，实现自己的逻辑
+ *  @param  onFailedBlock           请求失败的的block，可以得到请求是失败后的错误，并实现自己的逻辑
+ *  @return
+ **/
+- (void)requestHomeMainWithParam:(NSMutableDictionary*)param
+             withIndicatorView:(UIView*)view
+           withCancelRequestID:(NSString*)requestID
+                withHttpMethod:(kHTTPMethod)httpMethod
+               onRequestFinish:(void(^)(MKNetworkOperation *operation))onFinishedBlock
+               onRequestFailed:(void(^)(MKNetworkOperation *operation ,NSError *error ))onFailedBlock{
+    [super requestWithPath:Home_request_main
+              withParamDic:param
+         withIndicatorView:view
+       withCancelRequestID:requestID
+    withPostORDeleteMethod:kHTTPMethodPost
+                 authToken:nil
+                     isSSL:NO
+           onRequestFinish:^(MKNetworkOperation *operation) {
+               if (onFinishedBlock) {
+                   onFinishedBlock(operation);
+               }
+           }
+           onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
+               if (onFailedBlock) {
+                   onFailedBlock(operation,error);
+               }
+           }];
+}
+
+
+/**
+ *  @brief  首页搜索
+ *  @param  params
+ *  @param  view                    在那一页上的请求
+ *  @param  requestID               请求的ID
+ *  @param  onFinishedBlock         请求完成的block，可以得到请求成功解析后的数组以及得到的数据个数，实现自己的逻辑
+ *  @param  onFailedBlock           请求失败的的block，可以得到请求是失败后的错误，并实现自己的逻辑
+ *  @return
+ **/
+- (void)requestHomeMainSearchWithParam:(NSMutableDictionary*)param
+               withIndicatorView:(UIView*)view
+             withCancelRequestID:(NSString*)requestID
+                  withHttpMethod:(kHTTPMethod)httpMethod
+                 onRequestFinish:(void(^)(MKNetworkOperation *operation))onFinishedBlock
+                 onRequestFailed:(void(^)(MKNetworkOperation *operation ,NSError *error ))onFailedBlock{
+    [super requestWithPath:Home_request_lifeSearch
+              withParamDic:param
+         withIndicatorView:view
+       withCancelRequestID:requestID
+    withPostORDeleteMethod:kHTTPMethodPost
+                 authToken:nil
+                     isSSL:NO
+           onRequestFinish:^(MKNetworkOperation *operation) {
+               if (onFinishedBlock) {
+                   onFinishedBlock(operation);
+               }
+           }
+           onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
+               if (onFailedBlock) {
+                   onFailedBlock(operation,error);
+               }
+           }];
+}
+
+/**
+ *  @brief  首页城市
+ *  @param  params
+ *  @param  view                    在那一页上的请求
+ *  @param  requestID               请求的ID
+ *  @param  onFinishedBlock         请求完成的block，可以得到请求成功解析后的数组以及得到的数据个数，实现自己的逻辑
+ *  @param  onFailedBlock           请求失败的的block，可以得到请求是失败后的错误，并实现自己的逻辑
+ *  @return
+ **/
+
+- (void)requestHomeMainCityWithParam:(NSMutableDictionary*)param
+                   withIndicatorView:(UIView*)view
+                 withCancelRequestID:(NSString*)requestID
+                      withHttpMethod:(kHTTPMethod)httpMethod
+                     onRequestFinish:(void(^)(MKNetworkOperation *operation))onFinishedBlock
+                     onRequestFailed:(void(^)(MKNetworkOperation *operation ,NSError *error ))onFailedBlock{
+    [super requestWithPath:Home_request_lifeCity
+              withParamDic:param
+         withIndicatorView:view
+       withCancelRequestID:requestID
+    withPostORDeleteMethod:kHTTPMethodPost
+                 authToken:nil
+                     isSSL:NO
+           onRequestFinish:^(MKNetworkOperation *operation) {
+               if (onFinishedBlock) {
+                   onFinishedBlock(operation);
+               }
+           }
+           onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
+               if (onFailedBlock) {
+                   onFailedBlock(operation,error);
+               }
+           }];
+
+
 }
 
 @end

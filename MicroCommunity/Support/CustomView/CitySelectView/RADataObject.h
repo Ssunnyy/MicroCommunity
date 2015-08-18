@@ -24,14 +24,22 @@
 
 @property (strong, nonatomic) NSString *cid;
 @property (strong, nonatomic) NSString *name;
-@property (strong, nonatomic) NSArray *children;
+@property (strong, nonatomic) NSArray  *children;
+@property (strong, nonatomic) NSString *agency_id;
+@property (strong, nonatomic) NSString *parent_id;
+@property (strong, nonatomic) NSString *region_id;
+@property (strong, nonatomic) NSString *region_type;
 
 - (id)initWithName:(NSString *)name children:(NSArray *)array;
 
-- (id)initWithName:(NSString *)name andId:(NSString *)cid children:(NSArray *)array;
+
+- (id)initWithName:(NSString *)name andCid:(NSString *) cid children:(NSArray *)array;
+
+- (id)initWithName:(NSString *)name andAgency_id:(NSString *)agency_id andParent_id:(NSString *)parent_id andPegion_id:(NSString *)region_id  children:(NSArray *)array;
 
 + (id)dataObjectWithName:(NSString *)name children:(NSArray *)children;
 
-+ (id)dataObjectWithName:(NSString *)name andId:(NSString *) cid children:(NSArray *)children;
++ (id)dataObjectWithName:(NSString *)name andAgency_id:(NSString *)agency_id andParent_id:(NSString *)parent_id andPegion_id:(NSString *)region_id  children:(NSArray *)array;;
 
++ (id)dataObjectWithName:(NSString *)name andCid:(NSString *) cid children:(NSArray *)array;
 @end

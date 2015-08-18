@@ -12,6 +12,7 @@
 #import "RADataObject.h"
 #import "MCCityTableViewCell.h"
 #import "MCAutoSizeLab.h"
+#import "MCHomeCityModel.h"
 
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
@@ -50,23 +51,24 @@
  */
 - (void) setUpTreeView {
 
-    provinces = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"area.plist" ofType:nil]];
-    cities = [[provinces objectAtIndex:0] objectForKey:@"cities"];
+    NSDictionary *data = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"citys.plist" ofType:nil]];
+
+    provinces = [[[data objectForKey:@"data"]objectAtIndex:0]objectForKey:@"_child"];
     
     
     NSMutableArray *dataArray = [NSMutableArray array];
     
-    
-    for (int i = 0; i < 3; i ++) {
+    for (int i = 0; i < provinces.count; i ++) {
         
-        NSArray *citys = [[provinces objectAtIndex:i] objectForKey:@"cities"];
+        MCHomeCityModel *cityModel = [[MCHomeCityModel alloc]initWithDataDic:[provinces objectAtIndex:i]];
+
         NSMutableArray *cityArray = [NSMutableArray array];
-        
-        for (int j = 0 ; j < cities.count; j ++) {
-            RADataObject *data = [RADataObject dataObjectWithName:[[citys objectAtIndex:j] objectForKey:@"city"] children:nil];
+        for (int j = 0 ; j < cityModel._child.count; j ++) {
+            MCHomeCityModel *city = [[MCHomeCityModel alloc]initWithDataDic:[cityModel._child objectAtIndex:j]];
+            RADataObject *data = [RADataObject dataObjectWithName:city.region_name andCid:city.region_id children:nil];
             [cityArray addObject:data];
         }
-        RADataObject *dataState = [RADataObject dataObjectWithName:[[provinces objectAtIndex:i] objectForKey:@"state"] children:cityArray];
+        RADataObject *dataState = [RADataObject dataObjectWithName:cityModel.region_name andCid:cityModel.region_id children:cityArray];
         [dataArray addObject:dataState];
     }
     
@@ -78,6 +80,8 @@
     treeView.delegate = self;
     treeView.dataSource = self;
     treeView.separatorStyle = RATreeViewCellSeparatorStyleNone;
+    treeView.showsVerticalScrollIndicator = NO;
+    treeView.showsHorizontalScrollIndicator = NO;
     
     [treeView reloadData];
     

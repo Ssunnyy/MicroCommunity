@@ -10,6 +10,7 @@
 #import "MCRecruitDetailCell.h"
 #import "MCCompanProductBottomView.h"
 
+
 @interface MCRecruitPersonController ()<UITableViewDataSource,UITableViewDelegate,MCCompanProductBottomViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *bottomView;

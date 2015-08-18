@@ -14,6 +14,8 @@
 #import "MCCompanyProductController.h"
 #import "MCCompanyConfirmController.h"
 
+#import "MCHomeSearchModel.h"
+
 @interface MCHomeSearchResultControllerViewController ()<UITableViewDataSource,UITableViewDelegate,MCHomeSearchViewDelegate,MCSerachResultCellDelegate,MCCustomHeadViewDelegate>
 @property (weak, nonatomic) IBOutlet UIView *headView;
 @property (weak, nonatomic) IBOutlet UITableView *resultTableView;
@@ -30,7 +32,36 @@
 - (void)viewWillAppear:(BOOL)animated {
 
     [super viewWillAppear:YES];
+//    if (self.type == otherSearch) {
+        [self searchRequest];
+//    }
+}
+#pragma  mark  --  搜索网络请求
+- (void) searchRequest {
     
+   __weak  MCHomeSearchResultControllerViewController *weak = self;
+    
+    MCUserModel *user = (MCUserModel *)[[MCUserManager shareManager]getCurrentUser];
+    if (user) {
+        NSMutableDictionary *param = [NSMutableDictionary dictionary];
+        [param safeString:user.user_id ForKey:@"user_id"];
+        [param safeString:self.keyWorld ForKey:@"key"];
+        [[MCHomeManager shareManager]requestHomeMainSearchWithParam:param withIndicatorView:self.view withCancelRequestID:Home_request_lifeSearch withHttpMethod:kHTTPMethodPost onRequestFinish:^(MKNetworkOperation *operation) {
+            
+            if (operation.isSuccees) {
+                [weak.dataArray removeAllObjects];
+                NSArray *data = [operation.resultDic objectForKey:@"data"];
+                for (int i = 0; i < data.count; i ++) {
+                    MCHomeSearchModel *model = [[MCHomeSearchModel alloc]initWithDataDic:[data objectAtIndex:i]];
+                    model.seller_image = [NSString stringWithFormat:@"%@%@",Main_URL,model.seller_image];
+                    [weak.dataArray addObject:model];
+                }
+                [weak.resultTableView reloadData];
+            }
+        } onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
+            [ITTPromptView showMessage:@"搜索失败"];
+        }];
+    }
 }
 
 - (void)viewDidLoad {
@@ -107,7 +138,7 @@
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 10;
+    return self.dataArray.count;
     
 }
 
@@ -124,7 +155,9 @@
     if (!cell) {
         cell = [[[NSBundle mainBundle]loadNibNamed:@"MCSerachResultCell" owner:self options:nil]lastObject];
     }
+    MCHomeSearchModel *modle = [_dataArray objectAtIndex:indexPath.row];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    [cell configCellWithMCHomeSearchModel:modle];
     cell.tag = indexPath.row;
     cell.delegate = self;
     return cell;

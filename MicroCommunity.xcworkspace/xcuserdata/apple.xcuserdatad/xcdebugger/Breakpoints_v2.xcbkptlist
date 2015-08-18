@@ -4,17 +4,59 @@
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            scope = "0"
+            stopOnStyle = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MicroCommunity/Controller&amp;View/MCMyViewController/MCMyPublicController.m"
-            timestampString = "461235879.908886"
+            filePath = "MicroCommunity/Controller&amp;View/MCHomeViewController/MCHomeComponyController/MCProductCityChooseController.m"
+            timestampString = "461506876.396062"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "237"
-            endingLineNumber = "237"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "-setUpTreeView"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MicroCommunity/Controller&amp;View/MCHomeViewController/MCHomeComponyController/MCProductCityChooseController.m"
+            timestampString = "461507094.928104"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "-setUpTreeView"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MicroCommunity/Controller&amp;View/MCHomeViewController/MCHomeComponyController/MCProductCityChooseController.m"
+            timestampString = "461508309.84402"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "258"
+            endingLineNumber = "258"
             landmarkName = "-rightBarButtonClick:"
             landmarkType = "5">
          </BreakpointContent>
@@ -25,13 +67,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MicroCommunity/Controller&amp;View/MCMyViewController/MCMyPublicController.m"
-            timestampString = "461235879.908886"
+            filePath = "MicroCommunity/Controller&amp;View/MCHomeViewController/MCHomeComponyController/MCShopPublicController.m"
+            timestampString = "461507535.619987"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "181"
-            endingLineNumber = "181"
-            landmarkName = "-deleteOrPublic:"
+            startingLineNumber = "184"
+            endingLineNumber = "184"
+            landmarkName = "-chooseCitys:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,29 +83,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MicroCommunity/Controller&amp;View/MCMyViewController/MCMyPublicController.m"
-            timestampString = "461235879.908886"
+            filePath = "MicroCommunity/Controller&amp;View/MCHomeViewController/MCHomeViewController.m"
+            timestampString = "461508457.08673"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "199"
-            endingLineNumber = "199"
-            landmarkName = "-deleteOrPublic:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MicroCommunity/Controller&amp;View/MCMyViewController/MCMyPublicController.m"
-            timestampString = "461235879.908886"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "222"
-            endingLineNumber = "222"
-            landmarkName = "-sureOrCancel:"
+            startingLineNumber = "288"
+            endingLineNumber = "288"
+            landmarkName = "-chooseCityBtnClick"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -15,7 +15,13 @@
 #import "MCHomeSearchResultControllerViewController.h"
 #import "MCRecruitController.h"
 
+#import "MCHomeAdModel.h"
+#import "MCHomeCityModel.h"
+
 @interface MCHomeViewController ()<UITableViewDataSource,UITableViewDelegate,EScrollerViewDelegate,MCHomeViewCellDelegate,MCHomeSearchViewDelegate>
+{
+    NSArray *provinces;
+}
 
 @property (nonatomic, strong) MCHomeSearchView *search;
 @property (nonatomic, strong) EScrollerView *circleScrollV;
@@ -34,12 +40,80 @@
     [super viewWillAppear:YES];
     [self hideNavBar];
     [AppDelegate DisplayTabBar];
+    
+    [self requestCircle];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+
+    [super viewDidAppear:YES];
+    [self requestMain];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
 
     [super viewDidDisappear:YES];
     [_search resignTextView];
+}
+#pragma  mark  --  请求轮播图
+- (void) requestCircle{
+
+    MCUserModel *user = (MCUserModel *)[[MCUserManager shareManager]getCurrentUser];
+    
+    __weak MCHomeViewController *weak = self;
+    
+    if (user) {
+        NSMutableDictionary *param = [NSMutableDictionary dictionary];
+        [param safeString:user.user_id ForKey:@"user_id"];
+        [[MCHomeManager shareManager]requestCircleWithParam:param withIndicatorView:self.view
+                                        withCancelRequestID:Home_request_circle withHttpMethod:kHTTPMethodPost onRequestFinish:^(MKNetworkOperation *operation) {
+                                            
+                                            if (operation.isSuccees) {
+                                                NSArray *addArray = [operation.resultDic objectForKey:@"data"];
+                                                NSMutableArray *imageArray = [NSMutableArray array];
+                                                for (int i = 0; i < addArray.count; i ++) {
+                                                    MCHomeAdModel *adModel = [[MCHomeAdModel alloc]initWithDataDic:[addArray objectAtIndex:i]];
+                                                    adModel.key_drawing_image = [NSString stringWithFormat:@"%@%@",Main_URL,adModel.key_drawing_image];
+                                                    [weak.adArray addObject:adModel];
+                                                    [imageArray addObject:adModel.key_drawing_image];
+                                                }
+                                                
+                                                [weak.circleScrollV setScrollViewContent:imageArray];
+                                            }
+                                        } onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
+                                            [ITTPromptView showMessage:@"广告请求失败"];
+                                        }];
+    }
+}
+
+#pragma  mark  --  请求首页数据
+
+- (void) requestMain{
+    
+    MCUserModel *user = (MCUserModel *)[[MCUserManager shareManager]getCurrentUser];
+    if (user) {
+        NSMutableDictionary *param = [NSMutableDictionary dictionary];
+        [param safeString:user.user_id ForKey:@"user_id"];
+        
+        __weak MCHomeViewController *weak  = self;
+        
+        [[MCHomeManager shareManager]requestHomeMainWithParam:param withIndicatorView:self.view withCancelRequestID:Home_request_main withHttpMethod:kHTTPMethodPost onRequestFinish:^(MKNetworkOperation *operation) {
+            
+            if (operation.isSuccees) {
+                [weak.tableArray removeAllObjects];
+                NSArray *dataArray = [operation.resultDic objectForKey:@"data"];
+                for (int i = 0 ;i < dataArray.count; i ++) {
+                    MCHomeModel *homeModel = [[MCHomeModel alloc]initWithDataDic:[dataArray objectAtIndex:i]];
+                    homeModel.category_image = [NSString stringWithFormat:@"%@%@",Main_URL,homeModel.category_image];
+                    [weak.tableArray addObject:homeModel];
+                }
+                [weak.homeTableView reloadData];
+            }
+            
+        } onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
+            [ITTPromptView showMessage:@"网络请求失败"];
+        }];
+    }
 }
 
 - (void)viewDidLoad {
@@ -62,11 +136,6 @@
 
     _tableArray = [[NSMutableArray alloc]init];
     _adArray = [[NSMutableArray alloc]init];
-    
-    for (int i = 0;  i < 3; i ++) {
-        [_adArray addObject:@"http://123.57.248.101/sendwhere/Public/images/26P58PICeEA.jpg"];
-    }
-    
 }
 
 /**
@@ -90,9 +159,6 @@
     _circleScrollV=[[EScrollerView alloc] initWithFrameRect:CGRectMake(0, 0, SCREEN_WIDTH, headViewHeight)];
     _homeTableView.tableHeaderView = _circleScrollV;
     _circleScrollV.delegate = self;
-    
-    [_circleScrollV setScrollViewContent:_adArray];
-    
 }
 
 
@@ -100,7 +166,7 @@
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return 10;
+    return ceilf(self.tableArray.count /3.0) ; ;
     
 }
 
@@ -118,7 +184,7 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"MCHomeViewCell" owner:self options:nil]lastObject];
     }
     cell.delegate = self;
-    [cell setContentCell:nil andIndex:indexPath.row];
+    [cell setContentCell:self.tableArray andIndex:indexPath.row];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
@@ -130,7 +196,6 @@
     
 }
 
-
 #pragma  mark  --  MCHomeViewCellDelegate
 /**
  *  cell点击事件
@@ -138,29 +203,48 @@
 - (void)btnClickAtIndex:(NSInteger)index {
 
     
-//    MCHomeModel *model = (MCHomeModel *)[_tableArray objectAtIndex:index - 200];
+    MCHomeModel *model = (MCHomeModel *)[_tableArray objectAtIndex:index - 200];
     
-    switch (index) {
-        case 200:
-        {
-            MCHomeSearchResultControllerViewController *result = [[MCHomeSearchResultControllerViewController alloc]initWithNibName:@"MCHomeSearchResultControllerViewController" bundle:nil];
-            result.type = customeSearch;
-            result.currentTitle = @"本地企业";
-            [self.navigationController pushViewController:result animated:YES];
-        }
-            break;
-        case 201:
-        {
-            MCRecruitController *recruit = [[MCRecruitController alloc]initWithNibName:@"MCRecruitController" bundle:nil];
-            recruit.currentTitle = @"求职招聘";
-            [self.navigationController pushViewController:recruit animated:YES];
-        }
-            break;
-        default:
-            break;
+    if ([model.category_name isEqualToString:@"本地企业"]) {
+        
+        MCHomeSearchResultControllerViewController *result = [[MCHomeSearchResultControllerViewController alloc]initWithNibName:@"MCHomeSearchResultControllerViewController" bundle:nil];
+        result.type = customeSearch;
+        result.currentTitle = @"本地企业";
+        [self.navigationController pushViewController:result animated:YES];
+        
+    } else if ([model.category_name isEqualToString:@"求职招聘"]){
+        
+        MCRecruitController *recruit = [[MCRecruitController alloc]initWithNibName:@"MCRecruitController" bundle:nil];
+        recruit.currentTitle = @"求职招聘";
+        [self.navigationController pushViewController:recruit animated:YES];
+        
+    } else if ([model.category_name isEqualToString:@"特色美食"]){
+        
+    }else if([model.category_name isEqualToString:@"服装鞋帽"]) {
+        
+    }else if([model.category_name isEqualToString:@"休闲娱乐"]) {
+        
+    }else if([model.category_name isEqualToString:@"家具电器"]) {
+        
+    }else if([model.category_name isEqualToString:@"综合信息"]) {
+        
+    }else if([model.category_name isEqualToString:@"二手市场"]) {
+        
+    }else if([model.category_name isEqualToString:@"物流运输"]) {
+        
+    }else if([model.category_name isEqualToString:@"宾馆洗浴"]) {
+        
+    }else if([model.category_name isEqualToString:@"珠宝玉器"]) {
+        
+    }else if([model.category_name isEqualToString:@"医药医疗"]) {
+        
+    }else if([model.category_name isEqualToString:@"家政服务"]) {
+        
+    }else if([model.category_name isEqualToString:@"旅游景点"]) {
+        
+    }else if([model.category_name isEqualToString:@"房屋出租"]) {
+        
     }
-
-    
 }
 
 #pragma  mark  --  MCHomeSearchViewDelegate
@@ -168,20 +252,60 @@
  *  选择城市
  */
 - (void)chooseCityBtnClick {
+
+    
+    NSDictionary *data = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"citys.plist" ofType:nil]];
+    
+    provinces = [[[data objectForKey:@"data"]objectAtIndex:0]objectForKey:@"_child"];
     
     
+    NSMutableArray *dataArray = [NSMutableArray array];
+    
+    for (int i = 0; i < provinces.count; i ++) {
+        
+        MCHomeCityModel *cityModel = [[MCHomeCityModel alloc]initWithDataDic:[provinces objectAtIndex:i]];
+        
+        NSMutableArray *cityArray = [NSMutableArray array];
+        for (int j = 0 ; j < cityModel._child.count; j ++) {
+            MCHomeCityModel *city = [[MCHomeCityModel alloc]initWithDataDic:[cityModel._child objectAtIndex:j]];
+            NSMutableArray *areaArray = [NSMutableArray array];
+            
+            for (int m = 0; m < city._child.count; m ++) {
+                MCHomeCityModel *area = [[MCHomeCityModel alloc]initWithDataDic:[city._child objectAtIndex:m]];
+                [areaArray addObject:area];
+            }
+
+            city._child = areaArray;
+            
+            [cityArray addObject:city];
+        }
+        
+        cityModel._child = cityArray;
+        
+        [dataArray addObject:cityModel];
+    }
+
 }
 /**
  *  搜索
  */
 - (void)searchBarView:(MCHomeSearchView *)searchBarView inputCompleted:(NSString *)searchText {
 
+    NSString *key = [searchText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    
+    if (key.length <= 0) {
+        [ITTPromptView showMessage:@"搜索关键字不能为空"];
+        return;
+    }
+    
     MCHomeSearchResultControllerViewController *result = [[MCHomeSearchResultControllerViewController alloc]initWithNibName:@"MCHomeSearchResultControllerViewController" bundle:nil];
     result.type = otherSearch;
     result.keyWorld = searchText;
     [self.navigationController pushViewController:result animated:YES];
     
 }
+
+
 /*
 #pragma mark - Navigation
 

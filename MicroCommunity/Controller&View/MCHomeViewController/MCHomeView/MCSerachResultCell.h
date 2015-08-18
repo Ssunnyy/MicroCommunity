@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MCHomeSearchModel.h"
 
 @protocol MCSerachResultCellDelegate <NSObject>
 //  100商品详情
@@ -18,5 +19,7 @@
 @interface MCSerachResultCell : UITableViewCell
 
 @property (nonatomic, assign) id <MCSerachResultCellDelegate> delegate;
+
+- (void) configCellWithMCHomeSearchModel:(MCHomeSearchModel*) model;
 
 @end

@@ -32,7 +32,9 @@
 #define LastUserId @"lastUserid"
 //  测试外网地址
 
-#define HostURL @"mcommunity.bjqttd.com/json.php/home/index"
+#define HostURL @"mcommunity.bjqttd.com/json.php"
+#define Main_URL @"http://mcommunity.bjqttd.com"
+
 #define OrderUrl @"http://app.ionly.net"
 
 ////  上线地址

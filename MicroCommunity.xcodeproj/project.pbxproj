@@ -589,6 +589,17 @@
 		18808F9C1B7DB8FD007F0301 /* MCMysPublicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18808F9A1B7DB8FD007F0301 /* MCMysPublicCell.xib */; };
 		18808FA51B7DC21E007F0301 /* MCMyPublicController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18808FA31B7DC21E007F0301 /* MCMyPublicController.m */; };
 		18808FA61B7DC21E007F0301 /* MCMyPublicController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18808FA41B7DC21E007F0301 /* MCMyPublicController.xib */; };
+		188D621C1B816C9E00B3F6C7 /* MCMyRecruitController.m in Sources */ = {isa = PBXBuildFile; fileRef = 188D621A1B816C9E00B3F6C7 /* MCMyRecruitController.m */; };
+		188D621D1B816C9E00B3F6C7 /* MCMyRecruitController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188D621B1B816C9E00B3F6C7 /* MCMyRecruitController.xib */; };
+		188D62221B81789500B3F6C7 /* textarea_bg2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 188D62201B81789500B3F6C7 /* textarea_bg2@2x.png */; };
+		188D62231B81789500B3F6C7 /* textarea_bg2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 188D62211B81789500B3F6C7 /* textarea_bg2@3x.png */; };
+		188D62261B81B0AD00B3F6C7 /* MCHomeAdModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 188D62251B81B0AD00B3F6C7 /* MCHomeAdModel.m */; };
+		188D622E1B81DD8400B3F6C7 /* citys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 188D622D1B81DD8400B3F6C7 /* citys.plist */; };
+		188D62311B81DF3B00B3F6C7 /* MCHomeSearchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 188D62301B81DF3B00B3F6C7 /* MCHomeSearchModel.m */; };
+		188D62341B8207EA00B3F6C7 /* MCHomeCityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 188D62331B8207EA00B3F6C7 /* MCHomeCityModel.m */; };
+		188D623C1B821AD800B3F6C7 /* HZAreaPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 188D62381B821AD800B3F6C7 /* HZAreaPickerView.m */; };
+		188D623D1B821AD800B3F6C7 /* HZAreaPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188D62391B821AD800B3F6C7 /* HZAreaPickerView.xib */; };
+		188D623E1B821AD800B3F6C7 /* HZLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 188D623B1B821AD800B3F6C7 /* HZLocation.m */; };
 		18FD726D1B7DCA8C00E0CDE6 /* MCMyPublicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FD726C1B7DCA8C00E0CDE6 /* MCMyPublicModel.m */; };
 		18FD72711B7DD6B300E0CDE6 /* MCMyPublicBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FD726F1B7DD6B300E0CDE6 /* MCMyPublicBottomView.m */; };
 		18FD72721B7DD6B300E0CDE6 /* MCMyPublicBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18FD72701B7DD6B300E0CDE6 /* MCMyPublicBottomView.xib */; };
@@ -1577,6 +1588,23 @@
 		18808FA21B7DC21E007F0301 /* MCMyPublicController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMyPublicController.h; sourceTree = "<group>"; };
 		18808FA31B7DC21E007F0301 /* MCMyPublicController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMyPublicController.m; sourceTree = "<group>"; };
 		18808FA41B7DC21E007F0301 /* MCMyPublicController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCMyPublicController.xib; sourceTree = "<group>"; };
+		188D62191B816C9E00B3F6C7 /* MCMyRecruitController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMyRecruitController.h; sourceTree = "<group>"; };
+		188D621A1B816C9E00B3F6C7 /* MCMyRecruitController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMyRecruitController.m; sourceTree = "<group>"; };
+		188D621B1B816C9E00B3F6C7 /* MCMyRecruitController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCMyRecruitController.xib; sourceTree = "<group>"; };
+		188D62201B81789500B3F6C7 /* textarea_bg2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "textarea_bg2@2x.png"; sourceTree = "<group>"; };
+		188D62211B81789500B3F6C7 /* textarea_bg2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "textarea_bg2@3x.png"; sourceTree = "<group>"; };
+		188D62241B81B0AD00B3F6C7 /* MCHomeAdModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCHomeAdModel.h; sourceTree = "<group>"; };
+		188D62251B81B0AD00B3F6C7 /* MCHomeAdModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCHomeAdModel.m; sourceTree = "<group>"; };
+		188D622D1B81DD8400B3F6C7 /* citys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = citys.plist; sourceTree = "<group>"; };
+		188D622F1B81DF3B00B3F6C7 /* MCHomeSearchModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCHomeSearchModel.h; sourceTree = "<group>"; };
+		188D62301B81DF3B00B3F6C7 /* MCHomeSearchModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCHomeSearchModel.m; sourceTree = "<group>"; };
+		188D62321B8207E900B3F6C7 /* MCHomeCityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCHomeCityModel.h; sourceTree = "<group>"; };
+		188D62331B8207EA00B3F6C7 /* MCHomeCityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCHomeCityModel.m; sourceTree = "<group>"; };
+		188D62371B821AD800B3F6C7 /* HZAreaPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HZAreaPickerView.h; sourceTree = "<group>"; };
+		188D62381B821AD800B3F6C7 /* HZAreaPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HZAreaPickerView.m; sourceTree = "<group>"; };
+		188D62391B821AD800B3F6C7 /* HZAreaPickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HZAreaPickerView.xib; sourceTree = "<group>"; };
+		188D623A1B821AD800B3F6C7 /* HZLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HZLocation.h; sourceTree = "<group>"; };
+		188D623B1B821AD800B3F6C7 /* HZLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HZLocation.m; sourceTree = "<group>"; };
 		18FD726B1B7DCA8C00E0CDE6 /* MCMyPublicModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMyPublicModel.h; sourceTree = "<group>"; };
 		18FD726C1B7DCA8C00E0CDE6 /* MCMyPublicModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMyPublicModel.m; sourceTree = "<group>"; };
 		18FD726E1B7DD6B300E0CDE6 /* MCMyPublicBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMyPublicBottomView.h; sourceTree = "<group>"; };
@@ -2178,6 +2206,9 @@
 				181A6B131B7B556100B72FAD /* MCRecruitPublicController.h */,
 				181A6B141B7B556100B72FAD /* MCRecruitPublicController.m */,
 				181A6B151B7B556100B72FAD /* MCRecruitPublicController.xib */,
+				188D62191B816C9E00B3F6C7 /* MCMyRecruitController.h */,
+				188D621A1B816C9E00B3F6C7 /* MCMyRecruitController.m */,
+				188D621B1B816C9E00B3F6C7 /* MCMyRecruitController.xib */,
 			);
 			path = MCHomeRecruitController;
 			sourceTree = "<group>";
@@ -2520,6 +2551,8 @@
 		181A6CAB1B7B558500B72FAD /* Home_Recruit */ = {
 			isa = PBXGroup;
 			children = (
+				188D62201B81789500B3F6C7 /* textarea_bg2@2x.png */,
+				188D62211B81789500B3F6C7 /* textarea_bg2@3x.png */,
 				181A6CAC1B7B558500B72FAD /* sex_famale@2x.png */,
 				181A6CAD1B7B558500B72FAD /* sex_famale@3x.png */,
 			);
@@ -2666,6 +2699,8 @@
 		181A6DEC1B7B55CD00B72FAD /* MCHomeModel */ = {
 			isa = PBXGroup;
 			children = (
+				188D62241B81B0AD00B3F6C7 /* MCHomeAdModel.h */,
+				188D62251B81B0AD00B3F6C7 /* MCHomeAdModel.m */,
 				181A6DED1B7B55CD00B72FAD /* MCCompanyCommentModel.h */,
 				181A6DEE1B7B55CD00B72FAD /* MCCompanyCommentModel.m */,
 				181A6DEF1B7B55CD00B72FAD /* MCCompanyInfoModel.h */,
@@ -2678,6 +2713,10 @@
 				181A6DF61B7B55CD00B72FAD /* MCProductModel.m */,
 				181A6DF71B7B55CD00B72FAD /* MCRecruitModel.h */,
 				181A6DF81B7B55CD00B72FAD /* MCRecruitModel.m */,
+				188D622F1B81DF3B00B3F6C7 /* MCHomeSearchModel.h */,
+				188D62301B81DF3B00B3F6C7 /* MCHomeSearchModel.m */,
+				188D62321B8207E900B3F6C7 /* MCHomeCityModel.h */,
+				188D62331B8207EA00B3F6C7 /* MCHomeCityModel.m */,
 			);
 			path = MCHomeModel;
 			sourceTree = "<group>";
@@ -2851,6 +2890,12 @@
 		181A6E4C1B7B563900B72FAD /* CitySelectView */ = {
 			isa = PBXGroup;
 			children = (
+				188D62371B821AD800B3F6C7 /* HZAreaPickerView.h */,
+				188D62381B821AD800B3F6C7 /* HZAreaPickerView.m */,
+				188D62391B821AD800B3F6C7 /* HZAreaPickerView.xib */,
+				188D623A1B821AD800B3F6C7 /* HZLocation.h */,
+				188D623B1B821AD800B3F6C7 /* HZLocation.m */,
+				188D622D1B81DD8400B3F6C7 /* citys.plist */,
 				181A6E4D1B7B563900B72FAD /* area.plist */,
 				181A6E4E1B7B563900B72FAD /* ASCityCell.h */,
 				181A6E4F1B7B563900B72FAD /* ASCityCell.m */,
@@ -3822,6 +3867,7 @@
 				181A6D8C1B7B558500B72FAD /* btn_add4@2x.png in Resources */,
 				04F0F82E1AA411DB00F30A6A /* InfoPlist.strings in Resources */,
 				181A703E1B7B563A00B72FAD /* ASLocationViewController.xib in Resources */,
+				188D62231B81789500B3F6C7 /* textarea_bg2@3x.png in Resources */,
 				181A6D6E1B7B558500B72FAD /* base_btn4_off@2x.png in Resources */,
 				181A6DC61B7B558500B72FAD /* my_collection.png in Resources */,
 				674A1D7C1AFD6D8100D17472 /* wangjimima2@3x.png in Resources */,
@@ -3912,6 +3958,7 @@
 				181A6C1E1B7B556100B72FAD /* MCMyGoldRuleController.xib in Resources */,
 				674A1DB31AFD6D8100D17472 /* main_bc_fail@2x.png in Resources */,
 				181A6D6C1B7B558500B72FAD /* base_btn3_on@2x.png in Resources */,
+				188D622E1B81DD8400B3F6C7 /* citys.plist in Resources */,
 				181A6D951B7B558500B72FAD /* btn_bg3_2@3x.png in Resources */,
 				186116411B7CC815003CE5A2 /* pop-up_bg7@2x.png in Resources */,
 				674A1DB21AFD6D8100D17472 /* huazhuang_bg_@3x.png in Resources */,
@@ -3978,6 +4025,7 @@
 				181A6C181B7B556100B72FAD /* MCMyAboutUSController.xib in Resources */,
 				181A6DBC1B7B558500B72FAD /* erweiMa.png in Resources */,
 				674A1DBC1AFD6D8100D17472 /* materDefault(660)@3x.png in Resources */,
+				188D621D1B816C9E00B3F6C7 /* MCMyRecruitController.xib in Resources */,
 				181A6C2B1B7B556100B72FAD /* MCMyGoleTableCell.xib in Resources */,
 				849288AA1B311779000AB1ED /* login_kuang@2x.png in Resources */,
 				181A6D811B7B558500B72FAD /* ipt_bg3@2x.png in Resources */,
@@ -4026,6 +4074,7 @@
 				1818C0071B7C8823006476F9 /* top_btn_plus@3x.png in Resources */,
 				181A6DB31B7B558500B72FAD /* textarea_bg4@3x.png in Resources */,
 				BC66E1831AFFA2A4005245D0 /* tijizhanwei@3x.png in Resources */,
+				188D62221B81789500B3F6C7 /* textarea_bg2@2x.png in Resources */,
 				181A6D491B7B558500B72FAD /* recharge_btn1@3x.png in Resources */,
 				181A6D931B7B558500B72FAD /* btn_bg3_1@3x.png in Resources */,
 				674A1D671AFD6D8100D17472 /* butt@3x.png in Resources */,
@@ -4081,6 +4130,7 @@
 				181A6BE81B7B556100B72FAD /* MCCompanyIntroCell.xib in Resources */,
 				181A6D4D1B7B558500B72FAD /* shops_base_btn2@3x.png in Resources */,
 				181A6BC01B7B556100B72FAD /* ASChangePwdViewController.xib in Resources */,
+				188D623D1B821AD800B3F6C7 /* HZAreaPickerView.xib in Resources */,
 				181A6DD01B7B558500B72FAD /* result_phone.png in Resources */,
 				181A6BEE1B7B556100B72FAD /* MCProductSearchHeadView.xib in Resources */,
 				181A70491B7B563A00B72FAD /* ASCCPersonEditViewController.xib in Resources */,
@@ -4160,6 +4210,7 @@
 				181A6C091B7B556100B72FAD /* MCHomeViewCell.m in Sources */,
 				181A70651B7B563A00B72FAD /* MMTagModel.m in Sources */,
 				675446AF1AAEA3CB00F06B6B /* ASCCImageShowModel.m in Sources */,
+				188D62341B8207EA00B3F6C7 /* MCHomeCityModel.m in Sources */,
 				181A70661B7B563A00B72FAD /* QQAutoSizeLabel.m in Sources */,
 				181A70951B7B563A00B72FAD /* CJSONSerializer.m in Sources */,
 				041AF2D91AB011B90055CFC4 /* ASMainRequestManager.m in Sources */,
@@ -4206,6 +4257,7 @@
 				04A154881AA82E0500E22B5C /* YXBaseOperation.m in Sources */,
 				181A6BAB1B7B556100B72FAD /* MCPrivateTalkController.m in Sources */,
 				181A70641B7B563A00B72FAD /* RATreeView.m in Sources */,
+				188D623E1B821AD800B3F6C7 /* HZLocation.m in Sources */,
 				181A709C1B7B563A00B72FAD /* MASViewAttribute.m in Sources */,
 				181A6BBB1B7B556100B72FAD /* MCPrivateTalkCell.m in Sources */,
 				181A70B41B7B563A00B72FAD /* MKNetworkOperation+ITTNetworkOperation.m in Sources */,
@@ -4313,6 +4365,7 @@
 				181A70371B7B563A00B72FAD /* NavigationBarView.m in Sources */,
 				04A154861AA82E0500E22B5C /* ITTBaseRequestManager.m in Sources */,
 				1818BFE91B7C3015006476F9 /* qrspec.c in Sources */,
+				188D623C1B821AD800B3F6C7 /* HZAreaPickerView.m in Sources */,
 				1818BFEB1B7C3015006476F9 /* split.c in Sources */,
 				181A702B1B7B563A00B72FAD /* CommonUtils.m in Sources */,
 				181A709D1B7B563A00B72FAD /* MASViewConstraint.m in Sources */,
@@ -4331,6 +4384,7 @@
 				181A70A31B7B563A00B72FAD /* MJRefreshComponent.m in Sources */,
 				181A70471B7B563A00B72FAD /* EScrollerView.m in Sources */,
 				181A6BE11B7B556100B72FAD /* MCCompanyBottomView.m in Sources */,
+				188D62261B81B0AD00B3F6C7 /* MCHomeAdModel.m in Sources */,
 				1818BFE51B7C3015006476F9 /* mask.c in Sources */,
 				181A6C2E1B7B556100B72FAD /* MCMyMessageCell.m in Sources */,
 				1818C0291B7CBC62006476F9 /* MCMycountModle.m in Sources */,
@@ -4386,6 +4440,7 @@
 				181A6C141B7B556100B72FAD /* MCRegisViewController.m in Sources */,
 				181A6BBF1B7B556100B72FAD /* ASChangePwdViewController.m in Sources */,
 				1818BFE71B7C3015006476F9 /* qrencode.c in Sources */,
+				188D62311B81DF3B00B3F6C7 /* MCHomeSearchModel.m in Sources */,
 				181A705C1B7B563A00B72FAD /* RATreeNodeCollectionController.m in Sources */,
 				181A70BA1B7B563A00B72FAD /* MKAnnotationView+WebCache.m in Sources */,
 				181A70AB1B7B563A00B72FAD /* UIScrollView+MJExtension.m in Sources */,
@@ -4399,6 +4454,7 @@
 				1818BFFE1B7C8127006476F9 /* MCMyNewFriendCell.m in Sources */,
 				181A70C11B7B563A00B72FAD /* SDWebImageManager.m in Sources */,
 				181A705E1B7B563A00B72FAD /* RATreeNodeInfo.m in Sources */,
+				188D621C1B816C9E00B3F6C7 /* MCMyRecruitController.m in Sources */,
 				181A6BA11B7B556100B72FAD /* MCCreatTalkGroupController.m in Sources */,
 				181A707B1B7B563A00B72FAD /* NSMutableDictionary+ITTCategory.m in Sources */,
 				181A708E1B7B563A00B72FAD /* CDataScanner_Extensions.m in Sources */,

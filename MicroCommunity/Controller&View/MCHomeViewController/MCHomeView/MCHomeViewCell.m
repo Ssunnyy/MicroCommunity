@@ -67,66 +67,67 @@
     self.twoView.hidden = NO;
     self.threeView.hidden = NO;
     
-//    int num = ceilf(modelArr.count /3.0) ; //一共有几行
-//    MCHomeModel *model1 = (MCHomeModel *)[modelArr objectAtIndex:index*3];
-//    
-//    self.oneLable.text = model1.title;
-//    [self.oneImage sd_setImageWithURL:[NSURL URLWithString:model1.url] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-//        
-//    }];
-//    
-//    if (index == num - 1) {
-//        
-//        int yushu = modelArr.count % 3;
-//        switch (yushu) {
-//            case 0:
-//            {
-//                MCHomeModel *model2 = (MCHomeModel *)[modelArr objectAtIndex:index*3 + 1];
-//                MCHomeModel *model3 = (MCHomeModel *)[modelArr objectAtIndex:index*3 + 2];
-//                
-//                [self.twoImage sd_setImageWithURL:[NSURL URLWithString:model2.url] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-//                    
-//                }];
-//                [self.threeImage sd_setImageWithURL:[NSURL URLWithString:model3.url] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-//                    
-//                }];
-//                self.twoLab.text = model2.title;
-//                self.threeLab.text = model3.title;
-//                
-//            }
-//            case 1:
-//            {
-//                self.threeView.hidden = YES;
-//                MCHomeModel *model2 = (MCHomeModel *)[modelArr objectAtIndex:index*3 + 1];
-//                [self.twoImage sd_setImageWithURL:[NSURL URLWithString:model2.url] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-//                    
-//                }];
-//                self.twoLab.text = model2.title;
-//            }
-//                break;
-//            case 2:
-//            {
-//                self.twoView.hidden = YES;
-//                self.threeView.hidden = YES;
-//            }
-//                break;
-//                
-//            default:
-//                break;
-//        }
-//    }else{
-//        MCHomeModel *model2 = (MCHomeModel *)[modelArr objectAtIndex:index*3 + 1];
-//        MCHomeModel *model3 = (MCHomeModel *)[modelArr objectAtIndex:index*3 + 2];
-//        
-//        [self.twoImage sd_setImageWithURL:[NSURL URLWithString:model2.url] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-//            
-//        }];
-//        [self.threeImage sd_setImageWithURL:[NSURL URLWithString:model3.url] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-//            
-//        }];
-//        self.twoLab.text = model2.title;
-//        self.threeLab.text = model3.title;
-//    }
+    int num = ceilf(modelArr.count /3.0) ; //一共有几行
+    MCHomeModel *model1 = (MCHomeModel *)[modelArr objectAtIndex:index*3];
+    
+    self.oneLable.text = model1.category_name;
+    [self.oneImage sd_setImageWithURL:[NSURL URLWithString:model1.category_image] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        
+    }];
+    
+    if (index == num - 1) {
+        
+        int yushu = modelArr.count % 3;
+        switch (yushu) {
+            case 0:
+            {
+                MCHomeModel *model2 = (MCHomeModel *)[modelArr objectAtIndex:index*3 + 1];
+                MCHomeModel *model3 = (MCHomeModel *)[modelArr objectAtIndex:index*3 + 2];
+                
+                [self.twoImage sd_setImageWithURL:[NSURL URLWithString:model2.category_image] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                    
+                }];
+                [self.threeImage sd_setImageWithURL:[NSURL URLWithString:model3.category_image] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                    
+                }];
+                self.twoLab.text = model2.category_name;
+                self.threeLab.text = model3.category_name;
+                
+            }
+                break;
+            case 1:
+            {
+                self.twoView.hidden = YES;
+                self.threeView.hidden = YES;
+            }
+                break;
+            case 2:
+            {
+                self.threeView.hidden = YES;
+                MCHomeModel *model2 = (MCHomeModel *)[modelArr objectAtIndex:index*3 + 1];
+                [self.twoImage sd_setImageWithURL:[NSURL URLWithString:model2.category_image] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                    
+                }];
+                self.twoLab.text = model2.category_name;
+            }
+                break;
+                
+            default:
+                break;
+        }
+    }else{
+        MCHomeModel *model2 = (MCHomeModel *)[modelArr objectAtIndex:index*3 + 1];
+        MCHomeModel *model3 = (MCHomeModel *)[modelArr objectAtIndex:index*3 + 2];
+        
+        [self.twoImage sd_setImageWithURL:[NSURL URLWithString:model2.category_image] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+            
+        }];
+        [self.threeImage sd_setImageWithURL:[NSURL URLWithString:model3.category_image] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+            
+        }];
+        self.twoLab.text = model2.category_name;
+        self.threeLab.text = model3.category_name;
+    }
     
     _oneBtn.tag = index * 3 + 200;
     _twoBtn.tag = index * 3 + 201;

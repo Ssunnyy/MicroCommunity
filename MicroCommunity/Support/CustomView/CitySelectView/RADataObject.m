@@ -22,7 +22,6 @@
 
 @implementation RADataObject
 
-
 - (id)initWithName:(NSString *)name children:(NSArray *)children
 {
   self = [super init];
@@ -33,14 +32,29 @@
   return self;
 }
 
-- (id)initWithName:(NSString *)name andId:(NSString *)cid children:(NSArray *)array {
+- (id)initWithName:(NSString *)name andCid:(NSString *) cid children:(NSArray *)array {
+
+    self = [super init];
+    if (self) {
+        self.name = name;
+        self.cid = cid;
+        self.children = array;
+    }
+    return self;
+}
+
+- (id)initWithName:(NSString *)name andAgency_id:(NSString *)agency_id andParent_id:(NSString *)parent_id andPegion_id:(NSString *)region_id  children:(NSArray *)array{
+
     self = [super init];
     if (self) {
         self.children = array;
         self.name = name;
-        self.cid = cid;
+        self.agency_id = agency_id;
+        self.parent_id = parent_id;
+        self.region_id = region_id;
     }
     return self;
+    
 }
 
 
@@ -49,10 +63,13 @@
   return [[self alloc] initWithName:name children:children];
 }
 
-+ (id)dataObjectWithName:(NSString *)name andId:(NSString *) cid children:(NSArray *)children {
++ (id)dataObjectWithName:(NSString *)name andAgency_id:(NSString *)agency_id andParent_id:(NSString *)parent_id andPegion_id:(NSString *)region_id  children:(NSArray *)array; {
 
-    return [[self alloc] initWithName:name andId:cid children:children];
-    
+    return [[self alloc] initWithName:name andAgency_id:agency_id andParent_id:parent_id andPegion_id:parent_id children:array];
+}
+
++ (id)dataObjectWithName:(NSString *)name andCid:(NSString *) cid children:(NSArray *)array {
+    return [[self alloc]initWithName:name andCid:cid children:array];
 }
 
 @end

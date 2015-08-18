@@ -36,5 +36,15 @@
     }
 }
 
+- (void)configCellWithMCHomeSearchModel:(MCHomeSearchModel *)model {
+
+    [_headImage sd_setImageWithURL:[NSURL URLWithString:model.seller_image] placeholderImage:ImageNamed(@"")];
+    [_componyName setTitle:model.seller_name forState:UIControlStateNormal];
+//    _shopName.text = model.linkman;
+//    _distance.text = 
+    _location.text = model.address;
+
+    
+}
 
 @end

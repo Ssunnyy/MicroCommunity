@@ -173,6 +173,7 @@
         }
     } onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
         [ITTPromptView showMessage:@"验证码获取失败,请重新获取"];
+    
     }];
     
 }
@@ -183,7 +184,6 @@
     MCProtocolController *pro = [[MCProtocolController alloc]init];
     pro.protocolUrl = @"http://www.baidu.com";
     [self.navigationController pushViewController:pro animated:YES];
-    
 }
 
 
@@ -253,7 +253,7 @@
             break;
         case LoginEnterChange:
         {
-        
+            [self requestToReset];
         }
             break;
             
@@ -295,14 +295,14 @@
     [[MCUserManager shareManager]requestResetPassWithParam:param withIndicatorView:self.view withCancelRequestID:Request_User_ResetPass withHttpMethod:kHTTPMethodPost onRequestFinish:^(MKNetworkOperation *operation) {
         
         if (operation.isSuccees) {
-            [ITTPromptView showMessage:@"重置成功"];
+            [ITTPromptView showMessage:@"修改成功"];
             [self.navigationController popViewControllerAnimated:YES];
         }else {
-            [ITTPromptView showMessage:@"重置失败"];
+            [ITTPromptView showMessage:@"修改失败"];
         }
     } onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
         
-        [ITTPromptView showMessage:@"重置失败"];
+        [ITTPromptView showMessage:@"修改失败"];
     }];
     
 }
