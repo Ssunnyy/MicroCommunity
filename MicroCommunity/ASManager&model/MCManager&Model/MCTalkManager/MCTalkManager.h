@@ -97,6 +97,13 @@
                       onRequestFinish:(void(^)(MKNetworkOperation *operation))onFinishedBlock
                       onRequestFailed:(void(^)(MKNetworkOperation *operation ,NSError *error ))onFailedBlock;
 
+-(void)requestTalk_PublishWithParamDic:(NSMutableDictionary*)param
+           updateFiles:(NSMutableArray*)files
+     withIndicatorView:(UIView*)view
+   withCancelRequestID:(NSString*)requestID
+       onRequestFinish:(void(^)(MKNetworkOperation *operation))onFinishedBlock
+       onRequestFailed:(void(^)(MKNetworkOperation *operation,NSError * error))onFailedBlock;
+
 /**
  *  @brief  话题 删除
  *  @param  params

@@ -36,7 +36,7 @@
 - (void) setCellWithTalkListModel:(MCTalkListModel *) model AtIndex:(NSInteger) index {
 
     
-    [_headImage sd_setImageWithURL:[NSURL URLWithString:model.head_image] placeholderImage:ImageNamed(@"")];
+    [_headImage sd_setImageWithURL:[NSURL URLWithString:model.head_image] placeholderImage:ImageNamed(default_head)];
     _nickName.text = model.talk_nickname;
     _dateLab.text = [NSDate timeStringWithInterval:[model.talk_time doubleValue]];
     _contentLab.text = model.content;

@@ -577,6 +577,8 @@
 		186116471B7CCACC003CE5A2 /* MCMyRechargeController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 186116451B7CCACC003CE5A2 /* MCMyRechargeController.xib */; };
 		186116491B7CCFDA003CE5A2 /* pay_ico1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 186116481B7CCFDA003CE5A2 /* pay_ico1@2x.png */; };
 		1861164B1B7CCFED003CE5A2 /* pay_ico1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1861164A1B7CCFED003CE5A2 /* pay_ico1@3x.png */; };
+		186299B81B84125F0088E274 /* huazhuang_bg_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 186299B61B84125F0088E274 /* huazhuang_bg_@2x.png */; };
+		186299B91B84125F0088E274 /* huazhuang_bg_@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 186299B71B84125F0088E274 /* huazhuang_bg_@3x.png */; };
 		18641B481B82DD880019BD4C /* ico_arrow_down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18641B421B82DD880019BD4C /* ico_arrow_down@2x.png */; };
 		18641B491B82DD880019BD4C /* ico_arrow_down@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18641B431B82DD880019BD4C /* ico_arrow_down@3x.png */; };
 		18641B4A1B82DD880019BD4C /* ico_arrow_up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18641B441B82DD880019BD4C /* ico_arrow_up@2x.png */; };
@@ -607,8 +609,6 @@
 		188D623C1B821AD800B3F6C7 /* HZAreaPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 188D62381B821AD800B3F6C7 /* HZAreaPickerView.m */; };
 		188D623D1B821AD800B3F6C7 /* HZAreaPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188D62391B821AD800B3F6C7 /* HZAreaPickerView.xib */; };
 		188D623E1B821AD800B3F6C7 /* HZLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 188D623B1B821AD800B3F6C7 /* HZLocation.m */; };
-		18D1F2A01B83527400A48DB7 /* MCTalkPublicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D1F29E1B83527400A48DB7 /* MCTalkPublicViewController.m */; };
-		18D1F2A11B83527400A48DB7 /* MCTalkPublicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18D1F29F1B83527400A48DB7 /* MCTalkPublicViewController.xib */; };
 		18FD726D1B7DCA8C00E0CDE6 /* MCMyPublicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FD726C1B7DCA8C00E0CDE6 /* MCMyPublicModel.m */; };
 		18FD72711B7DD6B300E0CDE6 /* MCMyPublicBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FD726F1B7DD6B300E0CDE6 /* MCMyPublicBottomView.m */; };
 		18FD72721B7DD6B300E0CDE6 /* MCMyPublicBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18FD72701B7DD6B300E0CDE6 /* MCMyPublicBottomView.xib */; };
@@ -1562,6 +1562,8 @@
 		186116451B7CCACC003CE5A2 /* MCMyRechargeController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCMyRechargeController.xib; sourceTree = "<group>"; };
 		186116481B7CCFDA003CE5A2 /* pay_ico1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pay_ico1@2x.png"; sourceTree = "<group>"; };
 		1861164A1B7CCFED003CE5A2 /* pay_ico1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pay_ico1@3x.png"; sourceTree = "<group>"; };
+		186299B61B84125F0088E274 /* huazhuang_bg_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "huazhuang_bg_@2x.png"; sourceTree = "<group>"; };
+		186299B71B84125F0088E274 /* huazhuang_bg_@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "huazhuang_bg_@3x.png"; sourceTree = "<group>"; };
 		18641B421B82DD880019BD4C /* ico_arrow_down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ico_arrow_down@2x.png"; sourceTree = "<group>"; };
 		18641B431B82DD880019BD4C /* ico_arrow_down@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ico_arrow_down@3x.png"; sourceTree = "<group>"; };
 		18641B441B82DD880019BD4C /* ico_arrow_up@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ico_arrow_up@2x.png"; sourceTree = "<group>"; };
@@ -1622,9 +1624,6 @@
 		188D62391B821AD800B3F6C7 /* HZAreaPickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HZAreaPickerView.xib; sourceTree = "<group>"; };
 		188D623A1B821AD800B3F6C7 /* HZLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HZLocation.h; sourceTree = "<group>"; };
 		188D623B1B821AD800B3F6C7 /* HZLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HZLocation.m; sourceTree = "<group>"; };
-		18D1F29D1B83527400A48DB7 /* MCTalkPublicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCTalkPublicViewController.h; sourceTree = "<group>"; };
-		18D1F29E1B83527400A48DB7 /* MCTalkPublicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCTalkPublicViewController.m; sourceTree = "<group>"; };
-		18D1F29F1B83527400A48DB7 /* MCTalkPublicViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCTalkPublicViewController.xib; sourceTree = "<group>"; };
 		18FD726B1B7DCA8C00E0CDE6 /* MCMyPublicModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMyPublicModel.h; sourceTree = "<group>"; };
 		18FD726C1B7DCA8C00E0CDE6 /* MCMyPublicModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMyPublicModel.m; sourceTree = "<group>"; };
 		18FD726E1B7DD6B300E0CDE6 /* MCMyPublicBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMyPublicBottomView.h; sourceTree = "<group>"; };
@@ -2417,9 +2416,6 @@
 				181A6B6F1B7B556100B72FAD /* MCTalkPublishController.h */,
 				181A6B701B7B556100B72FAD /* MCTalkPublishController.m */,
 				181A6B711B7B556100B72FAD /* MCTalkPublishController.xib */,
-				18D1F29D1B83527400A48DB7 /* MCTalkPublicViewController.h */,
-				18D1F29E1B83527400A48DB7 /* MCTalkPublicViewController.m */,
-				18D1F29F1B83527400A48DB7 /* MCTalkPublicViewController.xib */,
 				181A6B721B7B556100B72FAD /* MCTalkReportController.h */,
 				181A6B731B7B556100B72FAD /* MCTalkReportController.m */,
 				181A6B741B7B556100B72FAD /* MCTalkReportController.xib */,
@@ -2670,6 +2666,8 @@
 		181A6CEB1B7B558500B72FAD /* testUI */ = {
 			isa = PBXGroup;
 			children = (
+				186299B61B84125F0088E274 /* huazhuang_bg_@2x.png */,
+				186299B71B84125F0088E274 /* huazhuang_bg_@3x.png */,
 				181A6CF41B7B558500B72FAD /* erweiMa.png */,
 				181A6CF51B7B558500B72FAD /* home_componey.png */,
 				181A6CF61B7B558500B72FAD /* home_food.png */,
@@ -3867,6 +3865,7 @@
 				181A6BDE1B7B556100B72FAD /* MCComDetailHeadView.xib in Resources */,
 				674A1DC21AFD6D8100D17472 /* materLoading(1000)@3x.png in Resources */,
 				181A6C371B7B556100B72FAD /* MCTalkDetailController.xib in Resources */,
+				186299B81B84125F0088E274 /* huazhuang_bg_@2x.png in Resources */,
 				181A6BFC1B7B556100B72FAD /* MCRecruitMainCell1.xib in Resources */,
 				181A6DC91B7B558500B72FAD /* my_erweima.png in Resources */,
 				181A6DC51B7B558500B72FAD /* login_weixin.png in Resources */,
@@ -4052,6 +4051,7 @@
 				181A6DC41B7B558500B72FAD /* login_qq.png in Resources */,
 				181A6DA41B7B558500B72FAD /* ico_message@2x.png in Resources */,
 				181A6D6A1B7B558500B72FAD /* base_btn3_off@2x.png in Resources */,
+				186299B91B84125F0088E274 /* huazhuang_bg_@3x.png in Resources */,
 				181A6D7E1B7B558500B72FAD /* btn_bg6@2x.png in Resources */,
 				674A1DBE1AFD6D8100D17472 /* materFail(1000)@3x.png in Resources */,
 				181A6BE61B7B556100B72FAD /* MCCompanyCommentView.xib in Resources */,
@@ -4117,7 +4117,6 @@
 				674A1D671AFD6D8100D17472 /* butt@3x.png in Resources */,
 				186116471B7CCACC003CE5A2 /* MCMyRechargeController.xib in Resources */,
 				181A6DC71B7B558500B72FAD /* my_connection.png in Resources */,
-				18D1F2A11B83527400A48DB7 /* MCTalkPublicViewController.xib in Resources */,
 				181A6C241B7B556100B72FAD /* MCMySettingController.xib in Resources */,
 				181A6C0A1B7B556100B72FAD /* MCHomeViewCell.xib in Resources */,
 				181A6D2A1B7B558500B72FAD /* ico_arrow_down@2x.png in Resources */,
@@ -4326,7 +4325,6 @@
 				1818C00F1B7C95E5006476F9 /* MCMyFriendSearchController.m in Sources */,
 				181A70771B7B563A00B72FAD /* NSArray+ITTAdditions.m in Sources */,
 				181A6E221B7B55CD00B72FAD /* MCMyGoldModel.m in Sources */,
-				18D1F2A01B83527400A48DB7 /* MCTalkPublicViewController.m in Sources */,
 				1818BFE41B7C3015006476F9 /* bitstream.c in Sources */,
 				181A70BB1B7B563A00B72FAD /* NSData+ImageContentType.m in Sources */,
 				181A70401B7B563A00B72FAD /* MCCityTableViewCell.m in Sources */,

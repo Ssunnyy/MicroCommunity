@@ -26,7 +26,7 @@
 
 - (void)configCellWithMCCompanyServerModel:(MCCompanyServerModel *)model {
 
-    [_headImaege sd_setImageWithURL:[NSURL URLWithString:model.serverPic] placeholderImage:ImageNamed(@"")];
+    [_headImaege sd_setImageWithURL:[NSURL URLWithString:model.serverPic] placeholderImage:ImageNamed(default_head)];
     _serverName.text = model.serverName;
     _priceLab.text = model.serverPic;
     _contentLab.text = model.serverIntro;

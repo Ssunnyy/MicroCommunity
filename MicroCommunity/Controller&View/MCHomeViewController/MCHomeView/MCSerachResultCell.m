@@ -38,7 +38,7 @@
 
 - (void)configCellWithMCHomeSearchModel:(MCHomeSearchModel *)model {
 
-    [_headImage sd_setImageWithURL:[NSURL URLWithString:model.seller_image] placeholderImage:ImageNamed(@"")];
+    [_headImage sd_setImageWithURL:[NSURL URLWithString:model.seller_image] placeholderImage:ImageNamed(default_head)];
     [_componyName setTitle:model.seller_name forState:UIControlStateNormal];
 //    _shopName.text = model.linkman;
 //    _distance.text = 

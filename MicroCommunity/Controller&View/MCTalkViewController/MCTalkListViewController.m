@@ -43,7 +43,7 @@
 
     [super viewWillAppear:YES];
     [AppDelegate HideTabBar];
-
+    
     if (isFirst) {
         pagIndex = 1;
         [self requestWithType:pageType andPageIndex:pagIndex];

@@ -57,6 +57,13 @@ if (self.imagePickerView == nil) {
  */
 - (void)getImgThumb:(UIImage *)thumbImg;
 
+///**
+// *  得到照片的路径
+// *
+// *  @param
+// */
+//
+//- (void) getImagePath:(NSMutableArray *) paths;
 @end
 
 @interface ITTImagePickView : NSObject<ZYQAssetPickerControllerDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,CaptureViewDelegate,CropImageViewControllerDelegate>

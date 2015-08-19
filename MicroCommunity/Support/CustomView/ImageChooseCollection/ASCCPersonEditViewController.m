@@ -16,7 +16,9 @@
     int iMaxIamgeNum;
     BOOL _hasPhoto;
 }
-@property (nonatomic,strong)NSMutableArray *imageArray;//选择的图片的数组
+@property (nonatomic,strong) NSMutableArray *imageArray;//选择的图片的数组
+@property (nonatomic,strong) NSMutableArray *imagePath;
+
 @property (strong, nonatomic) IBOutlet UICollectionView *imageCollectionView;//显示图片的collectionView
 @property (weak, nonatomic) IBOutlet UITextView *contentTextView;
 @property (weak, nonatomic) IBOutlet UILabel *placehoder;
@@ -97,6 +99,7 @@
 
 - (void) setUpData {
 
+    _imagePath = [[NSMutableArray alloc]init];
     _imageArray = [[NSMutableArray alloc]init];
     [_imageArray addObject:[UIImage imageNamed:@"btn_add3"]];
 }
@@ -170,8 +173,8 @@
     [_imageArray addObject:[UIImage imageNamed:@"btn_add3"]];
     ITTDPRINT(@"选中--picArr = %@,arr.count= %d",picArr,(int)picArr.count);
     [self updatePhotoViewWithHasPhoto:_hasPhoto];
-    
 }
+
 /*!
  @brief 得到拍摄的图片
  */
@@ -282,19 +285,36 @@
         [param safeString:user.user_id ForKey:@"user_id"];
         [param safeString:user.nickname ForKey:@"nickname"];
         [param safeString:_contentTextView.text ForKey:@"content"];
-//        [param setObject:[_imageArray objectAtIndex:0] forKey:@"image"];
+                 NSMutableArray *array = [NSMutableArray array];
+        if (_imageArray.count > 0) {
+   
+            for (int i = 0 ; i < _imageArray.count; i ++) {
+                NSData *imgData = UIImageJPEGRepresentation([_imageArray objectAtIndex:i], 0.5);
+                [array addObject:imgData];
+            }
+        }
         
-        [[MCTalkManager shareManager] requestTalk_PublishWithParam:param withIndicatorView:self.view withCancelRequestID:Talk_Request_Public withHttpMethod:kHTTPMethodPost onRequestFinish:^(MKNetworkOperation *operation) {
+        [[MCTalkManager shareManager]requestTalk_PublishWithParamDic:param updateFiles:array withIndicatorView:self.view withCancelRequestID:Talk_Request_Public onRequestFinish:^(MKNetworkOperation *operation) {
+            
             if (operation.isSuccees) {
                 [ITTPromptView showMessage:@"话题发布成功"];
                 [weak.navigationController popViewControllerAnimated:YES];
+            }else {
+                [ITTPromptView showMessage:@"话题发布失败"];
             }
         } onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
-                [ITTPromptView showMessage:@"话题发布失败"];
+            [ITTPromptView showMessage:@"话题发布失败"];
         }];
+        
+//        [[MCTalkManager shareManager] requestTalk_PublishWithParam:param withIndicatorView:self.view withCancelRequestID:Talk_Request_Public withHttpMethod:kHTTPMethodPost onRequestFinish:^(MKNetworkOperation *operation) {
+//            if (operation.isSuccees) {
+//                [ITTPromptView showMessage:@"话题发布成功"];
+//                [weak.navigationController popViewControllerAnimated:YES];
+//            }
+//        } onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
+//                [ITTPromptView showMessage:@"话题发布失败"];
+//        }];
     }
-    
-   
     
 }
 /*

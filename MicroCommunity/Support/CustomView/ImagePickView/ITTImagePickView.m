@@ -38,11 +38,19 @@
 -(void)assetPickerController:(ZYQAssetPickerController *)picker didFinishPickingAssets:(NSArray *)assets{
     
     NSMutableArray *tempArr = [NSMutableArray array];
+    //  图片路径
+//    NSMutableArray *tempImagePath = [NSMutableArray array];
     
-    for (int i=0; i<assets.count; i++) {
+    for (int i = 0; i<assets.count; i++) {
         ALAsset *asset=assets[i];
         UIImage *tempImg=[UIImage imageWithCGImage:asset.defaultRepresentation.fullScreenImage];
         [tempArr addObject:tempImg];
+//        
+//        NSData *data=UIImagePNGRepresentation(tempImg);
+//        NSString *documentPath=[NSSearchPathForDirectoriesInDomains(NSDocumentationDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+//        NSString *path=[documentPath stringByAppendingPathComponent:[NSString stringWithFormat:@"images%d.png",i]];
+//        [data writeToFile:path atomically:NO];
+//        [tempImagePath addObject:path];
     }
     
     if (_pickDelegate && [_pickDelegate respondsToSelector:@selector(getImageMedia:)]) {

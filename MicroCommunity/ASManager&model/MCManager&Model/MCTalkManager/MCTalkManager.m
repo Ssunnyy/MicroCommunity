@@ -169,6 +169,34 @@ static MCTalkManager *defaultCenterInstance = nil;
            }];
 }
 
+
+
+-(void)requestTalk_PublishWithParamDic:(NSMutableDictionary*)param
+                           updateFiles:(NSMutableArray*)files
+                     withIndicatorView:(UIView*)view
+                   withCancelRequestID:(NSString*)requestID
+                       onRequestFinish:(void(^)(MKNetworkOperation *operation))onFinishedBlock
+                       onRequestFailed:(void(^)(MKNetworkOperation *operation,NSError * error))onFailedBlock{
+    [super requestWithPath:Talk_Request_Public
+              withParamDic:param
+               updateFiles:files
+         withIndicatorView:view
+       withCancelRequestID:requestID
+    withPostORDeleteMethod:kHTTPMethodPost
+                 authToken:nil isSSL:nil
+           onRequestFinish:^(MKNetworkOperation *operation) {
+                            if (onFinishedBlock) {
+                                onFinishedBlock(operation);
+                            }
+           }
+           onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
+               if (onFailedBlock) {
+                   onFailedBlock(operation,error);
+               }
+           }];
+}
+
+
 /**
  *  @brief  话题 删除
  *  @param  params

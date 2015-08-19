@@ -32,7 +32,7 @@
 
 - (void)configCellWithMCTalkMainModel:(MCTalkMainModel *)modle {
 
-    [_headImage sd_setImageWithURL:[NSURL URLWithString:modle.bar_image] placeholderImage:ImageNamed(@"")];
+    [_headImage sd_setImageWithURL:[NSURL URLWithString:modle.bar_image] placeholderImage:ImageNamed(default_head)];
     _titleLab.text = modle.bar_title;
     _contenLab.text = modle.bar_content;
     _peopleAndUpdate.text = [NSString stringWithFormat:@"参与人数：%@/今日更新：%@",modle.bar_people_number,modle.bar_number];

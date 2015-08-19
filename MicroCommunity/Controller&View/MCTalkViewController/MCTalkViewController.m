@@ -28,6 +28,9 @@
     [super viewWillAppear:YES];
     
     [AppDelegate DisplayTabBar];
+    
+    [self searchRequestWithKeyWords:@""];
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

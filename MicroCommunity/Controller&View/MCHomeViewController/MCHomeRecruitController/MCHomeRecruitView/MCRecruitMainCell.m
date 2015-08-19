@@ -29,4 +29,10 @@
     // Configure the view for the selected state
 }
 
+- (void) configeCellWith:(id) model {
+
+    [_headView sd_setImageWithURL:[NSURL URLWithString:@""] placeholderImage:ImageNamed(default_head)];
+    
+}
+
 @end

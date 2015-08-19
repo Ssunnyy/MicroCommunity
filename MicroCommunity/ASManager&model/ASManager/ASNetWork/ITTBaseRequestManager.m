@@ -69,7 +69,7 @@ static ITTBaseRequestManager *defaultCenterInstance = nil;
     }
     if (files) {
         for (NSData* data in files) {
-            [operation addData:data forKey:@"pics"];
+            [operation addData:data forKey:@"image"];
         }
     }
     if (view) {

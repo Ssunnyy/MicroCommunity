@@ -27,7 +27,7 @@
 
 - (void)configCellWithMCCompanyCommentModel:(MCCompanyCommentModel *)model {
 
-//    [_headImage sd_setImageWithURL:[NSURL URLWithString:model.headImage] placeholderImage:ImageNamed(@"")];
+//    [_headImage sd_setImageWithURL:[NSURL URLWithString:model.headImage] placeholderImage:ImageNamed(default_head)];
 //    _userName.text = model.nickName;
 //    _dataLab.text = model.date;
 //    _pariseLab.text = model.pariseCount;

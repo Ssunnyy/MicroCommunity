@@ -41,7 +41,7 @@
 
 - (void)setUpCellWithMCTalkPariseModel:(MCTalkPariseModel *)model {
 
-//    [_headImage sd_setImageWithURL:[NSURL URLWithString:model.headImage] placeholderImage:ImageNamed(@"")];
+    [_headImage sd_setImageWithURL:[NSURL URLWithString:model.headImage] placeholderImage:ImageNamed(default_head)];
 //    _nickName.text = model.nickName;
 //    _dataLab.text = model.date;
 //    _pariseLab.text = model.pariseCount;

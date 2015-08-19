@@ -37,7 +37,7 @@
 
 - (void)configCellWithMCCompanyCommentModel:(MCRecruitModel *)model {
 
-//    [_headImage sd_setImageWithURL:[NSURL URLWithString:@""] placeholderImage:ImageNamed(@"")];
+//    [_headImage sd_setImageWithURL:[NSURL URLWithString:@""] placeholderImage:ImageNamed(default_head)];
 //    [_bgImage sd_setImageWithURL:[NSURL URLWithString:@""] placeholderImage:ImageNamed(@"")];
 //    
 //    _nickNam.text = @"";
