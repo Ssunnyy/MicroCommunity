@@ -15,14 +15,15 @@
 #import "MCTalkReportController.h"
 
 
-@interface MCTalkDetailController ()<UITableViewDataSource,UITableViewDelegate,MCTalkListCellDelegate,qChoosePicDelegate,MCSendMessageViewDelegate,ITTTableViewDelegate>
+@interface MCTalkDetailController ()<UITableViewDataSource,UITableViewDelegate,MCTalkListCellDelegate,qChoosePicDelegate,MCSendMessageViewDelegate>
 
 {
     NSInteger pageIndex;
+    BOOL isFirst ;
 }
 
 @property (nonatomic,strong) MCTalkListCell *headView;
-@property (weak, nonatomic) IBOutlet ITTTableView *detailTableView;
+@property (weak, nonatomic) IBOutlet UITableView *detailTableView;
 @property (nonatomic, strong) QShowImgViewController *scrollV;//    大图浏览
 @property (nonatomic, strong) MCTalkCommentCell *prototypeCell;
 @property (nonatomic, strong) MCSendMessageView *senderView; //发送view
@@ -33,10 +34,51 @@
 
 @implementation MCTalkDetailController
 
+- (void) viewWillAppear:(BOOL)animated {
+
+    [super viewWillAppear:YES];
+    
+    if (isFirst) {
+        [self requesetDetail];
+        isFirst = NO;
+    }
+}
+
 - (void)viewWillDisappear:(BOOL)animated {
 
     [super viewWillDisappear:YES];
     [_senderView removeKeyboardLison];
+
+}
+
+- (void) requesetDetail {
+
+    __weak MCTalkDetailController *weak = self;
+    MCUserModel *user = (MCUserModel *)[[MCUserManager shareManager]getCurrentUser];
+    
+    if (user) {
+        NSMutableDictionary *param = [NSMutableDictionary dictionary];
+        [param safeString:user.user_id ForKey:@"user_id"];
+        [param safeString:self.currentModel.talk_id ForKey:@"talk_id"];
+        [[MCTalkManager shareManager] requestTalk_DetailWithParam:param withIndicatorView:self.view withCancelRequestID:Talk_Request_details withHttpMethod:kHTTPMethodPost onRequestFinish:^(MKNetworkOperation *operation) {
+            
+            if (operation.isSuccees) {
+                NSArray *data = [operation.responseJSON objectForKey:@"data_info"];
+                if ([data isKindOfClass:[NSArray class]]) {
+                    for (int i = 0 ; i < data.count;  i ++) {
+                        MCTalkPariseModel *model = [[MCTalkPariseModel alloc]initWithDataDic:[data objectAtIndex:i]];
+                        model.comment_head_image = [NSString stringWithFormat:@"%@%@",Main_URL,model.comment_head_image];
+                        [weak.dataArray addObject:model];
+                    }
+                    [weak.detailTableView reloadData];
+                }
+            }else {
+                [ITTPromptView showMessage:@"网络请求失败"];
+            }
+        } onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
+            [ITTPromptView showMessage:@"网络请求失败"];
+        }];
+    }
 }
 
 #pragma mark -- 点赞
@@ -86,6 +128,7 @@
 - (void) setUpData {
 
     pageIndex = 1;
+    isFirst = YES;
     _dataArray = [[NSMutableArray alloc]init];
 }
 
@@ -121,19 +164,12 @@
     
     _headView = [[[NSBundle mainBundle]loadNibNamed:@"MCTalkListCell" owner:self options:nil]lastObject];
     _scrollV = [[QShowImgViewController alloc] initWithNibName:@"QShowImgViewController" bundle:nil];
-
-    MCTalkPariseModel *parise = [[MCTalkPariseModel alloc]init];
-    parise.comment = @"睡觉啊烦阿姐发疯afjasfja;jfaafajf;ajflajd;lfja;ldjf;lamdflamdljfaljdfajjadjf;lakjd;lfjajfl;aj;lf睡觉啊烦阿姐发疯afjasfja;jfaafajf;ajflajd;lfja;ldjf;lamdflamdljfaljdfajjadjf;lakjd;lfjajfl;aj;lf睡觉啊烦阿姐发疯afjasfja;jfaafajf;ajflajd;lfja;ldjf;lamdflamdljfaljdfajjadjf;lakjd;lfjajfl;aj;lf睡觉啊烦阿姐发疯afjasfja;jfaafajf;ajflajd;lfja;ldjf;lamdflamdljfaljdfajjadjf;lakjd;lfjajfl;aj;lf睡觉啊烦阿姐发疯afjasfja;jfaafajf;ajflajd;lfja;ldjf;lamdflamdljfaljdfajjadjf;lakjd;lfjajfl;aj;lf";;
-    [_dataArray addObject:parise];
-    
-    
     
     [_headView setCellWithTalkListModel:self.currentModel AtIndex:0];
     
     _headView.delegate = self;
     _headView.picV.delegate = self;
     _headView.frameheight = [self calculateCellHeight:self.currentModel];
-    _detailTableView.ittDelegate = self;
     _detailTableView.tableHeaderView = _headView;
     
 }
@@ -167,28 +203,6 @@
     return cell;
 }
 
-#pragma  mark --  ITTTableViewDelegate
-
-/**
- *  触发时，刷新--- 在执行这个代理方法  请求数据结束之后 需要手动调用endNetTable
- *
- *  @param ittTableView
- */
--(void)pullTableViewDIdTriggerRefresh:(ITTTableView *)ittTableView{
-    
-    pageIndex = 1;
-    
-}
-
-/**
- *  触发时加载更多    请求数据结束之后  需要手动调用 endNetTable
- *
- *  @param ittTableView
- */
--(void)pullTableViewDIdTriggerLoadMore:(ITTTableView *)ittTableView{
-
-    
-}
 
 /**
  *  评论 点赞 分享
@@ -317,7 +331,7 @@
     
     if (model) {
         MCTalkCommentCell *cell = (MCTalkCommentCell *)self.prototypeCell;
-        CGSize introHeight = [model.comment calculateSize:CGSizeMake(cell.commentLab.frame.size.width, FLT_MAX) font:cell.commentLab.font];
+        CGSize introHeight = [model.comment_content calculateSize:CGSizeMake(cell.commentLab.frame.size.width, FLT_MAX) font:cell.commentLab.font];
         
         if (introHeight.height > 32) {
             cell.commentHeight.constant = introHeight.height - 10;
@@ -357,9 +371,6 @@
             [ITTPromptView showMessage:@"话题删除失败"];
         }];
     }
-    
-
-    
 }
 /*
 #pragma mark - Navigation

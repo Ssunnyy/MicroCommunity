@@ -11,5 +11,6 @@
 @interface MCShopPublicController : BaseViewController
 
 @property (nonatomic, assign) BOOL isEdting;//  是不是编辑
+@property (nonatomic, strong) NSString *seller_id;
 
 @end

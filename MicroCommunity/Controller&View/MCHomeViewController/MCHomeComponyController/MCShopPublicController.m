@@ -60,6 +60,48 @@
     
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    
+    [super viewWillAppear:YES];
+    [self enableKeyboardManger];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+
+    [super viewWillDisappear:YES];
+    [self disableKeyboardManager];
+    
+}
+
+- (void) publicShoping {
+    
+    MCUserModel *user = (MCUserModel *)[[MCUserManager shareManager]getCurrentUser];
+    if (user) {
+        
+        
+        NSMutableDictionary *param = [NSMutableDictionary dictionary];
+        [param safeString:user.user_id ForKey:@"user_id"];
+        [param safeString:self.seller_id ForKey:@"seller_id"];
+        [param safeString:_shopName.text ForKey:@"goods_name"];
+        [param safeString:_shopPrice.text ForKey:@"goods_price"];
+        [param safeString:_shopDes.text ForKey:@"goods_message"];
+        [param safeString:_pricePaiMing.text ForKey:@"goods_money"];
+        [param safeString:@"" ForKey:@"pay_type"];
+        [param safeString:@"" ForKey:@"city_id"];
+        [param safeString:@"" ForKey:@"province_id"];
+        [param safeString:@"" ForKey:@"logo"];
+        
+        [[MCHomeManager shareManager]requestHome_goods_publishWithParam:param withIndicatorView:self.view withCancelRequestID:Home_request_goods_publish withHttpMethod:kHTTPMethodPost onRequestFinish:^(MKNetworkOperation *operation) {
+            
+        } onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
+            
+        }];
+    }
+    
+    
+    
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -267,6 +309,7 @@
  */
 - (void)rightBarButtonClick:(UIButton *)button {
 
+    [self publicShoping];
 }
 /*
 #pragma mark - Navigation

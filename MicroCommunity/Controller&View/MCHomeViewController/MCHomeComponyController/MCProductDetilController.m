@@ -40,6 +40,13 @@
     [self.headTabCell.sender removeKeyboardLison];
 }
 
+
+- (void) requestForDetail {
+
+
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -252,6 +259,7 @@
         case 201:
         {
             MCCompanyDetailController *detail = [[MCCompanyDetailController alloc]initWithNibName:@"MCCompanyDetailController" bundle:nil];
+            detail.sellerId = self.searchModel.seller_id;
             [self.navigationController pushViewController:detail animated:YES];
         }
             break;

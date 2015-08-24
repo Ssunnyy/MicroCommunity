@@ -20,6 +20,15 @@
              @"money":@"money",
              @"totalMoney":@"totalMoney",
              @"addMoney":@"addMoney",
+             
+             @"goods_id":@"goods_id",
+             @"goods_image":@"goods_image",
+             @"goods_message":@"goods_message",
+             @"goods_money":@"goods_money",
+             @"goods_name":@"goods_name",
+             @"goods_price":@"goods_price",
+             @"goods_sum_money":@"goods_sum_money",
+             @"status":@"status"
              };
     
 }

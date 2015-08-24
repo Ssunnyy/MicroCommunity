@@ -9,4 +9,6 @@
 #import "BaseViewController.h"
 @interface MCMyPublicController : BaseViewController
 
+@property (nonatomic,strong) NSString *userId ;
+
 @end

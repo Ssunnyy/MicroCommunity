@@ -64,23 +64,22 @@
 
 //    [_headImage sd_setImageWithURL:[NSURL URLWithString:modle.headImage] placeholderImage:ImageNamed(@"")];
     
-    [_productName setTitle:modle.title forState:UIControlStateNormal];;
-    _productDes.text = modle.des;
-    _productMondy.text = modle.money;
-    _productcostMoney.text = modle.totalMoney;
-    _productaddMondy.text = modle.addMoney;
+    [_productName setTitle:modle.goods_name forState:UIControlStateNormal];;
+    _productDes.text = modle.goods_message;
+    _productMondy.text = modle.goods_price;
+    _productcostMoney.text = modle.goods_sum_money;
+    _productaddMondy.text = modle.goods_money;
     _chooseBtn.selected = modle.isChoose;
     self.tag = tag;
     
-    if ([modle.type isEqualToString:@"0"]) {
-        
+    if ([modle.status isEqualToString:@"0"]) {
         _messageBtn.selected = NO;
         [_messageBtn setTitle:@"发布中" forState:UIControlStateNormal];
         
-    }else if([modle.type isEqualToString:@"1"]){
+    }else if([modle.status isEqualToString:@"1"]){
         _messageBtn.selected = YES;
         [_messageBtn setTitle:@"已失效" forState:UIControlStateSelected];
-    } else if([modle.type isEqualToString:@"2"]){
+    } else if([modle.status isEqualToString:@"2"]){
         _messageBtn.selected = YES;
         [_messageBtn setTitle:@"已关闭" forState:UIControlStateSelected];
     }

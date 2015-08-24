@@ -19,6 +19,6 @@
 @property (nonatomic, strong) NSString *bar_people_number;
 @property (nonatomic, strong) NSString *bar_status;
 @property (nonatomic, strong) NSString *bar_title;
-@property (nonatomic, strong) NSString *bars_id;
+@property (nonatomic, strong) NSString *bar_id;
 @property (nonatomic, strong) NSString *creat_time;
 @end

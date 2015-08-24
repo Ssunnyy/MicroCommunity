@@ -7,6 +7,7 @@
 //
 
 #import "BaseViewController.h"
+#import "MCHomeSearchModel.h"
 typedef enum {
     customeSearchc,// 没有搜索框
     otherSearchc //   有搜索框
@@ -18,4 +19,5 @@ typedef enum {
 @property (nonatomic, strong) NSString *currentTitle;
 @property (nonatomic, strong) NSString *keyWorld;
 
+@property (nonatomic, strong) MCHomeSearchModel *currentModel;
 @end

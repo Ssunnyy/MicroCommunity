@@ -26,6 +26,7 @@
 @interface MCRecruitController ()<UITableViewDataSource,UITableViewDelegate,MCHomeSearchViewDelegate,MCCustomHeadViewDelegate,UITextFieldDelegate,MCRecruitCellDelegate>
 {
     NSInteger switchType;//    1招聘 2求职
+    NSInteger pageIndex;
 }
 @property (weak, nonatomic) IBOutlet UIView *headView;
 @property (weak, nonatomic) IBOutlet UITableView *resultTableView;
@@ -54,6 +55,36 @@
     [AppDelegate HideTabBar];
     [super viewWillAppear:YES];
     
+    [self requestForRecruit];
+    
+}
+
+- (void) requestForRecruit{
+
+    MCUserModel *user = (MCUserModel *)[[MCUserManager shareManager]getCurrentUser];
+    if (user) {
+        NSMutableDictionary *param = [NSMutableDictionary dictionary];
+        [param safeString:user.user_id ForKey:@"user_id"];
+        [param safeString:[NSString stringWithFormat:@"%ld",pageIndex] ForKey:@"pageindex"];
+        [param safeString:self.category_id ForKey:@"category_id"];
+    
+        [[MCHomeManager shareManager] requestHome_zhaopin_indexWithParam:param withIndicatorView:self.view withCancelRequestID:Home_request_zhaopin_index withHttpMethod:kHTTPMethodPost onRequestFinish:^(MKNetworkOperation *operation) {
+            
+            if (operation.isSuccees) {
+                
+            }else {
+            
+                
+            }
+            
+        } onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
+            
+        }];
+
+        
+    }
+    
+    
 }
 
 - (void)viewDidLoad {
@@ -81,6 +112,7 @@
 - (void) setUpData {
 
     switchType = 1;
+    pageIndex = 1;
     self.dataArray = [NSMutableArray array];
     self.dataArray1 = [NSMutableArray array];
     self.listArray = [NSMutableArray array];
@@ -430,6 +462,7 @@
 
 - (void) historyBtnClick:(UIButton *) btn {
 
+    [_search setSearchText:[btn currentTitle]];
     
     [ITTPromptView showMessage:[btn currentTitle]];
     

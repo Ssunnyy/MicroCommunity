@@ -75,6 +75,12 @@
     self.searchTextField.placeholder = textPlaceHolder;
 }
 
+//  设置搜索text
+- (void)setSearchText:(NSString *)text {
+    
+    self.searchTextField.text = text;
+}
+
 - (void)backBtnChange{
     
     [self.leftBtn setImage:[UIImage imageNamed:@"back_icon_.png"] forState:UIControlStateNormal];

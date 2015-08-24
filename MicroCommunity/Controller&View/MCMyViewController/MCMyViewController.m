@@ -217,15 +217,30 @@
  *收藏
  */
 - (void)collection{
-    pushToDestinationController(self, MCMyCollectionViewController);
-
+    
+    if ([[MCUserManager shareManager]isAutoLoginResult]) {
+        
+        MCMyCollectionViewController *collect = [[MCMyCollectionViewController alloc]initWithNibName:@"MCMyCollectionViewController" bundle:nil];
+        collect.userId = [[MCUserManager shareManager]getCurrentUser].user_id;
+        [self.navigationController pushViewController:collect animated:YES];
+    }else {
+        [ITTPromptView showMessage:@"用户还未登陆"];
+    }
 }
 /*
  *发布
  */
 - (void)public{
     
-    pushToDestinationController(self, MCMyPublicController);
+    if ([[MCUserManager shareManager]isAutoLoginResult]) {
+        
+        MCMyPublicController *public = [[MCMyPublicController alloc]initWithNibName:@"MCMyPublicController" bundle:nil];
+        public.userId = [[MCUserManager shareManager]getCurrentUser].user_id;
+        [self.navigationController pushViewController:public animated:YES];
+        
+    }else {
+        [ITTPromptView showMessage:@"用户还未登陆"];
+    }
 }
 /*
  *账户
@@ -277,6 +292,7 @@
         case 200:
         {
             MCCompanyConfirmController *company = [[MCCompanyConfirmController alloc]initWithNibName:@"MCCompanyConfirmController" bundle:nil];
+            company.isConfirm = NO;
             [self.navigationController pushViewController:company animated:YES];
         }
             break;

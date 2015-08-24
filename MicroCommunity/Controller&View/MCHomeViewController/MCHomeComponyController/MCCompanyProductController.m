@@ -21,6 +21,10 @@
 
 @interface MCCompanyProductController ()<UITableViewDataSource,UITableViewDelegate,MCHomeSearchViewDelegate,MCCustomHeadViewDelegate,MCCompanProductBottomViewDelegate,UITextFieldDelegate>
 
+{
+    NSInteger pageIndex;
+}
+
 @property (weak, nonatomic) IBOutlet UIView *headView;
 @property (weak, nonatomic) IBOutlet UITableView *resultTableView;
 
@@ -35,6 +39,7 @@
 
 
 @property (nonatomic, strong) NSMutableArray *dataArray;
+
 @property (nonatomic, strong) NSMutableArray *listArray;//  缓存搜索历史
 @property (nonatomic, strong) NSMutableArray *historyBtnArray;
 
@@ -45,6 +50,90 @@
 - (void)viewWillAppear:(BOOL)animated {
 
     [super viewWillAppear:YES];
+    
+    [self requestGoodList];
+}
+
+
+- (void) requestGoodList {
+
+    __weak MCCompanyProductController *weak = self;
+    
+    MCUserModel *user = (MCUserModel *)[[MCUserManager shareManager]getCurrentUser];
+    if (user) {
+        NSMutableDictionary *param = [NSMutableDictionary dictionary];
+        [param safeString:user.user_id ForKey:@"user_id"];
+        [param safeString:self.currentModel.seller_id ForKey:@"seller_id"];
+        [param safeString:[NSString stringWithFormat:@"%ld",pageIndex] ForKey:@"pageindex"];
+        
+        [[MCHomeManager shareManager]requestHome_goods_listWithParam:param withIndicatorView:self.view withCancelRequestID:Home_request_goods_list withHttpMethod:kHTTPMethodPost onRequestFinish:^(MKNetworkOperation *operation) {
+            
+            if (operation.isSuccees) {
+                [_dataArray removeAllObjects];
+                NSArray *data = [operation.resultDic objectForKey:@"data"];
+                
+                if (data.count > 0) {
+                    for (int i = 0; i < data.count; i ++) {
+                        MCMyCollectProductModel *collect = [[MCMyCollectProductModel alloc]initWithDataDic:[data objectAtIndex:i]];
+                        collect.goods_image = [NSString stringWithFormat:@"%@%@",Main_URL,collect.goods_image];
+                        [weak.dataArray addObject:collect];
+                    }
+                }else {
+                    [ITTPromptView showMessage:@"暂无数据"];
+                }
+            }else {
+                [ITTPromptView showMessage:@"请求失败"];
+            }
+            
+            [weak tableViewReloadData];
+            
+        } onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
+             [weak tableViewReloadData];
+        }];
+    }
+    
+}
+
+
+- (void) requestForProductList:(NSString *)key {
+
+    self.keyWorld = key;
+    
+    __weak MCCompanyProductController *weak = self;
+    
+    MCUserModel *user = (MCUserModel *)[[MCUserManager shareManager]getCurrentUser];
+    if (user) {
+        NSMutableDictionary *param = [NSMutableDictionary dictionary];
+        [param safeString:user.user_id ForKey:@"user_id"];
+        [param safeString:key ForKey:@"content"];
+        [param safeString:self.currentModel.seller_id ForKey:@"seller_id"];
+        
+        [[MCHomeManager shareManager]requestHome_goods_searchWithParam:param withIndicatorView:self.view withCancelRequestID:Home_request_goods_search withHttpMethod:kHTTPMethodPost onRequestFinish:^(MKNetworkOperation *operation) {
+            
+            if (operation.isSuccees) {
+                [_dataArray removeAllObjects];
+                NSArray *data = [operation.resultDic objectForKey:@"data"];
+                
+                if (data.count > 0) {
+                    for (int i = 0; i < data.count; i ++) {
+                        MCMyCollectProductModel *collect = [[MCMyCollectProductModel alloc]initWithDataDic:[data objectAtIndex:i]];
+                        collect.goods_image = [NSString stringWithFormat:@"%@%@",Main_URL,collect.goods_image];
+                        [_dataArray addObject:collect];
+                    }
+                }else {
+                    [ITTPromptView showMessage:@"暂无数据"];
+                }
+                [weak.tableHeadView setProductName:weak.keyWorld andProductNmu:[NSString stringWithFormat:@"%ld",data.count]];
+            }else {
+                [ITTPromptView showMessage:@"请求失败"];
+            }
+            
+            [weak tableViewReloadData];
+        } onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
+            [ITTPromptView showMessage:@"网络请求失败"];
+        }];
+    }
+
     
 }
 
@@ -75,6 +164,8 @@
  */
 - (void) setUpData {
 
+    pageIndex = 1;
+    
     self.dataArray = [NSMutableArray array];
     self.listArray = [NSMutableArray array];
     self.historyBtnArray = [NSMutableArray array];
@@ -111,6 +202,7 @@
     _bottomView = [[[NSBundle mainBundle] loadNibNamed:@"MCCompanProductBottomView" owner:self options:nil]lastObject];
     _bottomView.frameheight = 64;
     _bottomView.delegate = self;
+    [_bottomView configUserInfoWithUerName:self.currentModel.seller_name andConnect:self.currentModel.linkphone];
     [_bottom addSubview:_bottomView];
 }
 
@@ -127,10 +219,9 @@
 - (void)setNavigationBarStatus
 {
     
-    
     _search = [[[NSBundle mainBundle]loadNibNamed:@"MCHomeSearchView" owner:self options:nil]lastObject];
     _search.frame = CGRectMake(0, 0, SCREEN_WIDTH, 64);
-    [_search setSearchVWithBtnPlace:self.keyWorld];
+    [_search setSearchText:self.keyWorld];
     [_search leftViewHiden];
     [_search changeRightBtnTitle:@"返回"];
     _search.searchTextField.delegate = self;
@@ -149,7 +240,7 @@
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 5;
+    return _dataArray.count;
     
 }
 
@@ -166,6 +257,8 @@
     if (!cell) {
         cell = [[[NSBundle mainBundle]loadNibNamed:@"MCCompanyServerCell" owner:self options:nil]lastObject];
     }
+    MCMyCollectProductModel *collect = [_dataArray objectAtIndex:indexPath.row];
+    [cell configCellWithMCMyCollectProductModel:collect];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
@@ -201,10 +294,8 @@
         [DATA_CATHE addObject:_listArray forKey:HistoryList];
         [DATA_CATHE doSave];
         [self serachViewHiden:NO];
+        [self requestForProductList:searchText];
     }
-    
-    NSLog(@"%@",searchText);
-
 }
 
 
@@ -228,6 +319,7 @@
             //  发布
             MCShopPublicController *publish = [[MCShopPublicController alloc]initWithNibName:@"MCShopPublicController" bundle:nil];
             publish.isEdting = NO;
+            publish.seller_id = self.currentModel.seller_id;
             [self.navigationController pushViewController:publish animated:YES];
         }
             break;
@@ -257,14 +349,14 @@
         case 201:
         {
             MCCompanyDetailController *detail = [[MCCompanyDetailController alloc]initWithNibName:@"MCCompanyDetailController" bundle:nil];
+            detail.sellerId = self.currentModel.seller_id;
             [self.navigationController pushViewController:detail animated:YES];
         }
             break;
         case 202:
         {
             
-            NSURL *telURL = [NSURL URLWithString:[NSString stringWithFormat:@"tel:10086"]];
-            
+            NSURL *telURL = [NSURL URLWithString:[NSString stringWithFormat:@"tel:%@",self.currentModel.linkphone]];
             [_callWebView loadRequest:[NSURLRequest requestWithURL:telURL]];
             
         }
@@ -315,8 +407,6 @@
         _historyView.hidden = !hiden;
         [self.historyView layoutIfNeeded];
     }];
-    
-    [self tableViewReloadData];
 }
 /**
  *  刷新数据
@@ -376,8 +466,8 @@
 
 - (void) historyBtnClick:(UIButton *) btn {
 
-    [ITTPromptView showMessage:[btn currentTitle]];
-    
+    [self requestForProductList:[btn currentTitle]];
+    [self serachViewHiden:NO];
 }
 
 /*

@@ -32,6 +32,64 @@
 
     [super viewWillAppear: YES];
     [AppDelegate HideTabBar];
+    
+    [self requeswithType:0];
+}
+
+
+//  0 商家  1 产品
+- (void) requeswithType:(NSInteger)type{
+
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    [param safeString:self.userId ForKey:@"user_id"];
+    
+    __weak MCMyCollectionViewController *weak = self;
+    
+    if (type == 0) {
+        [[MCMYManager shareManager] requestMy_CollectWithParam:param withIndicatorView:self.view withCancelRequestID:My_Request_collect withHttpMethod:kHTTPMethodPost onRequestFinish:^(MKNetworkOperation *operation) {
+            
+            if (operation.isSuccees) {
+                
+                NSArray *data = [operation.resultDic objectForKey:@"data"];
+                if (data.count > 0) {
+                    
+                    [_shopArray removeAllObjects];
+                    for (int i = 0 ; i < data.count; i ++) {
+                        MCHomeSearchModel *shop = [[MCHomeSearchModel alloc]initWithDataDic:[data objectAtIndex:i]];
+                        shop.seller_image = [NSString stringWithFormat:@"%@%@",Main_URL,shop.seller_image];
+                        [_shopArray addObject:shop];
+                    }
+                }
+            }else {
+                [ITTPromptView showMessage:@"查询失败"];
+            }
+            [weak performSelectorOnMainThread:@selector(tableViewReload) withObject:nil waitUntilDone:NO];
+        } onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
+            [ITTPromptView showMessage:@"网络请求失败"];
+        }];
+    }else {
+        [[MCMYManager shareManager] requestMy_Goods_CollectWithParam:param withIndicatorView:self.view withCancelRequestID:My_Request_goods_collect withHttpMethod:kHTTPMethodPost onRequestFinish:^(MKNetworkOperation *operation) {
+            if (operation.isSuccees) {
+                
+                NSArray *data = [operation.resultDic objectForKey:@"data"];
+                if (data.count > 0) {
+                    
+                    [_serverArray removeAllObjects];
+                    for (int i = 0 ; i < data.count; i ++) {
+                        MCMyCollectProductModel *product = [[MCMyCollectProductModel alloc]initWithDataDic:[data objectAtIndex:i]];
+                        product.goods_image = [NSString stringWithFormat:@"%@%@",Main_URL,product.goods_image];
+                        [_serverArray addObject:product];
+                    }
+                }
+            }else {
+                [ITTPromptView showMessage:@"查询失败"];
+            }
+            [weak performSelectorOnMainThread:@selector(tableViewReload) withObject:nil waitUntilDone:NO];
+
+        } onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
+            [ITTPromptView showMessage:@"网络请求失败"];
+        }];
+    }
 }
 
 - (void)awakeFromNibs {
@@ -64,13 +122,7 @@
 
     _shopArray = [[NSMutableArray alloc]init];
     _serverArray = [[NSMutableArray alloc]init];
-    
-    for (int i = 0; i < 5 ; i ++) {
-        [_shopArray addObject:@"2"];
-    }
-    for ( int i = 1 ; i < 4; i ++) {
-        [_serverArray addObject:@"1"];
-    }
+    selecIndex = 0;
 }
 
 /**
@@ -131,6 +183,8 @@
             if (!cell) {
                 cell = [[[NSBundle mainBundle]loadNibNamed:@"MCSerachResultCell" owner:self options:nil]lastObject];
             }
+            MCHomeSearchModel *searchModel = [_shopArray objectAtIndex:indexPath.row];
+            [cell configCellWithMCHomeSearchModel:searchModel withType:1];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             return cell;
         }
@@ -142,9 +196,11 @@
             if (!cell) {
                 cell = [[[NSBundle mainBundle]loadNibNamed:@"MCCompanyServerCell" owner:self options:nil]lastObject];
             }
+            
+            MCMyCollectProductModel *product = [_serverArray objectAtIndex:indexPath.row];
+            [cell configCellWithMCMyCollectProductModel:product];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             return cell;
-
         }
             break;
         default:
@@ -184,7 +240,8 @@
         [weak.view layoutIfNeeded];
     }];
     
-    [self tableViewReload];
+    [self requeswithType:selecIndex];
+
 }
 
 - (void) tableViewReload {

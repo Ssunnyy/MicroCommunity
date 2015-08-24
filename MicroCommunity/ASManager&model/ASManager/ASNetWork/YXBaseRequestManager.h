@@ -14,6 +14,7 @@
 #define default_Mater @"materDefault(1000)"
 #define default_Main  @"main_default"
 #define default_head  @"huazhuang_bg_.png"
+#define default_iconImag  @"loginIcon.png"
 
 
 //https://localhost:8443/yixiuge/test/1/01

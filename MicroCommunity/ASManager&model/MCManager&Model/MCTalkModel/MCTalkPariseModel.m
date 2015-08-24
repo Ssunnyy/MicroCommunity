@@ -11,14 +11,18 @@
 @implementation MCTalkPariseModel
 
 - (NSDictionary *)attributeMapDictionary {
-    
+
     return @{
-             @"nickName":@"nickName",
-             @"headImage":@"headImage",
-             @"comment":@"comment",
-             @"pariseCount":@"pariseCount",
-             @"date":@"date",
+             @"comment_content":@"comment_content",
+             @"comment_head_image":@"comment_head_image",
+             @"comment_id":@"comment_id",
+             @"comment_time":@"comment_time",
+             @"comment_talk_id":@"comment_talk_id",
+             @"comment_nickname":@"comment_nickname",
+             @"comment_uid":@"comment_uid",
+             @"status":@"status",
              @"isParise":@"isParise"
              };
+    
 }
 @end

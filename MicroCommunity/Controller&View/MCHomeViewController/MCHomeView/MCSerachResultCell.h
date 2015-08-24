@@ -19,7 +19,7 @@
 @interface MCSerachResultCell : UITableViewCell
 
 @property (nonatomic, assign) id <MCSerachResultCellDelegate> delegate;
-
-- (void) configCellWithMCHomeSearchModel:(MCHomeSearchModel*) model;
+// 0 首页搜搜 1 我的收藏
+- (void) configCellWithMCHomeSearchModel:(MCHomeSearchModel*) model withType:(NSInteger) type;
 
 @end

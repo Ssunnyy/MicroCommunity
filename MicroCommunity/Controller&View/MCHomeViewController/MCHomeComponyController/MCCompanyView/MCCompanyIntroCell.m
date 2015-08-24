@@ -23,15 +23,15 @@
     // Initialization code
 }
 
-- (void)configCellWithInfoModel:(MCCompanyInfoModel *)model {
+- (void)configCellWithInfoModel:(MCHomeSearchModel *)model {
 
-//    _userName.text = model.userName;
-//    _phoneNum.text = model.phoneNum;
-//    _address.text = model.address;
-    _componyIntro.text = model.companyIntro;
+    _userName.text = model.linkman;
+    _phoneNum.text = model.linkphone;
+    _address.text = model.address;
+    _componyIntro.text = model.seller_content;
 //    [_erWeiMa sd_setImageWithURL:[NSURL URLWithString:model.erweiMaUrl] placeholderImage:ImageNamed(@"erweiMa.png")];
     
-    CGSize introHeight = [model.companyIntro calculateSize:CGSizeMake(self.componyIntro.frame.size.width, FLT_MAX) font:self.componyIntro.font];
+    CGSize introHeight = [model.seller_content calculateSize:CGSizeMake(self.componyIntro.frame.size.width, FLT_MAX) font:self.componyIntro.font];
     
     if (introHeight.height > 29) {
         _introViewHeight.constant = 120 - 29 + introHeight.height - 30;

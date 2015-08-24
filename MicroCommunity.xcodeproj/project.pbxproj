@@ -598,6 +598,8 @@
 		18808F9C1B7DB8FD007F0301 /* MCMysPublicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18808F9A1B7DB8FD007F0301 /* MCMysPublicCell.xib */; };
 		18808FA51B7DC21E007F0301 /* MCMyPublicController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18808FA31B7DC21E007F0301 /* MCMyPublicController.m */; };
 		18808FA61B7DC21E007F0301 /* MCMyPublicController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18808FA41B7DC21E007F0301 /* MCMyPublicController.xib */; };
+		188362AC1B8ABA3C0076B311 /* MCMyCollectProductModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 188362AB1B8ABA3C0076B311 /* MCMyCollectProductModel.m */; };
+		188362AF1B8B1F270076B311 /* MCHomeGoodsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 188362AE1B8B1F270076B311 /* MCHomeGoodsModel.m */; };
 		188D621C1B816C9E00B3F6C7 /* MCMyRecruitController.m in Sources */ = {isa = PBXBuildFile; fileRef = 188D621A1B816C9E00B3F6C7 /* MCMyRecruitController.m */; };
 		188D621D1B816C9E00B3F6C7 /* MCMyRecruitController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 188D621B1B816C9E00B3F6C7 /* MCMyRecruitController.xib */; };
 		188D62221B81789500B3F6C7 /* textarea_bg2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 188D62201B81789500B3F6C7 /* textarea_bg2@2x.png */; };
@@ -1607,6 +1609,10 @@
 		18808FA21B7DC21E007F0301 /* MCMyPublicController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMyPublicController.h; sourceTree = "<group>"; };
 		18808FA31B7DC21E007F0301 /* MCMyPublicController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMyPublicController.m; sourceTree = "<group>"; };
 		18808FA41B7DC21E007F0301 /* MCMyPublicController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCMyPublicController.xib; sourceTree = "<group>"; };
+		188362AA1B8ABA3C0076B311 /* MCMyCollectProductModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMyCollectProductModel.h; sourceTree = "<group>"; };
+		188362AB1B8ABA3C0076B311 /* MCMyCollectProductModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMyCollectProductModel.m; sourceTree = "<group>"; };
+		188362AD1B8B1F270076B311 /* MCHomeGoodsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCHomeGoodsModel.h; sourceTree = "<group>"; };
+		188362AE1B8B1F270076B311 /* MCHomeGoodsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCHomeGoodsModel.m; sourceTree = "<group>"; };
 		188D62191B816C9E00B3F6C7 /* MCMyRecruitController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMyRecruitController.h; sourceTree = "<group>"; };
 		188D621A1B816C9E00B3F6C7 /* MCMyRecruitController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMyRecruitController.m; sourceTree = "<group>"; };
 		188D621B1B816C9E00B3F6C7 /* MCMyRecruitController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCMyRecruitController.xib; sourceTree = "<group>"; };
@@ -2726,6 +2732,8 @@
 		181A6DEC1B7B55CD00B72FAD /* MCHomeModel */ = {
 			isa = PBXGroup;
 			children = (
+				188362AD1B8B1F270076B311 /* MCHomeGoodsModel.h */,
+				188362AE1B8B1F270076B311 /* MCHomeGoodsModel.m */,
 				188D62241B81B0AD00B3F6C7 /* MCHomeAdModel.h */,
 				188D62251B81B0AD00B3F6C7 /* MCHomeAdModel.m */,
 				181A6DED1B7B55CD00B72FAD /* MCCompanyCommentModel.h */,
@@ -2788,6 +2796,8 @@
 				1818C0281B7CBC62006476F9 /* MCMycountModle.m */,
 				18FD726B1B7DCA8C00E0CDE6 /* MCMyPublicModel.h */,
 				18FD726C1B7DCA8C00E0CDE6 /* MCMyPublicModel.m */,
+				188362AA1B8ABA3C0076B311 /* MCMyCollectProductModel.h */,
+				188362AB1B8ABA3C0076B311 /* MCMyCollectProductModel.m */,
 			);
 			path = MCMyModel;
 			sourceTree = "<group>";
@@ -4299,6 +4309,7 @@
 				181A6BBB1B7B556100B72FAD /* MCPrivateTalkCell.m in Sources */,
 				181A70B41B7B563A00B72FAD /* MKNetworkOperation+ITTNetworkOperation.m in Sources */,
 				181A708C1B7B563A00B72FAD /* ITTMKNetWorkOperation.m in Sources */,
+				188362AC1B8ABA3C0076B311 /* MCMyCollectProductModel.m in Sources */,
 				181A70D11B7B563A00B72FAD /* UIImage+Helpers.m in Sources */,
 				181A6E1E1B7B55CD00B72FAD /* MCIMManager.m in Sources */,
 				181A6BC31B7B556100B72FAD /* ASRegisterDetailViewController.m in Sources */,
@@ -4518,6 +4529,7 @@
 				181A70781B7B563A00B72FAD /* NSData+ITTAdditions.m in Sources */,
 				04F0F8301AA411DB00F30A6A /* main.m in Sources */,
 				181A6C071B7B556100B72FAD /* MCHomeSearchView.m in Sources */,
+				188362AF1B8B1F270076B311 /* MCHomeGoodsModel.m in Sources */,
 				181A6E1A1B7B55CD00B72FAD /* MCCompanyServerModel.m in Sources */,
 				181A705A1B7B563A00B72FAD /* MCAutoSizeLab.m in Sources */,
 				181A6BA31B7B556100B72FAD /* MCIMCreatController.m in Sources */,

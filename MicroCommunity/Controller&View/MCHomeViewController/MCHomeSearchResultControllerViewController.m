@@ -17,11 +17,16 @@
 #import "MCHomeSearchModel.h"
 
 @interface MCHomeSearchResultControllerViewController ()<UITableViewDataSource,UITableViewDelegate,MCHomeSearchViewDelegate,MCSerachResultCellDelegate,MCCustomHeadViewDelegate>
+
+{
+    NSInteger pageIndex;
+}
+
 @property (weak, nonatomic) IBOutlet UIView *headView;
 @property (weak, nonatomic) IBOutlet UITableView *resultTableView;
 @property (nonatomic, strong) MCHomeSearchView *search;
 @property (nonatomic, strong) MCCustomHeadView *navView;
-
+@property (nonatomic, strong) UIWebView *callWebView;
 
 @property (nonatomic, strong) NSMutableArray *dataArray;
 
@@ -44,23 +49,68 @@
     MCUserModel *user = (MCUserModel *)[[MCUserManager shareManager]getCurrentUser];
     if (user) {
         NSMutableDictionary *param = [NSMutableDictionary dictionary];
+        
+        
+        NSString *lon = [USER_DEFAULT objectForKey:MMLastLongitude];
+        NSString *lat = [USER_DEFAULT objectForKey:MMLastLatitude];
+        
         [param safeString:user.user_id ForKey:@"user_id"];
-        [param safeString:self.keyWorld ForKey:@"key"];
-        [[MCHomeManager shareManager]requestHomeMainSearchWithParam:param withIndicatorView:self.view withCancelRequestID:Home_request_lifeSearch withHttpMethod:kHTTPMethodPost onRequestFinish:^(MKNetworkOperation *operation) {
-            
-            if (operation.isSuccees) {
-                [weak.dataArray removeAllObjects];
-                NSArray *data = [operation.resultDic objectForKey:@"data"];
-                for (int i = 0; i < data.count; i ++) {
-                    MCHomeSearchModel *model = [[MCHomeSearchModel alloc]initWithDataDic:[data objectAtIndex:i]];
-                    model.seller_image = [NSString stringWithFormat:@"%@%@",Main_URL,model.seller_image];
-                    [weak.dataArray addObject:model];
-                }
-                [weak.resultTableView reloadData];
+        [param safeString:lon ForKey:@"long"];
+        [param safeString:lat ForKey:@"lat"];
+        [param safeString:@"1" ForKey:@"pageindex"];
+        
+        switch (_type) {
+            case customeSearch:
+            {
+                [param safeString:self.category_id ForKey:@"category_id"];
+                
+                [[MCHomeManager shareManager]requestHome_company_homeWithParam:param withIndicatorView:self.view withCancelRequestID:Home_request_company_home withHttpMethod:kHTTPMethodPost onRequestFinish:^(MKNetworkOperation *operation) {
+                    
+                    if (operation.isSuccees) {
+                        [weak.dataArray removeAllObjects];
+                        NSArray *data = [operation.resultDic objectForKey:@"data"];
+                        for (int i = 0; i < data.count; i ++) {
+                            MCHomeSearchModel *model = [[MCHomeSearchModel alloc]initWithDataDic:[data objectAtIndex:i]];
+                            model.goods_image = [NSString stringWithFormat:@"%@%@",Main_URL,model.goods_image];
+                            [weak.dataArray addObject:model];
+                        }
+                    } else {
+                        [ITTPromptView showMessage:@"查询失败"];
+                    }
+                    [weak.resultTableView reloadData];
+                    
+                } onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
+                     [ITTPromptView showMessage:@"查询失败"];
+                }];
             }
-        } onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
-            [ITTPromptView showMessage:@"搜索失败"];
-        }];
+                break;
+            case otherSearch:
+            {
+                [param safeString:self.keyWorld ForKey:@"key"];
+                
+                [[MCHomeManager shareManager]requestHomeMainSearchWithParam:param withIndicatorView:self.view withCancelRequestID:Home_request_lifeSearch withHttpMethod:kHTTPMethodPost onRequestFinish:^(MKNetworkOperation *operation) {
+                    
+                    if (operation.isSuccees) {
+                        [weak.dataArray removeAllObjects];
+                        NSArray *data = [operation.resultDic objectForKey:@"data"];
+                        for (int i = 0; i < data.count; i ++) {
+                            MCHomeSearchModel *model = [[MCHomeSearchModel alloc]initWithDataDic:[data objectAtIndex:i]];
+                            model.goods_image = [NSString stringWithFormat:@"%@%@",Main_URL,model.goods_image];
+                            [weak.dataArray addObject:model];
+                        }
+                    } else {
+                        [ITTPromptView showMessage:@"搜索失败"];
+                    }
+                    [weak.resultTableView reloadData];
+                } onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
+                    [ITTPromptView showMessage:@"搜索失败"];
+                }];
+            }
+                break;
+                
+            default:
+                break;
+        }
     }
 }
 
@@ -74,6 +124,8 @@
     [self hideNavBar];
     
     [self initSearchView];
+    
+    [self initCallWebView];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -120,6 +172,13 @@
     }
 }
 
+- (void) initCallWebView {
+    
+    _callWebView= [[UIWebView alloc] init];
+    [self.view addSubview:_callWebView];
+    
+}
+
 /**
  *  设置导航栏
  */
@@ -157,7 +216,7 @@
     }
     MCHomeSearchModel *modle = [_dataArray objectAtIndex:indexPath.row];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    [cell configCellWithMCHomeSearchModel:modle];
+    [cell configCellWithMCHomeSearchModel:modle withType:0];
     cell.tag = indexPath.row;
     cell.delegate = self;
     return cell;
@@ -165,17 +224,19 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    switch (_type) {
-        case customeSearch:
-        {
-            MCProductDetilController *compony = [[MCProductDetilController alloc]initWithNibName:@"MCProductDetilController" bundle:nil];
-            [self.navigationController pushViewController:compony animated:YES];
-        }
-            break;
-            
-        default:
-            break;
-    }
+    
+    //聊天
+//    switch (_type) {
+//        case customeSearch:
+//        {
+//            MCProductDetilController *compony = [[MCProductDetilController alloc]initWithNibName:@"MCProductDetilController" bundle:nil];
+//            [self.navigationController pushViewController:compony animated:YES];
+//        }
+//            break;
+//            
+//        default:
+//            break;
+//    }
     
 }
 #pragma  mark  --  MCHomeSearchViewDelegate
@@ -191,8 +252,12 @@
  */
 - (void)searchBarView:(MCHomeSearchView *)searchBarView inputCompleted:(NSString *)searchText {
     
-    NSLog(@"%@",searchText);
     
+    if (![self.keyWorld isEqualToString:searchText]) {
+        [_dataArray removeAllObjects];
+    }
+    self.keyWorld = searchText;
+    [self searchRequest];
 }
 
 #pragma  mark  --  MCSerachResultCellDelegate
@@ -214,6 +279,7 @@
                 case customeSearch:
                 {
                     MCProductDetilController *compony = [[MCProductDetilController alloc]initWithNibName:@"MCProductDetilController" bundle:nil];
+                    compony.searchModel = [_dataArray objectAtIndex:index];
                     [self.navigationController pushViewController:compony animated:YES];
                 }
                     break;
@@ -232,6 +298,7 @@
                 {
                     MCCompanyProductController *compony = [[MCCompanyProductController alloc]initWithNibName:@"MCCompanyProductController" bundle:nil];
                     compony.type = customeSearchc;
+                    compony.currentModel = [_dataArray objectAtIndex:index];
                     compony.currentTitle = @"产品列表";
                     [self.navigationController pushViewController:compony animated:YES];
                 }
@@ -246,6 +313,11 @@
         case 102:
         {
         //  102联系
+            {
+                MCHomeSearchModel *model = [_dataArray objectAtIndex:index];
+                NSURL *telURL = [NSURL URLWithString:[NSString stringWithFormat:@"tel:%@",model.linkphone]];
+                [_callWebView loadRequest:[NSURLRequest requestWithURL:telURL]];
+            }
         }
             break;
         default:
@@ -273,13 +345,14 @@
         {
             //  101发布
             MCCompanyConfirmController *confirm = [[MCCompanyConfirmController alloc]initWithNibName:@"MCCompanyConfirmController" bundle:nil];
+            confirm.isConfirm = YES;
             [self.navigationController pushViewController:confirm animated:YES];
         }
             break;
         case 102:
         {
             //  102搜索
-
+            
         }
             break;
         default:

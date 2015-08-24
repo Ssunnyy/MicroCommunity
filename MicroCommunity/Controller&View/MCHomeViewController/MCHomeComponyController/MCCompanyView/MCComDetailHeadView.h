@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+@class MCHomeSearchModel;
 
 @protocol MCComDetailHeadViewDelegate <NSObject>
 
@@ -17,5 +18,7 @@
 @interface MCComDetailHeadView : UIView
 
 @property (nonatomic, assign) id <MCComDetailHeadViewDelegate> delgate;
+
+- (void) configHeadWithMCHomeSearchModel:(MCHomeSearchModel *) model;
 
 @end

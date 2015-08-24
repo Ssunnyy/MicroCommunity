@@ -193,6 +193,11 @@
     [self updatePhotoViewWithHasPhoto:_hasPhoto];
     
 }
+- (void) getImagePath:(NSMutableArray *)paths {
+    
+    
+    [_imagePath addObjectsFromArray:paths];
+}
 
 /**
  *  更新photoView的布局设置
@@ -282,16 +287,22 @@
     
     if (user) {
         NSMutableDictionary *param = [NSMutableDictionary dictionary];
+        [param safeString:self.bar_id ForKey:@"bar_id"];
         [param safeString:user.user_id ForKey:@"user_id"];
         [param safeString:user.nickname ForKey:@"nickname"];
         [param safeString:_contentTextView.text ForKey:@"content"];
-                 NSMutableArray *array = [NSMutableArray array];
+        
+        //图片数组          self.imageArray  里面存的是UIImage 类型的数据
+        NSMutableArray *array = [NSMutableArray array];
         if (_imageArray.count > 0) {
    
-            for (int i = 0 ; i < _imageArray.count; i ++) {
-                NSData *imgData = UIImageJPEGRepresentation([_imageArray objectAtIndex:i], 0.5);
-                [array addObject:imgData];
+            for (UIImage * image in self.imageArray) {
+                NSData * data = UIImagePNGRepresentation(image);
+                [array addObject:data];
             }
+        }else {
+            [param safeString:@"" ForKey:@"image"];
+            array = nil;
         }
         
         [[MCTalkManager shareManager]requestTalk_PublishWithParamDic:param updateFiles:array withIndicatorView:self.view withCancelRequestID:Talk_Request_Public onRequestFinish:^(MKNetworkOperation *operation) {

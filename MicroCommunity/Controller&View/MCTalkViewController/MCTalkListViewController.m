@@ -72,7 +72,7 @@
         [param safeString:user.user_id ForKey:@"user_id"];
         if (self.headModel) {
             
-            [param safeString:self.headModel.bars_id ForKey:@"bar_id"];
+            [param safeString:self.headModel.bar_id ForKey:@"bar_id"];
             [param safeString:[NSString stringWithFormat:@"%ld",pageIndex] ForKey:@"pageindex"];
             
             if (type == 0) {
@@ -458,6 +458,7 @@
     isFirst = YES;
     ASCCPersonEditViewController *as = [[ASCCPersonEditViewController alloc]initWithNibName:@"ASCCPersonEditViewController" bundle:nil];
     as.titls = self.titleStr;
+    as.bar_id = self.headModel.bar_id;
     [self.navigationController pushViewController:as animated:YES];
 }
 

@@ -30,4 +30,17 @@
 @property (nonatomic, strong) NSString *status;
 @property (nonatomic, strong) NSString *suggest;
 
+@property (nonatomic, strong) NSString *a_lng;
+@property (nonatomic, strong) NSString *collect_id;
+@property (nonatomic, strong) NSString *collect_time;
+@property (nonatomic, strong) NSString *collect_user_id;
+@property (nonatomic, strong) NSString *company_id;
+@property (nonatomic, strong) NSString *is_collect;
+@property (nonatomic, strong) NSString *distance;
+@property (nonatomic, strong) NSString *goods_name;
+@property (nonatomic, strong) NSString *goods_image;
+@property (nonatomic, strong) NSString *goods_id;
+@property (nonatomic, strong) NSString *huanxin_id;
+
+
 @end

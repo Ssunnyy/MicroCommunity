@@ -16,6 +16,7 @@
 #define Talk_Request_praise @"home/talk/praise_talk" //  点赞
 #define Talk_Request_comment @"home/talk/comment_talk" //  评论话题
 #define Talk_Request_report_talk @"home/talk/report_talk_add" //  举报话题添加
+#define Talk_Request_details @"home/talk/talk_details"  //  话题详情
 
 
 
@@ -172,4 +173,22 @@
                       withHttpMethod:(kHTTPMethod)httpMethod
                      onRequestFinish:(void(^)(MKNetworkOperation *operation))onFinishedBlock
                      onRequestFailed:(void(^)(MKNetworkOperation *operation ,NSError *error ))onFailedBlock;
+
+/**
+ *  @brief  话题详情
+ *  @param  params
+ *  @param  view                    在那一页上的请求
+ *  @param  requestID               请求的ID
+ *  @param  onFinishedBlock         请求完成的block，可以得到请求成功解析后的数组以及得到的数据个数，实现自己的逻辑
+ *  @param  onFailedBlock           请求失败的的block，可以得到请求是失败后的错误，并实现自己的逻辑
+ *  @return
+ **/
+
+- (void)requestTalk_DetailWithParam:(NSMutableDictionary*)param
+                  withIndicatorView:(UIView*)view
+                withCancelRequestID:(NSString*)requestID
+                     withHttpMethod:(kHTTPMethod)httpMethod
+                    onRequestFinish:(void(^)(MKNetworkOperation *operation))onFinishedBlock
+                    onRequestFailed:(void(^)(MKNetworkOperation *operation ,NSError *error ))onFailedBlock;
+
 @end

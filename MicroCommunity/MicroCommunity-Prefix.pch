@@ -41,6 +41,7 @@
     #import "MCUserManager.h"
     #import "MCHomeManager.h"
     #import "MCTalkManager.h"
+    #import "MCMYManager.h"
     #import "NSDate+ITTAdditions.h"
 
 #endif

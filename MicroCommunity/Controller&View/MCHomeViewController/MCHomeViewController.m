@@ -222,6 +222,7 @@
         
         MCHomeSearchResultControllerViewController *result = [[MCHomeSearchResultControllerViewController alloc]initWithNibName:@"MCHomeSearchResultControllerViewController" bundle:nil];
         result.type = customeSearch;
+        result.category_id = model.category_id;
         result.currentTitle = @"本地企业";
         [self.navigationController pushViewController:result animated:YES];
         
@@ -229,6 +230,7 @@
         
         MCRecruitController *recruit = [[MCRecruitController alloc]initWithNibName:@"MCRecruitController" bundle:nil];
         recruit.currentTitle = @"求职招聘";
+        recruit.category_id = model.category_id;
         [self.navigationController pushViewController:recruit animated:YES];
         
     } else if ([model.category_name isEqualToString:@"特色美食"]){
@@ -316,6 +318,8 @@
     MCHomeSearchResultControllerViewController *result = [[MCHomeSearchResultControllerViewController alloc]initWithNibName:@"MCHomeSearchResultControllerViewController" bundle:nil];
     result.type = otherSearch;
     result.keyWorld = searchText;
+    [searchBarView resignTextView];
+    
     [self.navigationController pushViewController:result animated:YES];
 }
 

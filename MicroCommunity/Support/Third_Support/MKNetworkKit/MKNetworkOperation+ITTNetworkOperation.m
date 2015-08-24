@@ -68,7 +68,7 @@
 -(NSDictionary*)resultDic
 {
     NSError * error;
-    NSObject* result= [[[CJSONDeserializer deserializer] deserializeAsDictionary:[self responseData] error:&error] objectForKey:@"data"];
+    NSObject* result= [self.responseJSON objectForKey:@"data"];
     if ([result isKindOfClass:[NSArray class]]) {
         NSMutableArray * tempArr = [NSMutableArray arrayWithArray:(NSArray*)result];
         for (NSObject * item in tempArr) {

@@ -7,6 +7,8 @@
 //
 
 #import "MCComDetailHeadView.h"
+#import "MCHomeSearchModel.h"
+
 
 @interface MCComDetailHeadView ()
 
@@ -73,6 +75,11 @@
     if (_delgate && [_delgate respondsToSelector:@selector(headViewClickAtIndex:)]) {
         [_delgate headViewClickAtIndex:sender.tag];
     }
+}
+
+- (void) configHeadWithMCHomeSearchModel:(MCHomeSearchModel *) model {
+
+    [_headImageView sd_setImageWithURL:[NSURL URLWithString:model.seller_image] placeholderImage:ImageNamed(default_iconImag)];
 }
 
 /*

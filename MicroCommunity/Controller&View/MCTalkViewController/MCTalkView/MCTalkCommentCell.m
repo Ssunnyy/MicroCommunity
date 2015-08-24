@@ -41,18 +41,16 @@
 
 - (void)setUpCellWithMCTalkPariseModel:(MCTalkPariseModel *)model {
 
-    [_headImage sd_setImageWithURL:[NSURL URLWithString:model.headImage] placeholderImage:ImageNamed(default_head)];
-//    _nickName.text = model.nickName;
-//    _dataLab.text = model.date;
-//    _pariseLab.text = model.pariseCount;
+    [_headImage sd_setImageWithURL:[NSURL URLWithString:model.comment_head_image] placeholderImage:ImageNamed(default_head)];
+    _nickName.text = model.comment_nickname;
+    _dataLab.text = [NSDate timeStringWithInterval:[model.comment_time doubleValue]];
     
-    _commentLab.text = model.comment;
-    CGSize introHeight = [model.comment calculateSize:CGSizeMake(self.commentLab.frame.size.width, FLT_MAX) font:self.commentLab.font];
+    _commentLab.text = model.comment_content;
+    CGSize introHeight = [model.comment_content calculateSize:CGSizeMake(self.commentLab.frame.size.width, FLT_MAX) font:self.commentLab.font];
     
     if (introHeight.height > 32) {
         self.commentHeight.constant = introHeight.height + 40;
     }
-    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

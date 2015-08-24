@@ -109,7 +109,6 @@ BOOL iscustomTabBarViewHide = NO;
 
 - (void)updatePostion
 {
-    NSMutableDictionary * param = [NSMutableDictionary dictionaryWithCapacity:1];
     if ([self checkLocationIsValid]) {
         [[MMLocationManager shareLocation]startGetUserLocation:^(CLLocationCoordinate2D locationCorrrdinate)
          {
@@ -118,22 +117,10 @@ BOOL iscustomTabBarViewHide = NO;
              
              [USER_DEFAULT setObject:_lon forKey:MMLastLongitude];
              [USER_DEFAULT setObject:_lat forKey:MMLastLatitude];
-
-             [param safeString:[NSString stringWithFormat:@"%f",locationCorrrdinate.longitude] ForKey:@"lon"];
-             [param safeString:[NSString stringWithFormat:@"%f",locationCorrrdinate.latitude] ForKey:@"lat"];
-             if ([[UserManager shareManager] isAutoLoginResult]) {
-                 [param safeString:[[UserManager shareManager] getCurrentUser].userId ForKey:@"appUserId"];
-
-             }
-//             [[ASSearchRequestManager shareManager] requestUserSavePositionWithParam:param withIndicatorView:nil withCancelRequestID:@"savePostion" withHttpMethod:kHTTPMethodPost onRequestFinish:^(MKNetworkOperation *operation) {
-//                 
-//                 if ([operation isSuccees]) {
-//                     
-//                 }
-//             } onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
-//                 
-//             }];
          }];
+        [[MMLocationManager shareLocation]getAddress:^(NSString *addressString) {
+            NSLog(@"%@",addressString);
+        }];
     }
 }
 
@@ -257,7 +244,7 @@ BOOL iscustomTabBarViewHide = NO;
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // 每次打开应用就更新地理坐标
-//    [self updatePostion];
+    [self updatePostion];
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 

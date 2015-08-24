@@ -12,4 +12,6 @@
  */
 @interface MCCompanyConfirmController : BaseViewController
 
+@property (assign,nonatomic) BOOL isConfirm;
+
 @end

@@ -30,6 +30,82 @@
 
     [super viewWillAppear:YES];
     [AppDelegate HideTabBar];
+    
+    [self requestForMyPublic];
+}
+
+- (void) requestForMyPublic{
+    
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    [param safeString:self.userId ForKey:@"user_id"];
+
+    __weak MCMyPublicController *weak = self;
+    
+    [[MCMYManager shareManager]requestMy_PublicWithParam:param withIndicatorView:self.view withCancelRequestID:My_Request_publish withHttpMethod:kHTTPMethodPost onRequestFinish:^(MKNetworkOperation *operation) {
+        if (operation.isSuccees) {
+            
+            NSArray *dataArray = [operation.resultDic objectForKey:@"data"];
+            if (dataArray.count > 0) {
+                for ( int i = 0; i < dataArray.count ; i ++) {
+                    MCMyPublicModel *public = [[MCMyPublicModel alloc]initWithDataDic:[dataArray objectAtIndex:i]];
+                    public.goods_image = [NSString stringWithFormat:@"%@%@",Main_URL,public.goods_image];
+                    public.isChoose = NO;
+                    [_dataArray addObject:public];
+                }
+            }
+        }else{
+            [ITTPromptView showMessage:@"查询失败"];
+        }
+        [weak tableViewReloadData];
+    } onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
+        [ITTPromptView showMessage:@"网络请求失败"];
+    }];
+}
+
+- (void) deletePublic{
+
+    __weak MCMyPublicController *weak = self;
+    
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    [param safeString:self.userId ForKey:@"user_id"];
+    
+    
+    NSArray *array = [NSArray arrayWithArray:_dataArray];
+    NSMutableArray *deleteIds = [NSMutableArray array];
+    
+    for (MCMyPublicModel *model in array) {
+        if (model.isChoose) {
+            [deleteIds addObject:model.goods_id];
+        }
+    }
+    
+    if (deleteIds.count > 0) {
+        [param safeString:[deleteIds componentsJoinedByString:@","]ForKey:@"goods_id"];
+    } else {
+        [param safeString:@""ForKey:@"goods_id"];
+    }
+    
+    
+    [[MCHomeManager shareManager]requestHome_goods_DeleteWithParam:param withIndicatorView:self.view withCancelRequestID:Home_request_all_goods_delete withHttpMethod:kHTTPMethodPost onRequestFinish:^(MKNetworkOperation *operation) {
+        
+        if (operation.isSuccees) {
+            
+            NSArray *array = [NSArray arrayWithArray:_dataArray];
+            
+            for (MCMyPublicModel *model in array) {
+                if (model.isChoose) {
+                    [weak.dataArray removeObject:model];
+                }
+            }
+            [ITTPromptView showMessage:@"产品删除成功"];
+        }else {
+            [ITTPromptView showMessage:@"产品删除失败,请重试"];
+        }
+        [weak tableViewReloadData];
+    } onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
+        [ITTPromptView showMessage:@"产品删除失败,请重试"];
+    }];
+    
 }
 
 - (void)viewDidLoad {
@@ -58,24 +134,6 @@
     
     _dataArray = [[NSMutableArray alloc]init];
     
-    for (int i = 0 ; i < 20 ; i ++) {
-        MCMyPublicModel *modle = [[MCMyPublicModel alloc]init];
-        modle.title = @"奥迪A6";
-        modle.des = @"超级怕车";
-        modle.money = @"50万元";
-        modle.totalMoney = @"1000";
-        modle.addMoney = @"222";
-        modle.isChoose = NO;
-        [_dataArray addObject:modle];
-        
-        if (i == 2 || i == 3) {
-            modle.type = @"1";
-        }else if (i== 5 || i == 6){
-            modle.type = @"2";
-        }else{
-            modle.type = @"0";
-        }
-    }
 }
 
 /**
@@ -217,14 +275,7 @@
             break;
         case 401:
         {
-            NSArray *array = [NSArray arrayWithArray:_dataArray];
-            
-            for (MCMyPublicModel *model in array) {
-                if (model.isChoose) {
-                    [_dataArray removeObject:model];
-                }
-            }
-            [self tableViewReloadData];
+            [self deletePublic];
         }
             break;
         default:
@@ -234,7 +285,9 @@
 
 - (void)rightBarButtonClick:(UIButton *)button {
 
-    pushToDestinationController(self, MCCompanyConfirmController);
+    MCCompanyConfirmController *confirm = [[MCCompanyConfirmController alloc]initWithNibName:@"MCCompanyConfirmController" bundle:nil];
+    confirm.isConfirm = NO;
+    [self.navigationController pushViewController:confirm animated:YES];
     
 }
 

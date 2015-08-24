@@ -17,5 +17,6 @@ typedef enum {
 @property (nonatomic, assign) SearchTypes type;
 @property (nonatomic, strong) NSString *currentTitle;
 @property (nonatomic, strong) NSString *keyWorld;
+@property (nonatomic, strong) NSString *category_id;
 
 @end

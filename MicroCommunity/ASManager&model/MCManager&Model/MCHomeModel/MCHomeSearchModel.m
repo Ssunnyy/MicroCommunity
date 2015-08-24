@@ -33,6 +33,17 @@
              @"seller_username":@"seller_username",
              @"status":@"status",
              @"suggest":@"suggest",
+             @"a_lng":@"a_lng",
+             @"collect_id":@"collect_id",
+             @"collect_time":@"collect_time",
+             @"collect_user_id":@"collect_user_id",
+             @"company_id":@"company_id",
+             @"is_collect":@"is_collect",
+             @"distance":@"distance",
+             @"goods_name":@"goods_name",
+             @"goods_image":@"goods_image",
+             @"goods_id":@"goods_id",
+             @"huanxin_id":@"huanxin_id",
              };
     
 }

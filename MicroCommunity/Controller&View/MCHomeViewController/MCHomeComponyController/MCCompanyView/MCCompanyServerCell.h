@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "MCCompanyServerModel.h"
+#import "MCMyCollectProductModel.h"
 @interface MCCompanyServerCell : UITableViewCell
 
 
 - (void) configCellWithMCCompanyServerModel:(MCCompanyServerModel *) model;
+
+- (void) configCellWithMCMyCollectProductModel:(MCMyCollectProductModel *)model;
 
 @end

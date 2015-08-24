@@ -24,6 +24,7 @@ typedef enum {
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *viewHeight;
 
 @property (nonatomic,strong) NSString *titls;
+@property (nonatomic,strong) NSString *bar_id;
 @property (nonatomic,assign) TypeShow type;
 
 

@@ -35,7 +35,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *idCardBtn;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bgViewHeight;
 
-
 /**
  *  actionView
  */
@@ -64,7 +63,101 @@
 
     [super viewWillAppear:YES];
     [AppDelegate HideTabBar];
+    [self enableKeyboardManger];
     
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+
+    [super viewWillDisappear:YES];
+    [self disableKeyboardManager];
+    
+}
+
+- (void) requestForConfirm{
+    
+    if (_companyName.text.length <= 0) {
+        [ITTPromptView showMessage:@"商家名称不能为空"];
+        return;
+    }
+    if (_companyIntro.text.length <= 0) {
+        [ITTPromptView showMessage:@"企业介绍不能为空"];
+        return;
+    }
+    if (_companyConnect.text.length <= 0) {
+        [ITTPromptView showMessage:@"联系人不能为空"];
+        return;
+    }
+    if (![CommonHelp isvalidateMobile:self.companyPhone.text]) {
+        [ITTPromptView showMessage:@"请输入正确的手机号码!"];
+        return;
+    }
+    if (_companyAddress.text.length <= 0) {
+        [ITTPromptView showMessage:@"地址不能为空"];
+        return;
+    }
+    if (_idCard.text.length <= 0) {
+        [ITTPromptView showMessage:@"身份证号不能为空"];
+        return;
+    }
+    if ([CommonHelp checkUserIdCard:_idCard.text]) {
+        [ITTPromptView showMessage:@"请输入正确的手机号码"];
+    }
+    
+    MCUserModel *user = (MCUserModel *)[[MCUserManager shareManager]getCurrentUser];
+    
+    __weak MCCompanyConfirmController *weak = self;
+    if (user) {
+        
+        NSString *lon = [USER_DEFAULT objectForKey:MMLastLongitude];
+        NSString *lat = [USER_DEFAULT objectForKey:MMLastLatitude];
+        
+        NSString *address = [USER_DEFAULT objectForKey:MMLastAddress];
+        
+        NSMutableDictionary *param = [NSMutableDictionary dictionary];
+        [param safeString:user.user_id ForKey:@"user_id"];
+        [param safeString:user.phone ForKey:@"phone"];
+        [param safeString:_companyName.text ForKey:@"seller_name"];
+        [param safeString:_companyIntro.text ForKey:@"seller_content"];
+        [param safeString:_companyConnect.text ForKey:@"linkman"];
+        [param safeString:_companyPhone.text ForKey:@"linkphone"];
+        [param safeString:address ForKey:@"address"];
+        [param safeString:lon ForKey:@"a_lng"];
+        [param safeString:lat ForKey:@"a_lat"];
+        [param safeString:_idCard.text ForKey:@"id_card"];
+        [param safeString:@"" ForKey:@"seller_image"];
+        [param safeString:@"" ForKey:@"business_card"];
+        [param safeString:@"" ForKey:@"idcard_script"];
+        
+        if (_isConfirm) {
+            //  商家认证
+            [[MCHomeManager shareManager]requestHome_seller_publishWithParam:param withIndicatorView:self.view withCancelRequestID:Home_request_seller_publish withHttpMethod:kHTTPMethodPost onRequestFinish:^(MKNetworkOperation *operation) {
+                
+                if (operation.isSuccees) {
+                    [ITTPromptView showMessage:@"提交认证成功"];
+                    [weak.navigationController popViewControllerAnimated:YES];
+                }else {
+                    [ITTPromptView showMessage:@"提交认证失败,请重新提交"];
+                }
+            } onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
+                [ITTPromptView showMessage:@"提交认证失败,请重新提交"];
+            }];
+        }else {
+            //  修改商家信息
+            [[MCHomeManager shareManager]requestHome_update_sellerWithParam:param withIndicatorView:self.view withCancelRequestID:Home_request_update_seller withHttpMethod:kHTTPMethodPost onRequestFinish:^(MKNetworkOperation *operation) {
+                
+                if (operation.isSuccees) {
+                    [ITTPromptView showMessage:@"修改成功成功"];
+                    [weak.navigationController popViewControllerAnimated:YES];
+                }else {
+                    [ITTPromptView showMessage:@"修改失败,请重新提交"];
+                }
+            } onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
+                [ITTPromptView showMessage:@"修改失败,请重新提交"];
+            }];
+            
+        }
+    }
 }
 
 - (void)viewDidLoad {
@@ -75,6 +168,9 @@
     [self setNavigationBarStatus];
     
     [self setPersonActionView];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(resignfirst)];
+    [self.view addGestureRecognizer:tap];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -90,7 +186,11 @@
 {
     [AppDelegate HideTabBar];
     
-    [self setNavigationBarTitle:@"商家认证"];
+    if (_isConfirm) {
+        [self setNavigationBarTitle:@"商家认证"];
+    } else {
+        [self setNavigationBarTitle:@"编辑企业资料"];
+    }
     [self setButtonStyle:UIButtonStyleBack andImage:ImageNamed(@"back_icon_.png") highImage:ImageNamed(@"back_pre.png")];
 //    [self setButtonStyle:UIButtonStyleRegister andTitle:@"提交认证" textColor:[UIColor whiteColor] font:[UIFont systemFontOfSize:13]];
 }
@@ -234,6 +334,12 @@
 
 - (IBAction)changeInfo:(id)sender {
     
+    [self requestForConfirm];
+}
+
+- (void) resignfirst{
+
+    [self.view endEditing:NO];
     
 }
 /*

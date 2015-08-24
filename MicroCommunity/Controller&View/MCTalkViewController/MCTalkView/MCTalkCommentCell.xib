@@ -19,6 +19,9 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="图图首饰店" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gho-b7-EEa">
                                 <rect key="frame" x="0.0" y="10" width="237" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="17" id="4UB-Kp-Qgo"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -90,10 +93,10 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wB9-XG-RK9">
-                        <rect key="frame" x="0.0" y="95" width="320" height="10"/>
+                        <rect key="frame" x="0.0" y="102" width="320" height="1"/>
                         <color key="backgroundColor" red="0.92941176469999998" green="0.92941176469999998" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="10" id="9UD-EO-6uZ"/>
+                            <constraint firstAttribute="height" constant="1" id="9UD-EO-6uZ"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -110,9 +113,15 @@
                     <constraint firstAttribute="trailing" secondItem="M9T-1U-kpa" secondAttribute="trailing" id="bJS-fg-o2y"/>
                     <constraint firstItem="2cN-WM-jCk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="c8o-fv-s5u"/>
                     <constraint firstAttribute="trailing" secondItem="wB9-XG-RK9" secondAttribute="trailing" id="cRg-kk-3QR"/>
+                    <constraint firstAttribute="bottom" secondItem="wB9-XG-RK9" secondAttribute="bottom" id="dy1-Ch-s1t"/>
                     <constraint firstItem="Xf6-rd-dfn" firstAttribute="top" secondItem="M9T-1U-kpa" secondAttribute="bottom" id="h2T-F7-jUU"/>
                     <constraint firstItem="M9T-1U-kpa" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="sn7-ds-0hB"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="TT1-3N-UwR"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <connections>
                 <outlet property="bottomViewHeight" destination="9UD-EO-6uZ" id="FrX-N0-3sh"/>

@@ -7,7 +7,10 @@
 //
 
 #import "BaseViewController.h"
+#import "MCHomeSearchModel.h"
 
 @interface MCProductDetilController : BaseViewController
+
+@property (nonatomic, strong) MCHomeSearchModel *searchModel;
 
 @end

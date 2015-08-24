@@ -45,17 +45,22 @@
         ALAsset *asset=assets[i];
         UIImage *tempImg=[UIImage imageWithCGImage:asset.defaultRepresentation.fullScreenImage];
         [tempArr addObject:tempImg];
-//        
-//        NSData *data=UIImagePNGRepresentation(tempImg);
+        
+//        NSData *data = UIImagePNGRepresentation(tempImg);
 //        NSString *documentPath=[NSSearchPathForDirectoriesInDomains(NSDocumentationDirectory, NSUserDomainMask, YES) objectAtIndex:0];
 //        NSString *path=[documentPath stringByAppendingPathComponent:[NSString stringWithFormat:@"images%d.png",i]];
-//        [data writeToFile:path atomically:NO];
+//        [data writeToFile:path atomically:YES];
+//        // UIImage *iamge=[UIImage imageWithData:data];
 //        [tempImagePath addObject:path];
     }
     
     if (_pickDelegate && [_pickDelegate respondsToSelector:@selector(getImageMedia:)]) {
         [_pickDelegate getImageMedia:tempArr];
     }
+//    
+//    if (_pickDelegate && [_pickDelegate respondsToSelector:@selector(getImagePath:)]) {
+//        [_pickDelegate getImagePath:tempImagePath];
+//    }
     
     if (_isUseCutController) {
         if (tempArr.count > 0) {

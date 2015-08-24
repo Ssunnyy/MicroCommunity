@@ -36,6 +36,8 @@
 - (void) setCityWithString:(NSString *) city;
 //  设置搜索placeholder
 - (void)setSearchVWithBtnPlace:(NSString *)textPlaceHolder;
+//  设置搜索text
+- (void)setSearchText:(NSString *)text;
 //  隐藏左侧的城市变返回按钮
 - (void) backBtnChange;
 //  隐藏左侧的按钮

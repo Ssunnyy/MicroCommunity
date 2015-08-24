@@ -21,7 +21,7 @@
              @"bar_people_number":@"bar_people_number",
              @"bar_status":@"bar_status",
              @"bar_title":@"bar_title",
-             @"bars_id":@"bars_id",
+             @"bar_id":@"bar_id",
              @"creat_time":@"creat_time",
              };
     

@@ -293,7 +293,7 @@
                     }
 
                     mmlocation.lastAddress=[NSString stringWithFormat:@"%@%@%@%@",state,city,subLocality,street];
-//                    NSLog(@"%@-%@-%@-%@",state,city,subLocality,street);
+                    NSLog(@"%@-%@-%@-%@",state,city,subLocality,street);
 
 
                     [standard setObject:mmlocation.state forKey:MMLastState];

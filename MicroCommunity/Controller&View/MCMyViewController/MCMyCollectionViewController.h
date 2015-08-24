@@ -10,4 +10,6 @@
 
 @interface MCMyCollectionViewController : BaseViewController
 
+@property (nonatomic,strong) NSString *userId;
+
 @end

@@ -28,7 +28,7 @@
 
 @property (nonatomic, strong) NSMutableArray *commentArray;//   评论数组
 @property (nonatomic, strong) NSMutableArray *serverArray;//   服务数组
-@property (nonatomic, strong) MCCompanyInfoModel *companyModel;
+@property (nonatomic, strong) MCHomeSearchModel *companyModel;
 
 @end
 
@@ -37,6 +37,8 @@
 - (void)viewWillAppear:(BOOL)animated {
 
     [super viewWillAppear:YES];
+    
+    [self requestShopDetail];
 //    [self enableKeyboardManger];
     
 }
@@ -46,6 +48,134 @@
     [super viewWillDisappear:YES];
     //  移除通知
     [_sendMessageView removeKeyboardLison];
+}
+/**
+ *  商家介绍
+ */
+- (void) requestShopDetail{
+    
+    MCUserModel *user = (MCUserModel *)[[MCUserManager shareManager]getCurrentUser];
+    
+    __weak MCCompanyDetailController *weak = self;
+    
+    if (user) {
+        NSMutableDictionary *param = [NSMutableDictionary dictionary];
+        [param safeString:user.user_id ForKey:@"user_id"];
+        [param safeString:self.sellerId ForKey:@"seller_id"];
+        [[MCHomeManager shareManager]requestHome_seller_detailsWithParam:param withIndicatorView:self.view withCancelRequestID:Home_request_seller_details withHttpMethod:kHTTPMethodPost onRequestFinish:^(MKNetworkOperation *operation) {
+            
+            if (operation.superclass) {
+                NSArray *data = [operation.resultDic objectForKey:@"data"];
+                if (data.count > 0) {
+                    weak.companyModel = [[MCHomeSearchModel alloc]initWithDataDic:[data objectAtIndex:0]];
+                    weak.companyModel.seller_image = [NSString stringWithFormat:@"%@%@",Main_URL,weak.companyModel.seller_image];
+                }
+                
+            }else {
+                
+            }
+            [weak.headView configHeadWithMCHomeSearchModel:weak.companyModel];
+            [weak tableViewReloadData];
+        } onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
+            
+            [ITTPromptView showMessage:@"网络请求失败"];
+        }];
+    }
+}
+/**
+ *  发表评论
+ *
+ *  @param comment
+ */
+- (void) requestForCommentWithComment:(NSString *) comment {
+
+    __weak MCCompanyDetailController *weak = self;
+    MCUserModel *user = (MCUserModel *)[[MCUserManager shareManager]getCurrentUser];
+    if (user) {
+        NSMutableDictionary *param = [NSMutableDictionary dictionary];
+        [param safeString:user.user_id ForKey:@"user_id"];
+        [param safeString:self.sellerId ForKey:@"seller_id"];
+        [param safeString:comment ForKey:@"comment_content"];
+        
+        [[MCHomeManager shareManager]requestHome_seller_details_commentCityWithParam:param withIndicatorView:self.view withCancelRequestID:Home_request_seller_details_comment withHttpMethod:kHTTPMethodPost onRequestFinish:^(MKNetworkOperation *operation) {
+            
+            if (operation.isSuccees) {
+                [ITTPromptView showMessage:@"评论成功"];
+            }else {
+                [ITTPromptView showMessage:@"评论失败"];
+            }
+            
+        } onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
+             [ITTPromptView showMessage:@"评论失败"];
+        }];
+    }
+}
+
+/**
+ *  点赞
+ */
+
+- (void) requestForParise {
+
+    MCUserModel *user = (MCUserModel *)[[MCUserManager shareManager]getCurrentUser];
+    if (user) {
+        NSMutableDictionary *param = [NSMutableDictionary dictionary];
+        [param safeString:user.user_id ForKey:@"user_id"];
+        [param safeString:self.sellerId ForKey:@"seller_id"];
+        [[MCHomeManager shareManager]requestHome_seller_praiseWithParam:param withIndicatorView:self.view withCancelRequestID:Home_request_seller_praise withHttpMethod:kHTTPMethodPost onRequestFinish:^(MKNetworkOperation *operation) {
+            
+            if (operation.isSuccees) {
+                [ITTPromptView showMessage:@"点赞成功"];
+            }else {
+                if ([[operation.responseJSON objectForKey:@"code"] isEqualToString:@"0"]) {
+                    [ITTPromptView showMessage:@"已点赞"];
+                }else {
+                    [ITTPromptView showMessage:@"点赞失败"];
+                }
+            }
+            
+        } onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
+             [ITTPromptView showMessage:@"点赞失败"];
+        }];
+    }
+}
+/**
+ *  商家收藏
+ */
+- (void) requestForCollectionWithSelect:(BOOL) select {
+    
+    MCUserModel *user = (MCUserModel *)[[MCUserManager shareManager]getCurrentUser];
+    if (user) {
+        NSMutableDictionary *param = [NSMutableDictionary dictionary];
+        [param safeString:user.user_id ForKey:@"user_id"];
+        [param safeString:self.sellerId ForKey:@"company_id"];
+        
+        if (!select) {
+            [[MCHomeManager shareManager]requestHome_seller_collectWithParam:param withIndicatorView:self.view withCancelRequestID:Home_request_seller_collect withHttpMethod:kHTTPMethodPost onRequestFinish:^(MKNetworkOperation *operation) {
+                
+                if (operation.isSuccees) {
+                    [ITTPromptView showMessage:@"收藏成功"];
+                }else {
+                    [ITTPromptView showMessage:@"收藏失败"];
+                }
+                
+            } onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
+                [ITTPromptView showMessage:@"收藏失败"];
+            }];
+        } else {
+            [[MCHomeManager shareManager]requestHome_no_seller_collectWithParam:param withIndicatorView:self.view withCancelRequestID:Home_request_no_seller_collect withHttpMethod:kHTTPMethodPost onRequestFinish:^(MKNetworkOperation *operation) {
+                
+                if (operation.isSuccees) {
+                    [ITTPromptView showMessage:@"取消收藏成功"];
+                }else {
+                      [ITTPromptView showMessage:@"取消收藏失败"];
+                }
+                
+            } onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
+                [ITTPromptView showMessage:@"取消收藏失败"];
+            }];
+        }
+    }
 }
 
 - (void)viewDidLoad {
@@ -74,11 +204,10 @@
  */
 - (void) setUpData {
     
-    cellType = 2;
+    cellType = 0;
     _commentArray = [[NSMutableArray alloc] init];
     _serverArray = [[NSMutableArray alloc] init];
-    _companyModel = [[MCCompanyInfoModel alloc]init];
-    _companyModel.companyIntro = @"商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家";
+    
     MCCompanyCommentModel *cmodel = [[MCCompanyCommentModel alloc]init];
     cmodel.comment = @"商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家";
     [_commentArray addObject:cmodel];
@@ -175,7 +304,7 @@
             {
                 if (self.companyModel) {
                     MCCompanyIntroCell *cell = (MCCompanyIntroCell *)self.prototypeCell;
-                    CGSize introHeight = [self.companyModel.companyIntro calculateSize:CGSizeMake(cell.componyIntro.frame.size.width, FLT_MAX) font:cell.componyIntro.font];
+                    CGSize introHeight = [self.companyModel.seller_content calculateSize:CGSizeMake(cell.componyIntro.frame.size.width, FLT_MAX) font:cell.componyIntro.font];
                     
                     if (introHeight.height > 29) {
                         cell.introViewHeight.constant = 120 - 20 + introHeight.height;
@@ -212,7 +341,9 @@
             if (!cell) {
                 cell = [[[NSBundle mainBundle]loadNibNamed:@"MCCompanyIntroCell" owner:self options:nil]lastObject];
             }
-            [cell configCellWithInfoModel:self.companyModel];
+            if (self.companyModel) {
+                [cell configCellWithInfoModel:self.companyModel];
+            }
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             return cell;
         }
@@ -333,6 +464,8 @@
         {
             //  点赞商品
             [_sendMessageView hidenSelf];
+            
+            [self requestForParise];
         }
             break;
         case 101:
@@ -361,6 +494,8 @@
         return;
     }
     [_sendMessageView hidenSelf];
+    
+    [self requestForCommentWithComment:meessage];
 }
 
 /**
@@ -389,8 +524,7 @@
  */
 - (void)rightBarButtonClick:(UIButton *)button {
 
-    [ITTPromptView showMessage:@"收藏成功"];
-    
+    [self requestForCollectionWithSelect:button.selected];
 }
 /*
 #pragma mark - Navigation

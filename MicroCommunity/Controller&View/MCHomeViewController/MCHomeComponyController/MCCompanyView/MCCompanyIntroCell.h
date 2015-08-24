@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MCCompanyInfoModel.h"
+#import "MCHomeSearchModel.h"
 
 @interface MCCompanyIntroCell : UITableViewCell
 
@@ -17,6 +17,6 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *userInfoHeight;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomViewHeight;
 
-- (void) configCellWithInfoModel:(MCCompanyInfoModel *) model;
+- (void) configCellWithInfoModel:(MCHomeSearchModel *) model;
 
 @end
