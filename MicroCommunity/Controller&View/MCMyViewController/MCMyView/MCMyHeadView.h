@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+
+
 @protocol MCMyHeadViewDelegate <NSObject>
 
 - (void) busnissBtnClickWithTag:(NSInteger) tag;
@@ -21,5 +23,6 @@
 @property (nonatomic,assign) id <MCMyHeadViewDelegate> delegate;
 
 - (void) currentUerIsBusniss:(BOOL) isBussniss;
+- (void) configHeadWithMCUserModel:(MCUserModel *) model;
 
 @end

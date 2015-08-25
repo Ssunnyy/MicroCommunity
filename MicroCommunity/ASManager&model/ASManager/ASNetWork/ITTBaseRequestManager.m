@@ -67,9 +67,13 @@ static ITTBaseRequestManager *defaultCenterInstance = nil;
     {
         operation = (ITTMKNetWorkOperation*)[engine operationWithPath:finalPath params:param httpMethod:[self getHTTPMethod:httpMethod]];
     }
+    //  上传文件
     if (files) {
-        for (NSData* data in files) {
-            [operation addData:data forKey:@"image"];
+        for (int i = 0; i < files.count ; i ++) {
+            NSDictionary *picDic = [files objectAtIndex:i];
+            NSString *path = [picDic objectForKey:@"path"];
+            NSString *imageName = [picDic objectForKey:@"image"];
+            [operation addFile:path forKey:imageName];
         }
     }
     if (view) {

@@ -38,6 +38,7 @@
 {
     
     self.pageCon.currentPage = index;
+    self.currentIndex = index;
     if (_isOne) {
         [self showVideoImg];
     }else{
@@ -53,6 +54,7 @@
         _pageCon.hidden = YES;
     }
     [self.scrollV setContentSize:CGSizeMake(SCREEN_WIDTH * _imgArr.count, SCREEN_HEIGHT)];
+    [self.scrollV removeAllSubviews];
     for (int i = 0; i < _imgArr.count; i++) {
         UIImageView *showImgV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
         [showImgV sd_setImageWithURL:[_imgArr objectAtIndex:i] placeholderImage:ImageNamed(@"")];

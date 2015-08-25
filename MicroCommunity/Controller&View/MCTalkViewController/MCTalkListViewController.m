@@ -23,6 +23,7 @@
 
 {
     BOOL isFirst;// 是不是首次进入
+    BOOL isSeePhoto;
     NSInteger pagIndex;//   分页
     BOOL pageType;//    最新最热
     NSInteger clickIndex;// 点击那行
@@ -48,8 +49,11 @@
         pagIndex = 1;
         [self requestWithType:pageType andPageIndex:pagIndex];
         isFirst = NO;
+        isSeePhoto = NO;
     }else {
-        [self reloadDataAtIndex:clickIndex];
+        if (!isSeePhoto) {
+            [self reloadDataAtIndex:clickIndex];
+        }
     }
 }
 
@@ -197,22 +201,11 @@
 - (void) setUpData {
 
     isFirst = YES;
+    isSeePhoto = NO;
     pageType = 0;
     pagIndex = 1;
     
     _dataArray = [[NSMutableArray alloc]init];
-    
-//    MCTalkListModel *model = [[MCTalkListModel alloc]init];
-//    model.content = @"睡觉啊烦阿姐发疯afjasfja;jfaafajf;ajflajd;lfja;ldjf;lamdflamdljfaljdfajjadjf;lakjd;lfjajfl;aj;lf睡觉啊烦阿姐发疯afjasfja;jfaafajf;ajflajd;lfja;ldjf;lamdflamdljfaljdfajjadjf;lakjd;lfjajfl;aj;lf睡觉啊烦阿姐发疯afjasfja;jfaafajf;ajflajd;lfja;ldjf;lamdflamdljfaljdfajjadjf;lakjd;lfjajfl;aj;lf睡觉啊烦阿姐发疯afjasfja;jfaafajf;ajflajd;lfja;ldjf;lamdflamdljfaljdfajjadjf;lakjd;lfjajfl;aj;lf睡觉啊烦阿姐发疯afjasfja;jfaafajf;ajflajd;lfja;ldjf;lamdflamdljfaljdfajjadjf;lakjd;lfjajfl;aj;lf";
-//    model.images = [NSMutableArray array];
-//    [model.images addObject:@"http://123.57.248.101/sendwhere/Public/images/26P58PICeEA.jpg"];
-//    [model.images addObject:@"http://123.57.248.101/sendwhere/Public/images/26P58PICeEA.jpg"];
-//    [model.images addObject:@"http://123.57.248.101/sendwhere/Public/images/26P58PICeEA.jpg"];
-//    [model.images addObject:@"http://123.57.248.101/sendwhere/Public/images/26P58PICeEA.jpg"];
-//    [model.images addObject:@"http://123.57.248.101/sendwhere/Public/images/26P58PICeEA.jpg"];
-//    [model.images addObject:@"http://123.57.248.101/sendwhere/Public/images/26P58PICeEA.jpg"];
-//    [model.images addObject:@"http://123.57.248.101/sendwhere/Public/images/26P58PICeEA.jpg"];
-//    [_dataArray addObject:model];
 }
 
 /**
@@ -399,6 +392,7 @@
 - (void)showAllPic:(NSArray *)picArr andImgTag:(NSInteger)index {
 
     isFirst = NO;
+    isSeePhoto = YES;
     NSLog(@"%ld",index);
     self.scrollV.imgArr = picArr;
     self.scrollV.isOne = NO;

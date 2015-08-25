@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UIView *textBg4;
 @property (weak, nonatomic) IBOutlet UIView *textBg5;
 @property (weak, nonatomic) IBOutlet UIButton *repairBtn;
+@property (weak, nonatomic) IBOutlet UIButton *addHeadBtn;
 
 @property (weak, nonatomic) IBOutlet UIImageView *headImage;
 @property (weak, nonatomic) IBOutlet UITextField *companyName;
@@ -34,6 +35,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *companyCard;
 @property (weak, nonatomic) IBOutlet UIButton *idCardBtn;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bgViewHeight;
+@property (strong, nonatomic) NSString *headPath;// 头像
+@property (nonatomic, strong) NSString *idPath;//   身份证
+@property (nonatomic, strong) NSString *companyPath;//  企业执照
 
 /**
  *  actionView
@@ -125,23 +129,63 @@
         [param safeString:lon ForKey:@"a_lng"];
         [param safeString:lat ForKey:@"a_lat"];
         [param safeString:_idCard.text ForKey:@"id_card"];
-        [param safeString:@"" ForKey:@"seller_image"];
-        [param safeString:@"" ForKey:@"business_card"];
-        [param safeString:@"" ForKey:@"idcard_script"];
+        
+        NSMutableArray *images = [NSMutableArray array];
+        
+        NSMutableDictionary *picDic = [NSMutableDictionary dictionary];
+        NSMutableDictionary *picDic1 = [NSMutableDictionary dictionary];
+        NSMutableDictionary *picDic2 = [NSMutableDictionary dictionary];
+        
+        if (self.headPath != nil) {
+            [picDic safeString:self.headPath ForKey:@"path"];
+            [picDic safeString:@"seller_image" ForKey:@"image"];
+            [images addObject:picDic];
+        } else{
+            [param safeString:@"" ForKey:@"seller_image"];
+        }
+        
+        if (self.headPath != nil) {
+            [picDic1 safeString:self.idPath ForKey:@"path"];
+            [picDic1 safeString:@"idcard_script" ForKey:@"image"];
+            [images addObject:picDic1];
+        }else {
+            [param safeString:@"" ForKey:@"idcard_script"];
+        }
+        
+        if (self.headPath != nil) {
+            [picDic2 safeString:self.companyPath ForKey:@"path"];
+            [picDic2 safeString:@"business_card" ForKey:@"image"];
+            [images addObject:picDic2];
+        }else {
+            [param safeString:@"" ForKey:@"business_card"];
+        }
         
         if (_isConfirm) {
             //  商家认证
-            [[MCHomeManager shareManager]requestHome_seller_publishWithParam:param withIndicatorView:self.view withCancelRequestID:Home_request_seller_publish withHttpMethod:kHTTPMethodPost onRequestFinish:^(MKNetworkOperation *operation) {
-                
+            
+            [[MCHomeManager shareManager] requestHome_seller_publishWithParamDic:param updateFiles:images withIndicatorView:self.view withCancelRequestID:Home_request_seller_publish onRequestFinish:^(MKNetworkOperation *operation) {
                 if (operation.isSuccees) {
                     [ITTPromptView showMessage:@"提交认证成功"];
                     [weak.navigationController popViewControllerAnimated:YES];
                 }else {
                     [ITTPromptView showMessage:@"提交认证失败,请重新提交"];
                 }
+
             } onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
                 [ITTPromptView showMessage:@"提交认证失败,请重新提交"];
             }];
+            
+//            [[MCHomeManager shareManager]requestHome_seller_publishWithParam:param withIndicatorView:self.view withCancelRequestID:Home_request_seller_publish withHttpMethod:kHTTPMethodPost onRequestFinish:^(MKNetworkOperation *operation) {
+//                
+//                if (operation.isSuccees) {
+//                    [ITTPromptView showMessage:@"提交认证成功"];
+//                    [weak.navigationController popViewControllerAnimated:YES];
+//                }else {
+//                    [ITTPromptView showMessage:@"提交认证失败,请重新提交"];
+//                }
+//            } onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
+//                [ITTPromptView showMessage:@"提交认证失败,请重新提交"];
+//            }];
         }else {
             //  修改商家信息
             [[MCHomeManager shareManager]requestHome_update_sellerWithParam:param withIndicatorView:self.view withCancelRequestID:Home_request_update_seller withHttpMethod:kHTTPMethodPost onRequestFinish:^(MKNetworkOperation *operation) {
@@ -265,7 +309,12 @@
         UIImage *thumbImg = [picArr objectAtIndex:0];
         switch (selectType) {
             case 0:
+            {
                 self.headImage.image = thumbImg;
+                
+                [_addHeadBtn setImage:ImageNamed(@"") forState:UIControlStateNormal];
+            }
+                
                 break;
             case 1:
                 [_idCardBtn setImage:thumbImg forState:UIControlStateNormal];
@@ -290,17 +339,36 @@
             self.headImage.image = image;
             break;
         case 1:
-            
+            [_idCardBtn setImage:image forState:UIControlStateNormal];
             break;
         case 2:
-            
+             [_companyCard setImage:image forState:UIControlStateNormal];
             break;
         default:
             break;
     }
 }
+- (void)getImagePath:(NSMutableArray *)paths {
 
-
+    if (paths.count > 0) {
+        NSString *thumbImg = [paths objectAtIndex:0];
+        switch (selectType) {
+            case 0:
+            {
+                self.headPath = thumbImg;
+            }
+                break;
+            case 1:
+                self.idPath = thumbImg;
+                break;
+            case 2:
+                self.companyPath = thumbImg;
+                break;
+            default:
+                break;
+        }
+    }
+}
 
 //  修改头像
 - (IBAction)changeHeadImage:(id)sender {
@@ -329,6 +397,8 @@
 }
 //  地址选择
 - (IBAction)addressChoose:(UIButton *)sender {
+
+
 }
 
 

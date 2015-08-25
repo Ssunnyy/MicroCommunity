@@ -203,6 +203,31 @@ static MCHomeManager *defaultCenterInstance = nil;
            }];
 }
 
+- (void)requestHome_seller_publishWithParamDic:(NSMutableDictionary*)param
+                                  updateFiles:(NSMutableArray*)files
+                            withIndicatorView:(UIView*)view
+                          withCancelRequestID:(NSString*)requestID
+                              onRequestFinish:(void(^)(MKNetworkOperation *operation))onFinishedBlock
+                              onRequestFailed:(void(^)(MKNetworkOperation *operation,NSError * error))onFailedBlock {
+    [super requestWithPath:Home_request_seller_publish
+              withParamDic:param
+               updateFiles:files
+         withIndicatorView:view
+       withCancelRequestID:requestID
+    withPostORDeleteMethod:kHTTPMethodPost
+                 authToken:nil isSSL:nil
+           onRequestFinish:^(MKNetworkOperation *operation) {
+               if (onFinishedBlock) {
+                   onFinishedBlock(operation);
+               }
+           }
+           onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
+               if (onFailedBlock) {
+                   onFailedBlock(operation,error);
+               }
+           }];
+}
+
 /**
  *  @brief  商家详情
  *  @param  params
@@ -446,6 +471,33 @@ static MCHomeManager *defaultCenterInstance = nil;
                    onFailedBlock(operation,error);
                }
            }];
+}
+
+- (void)requestHome_goods_publishWithParam:(NSMutableDictionary*)param
+                               updateFiles:(NSMutableArray*)files
+                         withIndicatorView:(UIView*)view
+                       withCancelRequestID:(NSString*)requestID
+                           onRequestFinish:(void(^)(MKNetworkOperation *operation))onFinishedBlock
+                           onRequestFailed:(void(^)(MKNetworkOperation *operation,NSError * error))onFailedBlock {
+    [super requestWithPath:Home_request_goods_publish
+              withParamDic:param
+               updateFiles:files
+         withIndicatorView:view
+       withCancelRequestID:requestID
+    withPostORDeleteMethod:kHTTPMethodPost
+                 authToken:nil isSSL:nil
+           onRequestFinish:^(MKNetworkOperation *operation) {
+               if (onFinishedBlock) {
+                   onFinishedBlock(operation);
+               }
+           }
+           onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
+               if (onFailedBlock) {
+                   onFailedBlock(operation,error);
+               }
+           }];
+    
+    
 }
 
 /**

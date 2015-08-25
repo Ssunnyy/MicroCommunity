@@ -135,6 +135,14 @@
                      onRequestFinish:(void(^)(MKNetworkOperation *operation))onFinishedBlock
                      onRequestFailed:(void(^)(MKNetworkOperation *operation ,NSError *error ))onFailedBlock;
 
+
+-(void)requestHome_seller_publishWithParamDic:(NSMutableDictionary*)param
+                           updateFiles:(NSMutableArray*)files
+                     withIndicatorView:(UIView*)view
+                   withCancelRequestID:(NSString*)requestID
+                       onRequestFinish:(void(^)(MKNetworkOperation *operation))onFinishedBlock
+                       onRequestFailed:(void(^)(MKNetworkOperation *operation,NSError * error))onFailedBlock;
+
 /**
  *  @brief  商家详情
  *  @param  params
@@ -253,6 +261,14 @@
                             withHttpMethod:(kHTTPMethod)httpMethod
                            onRequestFinish:(void(^)(MKNetworkOperation *operation))onFinishedBlock
                            onRequestFailed:(void(^)(MKNetworkOperation *operation ,NSError *error ))onFailedBlock;
+
+- (void)requestHome_goods_publishWithParam:(NSMutableDictionary*)param
+                                  updateFiles:(NSMutableArray*)files
+                            withIndicatorView:(UIView*)view
+                          withCancelRequestID:(NSString*)requestID
+                              onRequestFinish:(void(^)(MKNetworkOperation *operation))onFinishedBlock
+                              onRequestFailed:(void(^)(MKNetworkOperation *operation,NSError * error))onFailedBlock;
+
 
 /**
  *  @brief  产品列表

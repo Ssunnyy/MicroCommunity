@@ -560,6 +560,7 @@
 		181A70CF1B7B563A00B72FAD /* NSString+MD5Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 181A6FE71B7B563A00B72FAD /* NSString+MD5Addition.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		181A70D01B7B563A00B72FAD /* UIColor+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 181A6FEA1B7B563A00B72FAD /* UIColor+Helpers.m */; };
 		181A70D11B7B563A00B72FAD /* UIImage+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 181A6FEC1B7B563A00B72FAD /* UIImage+Helpers.m */; };
+		183BEB1E1B8C00C7007CE57D /* 12474159671591428.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 183BEB1D1B8C00C7007CE57D /* 12474159671591428.jpg */; };
 		1859B5751B7D757300B5B985 /* MCMyCountApplyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1859B5731B7D757300B5B985 /* MCMyCountApplyView.m */; };
 		1859B5761B7D757300B5B985 /* MCMyCountApplyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1859B5741B7D757300B5B985 /* MCMyCountApplyView.xib */; };
 		1859B57A1B7D852E00B5B985 /* MCMyCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1859B5781B7D852E00B5B985 /* MCMyCollectionViewController.m */; };
@@ -1543,6 +1544,7 @@
 		181A6FEA1B7B563A00B72FAD /* UIColor+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Helpers.m"; sourceTree = "<group>"; };
 		181A6FEB1B7B563A00B72FAD /* UIImage+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Helpers.h"; sourceTree = "<group>"; };
 		181A6FEC1B7B563A00B72FAD /* UIImage+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Helpers.m"; sourceTree = "<group>"; };
+		183BEB1D1B8C00C7007CE57D /* 12474159671591428.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 12474159671591428.jpg; sourceTree = "<group>"; };
 		1859B5721B7D757300B5B985 /* MCMyCountApplyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMyCountApplyView.h; sourceTree = "<group>"; };
 		1859B5731B7D757300B5B985 /* MCMyCountApplyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMyCountApplyView.m; sourceTree = "<group>"; };
 		1859B5741B7D757300B5B985 /* MCMyCountApplyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCMyCountApplyView.xib; sourceTree = "<group>"; };
@@ -1985,6 +1987,7 @@
 		04F0F8291AA411DB00F30A6A /* MicroCommunity */ = {
 			isa = PBXGroup;
 			children = (
+				183BEB1D1B8C00C7007CE57D /* 12474159671591428.jpg */,
 				674A19FF1AFD6D8000D17472 /* ASImage */,
 				04A154281AA8047100E22B5C /* ASManager&model */,
 				041824AC1AA4122F00704641 /* Support */,
@@ -4039,6 +4042,7 @@
 				181A6C1C1B7B556100B72FAD /* MCMyGoldController.xib in Resources */,
 				674A1DF11AFD6D8100D17472 /* touming_bg.png in Resources */,
 				181A6D3D1B7B558500B72FAD /* pro_base_btn2@3x.png in Resources */,
+				183BEB1E1B8C00C7007CE57D /* 12474159671591428.jpg in Resources */,
 				181A6D3E1B7B558500B72FAD /* pro_base_btn3@2x.png in Resources */,
 				181A6D7D1B7B558500B72FAD /* btn_bg1_2@3x.png in Resources */,
 				181A6DAA1B7B558500B72FAD /* ico_zan2@2x.png in Resources */,

@@ -37,6 +37,22 @@
 - (void)currentUerIsBusniss:(BOOL)isBussniss {
 
     _shopBtn.hidden = !isBussniss;
+}
+
+- (void)configHeadWithMCUserModel:(MCUserModel *)model {
+
+    [_bgImage sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:ImageNamed(default_iconImag)];
+    [_headView sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:ImageNamed(default_head)];
+    _nickName.text = model.username;
+    
+    if ([model.status isEqualToString:@"2"]) {
+        _shopBtn.hidden = NO;
+    }else {
+        _shopBtn.hidden = YES;
+    }
+    
+    [_goldBtn setTitle:[NSString stringWithFormat:@"金豆:%ld",[model.gold_number integerValue]] forState:UIControlStateNormal];
+    _cityID.text = [NSString stringWithFormat:@"小城ID:%@",model.phone];
     
 }
 - (IBAction)shopBtnClick:(UIButton *)sender {

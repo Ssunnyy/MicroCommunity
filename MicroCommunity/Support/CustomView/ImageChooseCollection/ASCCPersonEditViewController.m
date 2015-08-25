@@ -292,20 +292,17 @@
         [param safeString:user.nickname ForKey:@"nickname"];
         [param safeString:_contentTextView.text ForKey:@"content"];
         
-        //图片数组          self.imageArray  里面存的是UIImage 类型的数据
-        NSMutableArray *array = [NSMutableArray array];
-        if (_imageArray.count > 0) {
-   
-            for (UIImage * image in self.imageArray) {
-                NSData * data = UIImagePNGRepresentation(image);
-                [array addObject:data];
-            }
-        }else {
-            [param safeString:@"" ForKey:@"image"];
-            array = nil;
+        
+        NSMutableArray *images = [NSMutableArray array];
+        
+        for (int i = 0 ; i < _imagePath.count ; i ++) {
+            NSMutableDictionary *picDic = [NSMutableDictionary dictionary];
+            [picDic safeString:[_imagePath objectAtIndex:i] ForKey:@"path"];
+            [picDic safeString:[NSString stringWithFormat:@"image%d",i] ForKey:@"image"];
+            [images addObject:picDic];
         }
         
-        [[MCTalkManager shareManager]requestTalk_PublishWithParamDic:param updateFiles:array withIndicatorView:self.view withCancelRequestID:Talk_Request_Public onRequestFinish:^(MKNetworkOperation *operation) {
+        [[MCTalkManager shareManager]requestTalk_PublishWithParamDic:param updateFiles:images withIndicatorView:self.view withCancelRequestID:Talk_Request_Public onRequestFinish:^(MKNetworkOperation *operation) {
             
             if (operation.isSuccees) {
                 [ITTPromptView showMessage:@"话题发布成功"];

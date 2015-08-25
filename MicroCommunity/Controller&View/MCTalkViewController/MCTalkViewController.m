@@ -73,7 +73,6 @@
             [ITTPromptView showMessage:@"搜索失败"];
         }];
     }
-
 }
 
 - (void)viewDidLoad {

@@ -39,28 +39,31 @@
     
     NSMutableArray *tempArr = [NSMutableArray array];
     //  图片路径
-//    NSMutableArray *tempImagePath = [NSMutableArray array];
+    NSMutableArray *tempImagePath = [NSMutableArray array];
     
     for (int i = 0; i<assets.count; i++) {
         ALAsset *asset=assets[i];
         UIImage *tempImg=[UIImage imageWithCGImage:asset.defaultRepresentation.fullScreenImage];
+        
         [tempArr addObject:tempImg];
         
-//        NSData *data = UIImagePNGRepresentation(tempImg);
-//        NSString *documentPath=[NSSearchPathForDirectoriesInDomains(NSDocumentationDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-//        NSString *path=[documentPath stringByAppendingPathComponent:[NSString stringWithFormat:@"images%d.png",i]];
-//        [data writeToFile:path atomically:YES];
-//        // UIImage *iamge=[UIImage imageWithData:data];
-//        [tempImagePath addObject:path];
+        NSData *data = UIImagePNGRepresentation(tempImg);
+        
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+        NSString *cachesDir = [NSString stringWithFormat:@"%@/%@",[paths objectAtIndex:0],[NSString stringWithFormat:@"images%d.png",i]];
+        
+        [data writeToFile:cachesDir atomically:YES];
+        // UIImage *iamge=[UIImage imageWithData:data];
+        [tempImagePath addObject:cachesDir];
     }
     
     if (_pickDelegate && [_pickDelegate respondsToSelector:@selector(getImageMedia:)]) {
         [_pickDelegate getImageMedia:tempArr];
     }
-//    
-//    if (_pickDelegate && [_pickDelegate respondsToSelector:@selector(getImagePath:)]) {
-//        [_pickDelegate getImagePath:tempImagePath];
-//    }
+    
+    if (_pickDelegate && [_pickDelegate respondsToSelector:@selector(getImagePath:)]) {
+        [_pickDelegate getImagePath:tempImagePath];
+    }
     
     if (_isUseCutController) {
         if (tempArr.count > 0) {
@@ -105,7 +108,7 @@
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
 	picker.delegate = self;
 	picker.allowsEditing = YES;
-    picker.videoQuality = UIImagePickerControllerQualityTypeHigh;
+    picker.videoQuality = UIImagePickerControllerQualityTypeLow;
     picker.videoMaximumDuration = 20;
 	picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
 	if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeSavedPhotosAlbum ])

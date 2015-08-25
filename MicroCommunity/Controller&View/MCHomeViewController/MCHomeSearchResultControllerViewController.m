@@ -13,8 +13,9 @@
 #import "MCProductDetilController.h"
 #import "MCCompanyProductController.h"
 #import "MCCompanyConfirmController.h"
-
 #import "MCHomeSearchModel.h"
+
+#import "MCShopPublicController.h"
 
 @interface MCHomeSearchResultControllerViewController ()<UITableViewDataSource,UITableViewDelegate,MCHomeSearchViewDelegate,MCSerachResultCellDelegate,MCCustomHeadViewDelegate>
 
@@ -344,9 +345,19 @@
         case 101:
         {
             //  101发布
-            MCCompanyConfirmController *confirm = [[MCCompanyConfirmController alloc]initWithNibName:@"MCCompanyConfirmController" bundle:nil];
-            confirm.isConfirm = YES;
-            [self.navigationController pushViewController:confirm animated:YES];
+            
+            if ([[[MCUserManager shareManager]getCurrentUser].status isEqualToString:@"0"]) {
+                MCCompanyConfirmController *confirm = [[MCCompanyConfirmController alloc]initWithNibName:@"MCCompanyConfirmController" bundle:nil];
+                confirm.isConfirm = YES;
+                [self.navigationController pushViewController:confirm animated:YES];
+            } else if([[[MCUserManager shareManager]getCurrentUser].status isEqualToString:@"1"]){
+                [ITTPromptView showMessage:@"正在审核中"];
+            }else if ([[[MCUserManager shareManager]getCurrentUser].status isEqualToString:@"2"]){
+                
+                MCShopPublicController *shop = [[MCShopPublicController alloc]initWithNibName:@"MCShopPublicController" bundle:nil];
+                shop.seller_id = [[MCUserManager shareManager]getCurrentUser].user_id;
+                [self.navigationController pushViewController:shop animated:YES];
+            }
         }
             break;
         case 102:

@@ -96,6 +96,11 @@
     }
     _headView.delegate = self;
     _myTableView.tableHeaderView = _headView;
+    
+    if ([[MCUserManager shareManager] isAutoLoginResult]) {
+        [_headView configHeadWithMCUserModel:[[MCUserManager shareManager]getCurrentUser]];
+    }
+    
     [_headView currentUerIsBusniss:[self isBusniss]];
 }
 

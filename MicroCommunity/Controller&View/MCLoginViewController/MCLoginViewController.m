@@ -93,6 +93,7 @@
         
             MCUserModel *model = [[MCUserModel alloc]initWithDataDic:operation.resultDic];
             model.password = weakSelf.passwordTextField.text;
+            model.image = [NSString stringWithFormat:@"%@%@",Main_URL,model.image];
             [[MCUserManager shareManager]safeAccountToLocal:model];
             [[MCUserManager shareManager] setAutoLogin:YES];
             [[AppDelegate GetAppDelegate] customTabBarViewselectTabAtIndex:0];
@@ -110,7 +111,6 @@
         model.mobile = weakSelf.phoneTextView.text;
         return model;
     }];
-    
 }
 /**
  *  清楚数据

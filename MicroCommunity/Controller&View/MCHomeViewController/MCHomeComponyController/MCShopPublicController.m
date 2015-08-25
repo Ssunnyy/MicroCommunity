@@ -14,13 +14,14 @@
 #import "MCProductCityChooseController.h"
 #import "RADataObject.h"
 
-@interface MCShopPublicController ()<ITTImagePickDelegate,VActionViewDelegate,MCProductCityChooseControllerDelegate>
+@interface MCShopPublicController ()<ITTImagePickDelegate,VActionViewDelegate,MCProductCityChooseControllerDelegate,UITextFieldDelegate>
 
 {
     NSInteger payType;//    支付类型 0 现金  1金豆
 }
 
 @property (weak, nonatomic) IBOutlet UIView *addHeadImageView;
+@property (weak, nonatomic) IBOutlet UIButton *addHeadBtn;
 
 @property (weak, nonatomic) IBOutlet UIView *shopView;
 @property (weak, nonatomic) IBOutlet UIView *priceView;
@@ -35,6 +36,8 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *moneyPay;
 @property (weak, nonatomic) IBOutlet UIButton *goldPayBtn;
+
+@property (nonatomic, strong) NSString *headImagePath;
 /**
  *  actionView
  */
@@ -52,11 +55,15 @@
 
 - (void)awakeFromNibs {
 
+    payType = 0;
     _cityArray = [[NSMutableArray alloc]init];
     [_shopView makeCornerRadius:7];
     [_priceView makeCornerRadius:7];
     [_shopDes makeCornerRadius:7];
     [_addressView makeCornerRadius:7];
+    _shopPrice.delegate = self;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(resignfirst)];
+    [self.view addGestureRecognizer:tap];
     
 }
 
@@ -75,9 +82,24 @@
 
 - (void) publicShoping {
     
+    
+    if (!_headImagePath) {
+        [ITTPromptView showMessage:@"产品图片不能为空"];
+        return;
+    }
+    if (_shopName.text.length <= 0) {
+        [ITTPromptView showMessage:@"产品名称不能为空"];
+        return;
+    }
+    if (_shopPrice.text.length <= 0) {
+        [ITTPromptView showMessage:@"产品名价格不能为空"];
+        return;
+    }
+    
+    __weak MCShopPublicController *weak = self;
+    
     MCUserModel *user = (MCUserModel *)[[MCUserManager shareManager]getCurrentUser];
     if (user) {
-        
         
         NSMutableDictionary *param = [NSMutableDictionary dictionary];
         [param safeString:user.user_id ForKey:@"user_id"];
@@ -86,20 +108,40 @@
         [param safeString:_shopPrice.text ForKey:@"goods_price"];
         [param safeString:_shopDes.text ForKey:@"goods_message"];
         [param safeString:_pricePaiMing.text ForKey:@"goods_money"];
-        [param safeString:@"" ForKey:@"pay_type"];
+        
+        if (payType == 0) {
+            [param safeString:@"现金" ForKey:@"pay_type"];
+        }else {
+            [param safeString:@"金豆" ForKey:@"pay_type"];
+        }
         [param safeString:@"" ForKey:@"city_id"];
         [param safeString:@"" ForKey:@"province_id"];
-        [param safeString:@"" ForKey:@"logo"];
         
-        [[MCHomeManager shareManager]requestHome_goods_publishWithParam:param withIndicatorView:self.view withCancelRequestID:Home_request_goods_publish withHttpMethod:kHTTPMethodPost onRequestFinish:^(MKNetworkOperation *operation) {
+        NSMutableArray *dataArray = [NSMutableArray array];
+        
+        NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+        
+        if (self.headImagePath) {
+            [dic safeString:self.headImagePath ForKey:@"path"];
+            [dic safeString:@"logo" ForKey:@"image"];
+            [dataArray addObject:dic];
+        }else {
+            [param safeString:@"" ForKey:@"logo"];
+        }
+        
+        [[MCHomeManager shareManager]requestHome_goods_publishWithParam:param updateFiles:dataArray withIndicatorView:self.view withCancelRequestID:Home_request_goods_publish onRequestFinish:^(MKNetworkOperation *operation) {
+            
+            if (operation.isSuccees) {
+                [ITTPromptView showMessage:@"商品发布成功"];
+                [weak.navigationController popViewControllerAnimated:YES];
+            }else {
+                [ITTPromptView showMessage:@"商品发布失败"];
+            }
             
         } onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
-            
+            [ITTPromptView showMessage:@"商品发布失败"];
         }];
     }
-    
-    
-    
 }
 
 - (void)viewDidLoad {
@@ -200,7 +242,7 @@
     if (picArr.count > 0) {
         UIImage *thumbImg = [picArr objectAtIndex:0];
         self.headImage.image = thumbImg;
-
+        [_addHeadBtn setImage:ImageNamed(@"") forState:UIControlStateNormal];
     }
 }
 
@@ -212,9 +254,17 @@
     
     if (image) {
         self.headImage.image = image;
+        [_addHeadBtn setImage:ImageNamed(@"") forState:UIControlStateNormal];
     }
 }
 
+
+- (void)getImagePath:(NSMutableArray *)paths {
+
+    if (paths.count > 0) {
+        _headImagePath = [paths objectAtIndex:0];
+    }
+}
 
 #pragma  mark  --  MCProductCityChooseControllerDelegate
 - (void)chooseCitys:(NSArray *)citys {
@@ -229,6 +279,35 @@
     
     _address.text = city;
 }
+
+#pragma mark --
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    
+    return [self validateNumber:string];
+}
+- (BOOL)validateNumber:(NSString*)number {
+    BOOL res = YES;
+    NSCharacterSet* tmpSet = [NSCharacterSet characterSetWithCharactersInString:@"0123456789."];
+    int i = 0;
+    while (i < number.length) {
+        NSString * string = [number substringWithRange:NSMakeRange(i, 1)];
+        NSRange range = [string rangeOfCharacterFromSet:tmpSet];
+        if (range.length == 0) {
+            res = NO;
+            break;
+        }
+        i++;
+    }
+    return res;
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+
 
 /**
  *  增加排名
@@ -310,6 +389,12 @@
 - (void)rightBarButtonClick:(UIButton *)button {
 
     [self publicShoping];
+}
+
+- (void) resignfirst{
+    
+    [self.view endEditing:NO];
+    
 }
 /*
 #pragma mark - Navigation
