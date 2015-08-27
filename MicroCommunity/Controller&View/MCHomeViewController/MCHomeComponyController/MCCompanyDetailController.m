@@ -83,6 +83,46 @@
     }
 }
 /**
+ *  评论列表
+ *
+ *  @return
+ */
+
+- (void) requestForCommentList {
+
+    MCUserModel *user = (MCUserModel *)[[MCUserManager shareManager]getCurrentUser];
+    
+    __weak MCCompanyDetailController *weak = self;
+    
+    if (user) {
+        NSMutableDictionary *param = [NSMutableDictionary dictionary];
+        [param safeString:user.user_id ForKey:@"user_id"];
+        [param safeString:self.sellerId ForKey:@"seller_id"];
+        [[MCHomeManager shareManager]requestHome_seller_comment_listWithParam:param withIndicatorView:self.view withCancelRequestID:Home_request_seller_comment_list withHttpMethod:kHTTPMethodPost onRequestFinish:^(MKNetworkOperation *operation) {
+            
+            if (operation.isSuccees) {
+                
+                [weak.commentArray removeAllObjects];
+                
+                NSArray *dataArray = [operation.resultDic objectForKey:@"data"];
+                
+                for (int i = 0;  i < dataArray.count;  i ++) {
+                    MCCompanyCommentModel *modle = [[MCCompanyCommentModel alloc]initWithDataDic:[dataArray objectAtIndex:i]];
+                    modle.image = [NSString stringWithFormat:@"%@%@",Main_URL,modle.image];
+                    [weak.commentArray addObject:modle];
+                }
+            }else {
+                [ITTPromptView showMessage:@"评论列表请求失败"];
+            }
+            [weak tableViewReloadData];
+        } onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
+            [ITTPromptView showMessage:@"网络请求失败"];
+        }];
+    }
+    
+}
+
+/**
  *  发表评论
  *
  *  @param comment
@@ -110,6 +150,43 @@
         }];
     }
 }
+/**
+ *  商家服务
+ *
+ *  @return
+ */
+- (void) requestForShopServer {
+
+    
+    if (self.serverArray.count > 0) {
+        [self tableViewReloadData];
+    }else{
+    
+        MCUserModel *user = (MCUserModel *)[[MCUserManager shareManager]getCurrentUser];
+        
+        __weak MCCompanyDetailController *weak = self;
+        
+        if (user) {
+            NSMutableDictionary *param = [NSMutableDictionary dictionary];
+            [param safeString:user.user_id ForKey:@"user_id"];
+            [param safeString:self.sellerId ForKey:@"seller_id"];
+            [[MCHomeManager shareManager]requestHome_request_goods_serviceWithParam:param withIndicatorView:self.view withCancelRequestID:Home_request_goods_service withHttpMethod:kHTTPMethodPost onRequestFinish:^(MKNetworkOperation *operation) {
+                
+                if (operation.isSuccees) {
+                    [weak.serverArray removeAllObjects];
+                    MCProductModel *product = [[MCProductModel alloc]initWithDataDic:operation.resultDic];
+                    product.goods_image = [NSString stringWithFormat:@"%@%@",Main_URL,product.goods_image];
+                    [weak.serverArray addObject:product];
+                }else {
+                    [ITTPromptView showMessage:@"服务请求失败"];
+                }
+                [weak tableViewReloadData];
+            } onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
+                [ITTPromptView showMessage:@"网络请求失败"];
+            }];
+        }
+    }
+}
 
 /**
  *  点赞
@@ -125,17 +202,20 @@
         [[MCHomeManager shareManager]requestHome_seller_praiseWithParam:param withIndicatorView:self.view withCancelRequestID:Home_request_seller_praise withHttpMethod:kHTTPMethodPost onRequestFinish:^(MKNetworkOperation *operation) {
             
             if (operation.isSuccees) {
-                [ITTPromptView showMessage:@"点赞成功"];
-            }else {
-                if ([[operation.responseJSON objectForKey:@"code"] isEqualToString:@"0"]) {
-                    [ITTPromptView showMessage:@"已点赞"];
+                
+                NSString *code = [NSString stringWithFormat:@"%@",[operation.responseJSON objectForKey:@"code_array"]];
+                
+                if ([code isEqualToString:@"0"]) {
+                    [ITTPromptView showMessage:@"取消点赞成功"];
                 }else {
-                    [ITTPromptView showMessage:@"点赞失败"];
+                    [ITTPromptView showMessage:@"点赞成功"];
                 }
+            }else {
+                [ITTPromptView showMessage:@"操作失败"];
             }
             
         } onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
-             [ITTPromptView showMessage:@"点赞失败"];
+             [ITTPromptView showMessage:@"网络请求失败"];
         }];
     }
 }
@@ -150,31 +230,22 @@
         [param safeString:user.user_id ForKey:@"user_id"];
         [param safeString:self.sellerId ForKey:@"company_id"];
         
-        if (!select) {
-            [[MCHomeManager shareManager]requestHome_seller_collectWithParam:param withIndicatorView:self.view withCancelRequestID:Home_request_seller_collect withHttpMethod:kHTTPMethodPost onRequestFinish:^(MKNetworkOperation *operation) {
-                
+        [[MCHomeManager shareManager]requestHome_seller_collectWithParam:param withIndicatorView:self.view withCancelRequestID:Home_request_seller_collect withHttpMethod:kHTTPMethodPost onRequestFinish:^(MKNetworkOperation *operation) {
                 if (operation.isSuccees) {
-                    [ITTPromptView showMessage:@"收藏成功"];
+                    
+                    NSString *code = [NSString stringWithFormat:@"%@",[operation.responseJSON objectForKey:@"code_array"]];
+                    
+                    if ([code isEqualToString:@"0"]) {
+                        [ITTPromptView showMessage:@"取消收藏成功"];
+                    }else {
+                        [ITTPromptView showMessage:@"收藏成功"];
+                    }
                 }else {
-                    [ITTPromptView showMessage:@"收藏失败"];
+                    [ITTPromptView showMessage:@"操作失败"];
                 }
-                
             } onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
-                [ITTPromptView showMessage:@"收藏失败"];
+                [ITTPromptView showMessage:@"网络请求失败"];
             }];
-        } else {
-            [[MCHomeManager shareManager]requestHome_no_seller_collectWithParam:param withIndicatorView:self.view withCancelRequestID:Home_request_no_seller_collect withHttpMethod:kHTTPMethodPost onRequestFinish:^(MKNetworkOperation *operation) {
-                
-                if (operation.isSuccees) {
-                    [ITTPromptView showMessage:@"取消收藏成功"];
-                }else {
-                      [ITTPromptView showMessage:@"取消收藏失败"];
-                }
-                
-            } onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
-                [ITTPromptView showMessage:@"取消收藏失败"];
-            }];
-        }
     }
 }
 
@@ -207,15 +278,6 @@
     cellType = 0;
     _commentArray = [[NSMutableArray alloc] init];
     _serverArray = [[NSMutableArray alloc] init];
-    
-    MCCompanyCommentModel *cmodel = [[MCCompanyCommentModel alloc]init];
-    cmodel.comment = @"商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家";
-    [_commentArray addObject:cmodel];
-    MCCompanyServerModel *smodel = [[MCCompanyServerModel alloc]init];
-    smodel.serverName = @"港版";
-    smodel.serverIntro = @"家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商家详情商";
-    smodel.serverPic = @"11.2万元";
-    [_serverArray addObject:smodel];
 }
 
 /**
@@ -291,8 +353,7 @@
             break;
     }
     
-    return 1;
-    
+    return count;
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -357,7 +418,7 @@
             }
             MCCompanyCommentModel *cModel = [_commentArray objectAtIndex:indexPath.row];
             if (cModel) {
-                [cell configCellWithMCCompanyCommentModel:cModel];
+                [cell configCellWithMCCompanyCommentModel:cModel withType:NO];
             }
             cell.delegate = self;
             [cell setPariseBtnTag:indexPath.row];
@@ -373,9 +434,9 @@
             if (!cell) {
                 cell = [[[NSBundle mainBundle]loadNibNamed:@"MCCompanyServerCell" owner:self options:nil]lastObject];
             }
-            MCCompanyServerModel *sModel = [_serverArray objectAtIndex:indexPath.row];
+            MCProductModel *sModel = [_serverArray objectAtIndex:indexPath.row];
             if (sModel) {
-                [cell configCellWithMCCompanyServerModel:sModel];
+                [cell configCellWithMCProductModel:sModel];
             }
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             return cell;
@@ -417,24 +478,26 @@
         {
             //简介
             cellType = 0;
+            [self tableViewReloadData];
         }
             break;
         case 101:
         {
             //评论
             cellType = 1;
+            [self requestForCommentList];
         }
             break;
         case 102:
         {
             //服务
             cellType = 2;
+            [self requestForShopServer];
         }
             break;
         default:
             break;
     }
-    [self tableViewReloadData];
 }
 
 - (void) tableViewReloadData {
@@ -508,7 +571,7 @@
     
     if (model) {
         MCCompanyCommentCell *cell = (MCCompanyCommentCell *)self.commentCell;
-        CGSize introHeight = [model.comment calculateSize:CGSizeMake(cell.contentLab.frame.size.width, FLT_MAX) font:cell.contentLab.font];
+        CGSize introHeight = [model.comment_content calculateSize:CGSizeMake(cell.contentLab.frame.size.width, FLT_MAX) font:cell.contentLab.font];
         if (introHeight.height > 16) {
             height = height - 16 + introHeight.height;
         }

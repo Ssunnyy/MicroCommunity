@@ -27,6 +27,44 @@
 
 @implementation MCRecruitPersonController
 
+- (void) viewDidAppear:(BOOL)animated{
+
+    [super viewDidAppear:YES];
+    [self requestForJobDetail];
+}
+/**
+ *  请求详情
+ */
+- (void) requestForJobDetail {
+
+    MCUserModel *user = (MCUserModel *)[[MCUserManager shareManager]getCurrentUser];
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    
+    __weak MCRecruitPersonController *weak = self;
+    
+    if (user) {
+        
+        [param safeString:user.user_id ForKey:@"user_id"];
+        [param safeString:self.recruitHomeModel.job_id ForKey:@"job_id"];
+        
+        [[MCHomeManager shareManager]requestHome_job_detailsWithParam:param withIndicatorView:self.view withCancelRequestID:Home_request_job_details withHttpMethod:kHTTPMethodPost onRequestFinish:^(MKNetworkOperation *operation) {
+            
+            if (operation.isSuccees) {
+                
+                weak.recruitModel = [[MCRecruitModel alloc]initWithDataDic:[[operation.resultDic objectForKey:@"data"] objectAtIndex:0]];
+                weak.recruitModel.image = [NSString stringWithFormat:@"%@%@",Main_URL,weak.recruitModel.image];
+
+            }else {
+                [ITTPromptView showMessage:@"请求失败"];
+            }
+            [weak.personTableView reloadData];
+        } onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
+            [ITTPromptView showMessage:@"网络请求失败"];
+        }];
+    }
+    
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -48,12 +86,6 @@
 
 - (void) setUpData {
 
-
-
-    _recruitModel = [[MCRecruitModel alloc]init];
-    _recruitModel.likeStirng = @"详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情";
-    _recruitModel.detail = @"详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情详情";
-    
 }
 
 /**
@@ -119,7 +151,9 @@
     if (!cell) {
         cell = [[[NSBundle mainBundle]loadNibNamed:@"MCRecruitDetailCell" owner:self options:nil]lastObject];
     }
-    [cell configCellWithMCCompanyCommentModel:self.recruitModel];
+    if (self.recruitModel) {
+        [cell configCellWithMCCompanyCommentModel:self.recruitModel];
+    }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
@@ -167,21 +201,21 @@
     if (self.recruitModel) {
         MCRecruitDetailCell *cell = (MCRecruitDetailCell *)self.recruitDetaitCell;
         
-        CGSize likeheight = [self.recruitModel.likeStirng calculateSize:CGSizeMake(cell.like.frame.size.width, FLT_MAX) font:cell.like.font];
+        CGSize likeheight = [self.recruitModel.strong_demo calculateSize:CGSizeMake(cell.like.frame.size.width, FLT_MAX) font:cell.like.font];
         
         float height = 0;
         
         if (likeheight.height > 17) {
-            height = cell.view2Height.constant - 17 + likeheight.height;
+            height = cell.view1Height.constant - 17 + likeheight.height;
         }
         
-        CGSize intrHeight = [self.recruitModel.detail calculateSize:CGSizeMake(cell.detailLab.frame.size.width, FLT_MAX) font:cell.detailLab.font];
+        CGSize intrHeight = [self.recruitModel.job_content calculateSize:CGSizeMake(cell.detailLab.frame.size.width, FLT_MAX) font:cell.detailLab.font];
         
         if (intrHeight.height > 67) {
             height +=( cell.view2Height.constant - 67 + intrHeight.height);
         }
         
-        float heights = cell.headViewHeight.constant + cell.view1Height.constant + height + cell.view3Height.constant - 200;
+        float heights = cell.headViewHeight.constant + cell.view1Height.constant + height + cell.view3Height.constant;
         return heights;
     } else {
         return 579;

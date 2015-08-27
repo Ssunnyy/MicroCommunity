@@ -11,7 +11,7 @@
 #import "MCProductCityChooseController.h"
 #import "RADataObject.h"
 
-@interface MCRecruitPublicController ()<MCProductCityChooseControllerDelegate>
+@interface MCRecruitPublicController ()<MCProductCityChooseControllerDelegate,UITextFieldDelegate>
 
 {
     NSInteger payType;//    支付类型 0 现金  1金豆
@@ -38,14 +38,70 @@
 
 @implementation MCRecruitPublicController
 
+
+
+- (void) requestForPublic {
+    
+    if (_shopName.text.length <= 0) {
+        [ITTPromptView showMessage:@"标题不能为空"];
+        return;
+    }
+    if (_shopPrice.text.length <= 0) {
+        [ITTPromptView showMessage:@"薪资不能为空"];
+        return;
+    }
+    
+    NSString *pay ;
+    if (payType == 0) {
+        pay = @"现金";
+    }else {
+        pay = @"金豆";
+    }
+    MCUserModel *user = (MCUserModel *)[[MCUserManager shareManager]getCurrentUser];
+    
+    __weak MCRecruitPublicController *weak = self;
+    if (user) {
+        
+        NSMutableDictionary *param = [NSMutableDictionary dictionary];
+        [param safeString:user.user_id ForKey:@"user_id"];
+        
+        [param safeString:_shopName.text ForKey:@"titile"];
+        [param safeString:_shopPrice.text ForKey:@"money"];
+        [param safeString:_shopDes.text ForKey:@"content"];
+        [param safeString:_pricePaiMing.text ForKey:@"price"];
+        [param safeString:pay ForKey:@"pay_type"];
+        [param safeString:_address.text ForKey:@"area_name"];
+        
+        
+        [[MCHomeManager shareManager]requestHome_zhaopin_publishWithParam:param withIndicatorView:self.view withCancelRequestID:Home_request_zhaopin_publish withHttpMethod:kHTTPMethodPost onRequestFinish:^(MKNetworkOperation *operation) {
+           
+            if (operation.isSuccees) {
+                [ITTPromptView showMessage:@"发布成功"];
+                [weak.navigationController popViewControllerAnimated:YES];
+            }else {
+                [ITTPromptView showMessage:@"发布失败"];
+            }
+        } onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
+            [ITTPromptView showMessage:@"发布失败"];
+        }];
+        
+    }
+    
+}
+
+
 - (void)awakeFromNibs {
 
+    
+    payType = 0;
     _cityArray = [[NSMutableArray alloc]init];
     [_shopView makeCornerRadius:7];
     [_priceView makeCornerRadius:7];
     [_shopDes makeCornerRadius:7];
     [_addressView makeCornerRadius:7];
-    
+    _shopPrice.delegate = self;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(resignfirst)];
+    [self.view addGestureRecognizer:tap];
 }
 
 - (void)viewDidLoad {
@@ -88,6 +144,35 @@
     
     _address.text = city;
 }
+
+#pragma mark --
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    
+    return [self validateNumber:string];
+}
+- (BOOL)validateNumber:(NSString*)number {
+    BOOL res = YES;
+    NSCharacterSet* tmpSet = [NSCharacterSet characterSetWithCharactersInString:@"0123456789."];
+    int i = 0;
+    while (i < number.length) {
+        NSString * string = [number substringWithRange:NSMakeRange(i, 1)];
+        NSRange range = [string rangeOfCharacterFromSet:tmpSet];
+        if (range.length == 0) {
+            res = NO;
+            break;
+        }
+        i++;
+    }
+    return res;
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+
 
 /**
  *  增加排名
@@ -160,8 +245,17 @@
  *  发布
  */
 - (void)rightBarButtonClick:(UIButton *)button {
-    [self.navigationController popViewControllerAnimated:YES];
+    
+    [self requestForPublic];
+//    [self.navigationController popViewControllerAnimated:YES];
 }
+
+- (void) resignfirst{
+    
+    [self.view endEditing:NO];
+    
+}
+
 /*
 #pragma mark - Navigation
 

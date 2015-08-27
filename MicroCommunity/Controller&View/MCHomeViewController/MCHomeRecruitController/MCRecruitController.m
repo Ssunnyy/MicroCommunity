@@ -19,6 +19,7 @@
 #import "MCRecruitPublicController.h"
 
 #import "MCMyRecruitController.h"
+#import "MCCompanyConfirmController.h"
 
 #define RecruitHistoryList @"RecruitHistoryList"
 
@@ -61,30 +62,65 @@
 
 - (void) requestForRecruit{
 
+    __weak MCRecruitController *weak = self;
+    
     MCUserModel *user = (MCUserModel *)[[MCUserManager shareManager]getCurrentUser];
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
     if (user) {
-        NSMutableDictionary *param = [NSMutableDictionary dictionary];
+       
         [param safeString:user.user_id ForKey:@"user_id"];
         [param safeString:[NSString stringWithFormat:@"%ld",pageIndex] ForKey:@"pageindex"];
         [param safeString:self.category_id ForKey:@"category_id"];
-    
-        [[MCHomeManager shareManager] requestHome_zhaopin_indexWithParam:param withIndicatorView:self.view withCancelRequestID:Home_request_zhaopin_index withHttpMethod:kHTTPMethodPost onRequestFinish:^(MKNetworkOperation *operation) {
-            
-            if (operation.isSuccees) {
-                
-            }else {
-            
-                
-            }
-            
-        } onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
-            
-        }];
-
         
+        if (switchType == 1) {
+            [[MCHomeManager shareManager] requestHome_zhaopin_indexWithParam:param withIndicatorView:self.view withCancelRequestID:Home_request_zhaopin_index withHttpMethod:kHTTPMethodPost onRequestFinish:^(MKNetworkOperation *operation) {
+                
+                if (operation.isSuccees) {
+                    
+                    if (pageIndex == 1) {
+                        [weak.dataArray removeAllObjects];
+                    }
+                    NSArray *dataArray = [operation.resultDic objectForKey:@"data"];
+                    for (int i = 0; i < dataArray.count; i ++) {
+                        MCHomeZhaoPingModel *model = [[MCHomeZhaoPingModel alloc]initWithDataDic:[dataArray objectAtIndex:i]];
+                        model.seller_image = [NSString stringWithFormat:@"%@%@",Main_URL,model.seller_image];
+                        [weak.dataArray addObject:model];
+                    }
+                    pageIndex ++;
+                }else {
+                    
+                    [ITTPromptView showMessage:@"暂无数据"];
+                }
+                [weak tableviewReloadData];
+            } onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
+                [ITTPromptView showMessage:@"网络请求失败"];
+            }];
+        }else {
+            [[MCHomeManager shareManager] requestHome_zhaopin_jobWithParam:param withIndicatorView:self.view withCancelRequestID:Home_request_zhaopin_job withHttpMethod:kHTTPMethodPost onRequestFinish:^(MKNetworkOperation *operation) {
+                
+                if (operation.isSuccees) {
+                    
+                    if (pageIndex == 1) {
+                        [weak.dataArray1 removeAllObjects];
+                    }
+                    NSArray *dataArray = [operation.resultDic objectForKey:@"data"];
+                    for (int i = 0; i < dataArray.count; i ++) {
+                        MCHomeRecruitModel *model = [[MCHomeRecruitModel alloc]initWithDataDic:[dataArray objectAtIndex:i]];
+                        model.image = [NSString stringWithFormat:@"%@%@",Main_URL,model.image];
+                        [weak.dataArray1 addObject:model];
+                    }
+                    pageIndex ++;
+                }else {
+                    
+                    [ITTPromptView showMessage:@"暂无数据"];
+                }
+                [weak tableviewReloadData];
+                
+            } onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
+                [ITTPromptView showMessage:@"网络请求失败"];
+            }];
+        }
     }
-    
-    
 }
 
 - (void)viewDidLoad {
@@ -147,6 +183,7 @@
     _tableHeader = [[[NSBundle mainBundle]loadNibNamed:@"MCRecruitCell" owner:self options:nil]lastObject];
     _tableHeader.delegate = self;
     _resultTableView.tableHeaderView = _tableHeader;
+
 }
 
 /**
@@ -180,12 +217,12 @@
     switch (switchType) {
         case 1:
         {
-            count = 4;
+            count = _dataArray.count;
         }
             break;
         case 2:
         {
-            count = 3;
+            count = _dataArray1.count;
         }
             break;
         default:
@@ -212,6 +249,8 @@
             if (!cell) {
                 cell = [[[NSBundle mainBundle]loadNibNamed:@"MCRecruitMainCell" owner:self options:nil]lastObject];
             }
+            
+            [cell configCellWithMCHomeZhaoPingModel:[_dataArray objectAtIndex:indexPath.row]];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             return cell;
         
@@ -224,6 +263,7 @@
             if (!cell) {
                 cell = [[[NSBundle mainBundle]loadNibNamed:@"MCRecruitMainCell1" owner:self options:nil]lastObject];
             }
+            [cell configCellWithMCHomeRecruitModel:[_dataArray1 objectAtIndex:indexPath.row]];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             return cell;
         
@@ -241,12 +281,15 @@
         case 1:
         {
             MCProductDetilController *detail = [[MCProductDetilController alloc]initWithNibName:@"MCProductDetilController" bundle:nil];
+            detail.zhaopinModel = [_dataArray objectAtIndex:indexPath.row];
+            detail.type = zhaopingType;
             [self.navigationController pushViewController:detail animated:YES];
         }
             break;
         case 2:
         {
             MCRecruitPersonController *person = [[MCRecruitPersonController alloc] initWithNibName:@"MCRecruitPersonController" bundle:nil];
+            person.recruitHomeModel = [_dataArray1 objectAtIndex:indexPath.row];
             [self.navigationController pushViewController:person animated:YES];
         }
             break;
@@ -309,8 +352,16 @@
             switch (switchType) {
                 case 1:
                 {
-                    MCRecruitPublicController *pub = [[MCRecruitPublicController alloc]initWithNibName:@"MCRecruitPublicController" bundle:nil];
-                    [self.navigationController pushViewController:pub animated:YES];
+                    if ([[[MCUserManager shareManager]getCurrentUser].user_type isEqualToString:@"2"]) {
+                        MCRecruitPublicController *pub = [[MCRecruitPublicController alloc]initWithNibName:@"MCRecruitPublicController" bundle:nil];
+                        [self.navigationController pushViewController:pub animated:YES];
+                    }else if([[[MCUserManager shareManager]getCurrentUser].user_type isEqualToString:@"1"]) {
+                        [ITTPromptView showMessage:@"正在审核中"];
+                    }else if ([[[MCUserManager shareManager]getCurrentUser].user_type isEqualToString:@"0"]){
+                        MCCompanyConfirmController *company = [[MCCompanyConfirmController alloc]initWithNibName:@"MCCompanyConfirmController" bundle:nil];
+                        company.isConfirm = YES;
+                        [self.navigationController pushViewController:company animated:YES];
+                    }
                 }
                     break;
                 case 2:
@@ -351,20 +402,24 @@
  *  headerDelegate
  */
 - (void)selectAtIndex:(NSInteger)index {
+    pageIndex = 1;
     
     switch (index) {
         case 300:
         {
             switchType = 1;
-            [self tableViewReloadData];
+            [self requestForRecruit];
         }
             break;
         case 301:
         {
             switchType = 2;
-            pushToDestinationController(self, MCMyRecruitController);
+            if ([[[MCUserManager shareManager]getCurrentUser].user_type isEqualToString:@"2"]) {
+                [self requestForRecruit];
+            }else {
+                pushToDestinationController(self, MCMyRecruitController);
+            }
         }
-            
             break;
         default:
             break;

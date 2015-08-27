@@ -10,23 +10,24 @@
 
 @interface MCRecruitModel : ITTBaseModelObject
 
-@property (nonatomic, strong) NSString *recruitId;
-@property (nonatomic, strong) NSString *userName;
-@property (nonatomic, strong) NSString *nickName;
-@property (nonatomic, strong) NSString *recruitCityId;
-@property (nonatomic, strong) NSString *recruitPhone;
-@property (nonatomic, strong) NSString *headImage;
-@property (nonatomic, strong) NSString *bgImage;
 
-@property (nonatomic, strong) NSString *recruitName;
-@property (nonatomic, strong) NSString *recruitPrice;
-@property (nonatomic, strong) NSString *recruitDate;
-@property (nonatomic, strong) NSString *seeCount;
-
+@property (nonatomic, strong) NSString *city_id;
 @property (nonatomic, strong) NSString *education;
-@property (nonatomic, strong) NSString *workYear;
-@property (nonatomic, strong) NSString *likeStirng;
-@property (nonatomic, strong) NSString *detail;
-@property (nonatomic, strong) NSString *educationImages;
+@property (nonatomic, strong) NSString *education_image;
+@property (nonatomic, strong) NSString *image;
+
+@property (nonatomic, strong) NSString *job_content;
+@property (nonatomic, strong) NSString *job_id;
+@property (nonatomic, strong) NSString *job_salary;
+@property (nonatomic, strong) NSString *job_time;
+@property (nonatomic, strong) NSString *job_title;
+@property (nonatomic, strong) NSString *job_view_number;
+@property (nonatomic, strong) NSString *job_year;
+@property (nonatomic, strong) NSString *nickname;
+@property (nonatomic, strong) NSString *phone;
+@property (nonatomic, strong) NSString *strong_demo;
+@property (nonatomic, strong) NSString *user_id;
+@property (nonatomic, strong) NSString *username;
+
 
 @end

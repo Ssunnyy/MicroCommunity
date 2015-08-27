@@ -10,11 +10,10 @@
 #import "MCHomeSearchView.h"
 #import "MCSerachResultCell.h"
 #import "MCCustomHeadView.h"
-#import "MCProductDetilController.h"
 #import "MCCompanyProductController.h"
 #import "MCCompanyConfirmController.h"
 #import "MCHomeSearchModel.h"
-
+#import "MCProductDetilController.h"
 #import "MCShopPublicController.h"
 
 @interface MCHomeSearchResultControllerViewController ()<UITableViewDataSource,UITableViewDelegate,MCHomeSearchViewDelegate,MCSerachResultCellDelegate,MCCustomHeadViewDelegate>
@@ -226,19 +225,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
     
-    //聊天
-//    switch (_type) {
-//        case customeSearch:
-//        {
-//            MCProductDetilController *compony = [[MCProductDetilController alloc]initWithNibName:@"MCProductDetilController" bundle:nil];
-//            [self.navigationController pushViewController:compony animated:YES];
-//        }
-//            break;
-//            
-//        default:
-//            break;
-//    }
-    
 }
 #pragma  mark  --  MCHomeSearchViewDelegate
 /**
@@ -281,6 +267,7 @@
                 {
                     MCProductDetilController *compony = [[MCProductDetilController alloc]initWithNibName:@"MCProductDetilController" bundle:nil];
                     compony.searchModel = [_dataArray objectAtIndex:index];
+                    compony.type = productType;
                     [self.navigationController pushViewController:compony animated:YES];
                 }
                     break;
@@ -346,13 +333,13 @@
         {
             //  101发布
             
-            if ([[[MCUserManager shareManager]getCurrentUser].status isEqualToString:@"0"]) {
+            if ([[[MCUserManager shareManager]getCurrentUser].user_type isEqualToString:@"0"]) {
                 MCCompanyConfirmController *confirm = [[MCCompanyConfirmController alloc]initWithNibName:@"MCCompanyConfirmController" bundle:nil];
                 confirm.isConfirm = YES;
                 [self.navigationController pushViewController:confirm animated:YES];
-            } else if([[[MCUserManager shareManager]getCurrentUser].status isEqualToString:@"1"]){
+            } else if([[[MCUserManager shareManager]getCurrentUser].user_type isEqualToString:@"1"]){
                 [ITTPromptView showMessage:@"正在审核中"];
-            }else if ([[[MCUserManager shareManager]getCurrentUser].status isEqualToString:@"2"]){
+            }else if ([[[MCUserManager shareManager]getCurrentUser].user_type isEqualToString:@"2"]){
                 
                 MCShopPublicController *shop = [[MCShopPublicController alloc]initWithNibName:@"MCShopPublicController" bundle:nil];
                 shop.seller_id = [[MCUserManager shareManager]getCurrentUser].user_id;

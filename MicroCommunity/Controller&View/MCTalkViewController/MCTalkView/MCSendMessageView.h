@@ -22,5 +22,8 @@
 //  移除键盘通知
 - (void) removeKeyboardLison ;
 
+//  添加键盘通知
+- (void) addKeyboardLison ;
+
 - (void) cleafData;
 @end

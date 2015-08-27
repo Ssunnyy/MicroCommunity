@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -116,6 +116,7 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="aZb-ao-pe2" secondAttribute="trailing" constant="5" id="2tv-S4-mBx"/>
                             <constraint firstAttribute="trailing" secondItem="Jmb-fE-JWh" secondAttribute="trailing" constant="20" id="2uA-0E-h4E"/>
+                            <constraint firstAttribute="bottom" secondItem="aZb-ao-pe2" secondAttribute="bottom" constant="6" id="3ew-FI-Rue"/>
                             <constraint firstItem="i5P-Ii-w5Z" firstAttribute="top" secondItem="FEV-XG-Bmi" secondAttribute="bottom" constant="5" id="7ag-Yh-nCW"/>
                             <constraint firstItem="Jmb-fE-JWh" firstAttribute="leading" secondItem="FEV-XG-Bmi" secondAttribute="trailing" constant="10" id="7ud-HH-Bl3"/>
                             <constraint firstItem="k6t-ly-YU8" firstAttribute="leading" secondItem="knu-57-FZJ" secondAttribute="leading" id="BKi-u3-5OG"/>
@@ -141,6 +142,7 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="Vvm-tQ-VeU"/>
                                 <exclude reference="qQ9-CG-Z4z"/>
                                 <exclude reference="XGj-ax-0LT"/>
                             </mask>

@@ -10,6 +10,7 @@
 
 #import "MCProductModel.h"
 #import "MCSendMessageView.h"
+#import "MCHomeZhaoPingModel.h"
 
 @interface MCProdectHeadTableViewCell : UITableViewCell
 
@@ -24,6 +25,10 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *addressViewHeight;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomViewHeight;
 
+
+
 - (void) configCellWithMCProductModel:(MCProductModel *) model;
+- (void) configCellWithMCHomeZhaoPingModel:(MCHomeZhaoPingModel *) model;
+
 
 @end

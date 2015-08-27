@@ -44,8 +44,10 @@
     [[MCMYManager shareManager]requestMy_PublicWithParam:param withIndicatorView:self.view withCancelRequestID:My_Request_publish withHttpMethod:kHTTPMethodPost onRequestFinish:^(MKNetworkOperation *operation) {
         if (operation.isSuccees) {
             
+            [_dataArray removeAllObjects];
             NSArray *dataArray = [operation.resultDic objectForKey:@"data"];
             if (dataArray.count > 0) {
+                
                 for ( int i = 0; i < dataArray.count ; i ++) {
                     MCMyPublicModel *public = [[MCMyPublicModel alloc]initWithDataDic:[dataArray objectAtIndex:i]];
                     public.goods_image = [NSString stringWithFormat:@"%@%@",Main_URL,public.goods_image];
@@ -54,7 +56,7 @@
                 }
             }
         }else{
-            [ITTPromptView showMessage:@"查询失败"];
+            [ITTPromptView showMessage:@"暂无数据"];
         }
         [weak tableViewReloadData];
     } onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
@@ -105,7 +107,6 @@
     } onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
         [ITTPromptView showMessage:@"产品删除失败,请重试"];
     }];
-    
 }
 
 - (void)viewDidLoad {

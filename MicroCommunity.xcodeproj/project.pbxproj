@@ -560,6 +560,8 @@
 		181A70CF1B7B563A00B72FAD /* NSString+MD5Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 181A6FE71B7B563A00B72FAD /* NSString+MD5Addition.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		181A70D01B7B563A00B72FAD /* UIColor+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 181A6FEA1B7B563A00B72FAD /* UIColor+Helpers.m */; };
 		181A70D11B7B563A00B72FAD /* UIImage+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 181A6FEC1B7B563A00B72FAD /* UIImage+Helpers.m */; };
+		183BEB211B8C90FE007CE57D /* MCHomeZhaoPingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 183BEB201B8C90FE007CE57D /* MCHomeZhaoPingModel.m */; };
+		183BEB241B8C95B2007CE57D /* MCHomeRecruitModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 183BEB231B8C95B2007CE57D /* MCHomeRecruitModel.m */; };
 		1859B5751B7D757300B5B985 /* MCMyCountApplyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1859B5731B7D757300B5B985 /* MCMyCountApplyView.m */; };
 		1859B5761B7D757300B5B985 /* MCMyCountApplyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1859B5741B7D757300B5B985 /* MCMyCountApplyView.xib */; };
 		1859B57A1B7D852E00B5B985 /* MCMyCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1859B5781B7D852E00B5B985 /* MCMyCollectionViewController.m */; };
@@ -1543,6 +1545,10 @@
 		181A6FEA1B7B563A00B72FAD /* UIColor+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Helpers.m"; sourceTree = "<group>"; };
 		181A6FEB1B7B563A00B72FAD /* UIImage+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Helpers.h"; sourceTree = "<group>"; };
 		181A6FEC1B7B563A00B72FAD /* UIImage+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Helpers.m"; sourceTree = "<group>"; };
+		183BEB1F1B8C90FE007CE57D /* MCHomeZhaoPingModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCHomeZhaoPingModel.h; sourceTree = "<group>"; };
+		183BEB201B8C90FE007CE57D /* MCHomeZhaoPingModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCHomeZhaoPingModel.m; sourceTree = "<group>"; };
+		183BEB221B8C95B2007CE57D /* MCHomeRecruitModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCHomeRecruitModel.h; sourceTree = "<group>"; };
+		183BEB231B8C95B2007CE57D /* MCHomeRecruitModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCHomeRecruitModel.m; sourceTree = "<group>"; };
 		1859B5721B7D757300B5B985 /* MCMyCountApplyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMyCountApplyView.h; sourceTree = "<group>"; };
 		1859B5731B7D757300B5B985 /* MCMyCountApplyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMyCountApplyView.m; sourceTree = "<group>"; };
 		1859B5741B7D757300B5B985 /* MCMyCountApplyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCMyCountApplyView.xib; sourceTree = "<group>"; };
@@ -2752,6 +2758,10 @@
 				188D62301B81DF3B00B3F6C7 /* MCHomeSearchModel.m */,
 				188D62321B8207E900B3F6C7 /* MCHomeCityModel.h */,
 				188D62331B8207EA00B3F6C7 /* MCHomeCityModel.m */,
+				183BEB1F1B8C90FE007CE57D /* MCHomeZhaoPingModel.h */,
+				183BEB201B8C90FE007CE57D /* MCHomeZhaoPingModel.m */,
+				183BEB221B8C95B2007CE57D /* MCHomeRecruitModel.h */,
+				183BEB231B8C95B2007CE57D /* MCHomeRecruitModel.m */,
 			);
 			path = MCHomeModel;
 			sourceTree = "<group>";
@@ -4436,6 +4446,7 @@
 				1818BFE51B7C3015006476F9 /* mask.c in Sources */,
 				181A6C2E1B7B556100B72FAD /* MCMyMessageCell.m in Sources */,
 				1818C0291B7CBC62006476F9 /* MCMycountModle.m in Sources */,
+				183BEB211B8C90FE007CE57D /* MCHomeZhaoPingModel.m in Sources */,
 				181A6C011B7B556100B72FAD /* MCRecruitPublicController.m in Sources */,
 				181A6C3E1B7B556100B72FAD /* MCSendMessageView.m in Sources */,
 				1818BFE81B7C3015006476F9 /* qrinput.c in Sources */,
@@ -4458,6 +4469,7 @@
 				181A70C41B7B563A00B72FAD /* UIImage+GIF.m in Sources */,
 				181A6C2A1B7B556100B72FAD /* MCMyGoleTableCell.m in Sources */,
 				181A6BBD1B7B556100B72FAD /* MCUserSearchCell.m in Sources */,
+				183BEB241B8C95B2007CE57D /* MCHomeRecruitModel.m in Sources */,
 				181A70AF1B7B563A00B72FAD /* NSDate+RFC1123.m in Sources */,
 				181A704E1B7B563A00B72FAD /* QShowImgViewController.m in Sources */,
 				181A70841B7B563A00B72FAD /* UIView+ITTAdditions.m in Sources */,

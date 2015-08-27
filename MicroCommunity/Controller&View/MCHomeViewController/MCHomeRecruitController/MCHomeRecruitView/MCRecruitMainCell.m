@@ -29,9 +29,14 @@
     // Configure the view for the selected state
 }
 
-- (void) configeCellWith:(id) model {
 
-    [_headView sd_setImageWithURL:[NSURL URLWithString:@""] placeholderImage:ImageNamed(default_head)];
+- (void)configCellWithMCHomeZhaoPingModel:(MCHomeZhaoPingModel *)model {
+
+    [_headView sd_setImageWithURL:[NSURL URLWithString:model.seller_image] placeholderImage:ImageNamed(default_head)];
+    _titleLab.text = model.zhaopin_title;
+    _dataLab.text = model.zhaopin_time;
+    _priceLab.text = model.zhaopin_money;
+    _contenLab.text = model.zhaopin_content;
     
 }
 

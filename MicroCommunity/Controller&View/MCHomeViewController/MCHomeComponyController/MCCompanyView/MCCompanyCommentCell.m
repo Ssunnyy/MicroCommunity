@@ -25,13 +25,18 @@
     [_headImage makeCircleView];
 }
 
-- (void)configCellWithMCCompanyCommentModel:(MCCompanyCommentModel *)model {
+- (void)configCellWithMCCompanyCommentModel:(MCCompanyCommentModel *)model withType:(BOOL)product{
 
-//    [_headImage sd_setImageWithURL:[NSURL URLWithString:model.headImage] placeholderImage:ImageNamed(default_head)];
-//    _userName.text = model.nickName;
-//    _dataLab.text = model.date;
-//    _pariseLab.text = model.pariseCount;
-    _contentLab.text = model.comment;
+    [_headImage sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:ImageNamed(default_head)];
+    _userName.text = model.nickname;
+    
+    if (product) {
+        _dataLab.text = model.goods_comment_time;
+        _contentLab.text = model.goods_comment_content;
+    }else {
+        _dataLab.text = model.comment_time;
+        _contentLab.text = model.comment_content;
+    }
 }
 - (IBAction)pariseBtnClick:(UIButton *)sender {
 

@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MCCompanyServerModel.h"
+#import "MCProductModel.h"
 #import "MCMyCollectProductModel.h"
 @interface MCCompanyServerCell : UITableViewCell
 
 
-- (void) configCellWithMCCompanyServerModel:(MCCompanyServerModel *) model;
+- (void) configCellWithMCProductModel:(MCProductModel *) model;
 
 - (void) configCellWithMCMyCollectProductModel:(MCMyCollectProductModel *)model;
 

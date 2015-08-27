@@ -12,7 +12,7 @@
 #define My_Request_publish @"home/Person/my_publish" // 我的发布
 #define My_Request_collect @"home/Person/my_company_collect" // 我的收藏
 #define My_Request_goods_collect @"home/Person/my_goods_collect" // 我的产品收藏
-#define MY_Request_view_feedback @"home/Person/viewfeedback"  //意见反馈
+#define MY_Request_view_feedback @"home/Person/view_feedback"  //意见反馈
 
 @interface MCMYManager : YXBaseRequestManager
 

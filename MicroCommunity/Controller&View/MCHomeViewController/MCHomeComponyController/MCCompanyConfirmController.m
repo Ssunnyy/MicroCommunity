@@ -162,7 +162,6 @@
         
         if (_isConfirm) {
             //  商家认证
-            
             [[MCHomeManager shareManager] requestHome_seller_publishWithParamDic:param updateFiles:images withIndicatorView:self.view withCancelRequestID:Home_request_seller_publish onRequestFinish:^(MKNetworkOperation *operation) {
                 if (operation.isSuccees) {
                     [ITTPromptView showMessage:@"提交认证成功"];
@@ -175,21 +174,10 @@
                 [ITTPromptView showMessage:@"提交认证失败,请重新提交"];
             }];
             
-//            [[MCHomeManager shareManager]requestHome_seller_publishWithParam:param withIndicatorView:self.view withCancelRequestID:Home_request_seller_publish withHttpMethod:kHTTPMethodPost onRequestFinish:^(MKNetworkOperation *operation) {
-//                
-//                if (operation.isSuccees) {
-//                    [ITTPromptView showMessage:@"提交认证成功"];
-//                    [weak.navigationController popViewControllerAnimated:YES];
-//                }else {
-//                    [ITTPromptView showMessage:@"提交认证失败,请重新提交"];
-//                }
-//            } onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
-//                [ITTPromptView showMessage:@"提交认证失败,请重新提交"];
-//            }];
         }else {
             //  修改商家信息
-            [[MCHomeManager shareManager]requestHome_update_sellerWithParam:param withIndicatorView:self.view withCancelRequestID:Home_request_update_seller withHttpMethod:kHTTPMethodPost onRequestFinish:^(MKNetworkOperation *operation) {
-                
+            
+            [[MCHomeManager shareManager]requestHome_update_sellerWithParam:param updateFiles:images withIndicatorView:self.view withCancelRequestID:Home_request_update_seller onRequestFinish:^(MKNetworkOperation *operation) {
                 if (operation.isSuccees) {
                     [ITTPromptView showMessage:@"修改成功成功"];
                     [weak.navigationController popViewControllerAnimated:YES];
@@ -197,11 +185,20 @@
                     [ITTPromptView showMessage:@"修改失败,请重新提交"];
                 }
             } onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
-                [ITTPromptView showMessage:@"修改失败,请重新提交"];
+                    [ITTPromptView showMessage:@"修改失败,请重新提交"];
             }];
-            
         }
     }
+}
+
+
+- (void) setEnableEdit:(BOOL) edit{
+
+    _companyName.enabled = edit;
+    _companyCard.hidden = YES;
+    _idCardBtn.hidden = YES;
+    _idCard.enabled = NO;
+    
 }
 
 - (void)viewDidLoad {

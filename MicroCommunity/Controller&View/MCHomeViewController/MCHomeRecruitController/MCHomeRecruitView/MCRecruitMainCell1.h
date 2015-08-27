@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "MCHomeRecruitModel.h"
 @interface MCRecruitMainCell1 : UITableViewCell
+
+- (void) configCellWithMCHomeRecruitModel:(MCHomeRecruitModel *) model;
 
 @end

@@ -40,6 +40,16 @@
 @property (nonatomic, strong) NSString *goods_name;
 @property (nonatomic, strong) NSString *goods_image;
 @property (nonatomic, strong) NSString *goods_id;
+
+@property (nonatomic, strong) NSString *goods_add_time;
+@property (nonatomic, strong) NSString *goods_comment_number;
+@property (nonatomic, strong) NSString *goods_company_id;
+@property (nonatomic, strong) NSString *goods_message;
+@property (nonatomic, strong) NSString *goods_praise_number;
+@property (nonatomic, strong) NSString *goods_price;
+@property (nonatomic, strong) NSString *goods_view_number;
+@property (nonatomic, strong) NSString *is_goods_collect;
+
 @property (nonatomic, strong) NSString *huanxin_id;
 
 

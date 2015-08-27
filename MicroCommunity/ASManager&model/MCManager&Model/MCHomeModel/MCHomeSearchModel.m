@@ -44,8 +44,17 @@
              @"goods_image":@"goods_image",
              @"goods_id":@"goods_id",
              @"huanxin_id":@"huanxin_id",
-             };
-    
+             
+             @"goods_add_time":@"goods_add_time",
+             @"goods_comment_number":@"goods_comment_number",
+             @"goods_company_id":@"goods_company_id",
+             @"goods_message":@"goods_message",
+             @"goods_praise_number":@"goods_praise_number",
+             @"goods_price":@"goods_price",
+             @"goods_view_number":@"goods_view_number",
+             @"is_goods_collect":@"is_goods_collect",
+             
+            };
 }
 
 @end

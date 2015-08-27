@@ -8,9 +8,18 @@
 
 #import "BaseViewController.h"
 #import "MCHomeSearchModel.h"
+#import "MCHomeZhaoPingModel.h"
+
+typedef enum {
+    zhaopingType,// 招聘
+    productType//   产品
+}inType;
 
 @interface MCProductDetilController : BaseViewController
 
 @property (nonatomic, strong) MCHomeSearchModel *searchModel;
+@property (nonatomic, strong) MCHomeZhaoPingModel *zhaopinModel;
+
+@property (nonatomic, assign) inType  type;
 
 @end

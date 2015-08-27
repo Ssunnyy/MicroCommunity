@@ -81,7 +81,11 @@
 //  是不是商家
 - (BOOL) isBusniss {
     
-    return YES;
+    if ([[[MCUserManager shareManager]getCurrentUser].user_type isEqualToString:@"2"]) {
+        return YES;
+    }else {
+        return NO;
+    }
 }
 
 - (void) setUpHeadView {
@@ -100,8 +104,6 @@
     if ([[MCUserManager shareManager] isAutoLoginResult]) {
         [_headView configHeadWithMCUserModel:[[MCUserManager shareManager]getCurrentUser]];
     }
-    
-    [_headView currentUerIsBusniss:[self isBusniss]];
 }
 
 /**

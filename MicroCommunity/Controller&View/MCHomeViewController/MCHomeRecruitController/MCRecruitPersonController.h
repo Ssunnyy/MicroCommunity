@@ -7,7 +7,10 @@
 //
 
 #import "BaseViewController.h"
+#import "MCHomeRecruitModel.h"
 
 @interface MCRecruitPersonController : BaseViewController
+
+@property (nonatomic,strong) MCHomeRecruitModel *recruitHomeModel;
 
 @end

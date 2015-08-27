@@ -41,6 +41,17 @@
         return;
     }
     
+    if (_phone.text.length <= 0) {
+        [ITTPromptView showMessage:@"手机号不能为空"];
+        return;
+    }
+    if (![CommonHelp isvalidateMobile:_phone.text]) {
+        [ITTPromptView showMessage:@"手机号不正确"];
+        return;
+    }
+    
+    __weak MCMyIdearReoprtController *weak = self;
+    
     MCUserModel *user = (MCUserModel *)[[MCUserManager shareManager]getCurrentUser];
     if (user) {
         NSMutableDictionary *param = [NSMutableDictionary dictionary];
@@ -52,6 +63,7 @@
             
             if (operation.isSuccees) {
                 [ITTPromptView showMessage:@"意见反馈已提交"];
+                [weak.navigationController popViewControllerAnimated:YES];
             }else{
                 [ITTPromptView showMessage:@"意见反馈提交失败,请重试"];
             }

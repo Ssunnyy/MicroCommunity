@@ -37,33 +37,37 @@
 
 - (void)configCellWithMCCompanyCommentModel:(MCRecruitModel *)model {
 
-//    [_headImage sd_setImageWithURL:[NSURL URLWithString:@""] placeholderImage:ImageNamed(default_head)];
-//    [_bgImage sd_setImageWithURL:[NSURL URLWithString:@""] placeholderImage:ImageNamed(@"")];
-//    
-//    _nickNam.text = @"";
-//    _name.text = @"";
-//    _cityId.text = @"";
-//    _phoneNum.text = @"";
-//    _recruitData.text = @"";
-//    _seeCount.text = @"";
-//    
-//    _educLab.text = @"";
-//    _workYear.text = @"";
-    _like.text = model.likeStirng;
-    _detailLab.text = model.detail;
+    [_headImage sd_setImageWithURL:[NSURL URLWithString:model.image]
+                  placeholderImage:ImageNamed(default_head)];
+    [_bgImage sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:ImageNamed(default_iconImag)];
+    
+    _nickNam.text = model.nickname;
+    _name.text = model.username;
+    _cityId.text = model.city_id;
+    _phoneNum.text = model.phone;
+    _recruitData.text = model.job_time;
+    _seeCount.text = model.job_view_number;
+    _recruitPrice.text = [NSString stringWithFormat:@"￥%@/月",model.job_salary];
+    _recruitName.text = model.job_title;
+    _educLab.text = model.education;
+    _workYear.text = [NSString stringWithFormat:@"%@ 年",model.job_year];
+    _like.text = model.strong_demo;
+    _detailLab.text = model.job_content;
     
     
-    CGSize likeheight = [model.likeStirng calculateSize:CGSizeMake(self.like.frame.size.width, FLT_MAX) font:self.like.font];
+    CGSize likeheight = [model.strong_demo calculateSize:CGSizeMake(self.like.frame.size.width, FLT_MAX) font:self.like.font];
     
     if (likeheight.height > 17) {
-        _view2Height.constant = _view2Height.constant - 17 + likeheight.height;
+        _view1Height.constant = _view1Height.constant - 17 + likeheight.height;
     }
     
-    CGSize intrHeight = [model.detail calculateSize:CGSizeMake(self.detailLab.frame.size.width, FLT_MAX) font:self.detailLab.font];
+    CGSize intrHeight = [model.job_content calculateSize:CGSizeMake(self.detailLab.frame.size.width, FLT_MAX) font:self.detailLab.font];
     
     if (intrHeight.height > 67) {
         _view2Height.constant = _view2Height.constant - 67 + intrHeight.height;
     }
+    
+
     __weak MCRecruitDetailCell *weak = self;
     
     [self setNeedsUpdateConstraints];
@@ -71,7 +75,6 @@
     [UIView animateWithDuration:0.5 animations:^{
         [weak layoutIfNeeded];
     }];
-    
     
 }
 

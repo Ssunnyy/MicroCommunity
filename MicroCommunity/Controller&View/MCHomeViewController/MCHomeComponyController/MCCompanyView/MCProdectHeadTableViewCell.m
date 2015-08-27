@@ -28,6 +28,7 @@
     _sender.framebottom = 64;
     _sender.framewidth = SCREEN_WIDTH;
     [self.senderView addSubview:_sender];
+    
     // Initialization code
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -38,23 +39,41 @@
 
 - (void)configCellWithMCProductModel:(MCProductModel *)model {
 
-//    _productName.text = model.productName;
-//    _productPric.text = model.productPrice;
-//    _pubDate.text = model.productDate;
-//    _seeCount.text = model.productSeeCount;
-//    _addressLab.text = model.productAddress;
-    _descriptionLab.text = model.productIntro;
+    _productName.text = model.goods_name;
+    _productPric.text = [NSString stringWithFormat:@"￥%@",model.goods_price];
+    _pubDate.text = model.goods_add_time;
+    _seeCount.text = model.goods_view_number;
+    _addressLab.text = model.address;
+    _descriptionLab.text = model.goods_message;
     
-    CGSize introHeight = [model.productIntro calculateSize:CGSizeMake(self.descriptionLab.frame.size.width, FLT_MAX) font:self.descriptionLab.font];
+    CGSize introHeight = [model.goods_message calculateSize:CGSizeMake(self.descriptionLab.frame.size.width, FLT_MAX) font:self.descriptionLab.font];
     
     if (introHeight.height > 29) {
         _desViewHeight.constant = 120 - 29 + introHeight.height - 30;
     }
-    
     [self setNeedsUpdateConstraints];
     [self updateConstraintsIfNeeded];
     [self layoutIfNeeded];
+}
 
+- (void) configCellWithMCHomeZhaoPingModel:(MCHomeZhaoPingModel *) model {
+
+    _productName.text = model.zhaopin_title;
+    _productPric.text = [NSString stringWithFormat:@"%@ / 月",model.zhaopin_money];
+    _pubDate.text = model.zhaopin_time;
+    _seeCount.text = [NSString stringWithFormat:@"%ld",[model.view_number integerValue]];
+    _addressLab.text = model.address;
+    _descriptionLab.text = model.zhaopin_content;
+    
+    CGSize introHeight = [model.zhaopin_content calculateSize:CGSizeMake(self.descriptionLab.frame.size.width, FLT_MAX) font:self.descriptionLab.font];
+    
+    if (introHeight.height > 29) {
+        _desViewHeight.constant = 120 - 29 + introHeight.height - 30;
+    }
+    [self setNeedsUpdateConstraints];
+    [self updateConstraintsIfNeeded];
+    [self layoutIfNeeded];
+    
 }
 
 @end

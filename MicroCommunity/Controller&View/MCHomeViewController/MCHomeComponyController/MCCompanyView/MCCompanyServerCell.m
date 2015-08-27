@@ -24,12 +24,12 @@
     // Initialization code
 }
 
-- (void)configCellWithMCCompanyServerModel:(MCCompanyServerModel *)model {
+- (void)configCellWithMCProductModel:(MCProductModel *)model {
 
-    [_headImaege sd_setImageWithURL:[NSURL URLWithString:model.serverPic] placeholderImage:ImageNamed(default_head)];
-    _serverName.text = model.serverName;
-    _priceLab.text = model.serverPic;
-    _contentLab.text = model.serverIntro;
+    [_headImaege sd_setImageWithURL:[NSURL URLWithString:model.goods_image] placeholderImage:ImageNamed(default_head)];
+    _serverName.text = model.goods_name;
+    _priceLab.text = model.goods_price;
+    _contentLab.text = model.goods_message;
     
 }
 

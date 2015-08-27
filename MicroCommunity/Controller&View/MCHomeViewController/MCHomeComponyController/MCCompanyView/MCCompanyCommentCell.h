@@ -23,7 +23,7 @@
 
 /// 设置点赞btn tag
 - (void) setPariseBtnTag:(NSInteger) index;
-
-- (void) configCellWithMCCompanyCommentModel:(MCCompanyCommentModel *) model;
+//  产品评论 商家评论
+- (void) configCellWithMCCompanyCommentModel:(MCCompanyCommentModel *) model withType:(BOOL) product;
 
 @end

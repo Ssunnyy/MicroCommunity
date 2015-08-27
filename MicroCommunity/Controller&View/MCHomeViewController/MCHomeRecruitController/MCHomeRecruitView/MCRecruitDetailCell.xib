@@ -294,7 +294,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="605-C5-2Ex" firstAttribute="centerY" secondItem="kbg-Nm-ceO" secondAttribute="centerY" id="547-lP-5UC"/>
                             <constraint firstAttribute="height" constant="130" id="5yZ-Uh-Sup"/>

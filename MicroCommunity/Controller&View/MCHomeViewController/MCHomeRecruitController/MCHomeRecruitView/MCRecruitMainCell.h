@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+#import "MCHomeZhaoPingModel.h"
+
 @interface MCRecruitMainCell : UITableViewCell
+
+- (void) configCellWithMCHomeZhaoPingModel:(MCHomeZhaoPingModel *) model;
 
 @end

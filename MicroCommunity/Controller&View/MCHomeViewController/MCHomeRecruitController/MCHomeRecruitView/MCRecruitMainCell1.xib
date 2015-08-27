@@ -90,6 +90,7 @@
                 <outlet property="contenLab" destination="fuq-KS-DJl" id="bxi-H0-rNP"/>
                 <outlet property="dataLab" destination="Mq4-g8-bwA" id="FNx-wQ-oQ9"/>
                 <outlet property="headImage" destination="bQL-gL-bZj" id="mfr-BU-CzP"/>
+                <outlet property="sexImage" destination="Xxk-vv-aGa" id="klB-Ec-E0f"/>
                 <outlet property="titleLab" destination="FhX-lV-lyn" id="RCe-ef-9K9"/>
             </connections>
             <point key="canvasLocation" x="312" y="205"/>

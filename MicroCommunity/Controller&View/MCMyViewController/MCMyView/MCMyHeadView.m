@@ -45,7 +45,7 @@
     [_headView sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:ImageNamed(default_head)];
     _nickName.text = model.username;
     
-    if ([model.status isEqualToString:@"2"]) {
+    if ([model.user_type isEqualToString:@"2"]) {
         _shopBtn.hidden = NO;
     }else {
         _shopBtn.hidden = YES;

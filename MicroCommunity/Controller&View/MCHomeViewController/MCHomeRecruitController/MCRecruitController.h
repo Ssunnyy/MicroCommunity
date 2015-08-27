@@ -19,4 +19,5 @@ typedef enum {
 @property (nonatomic, strong) NSString *keyWorld;
 @property (nonatomic, strong) NSString *category_id;
 
+
 @end
