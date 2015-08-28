@@ -55,11 +55,14 @@
  *
  *  @return
  */
+
+#define Home_request_job_add         @"home/zhaopin/job_add"
 #define Home_request_zhaopin_index   @"home/zhaopin/index"//招聘首页
 #define Home_request_zhaopin_job     @"home/zhaopin/job"//求职首页
 #define Home_request_zhaopin_publish @"home/zhaopin/zhaopin_publish"//招聘发布
 #define Home_request_zhaopin_details @"home/zhaopin/zhaopin_details"//招聘详情
-#define Home_request_zhaopin_collect @"home/zhaopin/zhaopin_collect"    //昭平收藏
+#define Home_request_zhaopin_collect @"home/zhaopin/zhaopin_collect"//招聘收藏
+#define Home_request_job_collect     @"home/zhaopin/job_collect"//求职收藏
 #define Home_request_job_details     @"home/zhaopin/job_details"//求职详情
 
 
@@ -587,6 +590,39 @@
                              onRequestFailed:(void(^)(MKNetworkOperation *operation ,NSError *error ))onFailedBlock;
 
 
+/**
+ *  @brief  求职收藏
+ *  @param  params
+ *  @param  view                    在那一页上的请求
+ *  @param  requestID               请求的ID
+ *  @param  onFinishedBlock         请求完成的block，可以得到请求成功解析后的数组以及得到的数据个数，实现自己的逻辑
+ *  @param  onFailedBlock           请求失败的的block，可以得到请求是失败后的错误，并实现自己的逻辑
+ *  @return
+ **/
 
+- (void)requestHome_job_collectWithParam:(NSMutableDictionary*)param
+                       withIndicatorView:(UIView*)view
+                     withCancelRequestID:(NSString*)requestID
+                          withHttpMethod:(kHTTPMethod)httpMethod
+                         onRequestFinish:(void(^)(MKNetworkOperation *operation))onFinishedBlock
+                         onRequestFailed:(void(^)(MKNetworkOperation *operation ,NSError *error ))onFailedBlock;
+
+/**
+ *  @brief  求职发布
+ *  @param  params
+ *  @param  view                    在那一页上的请求
+ *  @param  requestID               请求的ID
+ *  @param  onFinishedBlock         请求完成的block，可以得到请求成功解析后的数组以及得到的数据个数，实现自己的逻辑
+ *  @param  onFailedBlock           请求失败的的block，可以得到请求是失败后的错误，并实现自己的逻辑
+ *  @return
+ **/
+
+
+- (void)requestHome_request_job_addWithParam:(NSMutableDictionary*)param
+                               updateFiles:(NSMutableArray*)files
+                         withIndicatorView:(UIView*)view
+                       withCancelRequestID:(NSString*)requestID
+                           onRequestFinish:(void(^)(MKNetworkOperation *operation))onFinishedBlock
+                           onRequestFailed:(void(^)(MKNetworkOperation *operation,NSError * error))onFailedBlock;
 
 @end

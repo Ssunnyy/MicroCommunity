@@ -1128,5 +1128,75 @@ static MCHomeManager *defaultCenterInstance = nil;
            }];
 }
 
+/**
+ *  @brief  求职收藏
+ *  @param  params
+ *  @param  view                    在那一页上的请求
+ *  @param  requestID               请求的ID
+ *  @param  onFinishedBlock         请求完成的block，可以得到请求成功解析后的数组以及得到的数据个数，实现自己的逻辑
+ *  @param  onFailedBlock           请求失败的的block，可以得到请求是失败后的错误，并实现自己的逻辑
+ *  @return
+ **/
+
+- (void)requestHome_job_collectWithParam:(NSMutableDictionary*)param
+                       withIndicatorView:(UIView*)view
+                     withCancelRequestID:(NSString*)requestID
+                          withHttpMethod:(kHTTPMethod)httpMethod
+                         onRequestFinish:(void(^)(MKNetworkOperation *operation))onFinishedBlock
+                         onRequestFailed:(void(^)(MKNetworkOperation *operation ,NSError *error ))onFailedBlock{
+    [super requestWithPath:Home_request_job_collect
+              withParamDic:param
+         withIndicatorView:view
+       withCancelRequestID:requestID
+    withPostORDeleteMethod:kHTTPMethodPost
+                 authToken:nil
+                     isSSL:NO
+           onRequestFinish:^(MKNetworkOperation *operation) {
+               if (onFinishedBlock) {
+                   onFinishedBlock(operation);
+               }
+           }
+           onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
+               if (onFailedBlock) {
+                   onFailedBlock(operation,error);
+               }
+           }];
+}
+
+/**
+ *  @brief  求职发布
+ *  @param  params
+ *  @param  view                    在那一页上的请求
+ *  @param  requestID               请求的ID
+ *  @param  onFinishedBlock         请求完成的block，可以得到请求成功解析后的数组以及得到的数据个数，实现自己的逻辑
+ *  @param  onFailedBlock           请求失败的的block，可以得到请求是失败后的错误，并实现自己的逻辑
+ *  @return
+ **/
+
+
+- (void)requestHome_request_job_addWithParam:(NSMutableDictionary*)param
+                                 updateFiles:(NSMutableArray*)files
+                           withIndicatorView:(UIView*)view
+                         withCancelRequestID:(NSString*)requestID
+                             onRequestFinish:(void(^)(MKNetworkOperation *operation))onFinishedBlock
+                             onRequestFailed:(void(^)(MKNetworkOperation *operation,NSError * error))onFailedBlock{
+    [super requestWithPath:Home_request_job_add
+              withParamDic:param
+               updateFiles:files
+         withIndicatorView:view
+       withCancelRequestID:requestID
+    withPostORDeleteMethod:kHTTPMethodPost
+                 authToken:nil isSSL:nil
+           onRequestFinish:^(MKNetworkOperation *operation) {
+               if (onFinishedBlock) {
+                   onFinishedBlock(operation);
+               }
+           }
+           onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
+               if (onFailedBlock) {
+                   onFailedBlock(operation,error);
+               }
+           }];
+}
 
 @end

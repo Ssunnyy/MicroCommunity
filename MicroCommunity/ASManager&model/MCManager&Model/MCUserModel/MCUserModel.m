@@ -43,6 +43,7 @@
             @"type":@"type",
             @"user_type":@"user_type",
             @"username":@"username",
+            @"seller_id":@"seller_id"
     };
 }
 

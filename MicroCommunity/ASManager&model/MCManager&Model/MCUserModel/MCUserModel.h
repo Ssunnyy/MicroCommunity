@@ -40,6 +40,7 @@
 @property (nonatomic, strong) NSString *type;
 @property (nonatomic, strong) NSString *user_type;// 0未提交  1待审核  2审核通过
 @property (nonatomic, strong) NSString *username;
+@property (nonatomic, strong) NSString *seller_id;
 
 
 @end

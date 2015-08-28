@@ -203,10 +203,10 @@
         
         CGSize likeheight = [self.recruitModel.strong_demo calculateSize:CGSizeMake(cell.like.frame.size.width, FLT_MAX) font:cell.like.font];
         
-        float height = 0;
+        float height = cell.view2Height.constant;;
         
         if (likeheight.height > 17) {
-            height = cell.view1Height.constant - 17 + likeheight.height;
+            height = cell.view2Height.constant - 17 + likeheight.height;
         }
         
         CGSize intrHeight = [self.recruitModel.job_content calculateSize:CGSizeMake(cell.detailLab.frame.size.width, FLT_MAX) font:cell.detailLab.font];
@@ -215,7 +215,7 @@
             height +=( cell.view2Height.constant - 67 + intrHeight.height);
         }
         
-        float heights = cell.headViewHeight.constant + cell.view1Height.constant + height + cell.view3Height.constant;
+        float heights = cell.headViewHeight.constant + cell.view1Height.constant + height + cell.view3Height.constant + 20;
         return heights;
     } else {
         return 579;
@@ -224,7 +224,29 @@
 
 - (void)rightBarButtonClick:(UIButton *)button {
 
-    [ITTPromptView showMessage:@"收藏成功"];
+    
+    MCUserModel *user = (MCUserModel *)[[MCUserManager shareManager]getCurrentUser];
+    if (user) {
+        NSMutableDictionary *param = [NSMutableDictionary dictionary];
+        [param safeString:user.user_id ForKey:@"user_id"];
+        [param safeString:self.recruitHomeModel.job_id ForKey:@"job_id"];
+    
+        [[MCHomeManager shareManager] requestHome_job_collectWithParam:param withIndicatorView:self.view withCancelRequestID:Home_request_job_collect withHttpMethod:kHTTPMethodPost onRequestFinish:^(MKNetworkOperation *operation) {
+            if (operation.isSuccees) {
+                NSString *code = [NSString stringWithFormat:@"%@",[operation.responseJSON objectForKey:@"code_array"]];
+                
+                if ([code isEqualToString:@"0"]) {
+                    [ITTPromptView showMessage:@"取消收藏成功"];
+                }else {
+                    [ITTPromptView showMessage:@"收藏成功"];
+                }
+            }else {
+                [ITTPromptView showMessage:@"操作失败"];
+            }
+        } onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
+            [ITTPromptView showMessage:@"网络请求失败"];
+        }];
+    }
 }
 
 /*

@@ -42,9 +42,9 @@
                 <constraint firstAttribute="bottom" secondItem="p2c-Fw-k5t" secondAttribute="bottom" id="L4h-CL-g2s"/>
                 <constraint firstAttribute="trailing" secondItem="p2c-Fw-k5t" secondAttribute="trailing" id="TZ8-cI-djn"/>
                 <constraint firstItem="p2c-Fw-k5t" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Uai-wK-2Ib"/>
+                <constraint firstItem="p2c-Fw-k5t" firstAttribute="top" secondItem="com-Lx-lVW" secondAttribute="bottom" id="UnT-Kq-v6d"/>
                 <constraint firstItem="com-Lx-lVW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="f6x-aR-xjZ"/>
                 <constraint firstAttribute="trailing" secondItem="com-Lx-lVW" secondAttribute="trailing" id="n4p-fc-IcT"/>
-                <constraint firstAttribute="bottom" secondItem="com-Lx-lVW" secondAttribute="bottom" constant="64" id="rpe-N5-oo5"/>
             </constraints>
             <point key="canvasLocation" x="319" y="297"/>
         </view>

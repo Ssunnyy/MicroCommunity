@@ -414,11 +414,11 @@
         case 301:
         {
             switchType = 2;
-            if ([[[MCUserManager shareManager]getCurrentUser].user_type isEqualToString:@"2"]) {
-                [self requestForRecruit];
-            }else {
+//            if ([[[MCUserManager shareManager]getCurrentUser].user_type isEqualToString:@"2"]) {
+//                [self requestForRecruit];
+//            }else {
                 pushToDestinationController(self, MCMyRecruitController);
-            }
+//            }
         }
             break;
         default:

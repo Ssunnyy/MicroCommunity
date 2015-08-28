@@ -58,7 +58,7 @@
     CGSize likeheight = [model.strong_demo calculateSize:CGSizeMake(self.like.frame.size.width, FLT_MAX) font:self.like.font];
     
     if (likeheight.height > 17) {
-        _view1Height.constant = _view1Height.constant - 17 + likeheight.height;
+        _view2Height.constant = _view2Height.constant - 17 + likeheight.height;
     }
     
     CGSize intrHeight = [model.job_content calculateSize:CGSizeMake(self.detailLab.frame.size.width, FLT_MAX) font:self.detailLab.font];
@@ -67,7 +67,6 @@
         _view2Height.constant = _view2Height.constant - 67 + intrHeight.height;
     }
     
-
     __weak MCRecruitDetailCell *weak = self;
     
     [self setNeedsUpdateConstraints];
