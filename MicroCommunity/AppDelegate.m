@@ -177,6 +177,7 @@ BOOL iscustomTabBarViewHide = NO;
 
                     MCUserModel *model = [[MCUserModel alloc]initWithDataDic:operation.resultDic];
                     model.password = user.password;
+                    model.seller_id = [[operation.responseJSON objectForKey:@"data_info"] objectForKey:@"seller_id"];
                     model.image = [NSString stringWithFormat:@"%@%@",Main_URL,model.image];
                     [[MCUserManager shareManager]safeAccountToLocal:model];
                     [[MCUserManager shareManager] setAutoLogin:YES];

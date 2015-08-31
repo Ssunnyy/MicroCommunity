@@ -1,5 +1,4 @@
 //
-//  MCShopPublicController.m
 //  MicroCommunity
 //
 //  Created by apple on 15/8/5.

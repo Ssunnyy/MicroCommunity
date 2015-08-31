@@ -40,9 +40,29 @@
 }
 
 - (void)configHeadWithMCUserModel:(MCUserModel *)model {
-
-    [_bgImage sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:ImageNamed(default_iconImag)];
-    [_headView sd_setImageWithURL:[NSURL URLWithString:model.image] placeholderImage:ImageNamed(default_head)];
+    
+    [_bgImage sd_setImageWithPreviousCachedImageWithURL:[NSURL URLWithString:model.image] andPlaceholderImage:ImageNamed(default_iconImag) options:SDWebImageRefreshCached progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+        
+    } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        if (!_bgImage.image) {
+            _bgImage.image = ImageNamed(default_iconImag);
+        }
+        if (image) {
+            [[SDImageCache sharedImageCache]storeImage:_bgImage.image forKey:model.image toDisk:YES];
+        }
+    }];
+    
+    [_headView sd_setImageWithPreviousCachedImageWithURL:[NSURL URLWithString:model.image] andPlaceholderImage:ImageNamed(default_head) options:SDWebImageRefreshCached progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+        
+    } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        if (!_headView.image) {
+            _headView.image = ImageNamed(default_head);
+        }
+        if (image) {
+            [[SDImageCache sharedImageCache]storeImage:_headView.image forKey:model.image toDisk:YES];
+        }
+    }];
+    
     _nickName.text = model.username;
     
     if ([model.user_type isEqualToString:@"2"]) {
@@ -51,7 +71,7 @@
         _shopBtn.hidden = YES;
     }
     
-    [_goldBtn setTitle:[NSString stringWithFormat:@"金豆:%ld",[model.gold_number integerValue]] forState:UIControlStateNormal];
+    [_goldBtn setTitle:[NSString stringWithFormat:@"金豆:%d",[model.gold_number intValue]] forState:UIControlStateNormal];
     _cityID.text = [NSString stringWithFormat:@"小城ID:%@",model.phone];
     
 }

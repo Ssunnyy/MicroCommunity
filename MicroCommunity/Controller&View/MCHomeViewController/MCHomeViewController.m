@@ -44,20 +44,24 @@
     [super viewWillAppear:YES];
     [self hideNavBar];
     [AppDelegate DisplayTabBar];
-    
-    [self requestCircle];
+    [self requestMain];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
 
     [super viewDidAppear:YES];
-    [self requestMain];
+    
+    if (self.adArray.count <= 0) {
+         [self requestCircle];
+    }
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
 
     [super viewDidDisappear:YES];
     [_search resignTextView];
+    [[MCHomeManager shareManager]cancelAllRequest];
+    
 }
 #pragma  mark  --  请求轮播图
 - (void) requestCircle{
@@ -74,15 +78,19 @@
                                             
                                             if (operation.isSuccees) {
                                                 NSArray *addArray = [operation.resultDic objectForKey:@"data"];
-                                                NSMutableArray *imageArray = [NSMutableArray array];
+                                                [weak.adArray removeAllObjects];
                                                 for (int i = 0; i < addArray.count; i ++) {
                                                     MCHomeAdModel *adModel = [[MCHomeAdModel alloc]initWithDataDic:[addArray objectAtIndex:i]];
                                                     adModel.key_drawing_image = [NSString stringWithFormat:@"%@%@",Main_URL,adModel.key_drawing_image];
                                                     [weak.adArray addObject:adModel];
-                                                    [imageArray addObject:adModel.key_drawing_image];
                                                 }
+                                                //  缓存
+                                                [DATA_CATHE addObject:weak.adArray forKey:Home_request_circle];
+                                                [DATA_CATHE doSave];
                                                 
-                                                [weak.circleScrollV setScrollViewContent:imageArray];
+                                                [weak setUpAdData];
+                                            }else {
+                                                [ITTPromptView showMessage:@"暂无广告"];
                                             }
                                         } onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
                                             [ITTPromptView showMessage:@"广告请求失败"];
@@ -111,6 +119,11 @@
                     homeModel.category_image = [NSString stringWithFormat:@"%@%@",Main_URL,homeModel.category_image];
                     [weak.tableArray addObject:homeModel];
                 }
+                
+                //  缓存
+                [DATA_CATHE addObject:weak.tableArray forKey:Home_request_main];
+                [DATA_CATHE doSave];
+                
                 [weak.homeTableView reloadData];
             }
             
@@ -128,6 +141,9 @@
     [self initSearchView];
     
     [self initAdView];
+    
+    [self initDataForCache];
+    
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -165,6 +181,31 @@
     _circleScrollV.delegate = self;
     
     self.locatePicker = [[HZAreaPickerView alloc] initWithStyle:HZAreaPickerWithStateAndCityAndDistrict delegate:self] ;
+}
+
+- (void) setUpAdData{
+
+    NSMutableArray *imageArray = [NSMutableArray array];
+    
+    for (int i = 0; i < _adArray.count; i++) {
+        MCHomeAdModel *picModel = [_adArray objectAtIndex:i];
+        [imageArray addObject:picModel.key_drawing_image];
+    }
+    if (imageArray.count > 0) {
+        [self.circleScrollV setScrollViewContent:imageArray];
+    }
+}
+
+- (void) initDataForCache{
+
+    //  广告缓存
+    NSMutableDictionary *dic = [[MCHomeManager shareManager] getLocalCache];
+    [_adArray addObjectsFromArray:[dic objectForKey:Home_request_circle]];
+    [self setUpAdData];
+    
+    //  素材缓存
+    [_tableArray addObjectsFromArray:[dic objectForKey:Home_request_main]];
+    
 }
 
 

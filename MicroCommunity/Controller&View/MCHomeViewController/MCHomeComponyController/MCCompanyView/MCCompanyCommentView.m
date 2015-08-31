@@ -25,6 +25,7 @@
 
 - (void)awakeFromNib {
     
+    keyHeight = 252;
     _textView.delegate = self;
     [_bottomView makeCornerRadius:10];
     [_bottomView setBorderWidth:1 andBorderColor:RGBACOLOR(237, 237, 237, 1)];

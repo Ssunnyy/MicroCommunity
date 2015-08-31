@@ -16,6 +16,7 @@
 #import "MCCompanProductBottomView.h"
 
 #import "MCShopPublicController.h"
+#import "MCCompanyConfirmController.h"
 
 #define HistoryList @"HistoryList"
 
@@ -52,6 +53,13 @@
     [super viewWillAppear:YES];
     
     [self requestGoodList];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+
+    [super viewWillDisappear:YES];
+    [[MCHomeManager shareManager]cancelAllRequest];
+    
 }
 
 
@@ -317,10 +325,21 @@
         case 101:
         {
             //  发布
-            MCShopPublicController *publish = [[MCShopPublicController alloc]initWithNibName:@"MCShopPublicController" bundle:nil];
-            publish.isEdting = NO;
-            publish.seller_id = self.currentModel.seller_id;
-            [self.navigationController pushViewController:publish animated:YES];
+            
+            //  101发布
+            
+            if ([[[MCUserManager shareManager]getCurrentUser].user_type isEqualToString:@"0"]) {
+                MCCompanyConfirmController *confirm = [[MCCompanyConfirmController alloc]initWithNibName:@"MCCompanyConfirmController" bundle:nil];
+                confirm.isConfirm = YES;
+                [self.navigationController pushViewController:confirm animated:YES];
+            } else if([[[MCUserManager shareManager]getCurrentUser].user_type isEqualToString:@"1"]){
+                [ITTPromptView showMessage:@"正在审核中"];
+            }else if ([[[MCUserManager shareManager]getCurrentUser].user_type isEqualToString:@"2"]){
+                
+                MCShopPublicController *shop = [[MCShopPublicController alloc]initWithNibName:@"MCShopPublicController" bundle:nil];
+                shop.seller_id = [[MCUserManager shareManager]getCurrentUser].seller_id;
+                [self.navigationController pushViewController:shop animated:YES];
+            }
         }
             break;
         case 102:

@@ -38,8 +38,13 @@
 
     [super viewWillAppear:YES];
 //    if (self.type == otherSearch) {
-        [self searchRequest];
+   
 //    }
+}
+- (void)viewWillDisappear:(BOOL)animated{
+
+    [super viewWillDisappear:YES];
+    [[MCHomeManager shareManager]cancelAllRequest];
 }
 #pragma  mark  --  搜索网络请求
 - (void) searchRequest {
@@ -126,6 +131,8 @@
     [self initSearchView];
     
     [self initCallWebView];
+    
+    [self searchRequest];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -305,6 +312,11 @@
                 MCHomeSearchModel *model = [_dataArray objectAtIndex:index];
                 NSURL *telURL = [NSURL URLWithString:[NSString stringWithFormat:@"tel:%@",model.linkphone]];
                 [_callWebView loadRequest:[NSURLRequest requestWithURL:telURL]];
+                
+                
+//                NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"telprompt://%@",@"18920107237"];
+//                //            NSLog(@"str======%@",str);
+//                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
             }
         }
             break;
@@ -342,7 +354,7 @@
             }else if ([[[MCUserManager shareManager]getCurrentUser].user_type isEqualToString:@"2"]){
                 
                 MCShopPublicController *shop = [[MCShopPublicController alloc]initWithNibName:@"MCShopPublicController" bundle:nil];
-                shop.seller_id = [[MCUserManager shareManager]getCurrentUser].user_id;
+                shop.seller_id = [[MCUserManager shareManager]getCurrentUser].seller_id;
                 [self.navigationController pushViewController:shop animated:YES];
             }
         }

@@ -8,6 +8,13 @@
 
 #import "ITTImagePickView.h"
 
+@interface ITTImagePickView ()
+
+{
+    NSInteger indexTake;//  选择第几个
+}
+
+@end
 
 @implementation ITTImagePickView
 
@@ -164,7 +171,20 @@
         [picker dismissViewControllerAnimated:NO completion:^{}];
 
         //获取照片实例
-		UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
+		UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+        
+        //  图片路径
+        NSMutableArray *tempImagePath = [NSMutableArray array];
+        NSData *data = UIImagePNGRepresentation(image);
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+        NSString *cachesDir = [NSString stringWithFormat:@"%@/%@",[paths objectAtIndex:0],[NSString stringWithFormat:@"images%ld.png",(long)indexTake ++]];
+        [data writeToFile:cachesDir atomically:YES];
+        [tempImagePath addObject:cachesDir];
+        
+        if (_pickDelegate && [_pickDelegate respondsToSelector:@selector(getImagePath:)]) {
+            [_pickDelegate getImagePath:tempImagePath];
+        }
+        
         image = [self compressImage:image];
         //保存到相册
         ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];

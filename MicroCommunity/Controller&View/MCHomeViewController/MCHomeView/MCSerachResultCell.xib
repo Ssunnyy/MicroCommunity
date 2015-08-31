@@ -18,9 +18,15 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="huazhuang_bg_.png" translatesAutoresizingMaskIntoConstraints="NO" id="xAW-lI-fnS">
                         <rect key="frame" x="8" y="8" width="60" height="60"/>
                         <constraints>
+                            <constraint firstAttribute="height" constant="60" id="20I-Pc-Ze4"/>
                             <constraint firstAttribute="width" secondItem="xAW-lI-fnS" secondAttribute="height" multiplier="1:1" id="XIM-Ju-WnE"/>
                             <constraint firstAttribute="width" constant="60" id="q9a-tq-bB4"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="XIM-Ju-WnE"/>
+                            </mask>
+                        </variation>
                     </imageView>
                     <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LkS-7k-C44">
                         <rect key="frame" x="8" y="11" width="60" height="60"/>
@@ -78,8 +84,8 @@
                                 <color key="textColor" red="0.2274509804" green="0.2274509804" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" tag="101" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k6t-ly-YU8">
-                                <rect key="frame" x="0.0" y="0.0" width="56" height="31"/>
+                            <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k6t-ly-YU8">
+                                <rect key="frame" x="0.0" y="0.0" width="56" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal" title="公司名称">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -142,6 +148,15 @@
                     <constraint firstItem="xAW-lI-fnS" firstAttribute="top" relation="lessThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="top" constant="9" id="pDR-M9-DPx"/>
                     <constraint firstAttribute="bottom" secondItem="eed-vc-XSg" secondAttribute="bottom" id="xCi-oy-hZj"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="9Rd-8U-0a9"/>
+                        <exclude reference="NzR-Xf-AJa"/>
+                        <exclude reference="Pg2-i5-LQ4"/>
+                        <exclude reference="WVV-HS-oYn"/>
+                        <exclude reference="pDR-M9-DPx"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <connections>
                 <outlet property="componyName" destination="k6t-ly-YU8" id="N6q-J4-vYS"/>

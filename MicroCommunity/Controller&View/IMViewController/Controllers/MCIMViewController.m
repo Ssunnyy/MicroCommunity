@@ -36,11 +36,13 @@
 
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    
 }
 #pragma mark  ---  取消请求
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:YES];
     
+    [[MCIMManager shareManager]cancelAllRequest];
 }
 
 - (void)viewDidLoad {

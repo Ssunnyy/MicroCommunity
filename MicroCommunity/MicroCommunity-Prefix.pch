@@ -42,6 +42,7 @@
     #import "MCHomeManager.h"
     #import "MCTalkManager.h"
     #import "MCMYManager.h"
+    #import "MCIMManager.h"
     #import "NSDate+ITTAdditions.h"
 
 #endif

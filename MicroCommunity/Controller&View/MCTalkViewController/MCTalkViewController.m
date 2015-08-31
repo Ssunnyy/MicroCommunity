@@ -29,14 +29,27 @@
     
     [AppDelegate DisplayTabBar];
     
-    [self searchRequestWithKeyWords:@""];
-    
+    [self performSelector:@selector(firstRequest) withObject:nil afterDelay:0.1];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+
+    [super viewDidAppear:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
 
     [super viewDidDisappear:YES];
     [_search resignTextView];
+    [[MCTalkManager shareManager]cancelAllRequest];
+}
+/**
+ *  第一次网络请求
+ */
+- (void) firstRequest {
+
+    [self searchRequestWithKeyWords:@""];
+    
 }
 
 - (void) searchRequestWithKeyWords:(NSString *)key {

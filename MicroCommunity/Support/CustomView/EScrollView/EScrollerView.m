@@ -103,7 +103,9 @@
         [imgView sd_setImageWithPreviousCachedImageWithURL:[NSURL URLWithString:imgURL] andPlaceholderImage:ImageNamed(@"main_default.png") options:SDWebImageRefreshCached progress:^(NSInteger receivedSize, NSInteger expectedSize) {
             
         } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-//            [[SDImageCache sharedImageCache]storeImage:imgView.image forKey:imgURL toDisk:YES];
+            if (image) {
+                [[SDImageCache sharedImageCache]storeImage:imgView.image forKey:imgURL toDisk:YES];
+            }
         }];
         [imgView setFrame:CGRectMake(viewSize.size.width*i, 0,viewSize.size.width, viewSize.size.height)];
         imgView.tag=i;

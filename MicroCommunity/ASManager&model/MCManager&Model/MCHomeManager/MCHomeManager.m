@@ -27,6 +27,28 @@ static MCHomeManager *defaultCenterInstance = nil;
     return defaultCenterInstance;
 }
 
+
+/**
+ *  获取缓存
+ */
+
+- (NSMutableDictionary *)getLocalCache{
+
+    NSMutableDictionary * dic = [NSMutableDictionary dictionary];
+    
+    if ([DATA_CATHE hasObjectInCacheByKey:Home_request_circle]) {
+        NSMutableArray * carbeautyArr = [NSMutableArray array];
+        [carbeautyArr addObjectsFromArray:[DATA_CATHE getCachedObjectByKey:Home_request_circle]];
+        [dic setObject:carbeautyArr forKey:Home_request_circle];
+    }
+    if ([DATA_CATHE hasObjectInCacheByKey:Home_request_main]) {
+        NSMutableArray * carbeautyArr = [NSMutableArray array];
+        [carbeautyArr addObjectsFromArray:[DATA_CATHE getCachedObjectByKey:Home_request_main]];
+        [dic setObject:carbeautyArr forKey:Home_request_main];
+    }
+    return dic;
+}
+
 /**
  *  @brief  轮播图
  *  @param  params

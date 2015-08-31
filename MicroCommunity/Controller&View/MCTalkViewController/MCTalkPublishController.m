@@ -8,7 +8,7 @@
 
 #import "MCTalkPublishController.h"
 #import "ITTImagePickView.h"
-
+#import "VPersonalActionView.h"
 @interface MCTalkPublishController ()<UITextViewDelegate,ITTImagePickDelegate>
 {
 
@@ -24,7 +24,13 @@
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bgViewHeight;
 
+/**
+ *  actionView
+ */
+@property (nonatomic, strong) VPersonalActionView *actionViews;
 @property (nonatomic,strong) ITTImagePickView *imagePickerView;//拍照或是选择照片的类的实例
+
+
 @property (nonatomic, strong) NSMutableArray *imageArray;
 
 @end
@@ -86,6 +92,9 @@
     }
 }
 
+#pragma  mark  --  VPersonalActionView
+
+
 - (IBAction)addImage:(UIButton *)sender {
     
     [self addPhoto];
@@ -112,26 +121,26 @@
     }
     [self.imagePickerView chooseImageFromAblum:canSelectNum withObject:self];
     
-    //100 是照片  101是拍照
-    //    ITTDPRINT(@"tapGesture.view.tag= %d",(int)tapGesture.view.tag);
-    //    int tag = (int)tapGesture.view.tag;
-    //    if (tag == 100) {
-    //        ITTDPRINT(@"照片");
-    //
-    //        这里传几 就是最多选几张图片--- 这个数值应该是动态决定的
-    //        [self.imagePickerView chooseImageFromAblum:canSelectNum withObject:self];
-    //    }
-    //    if (tag == 101) {
-    //        ///能能
-    //        NSString *mediaType = AVMediaTypeVideo;
-    //        AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:mediaType];
-    //        if(authStatus == ALAuthorizationStatusRestricted || authStatus == ALAuthorizationStatusDenied){
-    //            [CommonHelp promptMessage:@"相机权限受限" withCancelStr:nil withConfirmStr:@"确定"];
-    //            return;
-    //        }
-    //        ITTDPRINT(@"拍照");
-    //        [self.imagePickerView takePictureWithObject:self];
-    //    }
+//100 是照片  101是拍照
+//    ITTDPRINT(@"tapGesture.view.tag= %d",(int)tapGesture.view.tag);
+//    int tag = (int)tapGesture.view.tag;
+//    if (tag == 100) {
+//        ITTDPRINT(@"照片");
+//
+//        这里传几 就是最多选几张图片--- 这个数值应该是动态决定的
+//        [self.imagePickerView chooseImageFromAblum:canSelectNum withObject:self];
+//    }
+//    if (tag == 101) {
+//        ///能能
+//        NSString *mediaType = AVMediaTypeVideo;
+//        AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:mediaType];
+//        if(authStatus == ALAuthorizationStatusRestricted || authStatus == ALAuthorizationStatusDenied){
+//            [CommonHelp promptMessage:@"相机权限受限" withCancelStr:nil withConfirmStr:@"确定"];
+//            return;
+//        }
+//        ITTDPRINT(@"拍照");
+//        [self.imagePickerView takePictureWithObject:self];
+//    }
     
 }
 #pragma mark---ITTImagePickerViewDelegate--

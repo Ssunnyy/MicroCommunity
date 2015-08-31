@@ -75,6 +75,13 @@
 + (MCHomeManager *)shareManager;
 
 /**
+ *  获取缓存
+ */
+
+- (NSMutableDictionary *)getLocalCache;
+
+
+/**
  *  @brief  首页轮播图
  *  @param  params
  *  @param  view                    在那一页上的请求

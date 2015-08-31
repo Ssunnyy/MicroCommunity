@@ -47,6 +47,7 @@
 - (void)viewWillDisappear:(BOOL)animated {
     
     [super viewWillDisappear:YES];
+    [[MCHomeManager shareManager]cancelAllRequest];
 }
 /**
  *  评论列表网络请求

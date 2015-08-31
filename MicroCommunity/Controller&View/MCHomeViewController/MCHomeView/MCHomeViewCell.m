@@ -71,8 +71,18 @@
     MCHomeModel *model1 = (MCHomeModel *)[modelArr objectAtIndex:index*3];
     
     self.oneLable.text = model1.category_name;
-    [self.oneImage sd_setImageWithURL:[NSURL URLWithString:model1.category_image] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+    
+    
+    [self.oneImage sd_setImageWithPreviousCachedImageWithURL:[NSURL URLWithString:model1.category_image] andPlaceholderImage:ImageNamed(default_iconImag) options:SDWebImageRefreshCached progress:^(NSInteger receivedSize, NSInteger expectedSize) {
         
+    } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        if (!_oneImage.image) {
+            _oneImage.image = ImageNamed(default_iconImag);
+        }
+        
+        if (image) {
+            [[SDImageCache sharedImageCache]storeImage:_oneImage.image forKey:model1.category_image toDisk:YES];
+        }
     }];
     
     if (index == num - 1) {
@@ -84,12 +94,28 @@
                 MCHomeModel *model2 = (MCHomeModel *)[modelArr objectAtIndex:index*3 + 1];
                 MCHomeModel *model3 = (MCHomeModel *)[modelArr objectAtIndex:index*3 + 2];
                 
-                [self.twoImage sd_setImageWithURL:[NSURL URLWithString:model2.category_image] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                [self.twoImage sd_setImageWithPreviousCachedImageWithURL:[NSURL URLWithString:model2.category_image] andPlaceholderImage:ImageNamed(default_iconImag) options:SDWebImageRefreshCached progress:^(NSInteger receivedSize, NSInteger expectedSize) {
                     
+                } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                    if (!_twoImage.image) {
+                        _twoImage.image = ImageNamed(default_iconImag);
+                    }
+                    if (image) {
+                        [[SDImageCache sharedImageCache]storeImage:_twoImage.image forKey:model2.category_image toDisk:YES];
+                    }
                 }];
-                [self.threeImage sd_setImageWithURL:[NSURL URLWithString:model3.category_image] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                
+                [self.threeImage sd_setImageWithPreviousCachedImageWithURL:[NSURL URLWithString:model3.category_image] andPlaceholderImage:ImageNamed(default_iconImag) options:SDWebImageRefreshCached progress:^(NSInteger receivedSize, NSInteger expectedSize) {
                     
+                } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                    if (!_threeImage.image) {
+                        _threeImage.image = ImageNamed(default_iconImag);
+                    }
+                    if (image) {
+                        [[SDImageCache sharedImageCache]storeImage:_threeImage.image forKey:model3.category_image toDisk:YES];
+                    }
                 }];
+                
                 self.twoLab.text = model2.category_name;
                 self.threeLab.text = model3.category_name;
                 
@@ -105,8 +131,15 @@
             {
                 self.threeView.hidden = YES;
                 MCHomeModel *model2 = (MCHomeModel *)[modelArr objectAtIndex:index*3 + 1];
-                [self.twoImage sd_setImageWithURL:[NSURL URLWithString:model2.category_image] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                [self.twoImage sd_setImageWithPreviousCachedImageWithURL:[NSURL URLWithString:model2.category_image] andPlaceholderImage:ImageNamed(default_iconImag) options:SDWebImageRefreshCached progress:^(NSInteger receivedSize, NSInteger expectedSize) {
                     
+                } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                    if (!_twoImage.image) {
+                        _twoImage.image = ImageNamed(default_iconImag);
+                    }
+                    if (image) {
+                        [[SDImageCache sharedImageCache]storeImage:_twoImage.image forKey:model2.category_image toDisk:YES];
+                    }
                 }];
                 self.twoLab.text = model2.category_name;
             }
@@ -119,12 +152,28 @@
         MCHomeModel *model2 = (MCHomeModel *)[modelArr objectAtIndex:index*3 + 1];
         MCHomeModel *model3 = (MCHomeModel *)[modelArr objectAtIndex:index*3 + 2];
         
-        [self.twoImage sd_setImageWithURL:[NSURL URLWithString:model2.category_image] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        [self.twoImage sd_setImageWithPreviousCachedImageWithURL:[NSURL URLWithString:model2.category_image] andPlaceholderImage:ImageNamed(default_iconImag) options:SDWebImageRefreshCached progress:^(NSInteger receivedSize, NSInteger expectedSize) {
             
+        } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+            if (!_twoImage.image) {
+                _twoImage.image = ImageNamed(default_iconImag);
+            }
+            if (image) {
+                [[SDImageCache sharedImageCache]storeImage:_twoImage.image forKey:model2.category_image toDisk:YES];
+            }
         }];
-        [self.threeImage sd_setImageWithURL:[NSURL URLWithString:model3.category_image] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        
+        [self.threeImage sd_setImageWithPreviousCachedImageWithURL:[NSURL URLWithString:model3.category_image] andPlaceholderImage:ImageNamed(default_iconImag) options:SDWebImageRefreshCached progress:^(NSInteger receivedSize, NSInteger expectedSize) {
             
+        } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+            if (!_threeImage.image) {
+                _threeImage.image = ImageNamed(default_iconImag);
+            }
+            if (image) {
+                [[SDImageCache sharedImageCache]storeImage:_threeImage.image forKey:model3.category_image toDisk:YES];
+            }
         }];
+        
         self.twoLab.text = model2.category_name;
         self.threeLab.text = model3.category_name;
     }

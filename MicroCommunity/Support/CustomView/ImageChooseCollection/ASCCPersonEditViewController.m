@@ -9,8 +9,9 @@
 #import "ASCCPersonEditViewController.h"
 #import "ITTImagePickView.h"
 #import "Mycell.h"
+#import "VPersonalActionView.h"
 
-@interface ASCCPersonEditViewController ()<ITTImagePickDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UITextViewDelegate,UITextViewDelegate>
+@interface ASCCPersonEditViewController ()<ITTImagePickDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UITextViewDelegate,UITextViewDelegate,VActionViewDelegate>
 
 {
     int iMaxIamgeNum;
@@ -23,7 +24,14 @@
 @property (weak, nonatomic) IBOutlet UITextView *contentTextView;
 @property (weak, nonatomic) IBOutlet UILabel *placehoder;
 
-@property (nonatomic,strong)ITTImagePickView *imagePickerView;//拍照或是选择照片的类的实例
+/**
+ *  actionView
+ */
+@property (nonatomic, strong) VPersonalActionView *actionViews;
+/**
+ *  拍照或是选择照片的类的实例
+ */
+@property (nonatomic,strong) ITTImagePickView *imagePickerView;
 
 @end
 
@@ -54,6 +62,8 @@
     [self configHeagView];
     [self setCircleBorder];
     [self configCircleVIewHeight];
+    
+    [self setPersonActionView];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -108,8 +118,22 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (void)addPhoto{
-    
+
+
+#pragma  mark  --  VPersonalActionView
+- (void) setPersonActionView {
+    _actionViews = [VPersonalActionView getVPersonalActionView];
+    _actionViews.actionDelegate =self;
+    NSArray *arr = @[@"从相册中选择",@"拍摄",@"取消"];
+    [_actionViews setUpBtnTitle:arr];
+}
+
+
+#pragma  mark  --  VActionViewDelegate
+- (void)blackListOrCancelClick:(NSInteger)tag {
+    //  移除视图
+    [_actionViews hidenActionView];
+    //0 是从相册选择  1是拍照
     int canSelectNum = 0;
     int imageNum = (int)self.imageArray.count;
     if (imageNum >= iMaxIamgeNum) {
@@ -126,29 +150,38 @@
         self.imagePickerView.isUseCutController = NO;
         self.imagePickerView.pickDelegate = self;
     }
-    [self.imagePickerView chooseImageFromAblum:canSelectNum withObject:self];
-
     //100 是照片  101是拍照
-//    ITTDPRINT(@"tapGesture.view.tag= %d",(int)tapGesture.view.tag);
-//    int tag = (int)tapGesture.view.tag;
-//    if (tag == 100) {
-//        ITTDPRINT(@"照片");
-//        
-        //        这里传几 就是最多选几张图片--- 这个数值应该是动态决定的
-//        [self.imagePickerView chooseImageFromAblum:canSelectNum withObject:self];
-//    }
-//    if (tag == 101) {
-//        ///能能
-//        NSString *mediaType = AVMediaTypeVideo;
-//        AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:mediaType];
-//        if(authStatus == ALAuthorizationStatusRestricted || authStatus == ALAuthorizationStatusDenied){
-//            [CommonHelp promptMessage:@"相机权限受限" withCancelStr:nil withConfirmStr:@"确定"];
-//            return;
-//        }
-//        ITTDPRINT(@"拍照");
-//        [self.imagePickerView takePictureWithObject:self];
-//    }
-    
+    switch (tag) {
+        case 100:
+        {
+            ALAuthorizationStatus author = [ALAssetsLibrary authorizationStatus];
+            if (author == kCLAuthorizationStatusRestricted || author ==kCLAuthorizationStatusDenied)
+            {
+                [CommonHelp promptMessage:@"请在iphone的\"设置-隐私-相册\" 选项中,允许访问你的相机" withCancelStr:nil withConfirmStr:@"确定"];
+                return;
+            }
+            ITTDPRINT(@"照片");
+            //        这里传几 就是最多选几张图片--- 这个数值应该是动态决定的
+            [self.imagePickerView chooseImageFromAblum:canSelectNum withObject:self];
+        }
+            break;
+        case 101:
+        {
+            ITTDPRINT(@"拍照");
+            //判断有无调用相机权限
+            NSString *mediaType = AVMediaTypeVideo;
+            AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:mediaType];
+            if(authStatus == ALAuthorizationStatusRestricted || authStatus == ALAuthorizationStatusDenied){
+                [CommonHelp promptMessage:@"请在iphone的\"设置-隐私-相机\" 选项中,允许访问你的相机" withCancelStr:nil withConfirmStr:@"确定"];
+                return;
+            }
+            [self.imagePickerView takePictureWithObject:self];
+            [AppDelegate HideTabBar];
+        }
+            break;
+        default:
+            break;
+    }
 }
 
 #pragma mark---ITTImagePickerViewDelegate--
@@ -186,8 +219,10 @@
     }
     else
     {
+        [self.imageArray removeLastObject];
         _hasPhoto = YES;
         [self.imageArray addObject:image];
+        [_imageArray addObject:[UIImage imageNamed:@"btn_add3"]];
     }
     
     [self updatePhotoViewWithHasPhoto:_hasPhoto];
@@ -195,8 +230,9 @@
 }
 - (void) getImagePath:(NSMutableArray *)paths {
     
-    
-    [_imagePath addObjectsFromArray:paths];
+    if (paths.count > 0) {
+        [_imagePath addObjectsFromArray:paths];
+    }
 }
 
 /**
@@ -240,7 +276,7 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     if (_imageArray.count - 1 == indexPath.section *4 +indexPath.row)  {
-        [self addPhoto];
+        [self.actionViews showActionView];
     }
     ITTDPRINT(@"indexPath.row = %d section =%d",(int)indexPath.row,(int)indexPath.section);
 //    YXScanPhotoViewController *scanVC = [[YXScanPhotoViewController alloc]initWithNibName:@"YXScanPhotoViewController" bundle:nil andImageArray:self.imageArray andSelect:indexPath.row];

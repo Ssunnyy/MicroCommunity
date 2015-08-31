@@ -77,6 +77,7 @@
 
     [super viewWillDisappear:YES];
     [self disableKeyboardManager];
+    [[MCHomeManager shareManager]cancelAllRequest];
     
 }
 

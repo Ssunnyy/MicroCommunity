@@ -61,7 +61,6 @@
 
     [super viewWillDisappear:YES];
     [[MCTalkManager shareManager]cancelAllRequest];
-    
 }
 
 // 0 最新 1 最热
@@ -403,8 +402,9 @@
 - (void) reloadDataAtIndex:(NSInteger) index {
 
     __weak MCTalkListViewController *weak = self;
-    NSIndexPath *indexPath=[NSIndexPath indexPathForRow:index inSection:0];
-    [weak.talkTableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath,nil] withRowAnimation:UITableViewRowAnimationNone];
+    [self.talkTableView reloadData];
+//    NSIndexPath *indexPath=[NSIndexPath indexPathForRow:index inSection:0];
+//    [weak.talkTableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath,nil] withRowAnimation:UITableViewRowAnimationNone];
 }
 
 /**

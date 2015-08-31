@@ -48,6 +48,7 @@
     [super viewWillDisappear:YES];
     //  移除通知
     [_sendMessageView removeKeyboardLison];
+    [[MCHomeManager shareManager]cancelAllRequest];
 }
 /**
  *  商家介绍
