@@ -164,12 +164,12 @@
                   moduleName = "MicroCommunity"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Desktop/MicroCommunity/MicroCommunity/Controller&amp;View/MCHomeViewController/MCHomeSearchResultControllerViewController.m"
-                  timestampString = "462444400.121849"
+                  timestampString = "462784419.025544"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "67"
-                  endingLineNumber = "67"
-                  offsetFromSymbolStart = "872">
+                  startingLineNumber = "72"
+                  endingLineNumber = "72"
+                  offsetFromSymbolStart = "946">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -179,12 +179,12 @@
                   moduleName = "MicroCommunity"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Desktop/MicroCommunity/MicroCommunity/Controller&amp;View/MCHomeViewController/MCHomeSearchResultControllerViewController.m"
-                  timestampString = "462444400.122124"
+                  timestampString = "462784419.025717"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "67"
-                  endingLineNumber = "67"
-                  offsetFromSymbolStart = "44">
+                  startingLineNumber = "72"
+                  endingLineNumber = "72"
+                  offsetFromSymbolStart = "39">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -212,12 +212,12 @@
                   moduleName = "MicroCommunity"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Desktop/MicroCommunity/MicroCommunity/Controller&amp;View/MCHomeViewController/MCHomeSearchResultControllerViewController.m"
-                  timestampString = "462444403.223548"
+                  timestampString = "462784419.026609"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "91"
-                  endingLineNumber = "91"
-                  offsetFromSymbolStart = "1306">
+                  startingLineNumber = "96"
+                  endingLineNumber = "96"
+                  offsetFromSymbolStart = "1515">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -227,14 +227,62 @@
                   moduleName = "MicroCommunity"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/apple/Desktop/MicroCommunity/MicroCommunity/Controller&amp;View/MCHomeViewController/MCHomeSearchResultControllerViewController.m"
-                  timestampString = "462444403.223777"
+                  timestampString = "462784419.026789"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "91"
-                  endingLineNumber = "91"
-                  offsetFromSymbolStart = "44">
+                  startingLineNumber = "96"
+                  endingLineNumber = "96"
+                  offsetFromSymbolStart = "39">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MicroCommunity/Controller&amp;View/MCMyViewController/MCMyInfoController.m"
+            timestampString = "462786145.497025"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "266"
+            endingLineNumber = "266"
+            landmarkName = "-toobarDonBtnHaveClick:resultString:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MicroCommunity/Controller&amp;View/MCMyViewController/MCMyInfoController.m"
+            timestampString = "462786145.497025"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "282"
+            endingLineNumber = "282"
+            landmarkName = "-toobarDonBtnHaveClick:resultString:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MicroCommunity/Controller&amp;View/MCMyViewController/MCMyInfoController.m"
+            timestampString = "462786145.497025"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "281"
+            endingLineNumber = "281"
+            landmarkName = "-toobarDonBtnHaveClick:resultString:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

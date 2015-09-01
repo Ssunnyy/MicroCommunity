@@ -180,7 +180,7 @@
 - (IBAction)nextBtnClick:(id)sender
 {
     if (!isAgree) {
-        [ITTPromptView showMessage:@"请同意爱锁用户使用协议"];
+        [ITTPromptView showMessage:@"请同意用户使用协议"];
         return;
     }
     

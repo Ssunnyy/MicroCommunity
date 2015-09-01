@@ -60,7 +60,6 @@
     return self;
 }
 
-
 -(instancetype)initPickviewWithPlistName:(NSString *)plistName isHaveNavControler:(BOOL)isHaveNavControler{
     
     self=[super init];
@@ -73,6 +72,7 @@
     }
     return self;
 }
+
 -(instancetype)initPickviewWithArray:(NSArray *)array isHaveNavControler:(BOOL)isHaveNavControler{
     self=[super init];
     if (self) {
@@ -100,7 +100,6 @@
     [self setArrayClass:array];
 }
 
-
 -(instancetype)initDatePickWithDate:(NSDate *)defaulDate datePickerMode:(UIDatePickerMode)datePickerMode isHaveNavControler:(BOOL)isHaveNavControler{
     
     self=[super init];
@@ -111,7 +110,6 @@
     }
     return self;
 }
-
 
 -(NSArray *)getPlistArrayByplistName:(NSString *)plistName{
     
@@ -161,6 +159,7 @@
     CGFloat toolViewW = [UIScreen mainScreen].bounds.size.width;
     self.frame = CGRectMake(toolViewX, SCREEN_HEIGHT + toolViewY, toolViewW, toolViewH);
 }
+
 -(void)setUpPickView{
     
     if (_pickerView) {

@@ -238,7 +238,7 @@
             ALAuthorizationStatus author = [ALAssetsLibrary authorizationStatus];
             if (author == kCLAuthorizationStatusRestricted || author ==kCLAuthorizationStatusDenied)
             {
-                [CommonHelp promptMessage:@"请在iphone的\"设置-隐私-相册\" 选项中,允许爱锁访问你的相机" withCancelStr:nil withConfirmStr:@"确定"];
+                [CommonHelp promptMessage:@"请在iphone的\"设置-隐私-相册\" 选项中,允许访问你的相机" withCancelStr:nil withConfirmStr:@"确定"];
                 return;
             }
             
@@ -255,7 +255,7 @@
             NSString *mediaType = AVMediaTypeVideo;
             AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:mediaType];
             if(authStatus == ALAuthorizationStatusRestricted || authStatus == ALAuthorizationStatusDenied){
-                [CommonHelp promptMessage:@"请在iphone的\"设置-隐私-相机\" 选项中,允许爱锁访问你的相机" withCancelStr:nil withConfirmStr:@"确定"];
+                [CommonHelp promptMessage:@"请在iphone的\"设置-隐私-相机\" 选项中,允许访问你的相机" withCancelStr:nil withConfirmStr:@"确定"];
                 return;
             }
             [self.imagePickerView takePictureWithObject:self];

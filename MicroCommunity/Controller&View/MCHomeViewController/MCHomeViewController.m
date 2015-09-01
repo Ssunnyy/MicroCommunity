@@ -44,7 +44,7 @@
     [super viewWillAppear:YES];
     [self hideNavBar];
     [AppDelegate DisplayTabBar];
-    [self requestMain];
+    [self performSelector:@selector(requestMain) withObject:nil afterDelay:0.01];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -88,12 +88,19 @@
                                                 [DATA_CATHE addObject:weak.adArray forKey:Home_request_circle];
                                                 [DATA_CATHE doSave];
                                                 
+                                                [USER_DEFAULT setObject:@"1" forKey:Home_request_circle_Cache];
+                                                [USER_DEFAULT synchronize];
+                                                
                                                 [weak setUpAdData];
                                             }else {
                                                 [ITTPromptView showMessage:@"暂无广告"];
+                                                [USER_DEFAULT setObject:@"0" forKey:Home_request_circle_Cache];
+                                                [USER_DEFAULT synchronize];
                                             }
                                         } onRequestFailed:^(MKNetworkOperation *operation, NSError *error) {
                                             [ITTPromptView showMessage:@"广告请求失败"];
+                                            [USER_DEFAULT setObject:@"0" forKey:Home_request_circle_Cache];
+                                            [USER_DEFAULT synchronize];
                                         }];
     }
 }
@@ -335,13 +342,6 @@
         test = [NSString stringWithFormat:@"%@ %@", picker.locate.state, picker.locate.city];
         ids = [NSString stringWithFormat:@"%@ %@", picker.locate.stateId, picker.locate.cityId];
     }
-}
-
--(void)cancelLocatePicker
-{
-    [self.locatePicker cancelPicker];
-    self.locatePicker.delegate = nil;
-    self.locatePicker = nil;
 }
 
 /**

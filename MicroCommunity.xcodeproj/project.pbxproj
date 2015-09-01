@@ -590,6 +590,16 @@
 		18641B501B8307990019BD4C /* MCTalkMainModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18641B4F1B8307990019BD4C /* MCTalkMainModel.m */; };
 		18641B541B830EB90019BD4C /* MCTalkListHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18641B521B830EB90019BD4C /* MCTalkListHeaderView.m */; };
 		18641B551B830EB90019BD4C /* MCTalkListHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18641B531B830EB90019BD4C /* MCTalkListHeaderView.xib */; };
+		187F2CB81B95A8D100B52F64 /* MCTalkFriendMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 187F2CB61B95A8D100B52F64 /* MCTalkFriendMapView.m */; };
+		187F2CB91B95A8D100B52F64 /* MCTalkFriendMapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 187F2CB71B95A8D100B52F64 /* MCTalkFriendMapView.xib */; };
+		187F2CC41B95AA6300B52F64 /* map_ico_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 187F2CBC1B95AA6300B52F64 /* map_ico_bg@2x.png */; };
+		187F2CC51B95AA6300B52F64 /* map_ico_bg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 187F2CBD1B95AA6300B52F64 /* map_ico_bg@3x.png */; };
+		187F2CC61B95AA6300B52F64 /* map_ico1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 187F2CBE1B95AA6300B52F64 /* map_ico1@2x.png */; };
+		187F2CC71B95AA6300B52F64 /* map_ico1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 187F2CBF1B95AA6300B52F64 /* map_ico1@3x.png */; };
+		187F2CC81B95AA6300B52F64 /* map_ico2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 187F2CC01B95AA6300B52F64 /* map_ico2@2x.png */; };
+		187F2CC91B95AA6300B52F64 /* map_ico2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 187F2CC11B95AA6300B52F64 /* map_ico2@3x.png */; };
+		187F2CCA1B95AA6300B52F64 /* map_ico3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 187F2CC21B95AA6300B52F64 /* map_ico3@2x.png */; };
+		187F2CCB1B95AA6300B52F64 /* map_ico3@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 187F2CC31B95AA6300B52F64 /* map_ico3@3x.png */; };
 		187F98C21B7B837A00E8D6B5 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 187F98C11B7B837A00E8D6B5 /* libiconv.dylib */; };
 		187F98E11B7B876B00E8D6B5 /* libzbar-armv7-armv7s-x86_64-arm64.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 187F98DB1B7B876B00E8D6B5 /* libzbar-armv7-armv7s-x86_64-arm64.a */; };
 		187F98E21B7B876B00E8D6B5 /* zbar-back.png in Resources */ = {isa = PBXBuildFile; fileRef = 187F98DD1B7B876B00E8D6B5 /* zbar-back.png */; };
@@ -1583,6 +1593,17 @@
 		18641B511B830EB90019BD4C /* MCTalkListHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCTalkListHeaderView.h; sourceTree = "<group>"; };
 		18641B521B830EB90019BD4C /* MCTalkListHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCTalkListHeaderView.m; sourceTree = "<group>"; };
 		18641B531B830EB90019BD4C /* MCTalkListHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCTalkListHeaderView.xib; sourceTree = "<group>"; };
+		187F2CB51B95A8D100B52F64 /* MCTalkFriendMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCTalkFriendMapView.h; sourceTree = "<group>"; };
+		187F2CB61B95A8D100B52F64 /* MCTalkFriendMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCTalkFriendMapView.m; sourceTree = "<group>"; };
+		187F2CB71B95A8D100B52F64 /* MCTalkFriendMapView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCTalkFriendMapView.xib; sourceTree = "<group>"; };
+		187F2CBC1B95AA6300B52F64 /* map_ico_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map_ico_bg@2x.png"; sourceTree = "<group>"; };
+		187F2CBD1B95AA6300B52F64 /* map_ico_bg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map_ico_bg@3x.png"; sourceTree = "<group>"; };
+		187F2CBE1B95AA6300B52F64 /* map_ico1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map_ico1@2x.png"; sourceTree = "<group>"; };
+		187F2CBF1B95AA6300B52F64 /* map_ico1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map_ico1@3x.png"; sourceTree = "<group>"; };
+		187F2CC01B95AA6300B52F64 /* map_ico2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map_ico2@2x.png"; sourceTree = "<group>"; };
+		187F2CC11B95AA6300B52F64 /* map_ico2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map_ico2@3x.png"; sourceTree = "<group>"; };
+		187F2CC21B95AA6300B52F64 /* map_ico3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map_ico3@2x.png"; sourceTree = "<group>"; };
+		187F2CC31B95AA6300B52F64 /* map_ico3@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map_ico3@3x.png"; sourceTree = "<group>"; };
 		187F98C11B7B837A00E8D6B5 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 		187F98C71B7B876B00E8D6B5 /* Decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Decoder.h; sourceTree = "<group>"; };
 		187F98C81B7B876B00E8D6B5 /* Exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exception.h; sourceTree = "<group>"; };
@@ -2456,6 +2477,9 @@
 				18641B511B830EB90019BD4C /* MCTalkListHeaderView.h */,
 				18641B521B830EB90019BD4C /* MCTalkListHeaderView.m */,
 				18641B531B830EB90019BD4C /* MCTalkListHeaderView.xib */,
+				187F2CB51B95A8D100B52F64 /* MCTalkFriendMapView.h */,
+				187F2CB61B95A8D100B52F64 /* MCTalkFriendMapView.m */,
+				187F2CB71B95A8D100B52F64 /* MCTalkFriendMapView.xib */,
 			);
 			path = MCTalkView;
 			sourceTree = "<group>";
@@ -2657,6 +2681,14 @@
 		181A6CD61B7B558500B72FAD /* Talk_image */ = {
 			isa = PBXGroup;
 			children = (
+				187F2CBC1B95AA6300B52F64 /* map_ico_bg@2x.png */,
+				187F2CBD1B95AA6300B52F64 /* map_ico_bg@3x.png */,
+				187F2CBE1B95AA6300B52F64 /* map_ico1@2x.png */,
+				187F2CBF1B95AA6300B52F64 /* map_ico1@3x.png */,
+				187F2CC01B95AA6300B52F64 /* map_ico2@2x.png */,
+				187F2CC11B95AA6300B52F64 /* map_ico2@3x.png */,
+				187F2CC21B95AA6300B52F64 /* map_ico3@2x.png */,
+				187F2CC31B95AA6300B52F64 /* map_ico3@3x.png */,
 				181A6CD71B7B558500B72FAD /* back_icon_@2x.png */,
 				181A6CD81B7B558500B72FAD /* back_icon_@3x.png */,
 				181A6CDB1B7B558500B72FAD /* ico_message@2x.png */,
@@ -3841,6 +3873,7 @@
 				181A6BFE1B7B556100B72FAD /* MCRecruitController.xib in Resources */,
 				181A6D5E1B7B558500B72FAD /* shortcut_qq@2x.png in Resources */,
 				181A6D411B7B558500B72FAD /* radio2_off@3x.png in Resources */,
+				187F2CC91B95AA6300B52F64 /* map_ico2@3x.png in Resources */,
 				181A6D701B7B558500B72FAD /* base_btn4_on@2x.png in Resources */,
 				181A6D621B7B558500B72FAD /* base_btn1_off@2x.png in Resources */,
 				674A1DC41AFD6D8100D17472 /* materLoading(660)@3x.png in Resources */,
@@ -3880,6 +3913,7 @@
 				181A6D691B7B558500B72FAD /* base_btn2_on@3x.png in Resources */,
 				674A1D741AFD6D8100D17472 /* loginIcon@3x.png in Resources */,
 				181A6DC81B7B558500B72FAD /* my_count.png in Resources */,
+				187F2CB91B95A8D100B52F64 /* MCTalkFriendMapView.xib in Resources */,
 				181A6D9C1B7B558500B72FAD /* select_arrow2@2x.png in Resources */,
 				181A6C2F1B7B556100B72FAD /* MCMyMessageCell.xib in Resources */,
 				181A6BDE1B7B556100B72FAD /* MCComDetailHeadView.xib in Resources */,
@@ -3923,6 +3957,7 @@
 				674A1D7C1AFD6D8100D17472 /* wangjimima2@3x.png in Resources */,
 				181A6BF61B7B556100B72FAD /* MCRecruitCell.xib in Resources */,
 				18FD72721B7DD6B300E0CDE6 /* MCMyPublicBottomView.xib in Resources */,
+				187F2CC61B95AA6300B52F64 /* map_ico1@2x.png in Resources */,
 				181A6BAE1B7B556100B72FAD /* MCIMCreatHeadView.xib in Resources */,
 				674A1DC61AFD6D8100D17472 /* noNetDefault@3x.png in Resources */,
 				181A6BD81B7B556100B72FAD /* MCCompanyConfirmController.xib in Resources */,
@@ -3935,6 +3970,7 @@
 				674A1DB41AFD6D8100D17472 /* main_bc_fail@3x.png in Resources */,
 				181A6D551B7B558500B72FAD /* top_btn_heart@3x.png in Resources */,
 				181A6D601B7B558500B72FAD /* shortcut_wechat@2x.png in Resources */,
+				187F2CCB1B95AA6300B52F64 /* map_ico3@3x.png in Resources */,
 				18641B4C1B82DD880019BD4C /* pop-up_bg1@2x.png in Resources */,
 				1818BFFF1B7C8127006476F9 /* MCMyNewFriendCell.xib in Resources */,
 				181A6C391B7B556100B72FAD /* MCTalkListViewController.xib in Resources */,
@@ -3984,6 +4020,7 @@
 				181A6D831B7B558500B72FAD /* set_ico1@2x.png in Resources */,
 				181A6BE41B7B556100B72FAD /* MCCompanyCommentCell.xib in Resources */,
 				181A6DD11B7B558500B72FAD /* talk_dianzan.png in Resources */,
+				187F2CC51B95AA6300B52F64 /* map_ico_bg@3x.png in Resources */,
 				181A6DA91B7B558500B72FAD /* ico_share@3x.png in Resources */,
 				1818C0261B7CB15C006476F9 /* MCMyCountCells.xib in Resources */,
 				1818C0061B7C8823006476F9 /* top_btn_plus@2x.png in Resources */,
@@ -4023,8 +4060,10 @@
 				181A6DC31B7B558500B72FAD /* homeImage.jpg in Resources */,
 				181A6D571B7B558500B72FAD /* ico_del@3x.png in Resources */,
 				1818C00A1B7C91B4006476F9 /* btn_bg5_2@2x.png in Resources */,
+				187F2CC71B95AA6300B52F64 /* map_ico1@3x.png in Resources */,
 				181A6DAD1B7B558500B72FAD /* ipt_bg1@3x.png in Resources */,
 				181A6D441B7B558500B72FAD /* radio3_off@2x.png in Resources */,
+				187F2CC81B95AA6300B52F64 /* map_ico2@2x.png in Resources */,
 				674A1DB51AFD6D8100D17472 /* main_default@2x.png in Resources */,
 				181A6D351B7B558500B72FAD /* ico_zan@3x.png in Resources */,
 				181A6D921B7B558500B72FAD /* btn_bg3_1@2x.png in Resources */,
@@ -4084,6 +4123,7 @@
 				181A6C2B1B7B556100B72FAD /* MCMyGoleTableCell.xib in Resources */,
 				849288AA1B311779000AB1ED /* login_kuang@2x.png in Resources */,
 				181A6D811B7B558500B72FAD /* ipt_bg3@2x.png in Resources */,
+				187F2CCA1B95AA6300B52F64 /* map_ico3@2x.png in Resources */,
 				181A6D721B7B558500B72FAD /* ico_arrow_down2@2x.png in Resources */,
 				181A70381B7B563A00B72FAD /* NavigationBarView.xib in Resources */,
 				1818C0051B7C8823006476F9 /* btn_bg5@3x.png in Resources */,
@@ -4098,6 +4138,7 @@
 				674A1D7D1AFD6D8100D17472 /* xiugaixinxi@2x.png in Resources */,
 				181A6D391B7B558500B72FAD /* price_btn_plus@3x.png in Resources */,
 				674A1DBD1AFD6D8100D17472 /* materFail(1000)@2x.png in Resources */,
+				187F2CC41B95AA6300B52F64 /* map_ico_bg@2x.png in Resources */,
 				181A6D531B7B558500B72FAD /* title1_bg2@3x.png in Resources */,
 				181A6D401B7B558500B72FAD /* radio2_off@2x.png in Resources */,
 				181A6DCD1B7B558500B72FAD /* my_youjiantou.png in Resources */,
@@ -4253,6 +4294,7 @@
 				18FD727F1B7DE7A000E0CDE6 /* MCMyInfoController.m in Sources */,
 				181A6C131B7B556100B72FAD /* MCProtocolController.m in Sources */,
 				1859B5751B7D757300B5B985 /* MCMyCountApplyView.m in Sources */,
+				187F2CB81B95A8D100B52F64 /* MCTalkFriendMapView.m in Sources */,
 				181A70931B7B563A00B72FAD /* CJSONDeserializer.m in Sources */,
 				181A70A01B7B563A00B72FAD /* View+MASAdditions.m in Sources */,
 				181A6C3A1B7B556100B72FAD /* MCTalkPublishController.m in Sources */,

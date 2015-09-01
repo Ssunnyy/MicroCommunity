@@ -14,6 +14,9 @@
  *
  *  @return
  */
+
+#define Home_request_circle_Cache   @"Home_request_circle_Cache"//  轮播缓存
+
 #define Home_request_circle     @"home/life/key_drawing"    //轮播
 #define Home_request_main       @"home/life/index"          //首页
 #define Home_request_lifeSearch @"home/life/life_search"    //首页搜索

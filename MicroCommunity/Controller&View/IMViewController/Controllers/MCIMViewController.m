@@ -113,7 +113,6 @@
     }
     
     return height;
-    
 }
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -31,6 +31,10 @@
  */
 - (IBAction)chooseBtnClick:(UIButton *)sender {
     
+    if (_pickview) {
+        [_pickview remove];
+    }
+    
     switch (sender.tag) {
         case 300:
         {

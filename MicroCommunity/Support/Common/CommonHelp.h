@@ -88,6 +88,13 @@
  *  字符串是NSNull类型的情况
  */
 + (NSString *)changeStr:(NSString *)string;
-
-
+/**
+ * 星座
+ *
+ *  @param m 月份
+ *  @param d 日
+ *
+ *  @return 星座
+ */
++(NSString *)getAstroWithMonth:(int)m day:(int)d;
 @end

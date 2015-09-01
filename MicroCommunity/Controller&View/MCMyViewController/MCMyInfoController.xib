@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MCMyInfoController">
@@ -33,6 +33,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GBt-as-2wI">
+                    <rect key="frame" x="74" y="87" width="15" height="84"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OYx-7S-e6j">
@@ -60,14 +61,27 @@
                                             <color key="textColor" red="0.2274509804" green="0.2274509804" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VL2-ax-iVZ">
+                                            <rect key="frame" x="0.0" y="0.0" width="318" height="105"/>
+                                            <state key="normal">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="changeHeadBtn:" destination="-1" eventType="touchUpInside" id="44d-8z-fpS"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="VL2-ax-iVZ" secondAttribute="bottom" id="2Vl-6A-Piy"/>
+                                        <constraint firstAttribute="trailing" secondItem="VL2-ax-iVZ" secondAttribute="trailing" id="LKd-Lu-Chs"/>
                                         <constraint firstItem="8tp-pq-UQI" firstAttribute="top" secondItem="NgG-56-jIT" secondAttribute="top" id="QQ2-kQ-SfZ"/>
+                                        <constraint firstItem="VL2-ax-iVZ" firstAttribute="leading" secondItem="NgG-56-jIT" secondAttribute="leading" id="Qre-gD-o74"/>
                                         <constraint firstAttribute="bottom" secondItem="8tp-pq-UQI" secondAttribute="bottom" id="d7g-G2-YMZ"/>
                                         <constraint firstItem="8tp-pq-UQI" firstAttribute="leading" secondItem="NgG-56-jIT" secondAttribute="leading" id="dX0-mG-wCE"/>
                                         <constraint firstItem="36F-gf-Znr" firstAttribute="top" secondItem="UlO-n6-aV2" secondAttribute="bottom" constant="1" id="ecR-iZ-bLq"/>
+                                        <constraint firstItem="VL2-ax-iVZ" firstAttribute="top" secondItem="NgG-56-jIT" secondAttribute="top" id="iQH-1h-ogk"/>
                                         <constraint firstAttribute="centerX" secondItem="UlO-n6-aV2" secondAttribute="centerX" id="jB9-Cf-Qlh"/>
                                         <constraint firstAttribute="trailing" secondItem="8tp-pq-UQI" secondAttribute="trailing" id="k2u-Bn-DyK"/>
                                         <constraint firstAttribute="height" constant="105" id="nOJ-K6-yVn"/>
@@ -402,13 +416,13 @@
                                                 <constraint firstItem="Rss-dm-0Nw" firstAttribute="leading" secondItem="qJr-cN-cg7" secondAttribute="leading" constant="10" id="wjy-uA-WCk"/>
                                             </constraints>
                                         </view>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="35" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C3A-0s-SBI">
-                                            <rect key="frame" x="105" y="316" width="16" height="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C3A-0s-SBI">
+                                            <rect key="frame" x="105" y="316" width="8" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="魔蝎座" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rhq-wT-YKG">
-                                            <rect key="frame" x="105" y="355" width="42" height="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rhq-wT-YKG">
+                                            <rect key="frame" x="105" y="364" width="0.0" height="0.0"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -598,7 +612,6 @@
                                                     </state>
                                                     <connections>
                                                         <action selector="birthClick:" destination="-1" eventType="touchUpInside" id="625-v4-o11"/>
-                                                        <action selector="sexBtnClick:" destination="-1" eventType="touchUpInside" id="Ze7-r2-8bf"/>
                                                     </connections>
                                                 </button>
                                             </subviews>

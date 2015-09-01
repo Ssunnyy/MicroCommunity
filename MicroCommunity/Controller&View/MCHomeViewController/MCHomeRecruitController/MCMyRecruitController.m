@@ -97,6 +97,7 @@
 #pragma  mark  --  ZHPickViewDelegate
 -(void)toobarDonBtnHaveClick:(ZHPickView *)pickView resultString:(NSString *)resultString{
 
+    
     switch (pickView.tag) {
         case 400:
         {
@@ -125,6 +126,10 @@
  *  @param sender
  */
 - (IBAction)jobYearChoose:(UIButton *)sender {
+    
+    if (_pickview) {
+        [_pickview remove];
+    }
     
     switch (sender.tag) {
         case 300:
