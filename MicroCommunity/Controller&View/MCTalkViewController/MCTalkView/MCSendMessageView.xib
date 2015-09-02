@@ -1,65 +1,69 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MCSendMessageView">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="MCSendMessageView">
             <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
-            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ipt_bg1.png" translatesAutoresizingMaskIntoConstraints="NO" id="QCV-CT-5Zw">
-                    <rect key="frame" x="20" y="15" width="280" height="35"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="35" id="dQx-ua-8Ko"/>
-                    </constraints>
-                </imageView>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="期待您的精彩评论" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NC2-bp-hKY">
-                    <rect key="frame" x="35" y="17" width="200" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="30" id="02W-A1-S8n"/>
-                        <constraint firstAttribute="width" constant="200" id="2BW-AV-wmO"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                    <connections>
-                        <outlet property="delegate" destination="-1" id="HAj-Mv-rfS"/>
-                    </connections>
-                </textField>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MWq-gr-HQ6">
-                    <rect key="frame" x="235" y="15" width="65" height="35"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="35" id="fhC-AY-hUl"/>
-                        <constraint firstAttribute="width" constant="65" id="nJq-lR-jPM"/>
-                    </constraints>
-                    <state key="normal">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="sendAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="Ik4-xa-wcL"/>
-                    </connections>
-                </button>
-            </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <constraints>
-                <constraint firstAttribute="centerY" secondItem="NC2-bp-hKY" secondAttribute="centerY" id="0ON-lN-AMS"/>
-                <constraint firstAttribute="centerY" secondItem="QCV-CT-5Zw" secondAttribute="centerY" id="0YY-KQ-hHx"/>
-                <constraint firstAttribute="centerX" secondItem="QCV-CT-5Zw" secondAttribute="centerX" id="ALp-c1-IeJ"/>
-                <constraint firstAttribute="centerY" secondItem="MWq-gr-HQ6" secondAttribute="centerY" id="Jkb-ds-1bD"/>
-                <constraint firstItem="MWq-gr-HQ6" firstAttribute="leading" secondItem="NC2-bp-hKY" secondAttribute="trailing" id="XAx-De-hAv"/>
-                <constraint firstAttribute="trailing" secondItem="QCV-CT-5Zw" secondAttribute="trailing" constant="20" id="XHm-do-99R"/>
-                <constraint firstItem="NC2-bp-hKY" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="35" id="h5h-tk-wDW"/>
-                <constraint firstItem="QCV-CT-5Zw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="u7z-SZ-hyv"/>
-            </constraints>
-            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ipt_bg1.png" translatesAutoresizingMaskIntoConstraints="NO" id="fm8-9o-iXX">
+                        <rect key="frame" x="20" y="14" width="280" height="35"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="35" id="bOR-sS-ujz"/>
+                        </constraints>
+                    </imageView>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="期待您的精彩评论" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="esL-Uy-0PP">
+                        <rect key="frame" x="33" y="17" width="200" height="30"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="c7x-Uq-H8L"/>
+                            <constraint firstAttribute="width" constant="200" id="qZQ-BL-tQB"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                        <connections>
+                            <outlet property="delegate" destination="-1" id="fdh-9y-muN"/>
+                        </connections>
+                    </textField>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kZj-EW-SL1">
+                        <rect key="frame" x="233" y="12" width="65" height="35"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="35" id="FPt-N0-rNd"/>
+                            <constraint firstAttribute="width" constant="65" id="ehi-zZ-dw9"/>
+                        </constraints>
+                        <state key="normal">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="sendAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="4ht-we-p96"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstItem="kZj-EW-SL1" firstAttribute="bottom" secondItem="esL-Uy-0PP" secondAttribute="bottom" id="J9R-cQ-Yqs"/>
+                    <constraint firstItem="kZj-EW-SL1" firstAttribute="leading" secondItem="esL-Uy-0PP" secondAttribute="trailing" id="KjK-Qd-yLR"/>
+                    <constraint firstAttribute="trailing" secondItem="fm8-9o-iXX" secondAttribute="trailing" constant="20" id="Qbd-fn-Erf"/>
+                    <constraint firstAttribute="centerY" secondItem="esL-Uy-0PP" secondAttribute="centerY" id="XYf-PP-ziw"/>
+                    <constraint firstItem="esL-Uy-0PP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="33" id="bSC-AW-Zkz"/>
+                    <constraint firstAttribute="centerY" secondItem="fm8-9o-iXX" secondAttribute="centerY" id="oNT-BD-qCz"/>
+                    <constraint firstItem="fm8-9o-iXX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="wIz-tR-KxV"/>
+                </constraints>
+            </tableViewCellContentView>
             <connections>
-                <outlet property="contentField" destination="NC2-bp-hKY" id="0qd-Sd-e6S"/>
+                <outlet property="contentField" destination="esL-Uy-0PP" id="x6g-r2-Xqj"/>
+                <outlet property="textMessageWidth" destination="qZQ-BL-tQB" id="3Ah-Su-afG"/>
             </connections>
-            <point key="canvasLocation" x="307" y="281"/>
-        </view>
+            <point key="canvasLocation" x="320" y="290"/>
+        </tableViewCell>
     </objects>
     <resources>
         <image name="ipt_bg1.png" width="364" height="39"/>

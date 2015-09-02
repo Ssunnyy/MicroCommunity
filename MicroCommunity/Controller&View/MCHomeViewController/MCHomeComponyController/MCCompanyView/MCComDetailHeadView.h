@@ -1,12 +1,13 @@
 //
-//  MCComDetailHeadView.h
+//  TableViewCell.h
 //  MicroCommunity
 //
-//  Created by apple on 15/8/3.
+//  Created by apple on 15/9/2.
 //  Copyright (c) 2015年 qiuyan. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
+
 @class MCHomeSearchModel;
 
 @protocol MCComDetailHeadViewDelegate <NSObject>
@@ -15,7 +16,7 @@
 
 @end
 
-@interface MCComDetailHeadView : UIView
+@interface MCComDetailHeadView : UITableViewCell
 
 @property (nonatomic, assign) id <MCComDetailHeadViewDelegate> delgate;
 

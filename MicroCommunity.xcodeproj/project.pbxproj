@@ -116,8 +116,6 @@
 		181A6BDA1B7B556100B72FAD /* MCCompanyDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 181A6AD61B7B556100B72FAD /* MCCompanyDetailController.xib */; };
 		181A6BDB1B7B556100B72FAD /* MCCompanyProductController.m in Sources */ = {isa = PBXBuildFile; fileRef = 181A6AD81B7B556100B72FAD /* MCCompanyProductController.m */; };
 		181A6BDC1B7B556100B72FAD /* MCCompanyProductController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 181A6AD91B7B556100B72FAD /* MCCompanyProductController.xib */; };
-		181A6BDD1B7B556100B72FAD /* MCComDetailHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 181A6ADC1B7B556100B72FAD /* MCComDetailHeadView.m */; };
-		181A6BDE1B7B556100B72FAD /* MCComDetailHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 181A6ADD1B7B556100B72FAD /* MCComDetailHeadView.xib */; };
 		181A6BDF1B7B556100B72FAD /* MCCompanProductBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 181A6ADF1B7B556100B72FAD /* MCCompanProductBottomView.m */; };
 		181A6BE01B7B556100B72FAD /* MCCompanProductBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 181A6AE01B7B556100B72FAD /* MCCompanProductBottomView.xib */; };
 		181A6BE11B7B556100B72FAD /* MCCompanyBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 181A6AE21B7B556100B72FAD /* MCCompanyBottomView.m */; };
@@ -213,8 +211,6 @@
 		181A6C3B1B7B556100B72FAD /* MCTalkPublishController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 181A6B711B7B556100B72FAD /* MCTalkPublishController.xib */; };
 		181A6C3C1B7B556100B72FAD /* MCTalkReportController.m in Sources */ = {isa = PBXBuildFile; fileRef = 181A6B731B7B556100B72FAD /* MCTalkReportController.m */; };
 		181A6C3D1B7B556100B72FAD /* MCTalkReportController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 181A6B741B7B556100B72FAD /* MCTalkReportController.xib */; };
-		181A6C3E1B7B556100B72FAD /* MCSendMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 181A6B771B7B556100B72FAD /* MCSendMessageView.m */; };
-		181A6C3F1B7B556100B72FAD /* MCSendMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 181A6B781B7B556100B72FAD /* MCSendMessageView.xib */; };
 		181A6C401B7B556100B72FAD /* MCTalkCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 181A6B7A1B7B556100B72FAD /* MCTalkCommentCell.m */; };
 		181A6C411B7B556100B72FAD /* MCTalkCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 181A6B7B1B7B556100B72FAD /* MCTalkCommentCell.xib */; };
 		181A6C421B7B556100B72FAD /* MCTalkListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 181A6B7D1B7B556100B72FAD /* MCTalkListCell.m */; };
@@ -632,6 +628,10 @@
 		18FD727B1B7DE57100E0CDE6 /* btn_bg5_3@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18FD72791B7DE57100E0CDE6 /* btn_bg5_3@3x.png */; };
 		18FD727F1B7DE7A000E0CDE6 /* MCMyInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FD727D1B7DE7A000E0CDE6 /* MCMyInfoController.m */; };
 		18FD72801B7DE7A000E0CDE6 /* MCMyInfoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18FD727E1B7DE7A000E0CDE6 /* MCMyInfoController.xib */; };
+		18FDBEB81B96DF60009CBF1B /* MCSendMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FDBEB61B96DF60009CBF1B /* MCSendMessageView.m */; };
+		18FDBEB91B96DF60009CBF1B /* MCSendMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18FDBEB71B96DF60009CBF1B /* MCSendMessageView.xib */; };
+		18FDBEBD1B96E52D009CBF1B /* MCComDetailHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FDBEBB1B96E52D009CBF1B /* MCComDetailHeadView.m */; };
+		18FDBEBE1B96E52D009CBF1B /* MCComDetailHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18FDBEBC1B96E52D009CBF1B /* MCComDetailHeadView.xib */; };
 		672704FA1AB13B1700D6CF68 /* ASMaterialModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 672704F91AB13B1700D6CF68 /* ASMaterialModel.m */; };
 		67316D861ACE896300BC3B61 /* ASOrderRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 67316D851ACE896300BC3B61 /* ASOrderRequestManager.m */; };
 		674A1D641AFD6D8100D17472 /* bukecaozuo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 674A1B771AFD6D8000D17472 /* bukecaozuo@2x.png */; };
@@ -881,9 +881,6 @@
 		181A6AD71B7B556100B72FAD /* MCCompanyProductController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCCompanyProductController.h; sourceTree = "<group>"; };
 		181A6AD81B7B556100B72FAD /* MCCompanyProductController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCCompanyProductController.m; sourceTree = "<group>"; };
 		181A6AD91B7B556100B72FAD /* MCCompanyProductController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCCompanyProductController.xib; sourceTree = "<group>"; };
-		181A6ADB1B7B556100B72FAD /* MCComDetailHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCComDetailHeadView.h; sourceTree = "<group>"; };
-		181A6ADC1B7B556100B72FAD /* MCComDetailHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCComDetailHeadView.m; sourceTree = "<group>"; };
-		181A6ADD1B7B556100B72FAD /* MCComDetailHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCComDetailHeadView.xib; sourceTree = "<group>"; };
 		181A6ADE1B7B556100B72FAD /* MCCompanProductBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCCompanProductBottomView.h; sourceTree = "<group>"; };
 		181A6ADF1B7B556100B72FAD /* MCCompanProductBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCCompanProductBottomView.m; sourceTree = "<group>"; };
 		181A6AE01B7B556100B72FAD /* MCCompanProductBottomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCCompanProductBottomView.xib; sourceTree = "<group>"; };
@@ -1028,9 +1025,6 @@
 		181A6B721B7B556100B72FAD /* MCTalkReportController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCTalkReportController.h; sourceTree = "<group>"; };
 		181A6B731B7B556100B72FAD /* MCTalkReportController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCTalkReportController.m; sourceTree = "<group>"; };
 		181A6B741B7B556100B72FAD /* MCTalkReportController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCTalkReportController.xib; sourceTree = "<group>"; };
-		181A6B761B7B556100B72FAD /* MCSendMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCSendMessageView.h; sourceTree = "<group>"; };
-		181A6B771B7B556100B72FAD /* MCSendMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCSendMessageView.m; sourceTree = "<group>"; };
-		181A6B781B7B556100B72FAD /* MCSendMessageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCSendMessageView.xib; sourceTree = "<group>"; };
 		181A6B791B7B556100B72FAD /* MCTalkCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCTalkCommentCell.h; sourceTree = "<group>"; };
 		181A6B7A1B7B556100B72FAD /* MCTalkCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCTalkCommentCell.m; sourceTree = "<group>"; };
 		181A6B7B1B7B556100B72FAD /* MCTalkCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCTalkCommentCell.xib; sourceTree = "<group>"; };
@@ -1670,6 +1664,12 @@
 		18FD727C1B7DE7A000E0CDE6 /* MCMyInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMyInfoController.h; sourceTree = "<group>"; };
 		18FD727D1B7DE7A000E0CDE6 /* MCMyInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMyInfoController.m; sourceTree = "<group>"; };
 		18FD727E1B7DE7A000E0CDE6 /* MCMyInfoController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCMyInfoController.xib; sourceTree = "<group>"; };
+		18FDBEB51B96DF60009CBF1B /* MCSendMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCSendMessageView.h; sourceTree = "<group>"; };
+		18FDBEB61B96DF60009CBF1B /* MCSendMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCSendMessageView.m; sourceTree = "<group>"; };
+		18FDBEB71B96DF60009CBF1B /* MCSendMessageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCSendMessageView.xib; sourceTree = "<group>"; };
+		18FDBEBA1B96E52D009CBF1B /* MCComDetailHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCComDetailHeadView.h; sourceTree = "<group>"; };
+		18FDBEBB1B96E52D009CBF1B /* MCComDetailHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCComDetailHeadView.m; sourceTree = "<group>"; };
+		18FDBEBC1B96E52D009CBF1B /* MCComDetailHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCComDetailHeadView.xib; sourceTree = "<group>"; };
 		28ABAD0F2CEF911F3459330A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		672704F81AB13B1700D6CF68 /* ASMaterialModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASMaterialModel.h; sourceTree = "<group>"; };
 		672704F91AB13B1700D6CF68 /* ASMaterialModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASMaterialModel.m; sourceTree = "<group>"; };
@@ -2214,9 +2214,9 @@
 		181A6ADA1B7B556100B72FAD /* MCCompanyView */ = {
 			isa = PBXGroup;
 			children = (
-				181A6ADB1B7B556100B72FAD /* MCComDetailHeadView.h */,
-				181A6ADC1B7B556100B72FAD /* MCComDetailHeadView.m */,
-				181A6ADD1B7B556100B72FAD /* MCComDetailHeadView.xib */,
+				18FDBEBA1B96E52D009CBF1B /* MCComDetailHeadView.h */,
+				18FDBEBB1B96E52D009CBF1B /* MCComDetailHeadView.m */,
+				18FDBEBC1B96E52D009CBF1B /* MCComDetailHeadView.xib */,
 				181A6ADE1B7B556100B72FAD /* MCCompanProductBottomView.h */,
 				181A6ADF1B7B556100B72FAD /* MCCompanProductBottomView.m */,
 				181A6AE01B7B556100B72FAD /* MCCompanProductBottomView.xib */,
@@ -2462,9 +2462,9 @@
 		181A6B751B7B556100B72FAD /* MCTalkView */ = {
 			isa = PBXGroup;
 			children = (
-				181A6B761B7B556100B72FAD /* MCSendMessageView.h */,
-				181A6B771B7B556100B72FAD /* MCSendMessageView.m */,
-				181A6B781B7B556100B72FAD /* MCSendMessageView.xib */,
+				18FDBEB51B96DF60009CBF1B /* MCSendMessageView.h */,
+				18FDBEB61B96DF60009CBF1B /* MCSendMessageView.m */,
+				18FDBEB71B96DF60009CBF1B /* MCSendMessageView.xib */,
 				181A6B791B7B556100B72FAD /* MCTalkCommentCell.h */,
 				181A6B7A1B7B556100B72FAD /* MCTalkCommentCell.m */,
 				181A6B7B1B7B556100B72FAD /* MCTalkCommentCell.xib */,
@@ -3916,7 +3916,6 @@
 				187F2CB91B95A8D100B52F64 /* MCTalkFriendMapView.xib in Resources */,
 				181A6D9C1B7B558500B72FAD /* select_arrow2@2x.png in Resources */,
 				181A6C2F1B7B556100B72FAD /* MCMyMessageCell.xib in Resources */,
-				181A6BDE1B7B556100B72FAD /* MCComDetailHeadView.xib in Resources */,
 				674A1DC21AFD6D8100D17472 /* materLoading(1000)@3x.png in Resources */,
 				181A6C371B7B556100B72FAD /* MCTalkDetailController.xib in Resources */,
 				186299B81B84125F0088E274 /* huazhuang_bg_@2x.png in Resources */,
@@ -4147,6 +4146,7 @@
 				181A6D291B7B558500B72FAD /* ico_area_bg1@3x.png in Resources */,
 				181A6DC01B7B558500B72FAD /* home_shoot.png in Resources */,
 				674A1D761AFD6D8100D17472 /* pic_kuang@3x.png in Resources */,
+				18FDBEBE1B96E52D009CBF1B /* MCComDetailHeadView.xib in Resources */,
 				18641B481B82DD880019BD4C /* ico_arrow_down@2x.png in Resources */,
 				18FD72771B7DD9FC00E0CDE6 /* MCMyPublishShowMessage.xib in Resources */,
 				674A1D751AFD6D8100D17472 /* pic_kuang@2x.png in Resources */,
@@ -4167,6 +4167,7 @@
 				181A6D2C1B7B558500B72FAD /* ico_arrow_up@2x.png in Resources */,
 				181A6D781B7B558500B72FAD /* sex_famale@2x.png in Resources */,
 				181A6D961B7B558500B72FAD /* btn_more@2x.png in Resources */,
+				18FDBEB91B96DF60009CBF1B /* MCSendMessageView.xib in Resources */,
 				181A6DA81B7B558500B72FAD /* ico_share@2x.png in Resources */,
 				1818C0071B7C8823006476F9 /* top_btn_plus@3x.png in Resources */,
 				181A6DB31B7B558500B72FAD /* textarea_bg4@3x.png in Resources */,
@@ -4213,7 +4214,6 @@
 				181A6D891B7B558500B72FAD /* set_ico4@2x.png in Resources */,
 				181A6D3A1B7B558500B72FAD /* pro_base_btn1@2x.png in Resources */,
 				181A6C041B7B556100B72FAD /* MCHomeSearchResultControllerViewController.xib in Resources */,
-				181A6C3F1B7B556100B72FAD /* MCSendMessageView.xib in Resources */,
 				181A6DD61B7B558500B72FAD /* user_pwd.png in Resources */,
 				849288AE1B311788000AB1ED /* zhuce@2x.png in Resources */,
 				181A70561B7B563A00B72FAD /* ITTPromptView.xib in Resources */,
@@ -4410,6 +4410,7 @@
 				181A6E201B7B55CD00B72FAD /* MCMYManager.m in Sources */,
 				181A6BC11B7B556100B72FAD /* ASLoginViewController.m in Sources */,
 				181A70691B7B563A00B72FAD /* SearchBarView.m in Sources */,
+				18FDBEBD1B96E52D009CBF1B /* MCComDetailHeadView.m in Sources */,
 				181A70C61B7B563A00B72FAD /* UIImage+WebP.m in Sources */,
 				6754A8551AB446CD00A3866A /* ASBCShowImgsModel.m in Sources */,
 				181A702F1B7B563A00B72FAD /* ChineseString.m in Sources */,
@@ -4490,7 +4491,6 @@
 				1818C0291B7CBC62006476F9 /* MCMycountModle.m in Sources */,
 				183BEB211B8C90FE007CE57D /* MCHomeZhaoPingModel.m in Sources */,
 				181A6C011B7B556100B72FAD /* MCRecruitPublicController.m in Sources */,
-				181A6C3E1B7B556100B72FAD /* MCSendMessageView.m in Sources */,
 				1818BFE81B7C3015006476F9 /* qrinput.c in Sources */,
 				181A6BE71B7B556100B72FAD /* MCCompanyIntroCell.m in Sources */,
 				181A70551B7B563A00B72FAD /* ITTPromptView.m in Sources */,
@@ -4502,6 +4502,7 @@
 				181A703C1B7B563A00B72FAD /* ASCityModel.m in Sources */,
 				181A70B71B7B563A00B72FAD /* Reachability.m in Sources */,
 				18808FA51B7DC21E007F0301 /* MCMyPublicController.m in Sources */,
+				18FDBEB81B96DF60009CBF1B /* MCSendMessageView.m in Sources */,
 				181A70A71B7B563A00B72FAD /* MJRefreshGifHeader.m in Sources */,
 				1818BFEA1B7C3015006476F9 /* rscode.c in Sources */,
 				181A6C381B7B556100B72FAD /* MCTalkListViewController.m in Sources */,
@@ -4587,7 +4588,6 @@
 				181A6E1A1B7B55CD00B72FAD /* MCCompanyServerModel.m in Sources */,
 				181A705A1B7B563A00B72FAD /* MCAutoSizeLab.m in Sources */,
 				181A6BA31B7B556100B72FAD /* MCIMCreatController.m in Sources */,
-				181A6BDD1B7B556100B72FAD /* MCComDetailHeadView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

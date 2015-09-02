@@ -416,7 +416,14 @@
 - (void) resignfirst{
     
     [self.view endEditing:NO];
-    
+}
+
+- (void)leftBarButtonClick:(id)sender {
+
+    if (_pickview) {
+        [_pickview remove];
+    }
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

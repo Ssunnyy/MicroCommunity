@@ -1,12 +1,13 @@
 //
-//  MCComDetailHeadView.m
+//  TableViewCell.m
 //  MicroCommunity
 //
-//  Created by apple on 15/8/3.
+//  Created by apple on 15/9/2.
 //  Copyright (c) 2015年 qiuyan. All rights reserved.
 //
 
 #import "MCComDetailHeadView.h"
+
 #import "MCHomeSearchModel.h"
 
 
@@ -29,7 +30,7 @@
 @implementation MCComDetailHeadView
 
 - (void)awakeFromNib {
-
+    
     _btnWidth.constant = SCREEN_WIDTH / 3;
     [_messageView makeCircleView];
 }
@@ -78,16 +79,21 @@
 }
 
 - (void) configHeadWithMCHomeSearchModel:(MCHomeSearchModel *) model {
-
+    
     [_headImageView sd_setImageWithURL:[NSURL URLWithString:model.seller_image] placeholderImage:ImageNamed(default_iconImag)];
+    if ([model.comment_number intValue] > 99) {
+        _messageLab.text = @"99";
+    }else{
+        _messageLab.text = [NSString stringWithFormat:@"%d",[model.comment_number intValue]];
+    }
+    
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected:selected animated:animated];
+
+    // Configure the view for the selected state
 }
-*/
 
 @end

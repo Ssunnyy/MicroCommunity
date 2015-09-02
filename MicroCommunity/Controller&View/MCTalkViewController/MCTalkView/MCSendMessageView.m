@@ -1,25 +1,27 @@
 //
-//  MCSendMessageView.m
+//  MCSendMessage.m
 //  MicroCommunity
 //
-//  Created by apple on 15/7/31.
+//  Created by apple on 15/9/2.
 //  Copyright (c) 2015年 qiuyan. All rights reserved.
 //
 
 #import "MCSendMessageView.h"
 
-@interface MCSendMessageView()<UITextFieldDelegate>
+@interface MCSendMessageView ()<UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *contentField;
-
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *textMessageWidth;
 
 @end
 
 @implementation MCSendMessageView
 
 - (void)awakeFromNib {
-
+    
     _contentField.delegate = self;
+    
+    _textMessageWidth.constant = SCREEN_WIDTH - 85 - 35;
 }
 
 //当键盘出现或改变时调用
@@ -59,8 +61,8 @@
 
 - (void) removeKeyboardLison {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-//    [[NSNotificationCenter defaultCenter] removeObserver:self forKeyPath:UIKeyboardWillShowNotification];
-//    [[NSNotificationCenter defaultCenter] removeObserver:self forKeyPath:UIKeyboardWillHideNotification];
+    //    [[NSNotificationCenter defaultCenter] removeObserver:self forKeyPath:UIKeyboardWillShowNotification];
+    //    [[NSNotificationCenter defaultCenter] removeObserver:self forKeyPath:UIKeyboardWillHideNotification];
 }
 
 //  添加键盘通知
@@ -81,16 +83,15 @@
 }
 
 - (void)cleafData {
-
+    
     _contentField.text = @"";
     
 }
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected:selected animated:animated];
+
+    // Configure the view for the selected state
 }
-*/
 
 @end

@@ -150,6 +150,7 @@
     _senderView = [[[NSBundle mainBundle] loadNibNamed:@"MCSendMessageView" owner:self options:nil]lastObject];
     _senderView.delegate = self;
     _senderView.framebottom = SCREEN_HEIGHT;
+    _senderView.framewidth = SCREEN_WIDTH;
     [_senderView addKeyboardLison];
     [self.view addSubview:_senderView];
     

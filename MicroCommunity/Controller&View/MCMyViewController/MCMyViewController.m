@@ -298,9 +298,9 @@
     switch (tag) {
         case 200:
         {
-            MCCompanyConfirmController *company = [[MCCompanyConfirmController alloc]initWithNibName:@"MCCompanyConfirmController" bundle:nil];
-            company.isConfirm = NO;
-            [self.navigationController pushViewController:company animated:YES];
+//            MCCompanyConfirmController *company = [[MCCompanyConfirmController alloc]initWithNibName:@"MCCompanyConfirmController" bundle:nil];
+//            company.isConfirm = NO;
+//            [self.navigationController pushViewController:company animated:YES];
         }
             break;
         case 201:

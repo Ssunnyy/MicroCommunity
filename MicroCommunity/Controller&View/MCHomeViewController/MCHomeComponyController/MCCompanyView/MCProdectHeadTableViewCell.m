@@ -25,7 +25,7 @@
 - (void)awakeFromNib {
     
     _sender = [[[NSBundle mainBundle] loadNibNamed:@"MCSendMessageView" owner:self options:nil]lastObject];
-    _sender.framebottom = 64;
+    _sender.frameheight = 64;
     _sender.framewidth = SCREEN_WIDTH;
     [self.senderView addSubview:_sender];
     
